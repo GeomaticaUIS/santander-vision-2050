@@ -1,6 +1,138 @@
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-header { background: #004d40; color: white; text-align: center; padding: 2em 0; }
-nav { background: #e0f2f1; text-align: center; padding: 1em; }
-nav a { margin: 0 1em; color: #004d40; text-decoration: none; font-weight: bold; }
-section { padding: 2em; }
-footer { background: #004d40; color: white; text-align: center; padding: 1em 0; }
+```css
+/* ======== ESTILO GENERAL ======== */
+:root {
+  --verde: #00796b;
+  --verde-claro: #4db6ac;
+  --azul: #01579b;
+  --gris-claro: #f5f5f5;
+  --gris-texto: #333;
+  --blanco: #fff;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--gris-texto);
+  margin: 0;
+  background-color: var(--gris-claro);
+  line-height: 1.7;
+}
+
+/* ======== ENCABEZADO ======== */
+header {
+  background: linear-gradient(135deg, var(--verde), var(--azul));
+  color: var(--blanco);
+  text-align: center;
+  padding: 3em 1em;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+header p {
+  margin-top: 0.5em;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+/* ======== NAVEGACIÓN ======== */
+nav {
+  background: var(--blanco);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0.7em 0;
+}
+
+nav a {
+  color: var(--azul);
+  text-decoration: none;
+  margin: 0 1.5em;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--verde);
+}
+
+/* ======== SECCIONES ======== */
+main {
+  padding: 2em 1em;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section {
+  background: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 2em;
+  padding: 2em;
+}
+
+section h2 {
+  color: var(--azul);
+  border-left: 6px solid var(--verde);
+  padding-left: 0.5em;
+  margin-top: 0;
+}
+
+section h3 {
+  color: var(--verde);
+  margin-top: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1em;
+}
+
+ul li {
+  margin-bottom: 0.6em;
+  position: relative;
+}
+
+ul li::before {
+  content: "•";
+  color: var(--verde);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* ======== PIE DE PÁGINA ======== */
+footer {
+  background: var(--azul);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+footer a {
+  color: var(--verde-claro);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ======== ADAPTACIÓN MÓVIL ======== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+  nav a {
+    display: inline-block;
+    margin: 0.5em;
+  }
+  section {
+    padding: 1.2em;
+  }
+}
+```
