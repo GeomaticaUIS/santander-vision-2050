@@ -4,20 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santander Visión 2050</title>
+
+  <!-- Estilos principales -->
   <link rel="stylesheet" href="style.css">
-  
+
+  <!-- Ícono del sitio -->
   <link rel="icon" href="index.png" type="image/png">
+
+  <!-- Iconos Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-  <header>
-    <h1>Santander Visión 2050</h1>
-    <p>Construyamos juntos el futuro del departamento</p>
-  </header>
 
+<body>
+  <!-- ======= NAVBAR ======= -->
   <nav class="navbar">
     <div class="menu-icon" id="menuToggle">
       <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="logo">
+      <h1>Santander Visión 2050</h1>
+      <p>Construyamos juntos el futuro del departamento</p>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Inicio</a></li>
@@ -27,23 +33,26 @@
       <li><a href="sostenibilidad.html">Sostenibilidad y Resiliencia</a></li>
     </ul>
   </nav>
-  
+
+  <!-- ======= CONTENIDO PRINCIPAL ======= -->
   <section id="sobre">
     <h2>Sobre el proceso</h2>
     <p>Esta iniciativa busca construir una visión compartida del futuro de Santander hacia el año 2050.</p>
   </section>
 
+  <!-- ======= PIE DE PÁGINA ======= -->
   <footer id="contacto">
-    <p>Contacto: UIS</p>
+    <p>Contacto: UIS 2025</p>
   </footer>
+
+  <!-- ======= SCRIPT DEL MENÚ ======= -->
   <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-</script>
-
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
