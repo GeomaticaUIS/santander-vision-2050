@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bases Habilitadoras del Desarrollo | Santander Visión 2050</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="bases.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-  <header>
-    <h1>Bases Habilitadoras del Desarrollo</h1>
-    <p>Santander Visión 2050</p>
-  </header>
 
+<body>
+  <!-- ======= NAVBAR ======= -->
   <nav class="navbar">
     <div class="menu-icon" id="menuToggle">
       <i class="fa-solid fa-bars"></i>
     </div>
+    <div class="logo">
+      <h1>Santander Visión 2050</h1>
+      <p>Bases Habilitadoras del Desarrollo</p>
+    </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="bases.html"  class="active">Bases Habilitadoras</a></li>
+      <li><a href="bases.html" class="active">Bases Habilitadoras</a></li>
       <li><a href="sistema.html">Sistema Económico</a></li>
       <li><a href="cohesion.html">Cohesión Territorial</a></li>
       <li><a href="sostenibilidad.html">Sostenibilidad y Resiliencia</a></li>
     </ul>
-</nav>
+  </nav>
 
+  <!-- ======= CONTENIDO PRINCIPAL ======= -->
   <main>
     <section>
       <h2>1. Capital Humano y Calidad de la Educación</h2>
@@ -134,17 +136,18 @@
     </section>
   </main>
 
+  <!-- ======= PIE DE PÁGINA ======= -->
   <footer>
     <p><a href="index.html">Volver al inicio</a> | © 2025 Santander Visión Prospectiva 2050 </p>
   </footer>
+
+  <!-- ======= SCRIPT DEL MENÚ ======= -->
   <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-</script>
-
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
