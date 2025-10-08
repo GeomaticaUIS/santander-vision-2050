@@ -39,11 +39,11 @@ header p {
   font-size: 1.1em;
   opacity: 0.9;
 }
+
 /* ======= NAVBAR ======= */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #004d40; /* Verde institucional */
   padding: 12px 24px;
   color: white;
@@ -53,17 +53,37 @@ header p {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Oculta las viñetas y organiza horizontalmente */
+/* ======= ICONO MENÚ ======= */
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.menu-icon i {
+  color: white;
+}
+
+/* ======= LISTA ======= */
 .nav-links {
   list-style: none;
-  display: flex;
-  gap: 25px;
+  display: none; /* Oculta por defecto */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #004d40;
+  padding: 15px 0;
   margin: 0;
-  padding: 0;
+}
+
+.nav-links.show {
+  display: flex;
 }
 
 .nav-links li {
-  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .nav-links a {
@@ -79,87 +99,10 @@ header p {
   text-decoration: underline;
 }
 
-/* ======= ICONO MENÚ ======= */
-.menu-icon {
-  font-size: 26px;
-  cursor: pointer;
-  display: none;
+/* ======= EFECTO SUAVE ======= */
+.nav-links {
+  transition: all 0.3s ease;
 }
-
-.menu-icon i {
-  color: white;
-}
-
-/* ======= RESPONSIVO ======= */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #004d40;
-    padding: 15px 0;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links li {
-    text-align: center;
-    padding: 10px 0;
-  }
-}
-
-/* ======= ICONO MENÚ ======= */
-.menu-icon {
-  font-size: 26px;
-  cursor: pointer;
-  display: none;
-}
-
-.menu-icon i {
-  color: white;
-  transition: 0.3s;
-}
-
-.menu-icon:hover i {
-  color: #a5d6a7;
-}
-
-/* ======= RESPONSIVO ======= */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #004d40;
-    padding: 10px 0;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links li {
-    text-align: center;
-    padding: 10px 0;
-  }
-}
-
 
 /* ======== SECCIONES ======== */
 main {
