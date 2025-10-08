@@ -40,26 +40,87 @@ header p {
   opacity: 0.9;
 }
 
-/* ======== NAVEGACIÓN ======== */
-nav {
-  background: var(--blanco);
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 0.7em 0;
+/* ======= NAVBAR ======= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004d40; /* Verde institucional */
+  padding: 10px 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-nav a {
-  color: var(--azul);
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white;
   text-decoration: none;
-  margin: 0 1.5em;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-nav a:hover,
-nav a.active {
-  color: var(--verde);
+.nav-links a:hover,
+.nav-links a.active {
+  color: #a5d6a7; /* Verde claro */
+  text-decoration: underline;
 }
+
+/* ======= ICONO MENÚ ======= */
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-icon i {
+  color: white;
+  transition: 0.3s;
+}
+
+.menu-icon:hover i {
+  color: #a5d6a7;
+}
+
+/* ======= RESPONSIVO ======= */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #004d40;
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
 
 /* ======== SECCIONES ======== */
 main {
