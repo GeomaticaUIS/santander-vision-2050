@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   
   <link rel="icon" href="index.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -14,15 +15,19 @@
     <p>Construyamos juntos el futuro del departamento</p>
   </header>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="bases.html">Bases Habilitadoras del Desarrollo</a>
-    <a href="sistema.html">Sistema Económico y Productivo</a>
-    <a href="cohesion.html">Cohesión y Articulación Territorial</a>
-    <a href="sostenibilidad.html">Sostenibilidad y Resiliencia</a>
-    <a href="#participa">Participa</a>
-    <a href="#contacto">Contacto</a>
-  </nav> 
+  <nav class="navbar">
+  <div class="menu-icon" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="bases.html">Bases Habilitadoras</a></li>
+    <li><a href="sistema.html">Sistema Económico</a></li>
+    <li><a href="cohesion.html">Cohesión Territorial</a></li>
+    <li><a href="sostenibilidad.html" class="active">Sostenibilidad y Resiliencia</a></li>
+  </ul>
+</nav>
+
   
   <section id="sobre">
     <h2>Sobre el proceso</h2>
@@ -32,5 +37,14 @@
   <footer id="contacto">
     <p>Contacto: UIS</p>
   </footer>
+  <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
 </body>
 </html>
