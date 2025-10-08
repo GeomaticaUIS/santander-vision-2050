@@ -39,30 +39,31 @@ header p {
   font-size: 1.1em;
   opacity: 0.9;
 }
-
 /* ======= NAVBAR ======= */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #004d40; /* Verde institucional */
-  padding: 10px 20px;
+  padding: 12px 24px;
   color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Oculta las viñetas y organiza horizontalmente */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
   margin: 0;
-  transition: all 0.3s ease-in-out;
+  padding: 0;
 }
 
 .nav-links li {
-  display: inline;
+  display: inline-block;
 }
 
 .nav-links a {
@@ -74,8 +75,46 @@ header p {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #a5d6a7; /* Verde claro */
+  color: #a5d6a7;
   text-decoration: underline;
+}
+
+/* ======= ICONO MENÚ ======= */
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-icon i {
+  color: white;
+}
+
+/* ======= RESPONSIVO ======= */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #004d40;
+    padding: 15px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
 }
 
 /* ======= ICONO MENÚ ======= */
