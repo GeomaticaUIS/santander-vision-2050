@@ -212,8 +212,7 @@ section {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   margin-bottom: 2em;
   padding: 2em;
-  padding: 40px 20px;
-  text-align: center;
+  text-align: justify;
 }
 
 section h2 {
@@ -226,25 +225,16 @@ section h2 {
 section h3 {
   color: var(--verde);
   margin-top: 1.5em;
+  text-align: center;
 }
 
 ul {
-  list-style: none;
   padding-left: 1em;
 }
 
 ul li {
   margin-bottom: 0.6em;
   position: relative;
-}
-
-ul li::before {
-  content: "•";
-  color: var(--verde);
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
 }
 
 /* ======== PIE DE PÁGINA ======== */
