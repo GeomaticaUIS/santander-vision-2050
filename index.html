@@ -1,57 +1,730 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Santander Visión 2050</title>
-
-  <!-- Estilos principales -->
-  <link rel="stylesheet" href="./Styles/style.css">
-
-  <!-- Ícono del sitio -->
-  <link rel="icon" href="./Images/index.png" type="image/png">
-
-  <!-- Iconos Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Micrositio del proyecto Santander Visión 2050 — Universidad Industrial de Santander" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 </head>
-
 <body>
-  <!-- ======= NAVBAR ======= -->
-  <nav class="navbar">
-    <div class="menu-icon" id="menuToggle">
-      <i class="fa-solid fa-bars"></i>
-    </div>
-    <div class="logo">
-      <h1>Santander Visión 2050</h1>
-    </div>
+
+<!-- ═══════════════════════════ NAVEGACIÓN ═══════════════════════════ -->
+<header>
+  <nav class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">🌿</div>
+      <div class="nav-logo-text">
+        Santander Visión
+        <span>2050 · UIS Geomática</span>
+      </div>
+    </a>
+
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">Inicio</a></li>
-      <li><a href="./Macrosistemas(HTML)/capacidades.html">Capacidades Territoriales Mínimas</a></li>
-      <li><a href="./Macrosistemas(HTML)/sistema.html">Sistema Económico y Productivo</a></li>
-      <li><a href="./Macrosistemas(HTML)/cohesion.html">Cohesión y Articulación Territorial</a></li>
-      <li><a href="./Macrosistemas(HTML)/sostenibilidad.html">Sostenibilidad y Resiliencia</a></li>
+      <li><a href="#mapa" class="nav-link">Mapa Estratégico</a></li>
+      <li><a href="#diagnostico" class="nav-link">Diagnóstico</a></li>
+      <li><a href="#hilos" class="nav-link">Hilos del Desarrollo</a></li>
+      <li><a href="#caminos" class="nav-link">Por los caminos</a></li>
+      <li><a href="#cifras" class="nav-link">Las cifras</a></li>
+      <li><a href="#documentos" class="nav-link">Documentos</a></li>
     </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+</header>
 
-  <!-- ======= CONTENIDO PRINCIPAL ======= -->
-  <section id="sobre">
-    <h2>Sobre el proceso</h2>
-    <p>Esta iniciativa busca construir una visión compartida del futuro de Santander hacia el año 2050.</p>
-  </section>
+<!-- ═══════════════════════════ HERO ═════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="container hero-layout">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span>🗺</span> Micrositio explicativo · enfoque académico · actualización 12 de marzo de 2026
+      </div>
+      <h1 class="hero-title">
+        Una lectura sencilla y visual del mapa estratégico de la
+        <span class="accent">Visión Prospectiva Santander 2050</span>
+      </h1>
+      <p class="hero-desc">
+        Este micrositio presenta la arquitectura completa del proceso desde la perspectiva
+        de la Academia: los límites del sistema, las transiciones inevitables, las capacidades
+        a construir, los retos territoriales, las misiones estratégicas y los motores que
+        harían viable el futuro de Santander.
+      </p>
+      <div class="hero-actions">
+        <a href="#arquitectura" class="btn btn-primary">Explorar el mapa</a>
+        <a href="#diagnostico" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">Ver todos los elementos</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-title">El mapa como sistema integrado</div>
+      <p class="hero-panel-desc">La propuesta organiza el futuro territorial en cinco niveles conectados. No parte de proyectos sueltos, sino de una secuencia: comprender límites, leer transiciones, definir capacidades, decidir retos comunes y activar misiones con motores económicos y habilitadores.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hs-num">8</span><span class="hs-label">Problemáticas estructurales</span></div>
+        <div class="hero-stat"><span class="hs-num">6</span><span class="hs-label">Transiciones estructurales</span></div>
+        <div class="hero-stat"><span class="hs-num">5</span><span class="hs-label">Capacidades fundamentales</span></div>
+        <div class="hero-stat"><span class="hs-num">7</span><span class="hs-label">Retos territoriales</span></div>
+        <div class="hero-stat"><span class="hs-num">5</span><span class="hs-label">Misiones estratégicas</span></div>
+        <div class="hero-stat"><span class="hs-num">8</span><span class="hs-label">Motores del desarrollo</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Desplázate</div>
+</section>
 
-  <!-- ======= PIE DE PÁGINA ======= -->
-  <footer id="contacto">
-    <p>Contacto: UIS 2025</p>
-  </footer>
+<!-- ═══════════════════════════ ARQUITECTURA GENERAL ════════════════ -->
+<section id="arquitectura" style="background: var(--blanco);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Arquitectura del Mapa</span>
+      <h2 class="section-title">Arquitectura general del mapa</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle" style="max-width:780px">
+        La Visión Prospectiva Santander 2050 se entiende como un sistema integrado de cinco niveles
+        que conecta diagnóstico con acción económica y territorial concreta. El enfoque académico
+        propone leer el territorio como una capacidad sistémica de reproducción adaptativa: sostener
+        bienestar, gestionar transiciones y decidir colectivamente sin comprometer la base ecológica.
+      </p>
+    </div>
 
-  <!-- ======= SCRIPT DEL MENÚ ======= -->
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+    <!-- Fila de niveles numerados -->
+    <div class="arq-niveles reveal">
+      <div class="arq-nivel"><div class="arq-n-num">1</div><div class="arq-n-label">Problemáticas estructurales</div></div>
+      <div class="arq-nivel-sep">→</div>
+      <div class="arq-nivel"><div class="arq-n-num">2</div><div class="arq-n-label">Transiciones</div></div>
+      <div class="arq-nivel-sep">→</div>
+      <div class="arq-nivel"><div class="arq-n-num">3</div><div class="arq-n-label">Modelo y retos</div></div>
+      <div class="arq-nivel-sep">→</div>
+      <div class="arq-nivel"><div class="arq-n-num">4</div><div class="arq-n-label">Misiones</div></div>
+      <div class="arq-nivel-sep">→</div>
+      <div class="arq-nivel"><div class="arq-n-num">5</div><div class="arq-n-label">Motores</div></div>
+      <div class="arq-nivel-sep">→</div>
+      <div class="arq-nivel arq-nivel-2050"><div class="arq-n-num arq-n-gold">2050</div><div class="arq-n-label">Horizonte de transformación</div></div>
+    </div>
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  </script>
+    <!-- Cards de lectura del mapa -->
+    <div class="arq-cards reveal">
+      <div class="arq-card">
+        <div class="arq-card-num">1</div>
+        <h4>Lo que nos limita hoy</h4>
+        <p>Las 8 problemáticas estructurales muestran los límites ecológicos, sociales, productivos, territoriales e institucionales del desarrollo actual.</p>
+      </div>
+      <div class="arq-card">
+        <div class="arq-card-num">2</div>
+        <h4>El cambio inevitable</h4>
+        <p>Las 6 transiciones explican los grandes procesos de transformación que ya atraviesan el territorio y que no pueden ignorarse.</p>
+      </div>
+      <div class="arq-card">
+        <div class="arq-card-num">3</div>
+        <h4>Las capacidades a construir</h4>
+        <p>El desarrollo no se define como una meta abstracta, sino como 5 capacidades fundamentales e interdependientes.</p>
+      </div>
+      <div class="arq-card">
+        <div class="arq-card-num">4</div>
+        <h4>Las decisiones colectivas</h4>
+        <p>Los 7 retos territoriales traducen esas capacidades en decisiones estratégicas que Santander debe resolver hacia 2050.</p>
+      </div>
+      <div class="arq-card">
+        <div class="arq-card-num">5</div>
+        <h4>La movilización del cambio</h4>
+        <p>Las 5 misiones y los 8 motores articulan acción pública, inversión, conocimiento e innovación para materializar la visión.</p>
+      </div>
+    </div>
+
+    <!-- Cita destacada -->
+    <div class="arq-quote reveal">
+      <p>Santander no necesita solo crecer. Necesita fortalecer su capacidad de reproducir bienestar económico, social, ecológico e institucional de manera sostenida, justa y territorialmente equilibrada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 1. MAPA ESTRATÉGICO ══════════════════ -->
+<section id="mapa">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">01 — Mapa Estratégico</span>
+      <h2 class="section-title">Dashboard Territorial</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Visualización geoespacial interactiva del territorio santandereano y sus
+        indicadores clave de desarrollo hacia 2050.
+      </p>
+    </div>
+
+    <div class="mapa-wrapper reveal">
+      <div class="mapa-header">
+        <div class="mapa-header-dot"></div>
+        <span>ArcGIS Dashboard — Santander Visión 2050</span>
+      </div>
+      <div class="mapa-iframe-wrap">
+        <iframe
+          src="https://geomatica-uis.maps.arcgis.com/apps/dashboards/75458fa7a47d4c419f1c666812d03e83"
+          title="Mapa Estratégico Santander 2050"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="mapa-footer">
+        <span>📌</span>
+        Fuente: Geomática UIS · Sistema de Información Geográfica Departamental
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 2. SÍNTESIS DE DIAGNÓSTICO ═══════════ -->
+<section id="diagnostico">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">02 — Síntesis de Diagnóstico</span>
+      <h2 class="section-title">El Mapa Estratégico del Territorio</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Este primer nivel identifica los grandes límites del sistema territorial: aquello que hoy frena,
+        fragmenta o compromete la sostenibilidad del desarrollo en Santander.
+        Selecciona una capa del diagnóstico para explorarla.
+      </p>
+    </div>
+
+    <!-- Tabs de capas del diagnóstico -->
+    <div class="diag-tabs-wrap reveal">
+      <div class="diag-tabs">
+        <button class="diag-tab active" data-layer="problematicas">8 Problemáticas</button>
+        <button class="diag-tab" data-layer="transiciones">6 Transiciones</button>
+        <button class="diag-tab" data-layer="capacidades">5 Capacidades</button>
+        <button class="diag-tab" data-layer="retos">7 Retos</button>
+        <button class="diag-tab" data-layer="misiones">5 Misiones</button>
+        <button class="diag-tab" data-layer="motores">8 Motores</button>
+        <button class="diag-tab" data-layer="academia">Lectura Academia</button>
+      </div>
+    </div>
+
+    <!-- ── PROBLEMÁTICAS ──────────────────── -->
+    <div class="diag-layer active" id="layer-problematicas">
+      <div class="diagnostico-grid reveal">
+        <div class="diagnostico-lista">
+          <h3>Problemáticas</h3>
+          <button class="diag-btn active" data-target="p1"><span class="diag-num">01</span> Límites biofísicos</button>
+          <button class="diag-btn" data-target="p2"><span class="diag-num">02</span> Demografía y cuidado</button>
+          <button class="diag-btn" data-target="p3"><span class="diag-num">03</span> Fragilidad económica</button>
+          <button class="diag-btn" data-target="p4"><span class="diag-num">04</span> Modelo productivo</button>
+          <button class="diag-btn" data-target="p5"><span class="diag-num">05</span> Impacto social</button>
+          <button class="diag-btn" data-target="p6"><span class="diag-num">06</span> Conocimiento e innovación</button>
+          <button class="diag-btn" data-target="p7"><span class="diag-num">07</span> Conectividad física</button>
+          <button class="diag-btn" data-target="p8"><span class="diag-num">08</span> Gobernanza</button>
+        </div>
+        <div class="diagnostico-panel">
+          <div class="diag-content active" id="p1">
+            <span class="diag-category">Límites biofísicos</span>
+            <h2>Riesgo hídrico, climático y degradación ecológica como límite estructural del desarrollo</h2>
+            <p>Expresa la presión sobre agua, suelos, ecosistemas y resiliencia climática como condición habilitante de toda la visión territorial.</p>
+            <div class="diag-tags"><span class="diag-tag">Agua</span><span class="diag-tag">Suelos</span><span class="diag-tag">Resiliencia climática</span></div>
+          </div>
+          <div class="diag-content" id="p2">
+            <span class="diag-category">Demografía y cuidado</span>
+            <h2>Transición demográfica no gestionada y presión sobre sistemas de cuidado</h2>
+            <p>Advierte el envejecimiento poblacional, la pérdida del bono demográfico y la necesidad de reorganizar salud, cuidado y bienestar en todo el territorio.</p>
+            <div class="diag-tags"><span class="diag-tag">Envejecimiento</span><span class="diag-tag">Bono demográfico</span><span class="diag-tag">Bienestar</span></div>
+          </div>
+          <div class="diag-content" id="p3">
+            <span class="diag-category">Fragilidad económica</span>
+            <h2>Dependencia extractiva y vulnerabilidad macroeconómica y fiscal del territorio</h2>
+            <p>Señala la alta exposición a un modelo fósil-extractivo con poca resiliencia frente a choques económicos, fiscales y tecnológicos.</p>
+            <div class="diag-tags"><span class="diag-tag">Modelo fósil-extractivo</span><span class="diag-tag">Choques fiscales</span><span class="diag-tag">Vulnerabilidad</span></div>
+          </div>
+          <div class="diag-content" id="p4">
+            <span class="diag-category">Modelo productivo</span>
+            <h2>Baja sofisticación productiva, limitada diversificación y débil generación de valor agregado territorial — Informalidad</h2>
+            <p>Describe un sistema económico con poco valor agregado, baja innovación y alta dificultad para transformar conocimiento y biodiversidad en riqueza sostenible.</p>
+            <div class="diag-tags"><span class="diag-tag">Valor agregado</span><span class="diag-tag">Innovación</span><span class="diag-tag">Informalidad</span></div>
+          </div>
+          <div class="diag-content" id="p5">
+            <span class="diag-category">Impacto social</span>
+            <h2>Desigualdad estructural y fragmentación territorial urbano–rural</h2>
+            <p>Hace visible la persistencia de brechas territoriales, exclusión y desigual distribución de oportunidades entre municipios y subregiones.</p>
+            <div class="diag-tags"><span class="diag-tag">Brechas territoriales</span><span class="diag-tag">Exclusión</span><span class="diag-tag">Urbano-rural</span></div>
+          </div>
+          <div class="diag-content" id="p6">
+            <span class="diag-category">Conocimiento e innovación</span>
+            <h2>Brechas de conocimiento, innovación, capital humano y apropiación tecnológica</h2>
+            <p>Revela la dificultad para formar, atraer y retener talento y para convertir las capacidades universitarias y científicas en productividad e innovación territorial.</p>
+            <div class="diag-tags"><span class="diag-tag">Talento</span><span class="diag-tag">Ciencia</span><span class="diag-tag">Tecnología</span></div>
+          </div>
+          <div class="diag-content" id="p7">
+            <span class="diag-category">Conectividad física</span>
+            <h2>Infraestructura, conectividad y logística insuficientes y vulnerables</h2>
+            <p>Refiere las limitaciones de movilidad, conectividad y logística que reducen cohesión territorial, competitividad y acceso equitativo a servicios.</p>
+            <div class="diag-tags"><span class="diag-tag">Movilidad</span><span class="diag-tag">Logística</span><span class="diag-tag">Cohesión territorial</span></div>
+          </div>
+          <div class="diag-content" id="p8">
+            <span class="diag-category">Gobernanza</span>
+            <h2>Débil gobernanza territorial, fragmentación institucional y baja capacidad de ejecución y decisión basada en evidencia</h2>
+            <p>Resume la dificultad para coordinar actores, sostener decisiones en el tiempo y ejecutar procesos transformadores con continuidad y datos.</p>
+            <div class="diag-tags"><span class="diag-tag">Institucionalidad</span><span class="diag-tag">Coordinación</span><span class="diag-tag">Evidencia</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TRANSICIONES ───────────────────── -->
+    <div class="diag-layer" id="layer-transiciones">
+      <div class="layer-intro reveal">
+        <p>Las transiciones son dinámicas abiertas, inciertas y no lineales. No son un deseo; son procesos que ya están reconfigurando el territorio y frente a los cuales Santander debe desarrollar capacidad de adaptación dinámica.</p>
+      </div>
+      <div class="cards-2col reveal">
+        <div class="info-card"><div class="info-card-num">1</div><h4>Transición Energética</h4><p>Del modelo fósil basado en petróleo a un hub de energías limpias, con énfasis en hidrógeno verde, energías renovables y eficiencia.</p></div>
+        <div class="info-card"><div class="info-card-num">2</div><h4>Transición Productiva</h4><p>De una economía extractiva de materia prima a una bioeconomía diversificada y una reindustrialización verde apoyada en agro-valor y manufactura 4.0.</p></div>
+        <div class="info-card"><div class="info-card-num">3</div><h4>Transición Tecnológica</h4><p>De la brecha digital a una economía del conocimiento inclusiva, cerrando distancias urbano-rurales con conectividad, IA y Big Data.</p></div>
+        <div class="info-card"><div class="info-card-num">4</div><h4>Transición Demográfica</h4><p>Gestionar el envejecimiento poblacional, activar la economía plateada y retener talento joven en la última década del bono demográfico.</p></div>
+        <div class="info-card"><div class="info-card-num">5</div><h4>Transición Climática</h4><p>De la vulnerabilidad a la resiliencia, protegiendo páramos y garantizando seguridad hídrica como base de todo desarrollo.</p></div>
+        <div class="info-card"><div class="info-card-num">6</div><h4>Transición Institucional - Cultural</h4><p>De un modelo sectorial, vertical y reactivo hacia una gobernanza territorial multiactor, basada en evidencia, diálogo de saberes y corresponsabilidad social.</p></div>
+      </div>
+    </div>
+
+    <!-- ── CAPACIDADES ────────────────────── -->
+    <div class="diag-layer" id="layer-capacidades">
+      <div class="layer-intro reveal">
+        <p>En este enfoque, el desarrollo territorial no es un estado final. Es un sistema de capacidades fundamentales e interdependientes que permiten sostener la vida, la economía, el aprendizaje y la decisión colectiva en el tiempo.</p>
+      </div>
+      <div class="cards-2col reveal">
+        <div class="info-card"><div class="info-card-num">1</div><h4>Capacidad de reproducción ecológica</h4><p>¿El territorio puede sostener su economía sin destruir su base natural? Incluye agua, suelos, biodiversidad y resiliencia climática.</p></div>
+        <div class="info-card"><div class="info-card-num">2</div><h4>Capacidad de reproducción económica diversificada</h4><p>¿El territorio puede sostener ingresos, empleo digno y valor agregado en el tiempo con resiliencia?</p></div>
+        <div class="info-card"><div class="info-card-num">3</div><h4>Capacidad de reproducción social y demográfica</h4><p>¿Las personas pueden vivir con dignidad hoy y proyectar su vida futura, sin que dependa del municipio donde nacieron? Incluye bienestar, cuidado y movilidad social.</p></div>
+        <div class="info-card"><div class="info-card-num">4</div><h4>Capacidad de reproducción del aprendizaje e innovación territorial</h4><p>¿El territorio aprende, innova y se adapta al cambio? Implica conocimiento, tecnología, adaptación, formación, atracción y retención de talento.</p></div>
+        <div class="info-card info-card-full"><div class="info-card-num">5</div><h4>Capacidad de decisión colectiva basada en evidencia</h4><p>¿El territorio puede decidir y ejecutar su propio futuro? Supone gobernanza, datos, continuidad institucional y capacidad de implementación.</p></div>
+      </div>
+    </div>
+
+    <!-- ── RETOS ──────────────────────────── -->
+    <div class="diag-layer" id="layer-retos">
+      <div class="layer-intro reveal">
+        <p>Los retos son las decisiones colectivas que Santander debe asumir para alcanzar las cinco capacidades de reproducción que definen el desarrollo territorial. No buscan "corregir fallas" de manera aislada, sino fortalecer, transformar o crear activos concretos del territorio.</p>
+      </div>
+      <div class="retos-scroll reveal">
+        <div class="reto-card"><div class="reto-num">1</div><h4>Garantizar seguridad hídrica, alimentaria y resiliencia climática</h4><p>Reto habilitante de la sostenibilidad del sistema y condición de posibilidad de toda la visión.</p></div>
+        <div class="reto-card"><div class="reto-num">2</div><h4>Gestionar la transición demográfica garantizando salud, bienestar y sistemas de cuidado en todo el territorio</h4><p>Busca responder al envejecimiento y a la presión silenciosa sobre bienestar, cuidado y cohesión social.</p></div>
+        <div class="reto-card"><div class="reto-num">3</div><h4>Gestionar una transición productiva y energética justa desde un modelo fósil–extractivo, sin generar fracturas sociales ni territoriales</h4><p>Conecta la reconversión económica con la justicia territorial y laboral.</p></div>
+        <div class="reto-card"><div class="reto-num">4</div><h4>Transformar el modelo económico hacia una economía de mayor valor agregado, basada en el conocimiento, la innovación y la diversificación productiva</h4><p>Busca redefinir qué vive el territorio y cómo genera bienestar sostenible.</p></div>
+        <div class="reto-card"><div class="reto-num">5</div><h4>Retener y atraer talento, democratizando el conocimiento como motor económico</h4><p>Convierte aprendizaje, ciencia y tecnología en base de productividad, adaptación e innovación territorial.</p></div>
+        <div class="reto-card"><div class="reto-num">6</div><h4>Lograr cohesión territorial y cierre efectivo de brechas urbano–rurales mediante conectividad, infraestructura resiliente y acceso equitativo a servicios y oportunidades</h4><p>Busca una integración territorial efectiva y reducción de desigualdades espaciales.</p></div>
+        <div class="reto-card reto-transversal"><div class="reto-num">7</div><h4>Construcción de gobernanza eficaz, participativa y basada en datos</h4><p>Reto transversal que condiciona la viabilidad de los demás y fortalece la capacidad de decisión colectiva.</p><span class="reto-badge">Reto transversal</span></div>
+      </div>
+    </div>
+
+    <!-- ── MISIONES ───────────────────────── -->
+    <div class="diag-layer" id="layer-misiones">
+      <div class="layer-intro reveal">
+        <p>Las misiones no son programas sectoriales ni listados de proyectos. Son plataformas integradoras que articulan política pública, inversión privada, conocimiento científico, innovación tecnológica, participación ciudadana e instrumentos regulatorios hacia objetivos comunes.</p>
+      </div>
+      <div class="cards-2col reveal">
+        <div class="info-card"><div class="info-card-num">1</div><span class="mission-tipo">Misión material</span><h4>Naturaleza para la Vida</h4><p>Seguridad hídrica, alimentaria y climática como base del bienestar y del desarrollo territorial.</p></div>
+        <div class="info-card"><div class="info-card-num">2</div><span class="mission-tipo">Misión material</span><h4>Santander Conectado y Equitativo</h4><p>Cohesión territorial y cero brechas mediante conectividad, acceso y oportunidades distribuidas de manera más justa.</p></div>
+        <div class="info-card"><div class="info-card-num">3</div><span class="mission-tipo">Misión material</span><h4>Reconversión Productiva y Energética</h4><p>De la economía extractiva a la bioeconomía verde, con transición justa, empleo y sofisticación productiva.</p></div>
+        <div class="info-card"><div class="info-card-num">4</div><span class="mission-tipo">Misión habilitante</span><h4>Inteligencia Territorial y Gobernanza Participativa</h4><p>Construcción de un Estado capaz, basado en datos, confianza social y gestión adaptativa del territorio.</p></div>
+        <div class="info-card"><div class="info-card-num">5</div><span class="mission-tipo">Misión habilitante</span><h4>Educación, Cultura y Talento para la Transformación</h4><p>Capital humano como motor del desarrollo, de la productividad y de la capacidad de aprendizaje territorial.</p></div>
+      </div>
+      <div class="mission-transversal reveal">
+        <div class="mt-label">Misión transversal de viabilidad</div>
+        <h4>Paz con Justicia Social (Seguridad Humana Integral)</h4>
+        <p>Aparece como condición de viabilidad de todas las demás. Sin cohesión social, ninguna transición económica o ambiental será políticamente viable.</p>
+      </div>
+    </div>
+
+    <!-- ── MOTORES ────────────────────────── -->
+    <div class="diag-layer" id="layer-motores">
+      <div class="layer-intro reveal">
+        <p>Los motores se entienden como ecosistemas de innovación productivos y socioeconómicos adaptativos, capaces de generar empleo de calidad, ingresos fiscales, innovación y bienestar social de forma sostenida. Se dividen en motores productivos sectoriales y motores habilitadores transversales.</p>
+      </div>
+      <div class="motores-grid reveal">
+        <div class="motor-card">
+          <div class="motor-letra">A</div>
+          <h4>Transición energética e industria de transición justa</h4>
+          <ul><li>Hidrógeno verde</li><li>Solar y eólica</li><li>Reconversión Barrancabermeja – petroquímica avanzada</li><li>Comunidades energéticas</li><li>Biomasa</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">B</div>
+          <h4>Bioeconomía y agroindustria avanzada basada en biodiversidad</h4>
+          <ul><li>Cacao y café especial</li><li>Biotecnología aplicada</li><li>Ingredientes naturales</li><li>Agricultura regenerativa</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">C</div>
+          <h4>Servicios basados en conocimiento y economía digital</h4>
+          <ul><li>Software exportable</li><li>IA aplicada</li><li>Retención de talento</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">D</div>
+          <h4>Reindustrialización verde y manufactura avanzada</h4>
+          <ul><li>Química verde</li><li>Economía circular</li><li>Manufactura 4.0</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">E</div>
+          <h4>Economía del cuidado y economía plateada</h4>
+          <ul><li>Gerontecnología</li><li>Telemedicina</li><li>Formalización del cuidado</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">F</div>
+          <h4>Turismo de alto valor y economía cultural</h4>
+          <ul><li>Geoturismo y astroturismo</li><li>Gastronomía de biodiversidad</li><li>Patrimonio natural y cultural</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">G</div>
+          <h4>Gobernanza e inteligencia territorial</h4>
+          <ul><li>Plataforma de datos territorial</li><li>Consejo de Futuro de Santander</li><li>Participación ciudadana informada</li><li>Gestión por misiones</li><li>Seguridad humana integral</li></ul>
+        </div>
+        <div class="motor-card">
+          <div class="motor-letra">H</div>
+          <h4>Infraestructura logística multimodal y conectividad inteligente</h4>
+          <ul><li>Vial, férrea y fluvial integradas</li><li>Fibra óptica universal y 5G</li><li>Zonas logísticas inteligentes</li><li>Hub del nororiente</li><li>Energía + digital + logística</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ACADEMIA ───────────────────────── -->
+    <div class="diag-layer" id="layer-academia">
+      <div class="academia-wrap reveal">
+        <div class="academia-text">
+          <span class="tag">Lectura de conjunto</span>
+          <h3 class="section-title" style="font-size:1.9rem">Lectura de conjunto desde la Academia</h3>
+          <div class="divider"></div>
+          <p>El valor de este mapa no está solo en listar componentes. Está en mostrar cómo se relacionan: los problemas revelan límites, las transiciones exigen adaptación, las capacidades definen qué significa desarrollo, los retos organizan la decisión colectiva, las misiones coordinan la acción y los motores crean la base material del cambio.</p>
+        </div>
+        <div class="academia-quote">
+          <p>La Academia aporta rigor conceptual, lectura sistémica, producción de evidencia y capacidad de traducción entre conocimiento, territorio, política pública y acción colectiva de largo plazo.</p>
+        </div>
+        <div class="academia-mapa">
+          <div class="mapa-relaciones">
+            <div class="mr-node mr-problemas">Problemáticas<span>revelan límites</span></div>
+            <div class="mr-arrow">→</div>
+            <div class="mr-node mr-transiciones">Transiciones<span>exigen adaptación</span></div>
+            <div class="mr-arrow">→</div>
+            <div class="mr-node mr-capacidades">Capacidades<span>definen desarrollo</span></div>
+            <div class="mr-arrow">→</div>
+            <div class="mr-node mr-retos">Retos<span>organizan decisión</span></div>
+            <div class="mr-arrow">→</div>
+            <div class="mr-node mr-misiones">Misiones<span>coordinan acción</span></div>
+            <div class="mr-arrow">→</div>
+            <div class="mr-node mr-motores">Motores<span>crean base material</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+<!-- ═══════════════════════════ 3. HILOS DEL DESARROLLO ══════════════ -->
+<section id="hilos">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">03 — Hilos del Desarrollo</span>
+      <h2 class="section-title">Ejes Estratégicos 2050</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Los hilos del desarrollo articulan las apuestas transformadoras del
+        departamento. Selecciona un eje para explorar su contenido completo.
+      </p>
+    </div>
+
+    <div class="hilos-grid">
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-01.html'">
+        <div class="hilo-icon">🌱</div>
+        <div class="hilo-num">Hilo 01</div>
+        <h3 class="hilo-title">Territorio Verde y Resiliente</h3>
+        <p class="hilo-desc">Conservación de ecosistemas estratégicos, adaptación climática y gestión sostenible del territorio.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-02.html'">
+        <div class="hilo-icon">🤝</div>
+        <div class="hilo-num">Hilo 02</div>
+        <h3 class="hilo-title">Cohesión Social e Inclusión</h3>
+        <p class="hilo-desc">Reducción de brechas territoriales, equidad de género y fortalecimiento del tejido social comunitario.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-03.html'">
+        <div class="hilo-icon">🚀</div>
+        <div class="hilo-num">Hilo 03</div>
+        <h3 class="hilo-title">Economía Diversificada e Innovadora</h3>
+        <p class="hilo-desc">Transformación productiva, emprendimiento, industrias creativas y economía del conocimiento.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-04.html'">
+        <div class="hilo-icon">🛣️</div>
+        <div class="hilo-num">Hilo 04</div>
+        <h3 class="hilo-title">Infraestructura para la Equidad</h3>
+        <p class="hilo-desc">Conectividad vial, digital y energética orientada a la integración de territorios rezagados.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-05.html'">
+        <div class="hilo-icon">🌾</div>
+        <div class="hilo-num">Hilo 05</div>
+        <h3 class="hilo-title">Soberanía Alimentaria</h3>
+        <p class="hilo-desc">Sistemas alimentarios locales, cadenas de valor agropecuarias y seguridad nutricional territorial.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-06.html'">
+        <div class="hilo-icon">📚</div>
+        <div class="hilo-num">Hilo 06</div>
+        <h3 class="hilo-title">Educación y Capital Humano</h3>
+        <p class="hilo-desc">Educación de calidad, formación para el trabajo, ciencia, tecnología e innovación territorial.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-07.html'">
+        <div class="hilo-icon">🏛️</div>
+        <div class="hilo-num">Hilo 07</div>
+        <h3 class="hilo-title">Gobernanza y Paz Territorial</h3>
+        <p class="hilo-desc">Institucionalidad democrática, participación ciudadana, construcción de paz y convivencia.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+      <div class="hilo-card reveal" onclick="location.href='hilo-08.html'">
+        <div class="hilo-icon">💧</div>
+        <div class="hilo-num">Hilo 08</div>
+        <h3 class="hilo-title">Agua y Servicios para la Vida</h3>
+        <p class="hilo-desc">Gestión integral del agua, saneamiento básico universal y servicios públicos con enfoque de derechos.</p>
+        <span class="hilo-link">Explorar hilo →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 4. POR LOS CAMINOS ═══════════════════ -->
+<section id="caminos" style="background: var(--blanco);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">04 — Por los caminos de Santander</span>
+      <h2 class="section-title">Recorridos Territoriales</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="construccion-card reveal">
+      <div class="construccion-icon">🏔️</div>
+      <h3>En construcción</h3>
+      <p>Esta sección presentará recorridos virtuales e historias de los territorios de Santander. Próximamente disponible.</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <span style="font-size:0.78rem;color:var(--gris-medio);">Desarrollo en progreso</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 5. LAS CIFRAS ════════════════════════ -->
+<section id="cifras" style="background: var(--gris-suave);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">05 — Lo que nos dicen las cifras</span>
+      <h2 class="section-title">Indicadores Territoriales</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="construccion-card reveal">
+      <div class="construccion-icon">📊</div>
+      <h3>En construcción</h3>
+      <p>Visualizaciones interactivas de indicadores socioeconómicos, ambientales y de desarrollo del departamento. Próximamente disponible.</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <span style="font-size:0.78rem;color:var(--gris-medio);">Desarrollo en progreso</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 6. DOCUMENTOS ════════════════════════ -->
+<section id="documentos">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">06 — Documentos y Publicaciones</span>
+      <h2 class="section-title">Repositorio de Conocimiento</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Accede a los documentos técnicos, informes y publicaciones del proyecto
+        Santander Visión 2050.
+      </p>
+    </div>
+
+    <div class="docs-grid">
+
+      <a class="doc-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="doc-icon-wrap doc-icon-pdf">📄</div>
+        <div class="doc-info">
+          <h4>Diagnóstico Territorial Santander</h4>
+          <p>Análisis integral de la situación actual del departamento. Base para la construcción de la visión 2050.</p>
+          <span class="doc-type">PDF · OneDrive</span>
+        </div>
+      </a>
+
+      <a class="doc-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="doc-icon-wrap doc-icon-word">📝</div>
+        <div class="doc-info">
+          <h4>Marco Metodológico de Prospectiva</h4>
+          <p>Documento metodológico del proceso de planeación prospectiva participativa del territorio.</p>
+          <span class="doc-type">Word · OneDrive</span>
+        </div>
+      </a>
+
+      <a class="doc-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="doc-icon-wrap doc-icon-link">🔗</div>
+        <div class="doc-info">
+          <h4>Síntesis de los Hilos del Desarrollo</h4>
+          <p>Documento de síntesis de los ocho ejes estratégicos articuladores de la visión territorial.</p>
+          <span class="doc-type">PDF · OneDrive</span>
+        </div>
+      </a>
+
+      <a class="doc-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="doc-icon-wrap doc-icon-pdf">📄</div>
+        <div class="doc-info">
+          <h4>Atlas Cartográfico 2050</h4>
+          <p>Colección de mapas temáticos del departamento de Santander para la planeación territorial.</p>
+          <span class="doc-type">PDF · OneDrive</span>
+        </div>
+      </a>
+
+      <a class="doc-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="doc-icon-wrap doc-icon-word">📝</div>
+        <div class="doc-info">
+          <h4>Informe de Talleres Participativos</h4>
+          <p>Sistematización de los talleres de construcción colectiva realizados en las subregiones.</p>
+          <span class="doc-type">Word · OneDrive</span>
+        </div>
+      </a>
+
+      <a class="doc-card reveal" href="#" target="_blank" rel="noopener">
+        <div class="doc-icon-wrap doc-icon-link">🔗</div>
+        <div class="doc-info">
+          <h4>Boletines de Divulgación</h4>
+          <p>Serie de boletines informativos para la comunidad santandereana sobre el proceso y sus avances.</p>
+          <span class="doc-type">PDF · OneDrive</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-icon" style="background:var(--oro)">🌿</div>
+          <div class="nav-logo-text">
+            Santander Visión 2050
+            <span style="color:rgba(255,255,255,0.4)">Geomática UIS</span>
+          </div>
+        </div>
+        <p>
+          Proyecto de planeación prospectiva participativa para la construcción
+          de una visión compartida del futuro territorial de Santander, Colombia.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Secciones</h5>
+        <ul>
+          <li><a href="#mapa">Mapa Estratégico</a></li>
+          <li><a href="#diagnostico">Síntesis de Diagnóstico</a></li>
+          <li><a href="#hilos">Hilos del Desarrollo</a></li>
+          <li><a href="#caminos">Por los caminos</a></li>
+          <li><a href="#cifras">Las cifras</a></li>
+          <li><a href="#documentos">Documentos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Proyecto</h5>
+        <ul>
+          <li><a href="https://geomaticauis.github.io" target="_blank">Geomática UIS</a></li>
+          <li><a href="#" target="_blank">Contacto</a></li>
+          <li><a href="#" target="_blank">Créditos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Geomática UIS · Santander Visión 2050</span>
+      <span>Bucaramanga, Santander · Colombia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════ SCRIPTS ══════════════════════════════ -->
+<script>
+/* ── Menú móvil ───────────────────────────── */
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+/* ── Nav activo en scroll ─────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const links    = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+  });
+  links.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+/* ── Diagnóstico: layer tabs ──────────────── */
+const layerTabs   = document.querySelectorAll('.diag-tab');
+const layerPanels = document.querySelectorAll('.diag-layer');
+
+layerTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const layer = tab.dataset.layer;
+    layerTabs.forEach(t => t.classList.remove('active'));
+    layerPanels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const target = document.getElementById('layer-' + layer);
+    if (target) target.classList.add('active');
+  });
+});
+
+/* ── Diagnóstico: problem side-buttons ───── */
+const diagBtns   = document.querySelectorAll('.diag-btn');
+const diagPanels = document.querySelectorAll('.diag-content');
+
+diagBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.target;
+    diagBtns.forEach(b => b.classList.remove('active'));
+    diagPanels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById(target);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+/* ── Scroll reveal ────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal');
+const observer  = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
