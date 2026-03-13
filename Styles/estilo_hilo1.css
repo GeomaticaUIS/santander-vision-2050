@@ -539,10 +539,7 @@
     .urgency-bar, .intro-strip { padding: 16px 24px; }
     .h-stat-bar { gap: 20px; }
     footer { padding: 16px 24px; }
-  }
-</style>
-
-<style>
+  } 
 /* ── Barra de navegación entre hilos ─────────────────────────────── */
 .hilo-topbar {
   position: fixed;
