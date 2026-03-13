@@ -1447,3 +1447,258 @@ footer {
   margin-top: auto;
   width: fit-content;
 }
+
+/* ── Hilo card: introducción (ancho completo) ── */
+.hilo-card--intro {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--verde-oscuro) 0%, #004d26 100%);
+  color: var(--blanco);
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 1;
+  border: none;
+}
+
+.hilo-card--intro::before {
+  background: linear-gradient(90deg, var(--oro), #f0d080);
+}
+
+.hilo-card--intro .hilo-num { color: var(--oro-claro); }
+.hilo-card--intro .hilo-title { color: var(--blanco); font-size: 1.25rem; }
+.hilo-card--intro .hilo-desc { color: rgba(255,255,255,0.78); }
+.hilo-card--intro .hilo-link { color: var(--oro-claro); }
+
+.hilo-intro-inner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.hilo-icon--intro {
+  background: rgba(255,255,255,0.15);
+  font-size: 2rem;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.hilo-card--intro:hover .hilo-icon--intro {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ═══════════════════════════════════════════
+   CARRUSEL HERO
+   ═══════════════════════════════════════════ */
+
+#hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #001a0d;
+}
+
+/* Quitar los viejos bg/pattern divs si quedaran */
+#hero .hero-bg,
+#hero .hero-pattern { display: none; }
+
+/* ── Slides ──────────────────────────────── */
+.carousel-track {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.4s ease;
+  z-index: 0;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+  animation: kenburns 9s ease-in-out forwards;
+}
+
+.carousel-slide.leaving {
+  opacity: 0;
+  z-index: 0;
+}
+
+@keyframes kenburns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  100% { transform: scale(1.09) translate(-1.5%, -1%); }
+}
+
+/* ── Overlay degradado ───────────────────── */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,30,10,0.82) 0%,
+    rgba(0,30,10,0.55) 50%,
+    rgba(0,30,10,0.25) 100%
+  );
+}
+
+/* ── Label de lugar ──────────────────────── */
+.slide-label {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  text-align: right;
+  background: rgba(0,0,0,0.25);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Contenido superpuesto ───────────────── */
+.carousel-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 100px 0 6rem;
+}
+
+/* Limitar ancho del texto del hero */
+.carousel-content .hero-title {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+}
+.carousel-content .hero-desc {
+  max-width: 520px;
+}
+
+/* ── Botones prev/next ───────────────────── */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--blanco);
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: var(--trans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-btn:hover {
+  background: rgba(255,255,255,0.24);
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-50%) scale(1.08);
+}
+.carousel-prev { left: 1.5rem; }
+.carousel-next { right: 1.5rem; }
+
+/* ── Dots ────────────────────────────────── */
+.carousel-dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.c-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: pointer;
+  transition: var(--trans);
+  padding: 0;
+}
+.c-dot.active {
+  background: var(--oro);
+  width: 24px;
+  border-radius: 4px;
+}
+.c-dot:hover { background: rgba(255,255,255,0.65); }
+
+/* ═══════════════════════════════════════════
+   ARQUITECTURA — panel sistema integrado
+   ═══════════════════════════════════════════ */
+.arq-sistema {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: var(--verde-oscuro);
+  border-radius: var(--radio-lg);
+  padding: 2.5rem 3rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.arq-sistema-text h3 {
+  font-family: var(--fuente-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+}
+.arq-sistema-text p {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.arq-sistema-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.arq-stat {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: var(--trans);
+}
+.arq-stat:hover { background: rgba(255,255,255,0.16); }
+
+.as-num {
+  font-family: var(--fuente-display);
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--blanco);
+  line-height: 1;
+}
+.as-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.35;
+}
+
+@media (max-width: 860px) {
+  .arq-sistema { grid-template-columns: 1fr; padding: 2rem; }
+  .carousel-btn { display: none; }
+  .slide-label { display: none; }
+}
