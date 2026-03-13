@@ -36,43 +36,91 @@
   </nav>
 </header>
 
-<!-- ═══════════════════════════ HERO ═════════════════════════════════ -->
+<!-- ═══════════════════════════ HERO - CARRUSEL ═════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-pattern"></div>
-  <div class="container hero-layout">
-    <div class="hero-content">
+ 
+  <!-- Slides de fondo -->
+  <div class="carousel-track" id="carouselTrack">
+ 
+    <div class="carousel-slide active" style="--img:url('img/carrusel/DJI_20251017084700_0010_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Territorio visto desde el aire</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251018111041_0003_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Paisaje territorial</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251028082345_0012_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Diversidad geográfica</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251030103424_0002_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Suelo y territorio productivo</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251126071029_0003_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Ecosistemas estratégicos</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251128062039_0005_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Riqueza natural del departamento</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251128062558_0015_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Visión aérea del territorio</div>
+    </div>
+ 
+    <div class="carousel-slide" style="--img:url('img/carrusel/DJI_20251128062832_0020_D.JPG')">
+      <div class="slide-overlay"></div>
+      <div class="slide-label">Santander · Horizonte 2050</div>
+    </div>
+ 
+  </div>
+ 
+  <!-- Contenido superpuesto -->
+  <div class="carousel-content">
+    <div class="container">
       <div class="hero-tag">
-        <span>🗺</span> Micrositio explicativo · enfoque académico · actualización 12 de marzo de 2026
+        <span>🗺</span> Micrositio explicativo · Enfoque académico · Actualización 12 de marzo de 2026
       </div>
       <h1 class="hero-title">
-        Una lectura sencilla y visual del mapa estratégico de la
-        <span class="accent">Visión Prospectiva Santander 2050</span>
+        Santander
+        <span class="accent">Visión 2050</span>
       </h1>
       <p class="hero-desc">
-        Este micrositio presenta la arquitectura completa del proceso desde la perspectiva
-        de la Academia: los límites del sistema, las transiciones inevitables, las capacidades
-        a construir, los retos territoriales, las misiones estratégicas y los motores que
-        harían viable el futuro de Santander.
+        Una lectura sencilla y visual del mapa estratégico de la Visión Prospectiva
+        Santander 2050 desde la perspectiva de la Academia.
       </p>
       <div class="hero-actions">
         <a href="#arquitectura" class="btn btn-primary">Explorar el mapa</a>
-        <a href="#diagnostico" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">Ver todos los elementos</a>
-      </div>
-    </div>
-    <div class="hero-panel">
-      <div class="hero-panel-title">El mapa como sistema integrado</div>
-      <p class="hero-panel-desc">La propuesta organiza el futuro territorial en cinco niveles conectados. No parte de proyectos sueltos, sino de una secuencia: comprender límites, leer transiciones, definir capacidades, decidir retos comunes y activar misiones con motores económicos y habilitadores.</p>
-      <div class="hero-stats">
-        <div class="hero-stat"><span class="hs-num">8</span><span class="hs-label">Problemáticas estructurales</span></div>
-        <div class="hero-stat"><span class="hs-num">6</span><span class="hs-label">Transiciones estructurales</span></div>
-        <div class="hero-stat"><span class="hs-num">5</span><span class="hs-label">Capacidades fundamentales</span></div>
-        <div class="hero-stat"><span class="hs-num">7</span><span class="hs-label">Retos territoriales</span></div>
-        <div class="hero-stat"><span class="hs-num">5</span><span class="hs-label">Misiones estratégicas</span></div>
-        <div class="hero-stat"><span class="hs-num">8</span><span class="hs-label">Motores del desarrollo</span></div>
+        <a href="#diagnostico" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.45);">Ver todos los elementos</a>
       </div>
     </div>
   </div>
+ 
+  <!-- Controles del carrusel -->
+  <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">&#8592;</button>
+  <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Siguiente">&#8594;</button>
+ 
+  <!-- Dots indicadores -->
+  <div class="carousel-dots" id="carouselDots">
+    <button class="c-dot active" data-idx="0"></button>
+    <button class="c-dot" data-idx="1"></button>
+    <button class="c-dot" data-idx="2"></button>
+    <button class="c-dot" data-idx="3"></button>
+    <button class="c-dot" data-idx="4"></button>
+    <button class="c-dot" data-idx="5"></button>
+    <button class="c-dot" data-idx="6"></button>
+    <button class="c-dot" data-idx="7"></button>
+  </div>
+ 
   <div class="hero-scroll">Desplázate</div>
 </section>
 
