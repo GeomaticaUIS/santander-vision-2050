@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santander Visión 2050 · Introducción a los 8 hilos estructurales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf9;
+      --ink: #111827;
+      --muted: #5b6472;
+      --line: #e6dfd2;
+      --dark: #0f172a;
+      --accent: #b45309;
+      --accent-2: #1d4ed8;
+      --green: #166534;
+      --red: #b91c1c;
+      --purple: #7c3aed;
+      --teal: #0f766e;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #f6f2eb 0%, #fbfaf7 100%);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 28px 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at top right, rgba(29,78,216,0.16), transparent 28%),
+                  radial-gradient(circle at top left, rgba(180,83,9,0.16), transparent 30%),
+                  linear-gradient(135deg, #0f172a 0%, #172554 55%, #0f3b37 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 56px 56px 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: auto -80px -100px auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 64px solid rgba(255,255,255,0.05);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      max-width: 820px;
+      margin: 22px 0 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .9fr;
+      gap: 22px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+
+    .hero-card, .hero-quote {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 20px 22px;
+      backdrop-filter: blur(3px);
+    }
+
+    .hero-card h3, .hero-quote h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #ffd59a;
+    }
+
+    .hero-card p, .hero-quote p {
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .stat .num {
+      display: block;
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat .txt {
+      font-size: 12px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    section {
+      margin-top: 26px;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .section-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .intro-p {
+      max-width: 980px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .schema {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .step {
+      padding: 16px 14px;
+      border-radius: 18px;
+      background: #faf7f1;
+      border: 1px solid var(--line);
+      min-height: 138px;
+    }
+
+    .step .k {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .step h4 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .block-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .block {
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fffdf9 0%, #faf7f1 100%);
+    }
+
+    .block .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 8px;
+    }
+
+    .block h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    .block ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .block li { margin: 8px 0; }
+
+    .block strong { color: var(--ink); }
+
+    .hilos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .hilo-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 214px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .hilo-card .id {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      color: white;
+      background: var(--ink);
+    }
+
+    .hilo-card h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .hilo-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .c1 .id { background: #0f766e; }
+    .c2 .id { background: #7c3aed; }
+    .c3 .id { background: #b91c1c; }
+    .c4 .id { background: #b45309; }
+    .c5 .id { background: #1d4ed8; }
+    .c6 .id { background: #166534; }
+    .c7 .id { background: #0f3b37; }
+    .c8 .id { background: #7f1d1d; }
+
+    .bridge {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .bridge-box {
+      border-radius: 22px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .bridge-box h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    .bridge-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.78;
+    }
+
+    .quote-final {
+      background: linear-gradient(135deg, #fff7ed 0%, #fff 100%);
+      border: 1px solid #f0d9bf;
+    }
+
+    .quote-final blockquote {
+      margin: 0;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 21px;
+      line-height: 1.55;
+      color: #6b3f10;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid, .bridge, .block-grid, .hilos-grid, .stats, .schema {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hilos-grid { grid-template-columns: repeat(2, 1fr); }
+      .schema { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .page { padding: 16px 16px 40px; }
+      .hero, .panel { padding: 24px; }
+      .hero-grid, .bridge, .block-grid, .hilos-grid, .stats, .schema {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 34px; }
+      h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Santander Visión 2050 · Introducción general</div>
+      <h1>Los 8 hilos estructurales del desarrollo territorial de Santander hacia 2050</h1>
+      <p class="lead">
+        Esta pieza introduce la lectura integrada de los ocho hilos del diagnóstico prospectivo. No presenta problemas aislados, sino un sistema interdependiente de límites ecológicos, transiciones demográficas, fragilidades económicas, brechas sociales y condiciones habilitantes que definen la trayectoria futura del departamento.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Propósito de esta serie</h3>
+          <p>
+            Cada hilo traduce una problemática estructural en una cadena de transformación: parte del diagnóstico, la conecta con transiciones globales, identifica capacidades territoriales, formula un reto colectivo, articula una misión transformativa, propone una lógica de laboratorio para su implementación y converge en el motor o motores que pueden reconfigurar la trayectoria de Santander.
+          </p>
+        </div>
+        <div class="hero-quote">
+          <h3>Idea-fuerza</h3>
+          <p>
+            Santander no enfrenta una suma de sectores desarticulados, sino una arquitectura compleja donde agua, población, economía, conocimiento, cohesión territorial, infraestructura y gobernanza se condicionan mutuamente. Leer los ocho hilos en conjunto permite pasar del diagnóstico fragmentado a una visión sistémica del cambio territorial.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="num">8</span><span class="txt">problemáticas estructurales organizadas como sistema</span></div>
+        <div class="stat"><span class="num">7</span><span class="txt">niveles de lectura comunes en cada hilo</span></div>
+        <div class="stat"><span class="num">4</span><span class="txt">bloques de arquitectura territorial</span></div>
+        <div class="stat"><span class="num">2050</span><span class="txt">horizonte de transformación prospectiva</span></div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="section-tag">Clave metodológica</div>
+      <h2>Cómo leer los hilos</h2>
+      <p class="intro-p">
+        Los ocho hilos fueron construidos con una misma secuencia analítica. Esa continuidad permite comparar problemáticas diferentes dentro de una sola arquitectura estratégica. La lectura recomendada no es lineal por sectores, sino estructural: comprender primero la naturaleza del problema, luego las fuerzas de cambio que lo atraviesan, después las capacidades disponibles para transformarlo y, finalmente, los motores que pueden activar una nueva trayectoria de desarrollo.
+      </p>
+
+      <div class="schema">
+        <div class="step"><span class="k">01</span><h4>Problemática estructural</h4><p>Define el límite, fragilidad o brecha que condiciona el desarrollo territorial.</p></div>
+        <div class="step"><span class="k">02</span><h4>Transiciones estructurales</h4><p>Conecta la problemática con cambios globales que ya están reconfigurando el territorio.</p></div>
+        <div class="step"><span class="k">03</span><h4>Capacidades territoriales</h4><p>Identifica activos existentes, capacidades instaladas, capital social e institucionalidad a construir.</p></div>
+        <div class="step"><span class="k">04</span><h4>Reto territorial</h4><p>Formula la decisión colectiva que Santander debe asumir para cambiar de trayectoria.</p></div>
+        <div class="step"><span class="k">05</span><h4>Misión transformativa</h4><p>Traduce el reto en una plataforma de acción pública, social, empresarial y académica.</p></div>
+        <div class="step"><span class="k">06</span><h4>Laboratorio de implementación</h4><p>Permite experimentar, pilotar, evaluar y ajustar antes de la escala completa.</p></div>
+        <div class="step"><span class="k">07</span><h4>Motor de desarrollo</h4><p>Expresa el ecosistema productivo o institucional que emerge de la transformación.</p></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-tag">Arquitectura del diagnóstico</div>
+      <h2>Los cuatro bloques del sistema territorial</h2>
+      <p class="intro-p">
+        Los ocho hilos no están organizados arbitrariamente. Responden a una estructura en capas: primero los límites del sistema, luego las fragilidades del modelo económico, después sus impactos sociales y territoriales, y finalmente las condiciones habilitantes que pueden bloquear o permitir la transformación.
+      </p>
+
+      <div class="block-grid">
+        <div class="block">
+          <div class="label">Bloque I · Límites estructurales del sistema</div>
+          <h3>La base biofísica y demográfica</h3>
+          <ul>
+            <li><strong>P·1 Riesgo hídrico, climático y degradación ecológica:</strong> el agua y los ecosistemas como límite biofísico del desarrollo.</li>
+            <li><strong>P·2 Transición demográfica, salud y cuidado:</strong> el envejecimiento y los sistemas de bienestar como condición del futuro social.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="label">Bloque II · Fragilidad del modelo económico</div>
+          <h3>Las dos trampas del crecimiento</h3>
+          <ul>
+            <li><strong>P·3 Dependencia extractiva:</strong> una economía que financia el presente pero compromete el futuro.</li>
+            <li><strong>P·4 Baja sofisticación productiva:</strong> una estructura que produce, pero no captura valor agregado suficiente.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="label">Bloque III · Impactos sociales y territoriales</div>
+          <h3>El costo espacial y humano del modelo vigente</h3>
+          <ul>
+            <li><strong>P·5 Desigualdad y fragmentación territorial:</strong> la fractura entre el AMB y las provincias.</li>
+            <li><strong>P·6 Brechas de conocimiento, educación e innovación:</strong> la distancia entre formar talento y convertirlo en transformación territorial.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="label">Bloque IV · Condiciones habilitantes</div>
+          <h3>Los soportes materiales e institucionales del cambio</h3>
+          <ul>
+            <li><strong>P·7 Infraestructura, conectividad y logística:</strong> el sustrato físico y digital de la cohesión y la competitividad.</li>
+            <li><strong>P·8 Gobernanza e inteligencia territorial:</strong> la capacidad de decidir, coordinar y ejecutar con evidencia.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-tag">Los ocho hilos</div>
+      <h2>Panorama sintético de la serie completa</h2>
+      <p class="intro-p">
+        Cada hilo tiene un tono propio, pero todos responden a una misma lógica. Esta síntesis resume su núcleo interpretativo y su papel dentro del sistema de Santander 2050.
+      </p>
+
+      <div class="hilos-grid">
+        <div class="hilo-card c1">
+          <span class="id">P·1</span>
+          <h4>Riesgo hídrico y degradación ecológica</h4>
+          <p>Expone el agua como límite biofísico del desarrollo y como base de una nueva economía territorial ligada a seguridad hídrica, resiliencia climática y bioeconomía.</p>
+        </div>
+
+        <div class="hilo-card c2">
+          <span class="id">P·2</span>
+          <h4>Demografía, salud y sistemas del cuidado</h4>
+          <p>Interpreta el envejecimiento no solo como presión social, sino como plataforma de una economía de la longevidad, el bienestar y el cuidado.</p>
+        </div>
+
+        <div class="hilo-card c3">
+          <span class="id">P·3</span>
+          <h4>Dependencia extractiva</h4>
+          <p>Describe la renta petrolera como trampa estructural y propone una reconversión energética e industrial justa, especialmente en el Magdalena Medio.</p>
+        </div>
+
+        <div class="hilo-card c4">
+          <span class="id">P·4</span>
+          <h4>Baja sofisticación productiva</h4>
+          <p>Señala la incapacidad de capturar valor en las cadenas productivas y plantea el salto desde materia prima a bioeconomía avanzada y manufactura de nicho.</p>
+        </div>
+
+        <div class="hilo-card c5">
+          <span class="id">P·5</span>
+          <h4>Desigualdad y fragmentación territorial</h4>
+          <p>Presenta la fractura entre AMB y provincias como resultado espacial del modelo vigente y propone un territorio policéntrico, conectado y equitativo.</p>
+        </div>
+
+        <div class="hilo-card c6">
+          <span class="id">P·6</span>
+          <h4>Brechas de conocimiento e innovación</h4>
+          <p>Analiza la distancia entre el potencial universitario y la baja absorción territorial del conocimiento, y propone un ecosistema regional de innovación.</p>
+        </div>
+
+        <div class="hilo-card c7">
+          <span class="id">P·7</span>
+          <h4>Infraestructura, conectividad y logística</h4>
+          <p>Convierte la conectividad física y digital en condición habilitante del sistema completo, desde la cohesión territorial hasta la competitividad multimodal.</p>
+        </div>
+
+        <div class="hilo-card c8">
+          <span class="id">P·8</span>
+          <h4>Gobernanza e inteligencia territorial</h4>
+          <p>Aborda el límite institucional de Santander: la brecha entre formular y ejecutar, y la necesidad de una gobernanza basada en datos, confianza y participación.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-tag">Clave de interpretación</div>
+      <h2>Cómo se conectan entre sí</h2>
+      <div class="bridge">
+        <div class="bridge-box">
+          <h3>De los límites a las condiciones habilitantes</h3>
+          <p>
+            Los dos primeros hilos muestran aquello que Santander no puede ignorar: agua, ecosistemas, demografía y cuidado. Los dos siguientes explican por qué el modelo económico actual no es suficiente para sostener el futuro. Los hilos quinto y sexto muestran los impactos territoriales y cognitivos de esas fragilidades. Finalmente, los hilos séptimo y octavo explican qué debe construirse para que cualquier transformación sea ejecutable: infraestructura, conectividad, inteligencia territorial y gobernanza.
+          </p>
+        </div>
+        <div class="bridge-box quote-final">
+          <blockquote>
+            “Leídos en conjunto, los ocho hilos muestran que la transformación de Santander no depende de proyectos aislados, sino de la capacidad de articular naturaleza, población, economía, conocimiento, cohesión territorial, infraestructura y gobernanza en una misma arquitectura estratégica.”
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Santander Visión 2050 · Introducción general a los 8 hilos estructurales del diagnóstico prospectivo
+    </footer>
+  </div>
+</body>
+</html>
