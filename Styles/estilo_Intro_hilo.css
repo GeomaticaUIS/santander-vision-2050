@@ -370,3 +370,106 @@
       h2 { font-size: 26px; }
     }
   
+/* ── Barra de navegación entre hilos ─────────────────────────────── */
+.hilo-topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: rgba(0,40,20,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 52px;
+  gap: 1rem;
+}
+ 
+.hilo-topbar-home {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+.hilo-topbar-home:hover { color: #c9a84c; }
+.hilo-topbar-home svg { opacity: 0.7; flex-shrink: 0; }
+ 
+.hilo-topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+ 
+.hilo-topbar-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Fira Sans', sans-serif;
+  white-space: nowrap;
+}
+ 
+.hilo-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+  text-decoration: none;
+  transition: all 0.25s;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+.hilo-nav-btn--prev {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.75);
+}
+.hilo-nav-btn--prev:hover {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+}
+ 
+.hilo-nav-btn--next {
+  background: #006837;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+}
+.hilo-nav-btn--next:hover {
+  background: #00843f;
+  box-shadow: 0 4px 16px rgba(0,104,55,0.4);
+}
+ 
+.hilo-nav-btn--disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+ 
+.hilo-nav-separator {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+ 
+/* Empujar el contenido del header hacia abajo para que no quede bajo la barra */
+body { padding-top: 52px !important; }
+ 
+@media (max-width: 640px) {
+  .hilo-topbar-label { display: none; }
+  .hilo-nav-btn { padding: 0.35rem 0.65rem; font-size: 0.72rem; max-width: 130px; }
+  .hilo-topbar-home span { display: none; }
+}
