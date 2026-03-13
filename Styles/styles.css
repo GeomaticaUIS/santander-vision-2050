@@ -1929,3 +1929,73 @@ footer {
   background: rgba(255,255,255,0.15);
   margin: 0.25rem 0;
 }
+
+/* ── Prospectiva: panel superior 3 columnas ─── */
+.prosp-top-panels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.prosp-panel {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 1.75rem;
+  border: 1px solid rgba(0,104,55,0.1);
+  box-shadow: var(--sombra-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: var(--trans);
+}
+.prosp-panel:hover { box-shadow: var(--sombra-md); transform: translateY(-2px); }
+
+.prosp-panel--vision {
+  border-top: 4px solid var(--verde-oscuro);
+}
+
+.prosp-panel-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+}
+
+.prosp-panel h3 {
+  font-family: var(--fuente-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.prosp-panel p {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.prosp-arch-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.prosp-arch-pills span {
+  background: var(--verde-pálido);
+  color: var(--verde-oscuro);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0,104,55,0.15);
+}
+
+@media (max-width: 860px) {
+  .prosp-top-panels { grid-template-columns: 1fr; }
+}
