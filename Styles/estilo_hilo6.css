@@ -1,32 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Fira+Sans:wght@300;400;500;600&display=swap');
 :root {
-    --rust:        #8B3A2A;
-    --rust-mid:    #B55A3E;
-    --rust-light:  #D4896A;
-    --rust-pale:   #FAF0EB;
-    --rust-wash:   #FDF8F5;
-    --terracotta:  #C46B45;
+    --indigo:       #2D3A6B;
+    --indigo-mid:   #4A5A9A;
+    --indigo-light: #7A8FCA;
+    --indigo-pale:  #EEF1FA;
+    --indigo-wash:  #F5F7FC;
 
-    --slate:       #2A3545;
-    --slate-mid:   #4A5A6A;
-    --slate-light: #7A8A9A;
-    --slate-pale:  #EEF2F5;
-    --slate-wash:  #F5F7F9;
+    --violet:       #5C3D8F;
+    --violet-mid:   #8060B0;
+    --violet-pale:  #F2EEF9;
 
-    --gold:        #B8922A;
-    --gold-pale:   #FDF6E3;
-    --gold-light:  #D4AE60;
+    --amber:        #B07820;
+    --amber-mid:    #D09830;
+    --amber-pale:   #FDF6E3;
+    --amber-light:  #E8C060;
 
-    --sage:        #3D6B55;
-    --sage-pale:   #E8F3ED;
+    --teal:         #1D6B65;
+    --teal-pale:    #E6F4F3;
 
-    --red-warn:    #8B2020;
-    --red-pale:    #FBE8E8;
+    --red-warn:     #7A1F1F;
+    --red-pale:     #FBE8E8;
 
-    --ink:         #1A1410;
-    --paper:       #FAF7F2;
-    --warm-line:   #DDD5C8;
-    --muted:       #6A5A50;
+    --sage:         #3D6B55;
+    --sage-pale:    #E8F3ED;
+
+    --ink:          #12100E;
+    --paper:        #F8F7F4;
+    --warm-line:    #DDD8D0;
+    --muted:        #5A5250;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,11 +40,9 @@
     line-height: 1.65;
   }
 
-  /* ==============================
-     HEADER
-  ============================== */
+  /* ==============================  HEADER  ============================== */
   header {
-    background: var(--slate);
+    background: var(--indigo);
     color: #fff;
     padding: 52px 64px 46px;
     position: relative;
@@ -52,10 +51,10 @@
   header::before {
     content: '';
     position: absolute;
-    top: -80px; right: -80px;
-    width: 480px; height: 480px;
+    top: -60px; right: -60px;
+    width: 420px; height: 420px;
     border-radius: 50%;
-    border: 80px solid rgba(180,90,62,0.08);
+    border: 70px solid rgba(90,110,200,0.09);
     pointer-events: none;
   }
   header::after {
@@ -63,136 +62,100 @@
     position: absolute;
     bottom: 0; left: 0;
     width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--rust), var(--terracotta), var(--gold));
+    background: linear-gradient(90deg, var(--indigo-mid), var(--violet-mid), var(--amber));
   }
   .h-eyebrow {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 3.5px;
+    font-size: 9.5px; letter-spacing: 3.5px;
     text-transform: uppercase;
-    color: var(--rust-light);
+    color: var(--indigo-light);
     margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    display: flex; align-items: center; gap: 14px;
   }
   .h-eyebrow::after {
-    content: '';
-    flex: 1; max-width: 80px;
-    height: 1px;
-    background: rgba(212,137,106,0.45);
+    content: ''; flex: 1; max-width: 80px;
+    height: 1px; background: rgba(122,143,202,0.45);
   }
   header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 52px);
-    font-weight: 700;
-    line-height: 1.08;
-    max-width: 760px;
-    margin-bottom: 18px;
+    font-size: clamp(28px, 4vw, 50px);
+    font-weight: 700; line-height: 1.08;
+    max-width: 780px; margin-bottom: 18px;
     letter-spacing: -0.5px;
   }
-  header h1 em {
-    font-style: italic;
-    color: var(--rust-light);
-  }
+  header h1 em { font-style: italic; color: var(--indigo-light); }
   header p.lead {
-    font-size: 13.5px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.58);
-    max-width: 620px;
+    font-size: 13.5px; line-height: 1.8;
+    color: rgba(255,255,255,0.55); max-width: 640px;
   }
   .h-badge {
-    position: absolute;
-    top: 44px; right: 64px;
-    border: 1px solid rgba(180,90,62,0.45);
-    color: var(--rust-light);
+    position: absolute; top: 44px; right: 64px;
+    border: 1px solid rgba(122,143,202,0.45);
+    color: var(--indigo-light);
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 2.5px;
-    padding: 8px 16px;
-    text-transform: uppercase;
+    font-size: 9px; letter-spacing: 2.5px;
+    padding: 8px 16px; text-transform: uppercase;
   }
-
-  /* STAT BAR */
   .h-stat-bar {
-    display: flex;
-    gap: 40px;
-    margin-top: 36px;
-    padding-top: 28px;
+    display: flex; gap: 40px;
+    margin-top: 36px; padding-top: 28px;
     border-top: 1px solid rgba(255,255,255,0.09);
     flex-wrap: wrap;
   }
   .h-stat { display: flex; flex-direction: column; }
   .h-stat .num {
     font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--rust-light);
-    line-height: 1;
+    font-size: 30px; font-weight: 700;
+    color: var(--indigo-light); line-height: 1;
   }
   .h-stat .desc {
-    font-size: 9.5px;
-    color: rgba(255,255,255,0.45);
+    font-size: 9.5px; color: rgba(255,255,255,0.42);
     margin-top: 5px;
     font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.3px;
-    max-width: 140px;
-    line-height: 1.45;
+    letter-spacing: 0.3px; max-width: 148px; line-height: 1.45;
   }
 
-  /* ==============================
-     FRANJA VENTANA / URGENCIA
-  ============================== */
-  .window-bar {
-    background: var(--rust);
+  /* FRANJA PARADOJA */
+  .paradox-bar {
+    background: var(--violet);
     color: #fff;
     padding: 16px 64px;
-    font-size: 12.5px;
-    line-height: 1.7;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    font-size: 12.5px; line-height: 1.75;
+    display: flex; align-items: flex-start; gap: 14px;
   }
-  .window-bar .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .window-bar strong { font-weight: 600; }
+  .paradox-bar .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .paradox-bar strong { font-weight: 600; }
+  .paradox-bar em { font-style: italic; color: rgba(255,255,255,0.82); }
 
   .intro-strip {
-    background: var(--slate);
-    color: rgba(255,255,255,0.65);
+    background: var(--indigo);
+    color: rgba(255,255,255,0.62);
     padding: 18px 64px;
-    font-size: 12.5px;
-    line-height: 1.75;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    font-size: 12.5px; line-height: 1.78;
+    display: flex; align-items: flex-start; gap: 14px;
   }
   .intro-strip .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .intro-strip strong { color: var(--rust-light); }
+  .intro-strip strong { color: var(--indigo-light); }
   .intro-strip em { color: rgba(255,255,255,0.85); font-style: normal; font-weight: 500; }
 
-  /* ==============================
-     CUERPO PRINCIPAL
-  ============================== */
+  /* ==============================  CUERPO  ============================== */
   .body-wrap {
-    max-width: 1140px;
-    margin: 0 auto;
+    max-width: 1140px; margin: 0 auto;
     padding: 68px 44px 80px;
     position: relative;
   }
   .body-wrap::before {
     content: '';
     position: absolute;
-    left: 102px; top: 68px; bottom: 80px;
-    width: 1px;
+    left: 102px; top: 68px; bottom: 80px; width: 1px;
     background: repeating-linear-gradient(
       to bottom,
-      var(--rust-mid) 0px, var(--rust-mid) 5px,
+      var(--indigo-mid) 0px, var(--indigo-mid) 5px,
       transparent 5px, transparent 13px
     );
-    opacity: 0.25;
+    opacity: 0.22;
   }
 
-  /* NODO */
   .node {
     display: grid;
     grid-template-columns: 102px 1fr;
@@ -200,20 +163,15 @@
     position: relative;
   }
   .marker {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; padding-top: 20px; z-index: 2;
   }
   .bubble {
-    width: 44px; height: 44px;
-    border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px; font-weight: 500;
-    flex-shrink: 0;
-    border: 2px solid;
+    flex-shrink: 0; border: 2px solid;
     letter-spacing: 0.5px;
   }
   .side-label {
@@ -222,10 +180,8 @@
     text-transform: uppercase;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    color: var(--muted);
-    margin-top: 12px;
-    white-space: nowrap;
-    opacity: 0.65;
+    color: var(--muted); margin-top: 12px;
+    white-space: nowrap; opacity: 0.65;
   }
   .content { padding: 20px 0 22px 36px; }
 
@@ -234,8 +190,7 @@
     font-family: 'IBM Plex Mono', monospace;
     font-size: 8px; letter-spacing: 2.5px;
     text-transform: uppercase;
-    padding: 4px 12px;
-    margin-bottom: 14px;
+    padding: 4px 12px; margin-bottom: 14px;
     font-weight: 500; border-radius: 2px;
   }
   .node-h {
@@ -250,17 +205,14 @@
   }
   .node-text {
     font-size: 13.5px; line-height: 1.8;
-    color: #231A14; max-width: 700px;
-    margin-bottom: 16px;
+    color: #1A1410; max-width: 700px; margin-bottom: 16px;
   }
   .node-text strong { color: var(--ink); font-weight: 600; }
 
   .box {
     border-left: 3px solid;
-    padding: 14px 18px;
-    margin: 12px 0;
-    font-size: 13px; line-height: 1.72;
-    max-width: 720px;
+    padding: 14px 18px; margin: 12px 0;
+    font-size: 13px; line-height: 1.72; max-width: 720px;
   }
   .box .bt {
     font-family: 'IBM Plex Mono', monospace;
@@ -273,88 +225,72 @@
 
   .tags {
     display: flex; flex-wrap: wrap;
-    gap: 7px; margin: 14px 0;
-    max-width: 720px;
+    gap: 7px; margin: 14px 0; max-width: 720px;
   }
   .tag {
-    font-size: 10.5px; padding: 4px 11px;
-    border-radius: 2px;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 500;
+    font-size: 10.5px; padding: 4px 11px; border-radius: 2px;
+    font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;
   }
 
   .arrow-row {
     display: flex; align-items: center;
-    padding-left: 82px; margin: 2px 0 6px;
-    gap: 10px;
+    padding-left: 82px; margin: 2px 0 6px; gap: 10px;
     color: var(--muted);
     font-size: 10.5px;
     font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.8px;
-    opacity: 0.8;
+    letter-spacing: 0.8px; opacity: 0.8;
   }
-  .arrow-row .arr { font-size: 20px; line-height: 1; color: var(--rust-mid); }
+  .arrow-row .arr { font-size: 20px; line-height: 1; color: var(--indigo-mid); }
 
-  /* ==============================
-     COLORES POR NIVEL
-  ============================== */
-  /* N1 – rojo-alerta */
+  /* ==============================  COLORES POR NIVEL  ============================== */
   .n1 .bubble { background: var(--red-pale); color: var(--red-warn); border-color: var(--red-warn); }
   .n1 .step-pill { background: var(--red-pale); color: var(--red-warn); }
   .n1 .box { border-color: var(--red-warn); background: var(--red-pale); }
   .n1 .box .bt { color: var(--red-warn); }
   .n1 .tag { background: var(--red-pale); color: var(--red-warn); }
 
-  /* N2 – slate */
-  .n2 .bubble { background: var(--slate-pale); color: var(--slate); border-color: var(--slate-mid); }
-  .n2 .step-pill { background: var(--slate-pale); color: var(--slate-mid); }
-  .n2 .box { border-color: var(--slate-mid); background: var(--slate-wash); }
-  .n2 .box .bt { color: var(--slate-mid); }
-  .n2 .tag { background: var(--slate-pale); color: var(--slate-mid); }
+  .n2 .bubble { background: var(--indigo-pale); color: var(--indigo); border-color: var(--indigo-mid); }
+  .n2 .step-pill { background: var(--indigo-pale); color: var(--indigo-mid); }
+  .n2 .box { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .n2 .box .bt { color: var(--indigo-mid); }
+  .n2 .tag { background: var(--indigo-pale); color: var(--indigo-mid); }
 
-  /* N3 – dorado */
-  .n3 .bubble { background: var(--gold-pale); color: var(--gold); border-color: var(--gold); }
-  .n3 .step-pill { background: var(--gold-pale); color: var(--gold); }
-  .n3 .box { border-color: var(--gold); background: var(--gold-pale); }
-  .n3 .box .bt { color: var(--gold); }
-  .n3 .tag { background: var(--gold-pale); color: var(--gold); }
+  .n3 .bubble { background: var(--amber-pale); color: var(--amber); border-color: var(--amber); }
+  .n3 .step-pill { background: var(--amber-pale); color: var(--amber); }
+  .n3 .box { border-color: var(--amber); background: var(--amber-pale); }
+  .n3 .box .bt { color: var(--amber); }
+  .n3 .tag { background: var(--amber-pale); color: var(--amber); }
 
-  /* N4 – rust profundo */
-  .n4 .bubble { background: var(--rust-pale); color: var(--rust); border-color: var(--rust); }
-  .n4 .step-pill { background: var(--rust-pale); color: var(--rust); }
-  .n4 .box { border-color: var(--rust); background: var(--rust-pale); }
-  .n4 .box .bt { color: var(--rust); }
-  .n4 .tag { background: var(--rust-pale); color: var(--rust); }
+  .n4 .bubble { background: var(--violet-pale); color: var(--violet); border-color: var(--violet); }
+  .n4 .step-pill { background: var(--violet-pale); color: var(--violet); }
+  .n4 .box { border-color: var(--violet); background: var(--violet-pale); }
+  .n4 .box .bt { color: var(--violet); }
+  .n4 .box-inaction { border-color: var(--red-warn); background: var(--red-pale); }
+  .n4 .box-action { border-color: var(--sage); background: var(--sage-pale); }
+  .n4 .tag { background: var(--violet-pale); color: var(--violet); }
 
-  /* N5 – slate oscuro */
-  .n5 .bubble { background: var(--slate); color: #fff; border-color: var(--slate); }
-  .n5 .step-pill { background: var(--slate); color: #fff; }
-  .n5 .box { border-color: var(--slate); background: #EEF1F4; }
-  .n5 .box .bt { color: var(--slate); }
-  .n5 .tag { background: var(--slate); color: #fff; }
+  .n5 .bubble { background: var(--indigo); color: #fff; border-color: var(--indigo); }
+  .n5 .step-pill { background: var(--indigo); color: #fff; }
+  .n5 .box { border-color: var(--indigo); background: var(--indigo-wash); }
+  .n5 .box .bt { color: var(--indigo); }
+  .n5 .tag { background: var(--indigo); color: #fff; }
 
-  /* N6 – sage */
-  .n6 .bubble { background: var(--sage-pale); color: var(--sage); border-color: var(--sage); }
-  .n6 .step-pill { background: var(--sage-pale); color: var(--sage); }
-  .n6 .box { border-color: var(--sage); background: var(--sage-pale); }
-  .n6 .box .bt { color: var(--sage); }
-  .n6 .tag { background: var(--sage-pale); color: var(--sage); }
+  .n6 .bubble { background: var(--teal-pale); color: var(--teal); border-color: var(--teal); }
+  .n6 .step-pill { background: var(--teal-pale); color: var(--teal); }
+  .n6 .box { border-color: var(--teal); background: var(--teal-pale); }
+  .n6 .box .bt { color: var(--teal); }
+  .n6 .tag { background: var(--teal-pale); color: var(--teal); }
 
-  /* N7 – terracotta cálido */
-  .n7 .bubble { background: var(--rust-pale); color: var(--terracotta); border-color: var(--terracotta); }
-  .n7 .step-pill { background: var(--rust-pale); color: var(--terracotta); }
-  .n7 .box { border-color: var(--terracotta); background: var(--rust-wash); }
-  .n7 .box .bt { color: var(--terracotta); }
-  .n7 .tag { background: var(--rust-pale); color: var(--rust); }
+  .n7 .bubble { background: var(--indigo-pale); color: var(--indigo); border-color: var(--indigo); }
+  .n7 .step-pill { background: var(--indigo); color: #fff; }
+  .n7 .box { border-color: var(--indigo-mid); background: var(--indigo-wash); }
+  .n7 .box .bt { color: var(--indigo); }
+  .n7 .tag { background: var(--indigo-pale); color: var(--indigo); }
 
-  /* ==============================
-     GRILLA 4 CAPACIDADES
-  ============================== */
+  /* ==============================  GRILLA 4 CAPACIDADES  ============================== */
   .cap-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px; max-width: 720px;
-    margin: 14px 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; max-width: 720px; margin: 14px 0;
   }
   .cap-cell {
     padding: 14px 16px;
@@ -366,16 +302,11 @@
     text-transform: uppercase; font-weight: 500;
     margin-bottom: 8px; display: block;
   }
-  .cap-cell p { margin-bottom: 6px; }
 
-  /* ==============================
-     BOX ESCENARIOS SPLIT
-  ============================== */
+  /* SPLIT ESCENARIOS */
   .box-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px; max-width: 720px;
-    margin: 12px 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; max-width: 720px; margin: 12px 0;
   }
   .box-inaction {
     border-left: 3px solid var(--red-warn);
@@ -387,7 +318,7 @@
     background: var(--sage-pale);
     padding: 14px 16px; font-size: 12.5px; line-height: 1.68;
   }
-  .box-split .bt2 {
+  .bt2 {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 7.5px; letter-spacing: 2px;
     text-transform: uppercase; font-weight: 500;
@@ -396,33 +327,28 @@
   .box-inaction .bt2 { color: var(--red-warn); }
   .box-action .bt2 { color: var(--sage); }
 
-  /* SUB-BLOQUE DIFERENCIADO */
-  .sub-block {
-    margin-top: 12px;
-    padding: 12px 14px;
-    border: 1px dashed;
-    font-size: 12.5px; line-height: 1.7;
+  /* CAPA MOTOR */
+  .layer-box {
+    border: 1px solid var(--indigo-mid);
+    background: var(--indigo-wash);
+    padding: 14px 18px; margin: 10px 0;
+    max-width: 720px; font-size: 13px; line-height: 1.72;
   }
-  .sub-block .sub-label {
+  .layer-box .lb {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 7.5px; letter-spacing: 2px;
+    font-size: 8px; letter-spacing: 2px;
     text-transform: uppercase; font-weight: 500;
-    margin-bottom: 8px; display: block;
+    color: var(--indigo); margin-bottom: 10px; display: block;
   }
 
-  /* ==============================
-     TABLA SÍNTESIS
-  ============================== */
+  /* ==============================  TABLA SÍNTESIS  ============================== */
   .synthesis {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 44px 60px;
+    max-width: 1140px; margin: 0 auto; padding: 0 44px 60px;
   }
   .synthesis h2 {
     font-family: 'Playfair Display', serif;
     font-size: 30px; font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--slate);
+    margin-bottom: 6px; color: var(--indigo);
   }
   .synthesis .sub {
     font-family: 'IBM Plex Mono', monospace;
@@ -430,76 +356,61 @@
     margin-bottom: 28px; letter-spacing: 0.3px;
   }
   .synth-wrap {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2px;
-    background: var(--warm-line);
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 2px; background: var(--warm-line);
     border: 1px solid var(--warm-line);
   }
   .sc {
     background: var(--paper);
-    padding: 14px 13px;
-    font-size: 11.5px; line-height: 1.55;
-    vertical-align: top;
+    padding: 14px 13px; font-size: 11.5px; line-height: 1.55;
   }
   .sc.head {
-    background: var(--slate);
+    background: var(--indigo);
     color: rgba(255,255,255,0.82);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 8px; letter-spacing: 1.8px;
-    text-transform: uppercase;
-    padding: 11px 13px;
+    text-transform: uppercase; padding: 11px 13px;
   }
   .sc strong { display: block; font-size: 11px; font-weight: 600; margin-bottom: 3px; }
 
-  /* ==============================
-     BLOQUE DIFERENCIADORES
-  ============================== */
+  /* ==============================  DIFERENCIADORES  ============================== */
   .diff-section {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 44px 50px;
+    max-width: 1140px; margin: 0 auto; padding: 0 44px 50px;
   }
   .diff-inner {
-    background: var(--slate);
-    color: rgba(255,255,255,0.72);
+    background: var(--indigo);
+    color: rgba(255,255,255,0.7);
     padding: 38px 42px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 36px;
-    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px; position: relative;
   }
   .diff-inner::before {
     content: '';
-    position: absolute;
-    top: 0; left: 0;
+    position: absolute; top: 0; left: 0;
     width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--rust), var(--terracotta), var(--gold));
+    background: linear-gradient(90deg, var(--indigo-mid), var(--violet-mid), var(--amber));
   }
   .diff-inner h3 {
     font-family: 'Playfair Display', serif;
     font-size: 16px; font-weight: 600;
-    color: var(--rust-light);
+    color: var(--indigo-light);
     margin-bottom: 10px; line-height: 1.25;
   }
-  .diff-inner p {
-    font-size: 12.5px; line-height: 1.75;
-    color: rgba(255,255,255,0.65);
-  }
+  .diff-inner p { font-size: 12.5px; line-height: 1.75; }
 
   footer {
     background: var(--ink);
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.32);
     padding: 20px 64px;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 9.5px; letter-spacing: 0.5px;
     display: flex; justify-content: space-between;
     align-items: center; flex-wrap: wrap; gap: 10px;
   }
-  footer span { color: var(--rust-light); }
+  footer span { color: var(--indigo-light); }
 
   @media (max-width: 780px) {
-    header, .window-bar, .intro-strip { padding-left: 24px; padding-right: 24px; }
+    header, .paradox-bar, .intro-strip { padding-left: 24px; padding-right: 24px; }
     .h-badge { display: none; }
     .body-wrap { padding: 40px 20px 60px; }
     .body-wrap::before { left: 58px; }
