@@ -705,6 +705,65 @@
 
 <!-- ═══════════════════════════ SCRIPTS ══════════════════════════════ -->
 <script>
+  /* ── Carrusel hero ────────────────────────── */
+(function() {
+  const slides  = Array.from(document.querySelectorAll('.carousel-slide'));
+  const dots    = Array.from(document.querySelectorAll('.c-dot'));
+  let current   = 0;
+  let isAnimating = false;
+  let timer;
+ 
+  function goTo(idx) {
+    if (isAnimating) return;
+    const next = (idx + slides.length) % slides.length;
+    if (next === current) return;
+ 
+    isAnimating = true;
+ 
+    const prevSlide = slides[current];
+    const nextSlide = slides[next];
+ 
+    // Actualizar dots
+    dots[current].classList.remove('active');
+    dots[next].classList.add('active');
+ 
+    // Marcar saliente y reiniciar animación del siguiente
+    prevSlide.classList.add('leaving');
+ 
+    // Forzar reflow para que la animación kenburns reinicie
+    nextSlide.classList.remove('active');
+    void nextSlide.offsetWidth; // reflow
+    nextSlide.classList.add('active');
+ 
+    current = next;
+ 
+    // Limpiar clase leaving tras la transición
+    setTimeout(() => {
+      prevSlide.classList.remove('active', 'leaving');
+      isAnimating = false;
+    }, 1500);
+ 
+    resetTimer();
+  }
+ 
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 6000);
+  }
+ 
+  document.getElementById('carouselNext')
+    .addEventListener('click', () => goTo(current + 1));
+  document.getElementById('carouselPrev')
+    .addEventListener('click', () => goTo(current - 1));
+ 
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goTo(parseInt(dot.dataset.idx)));
+  });
+ 
+  // Iniciar con primer slide activo y arrancar timer
+  slides[0].classList.add('active');
+  resetTimer();
+})();
 /* ── Menú móvil ───────────────────────────── */
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
