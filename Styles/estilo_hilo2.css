@@ -511,9 +511,7 @@
     .box-split, .cap-grid { grid-template-columns: 1fr; }
     footer { padding: 16px 24px; }
   }
-</style>
-
-<style>
+ 
 /* ── Barra de navegación entre hilos ─────────────────────────────── */
 .hilo-topbar {
   position: fixed;
