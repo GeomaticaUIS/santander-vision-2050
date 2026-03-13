@@ -455,8 +455,128 @@
     footer { padding: 16px 24px; }
   }
 </style>
+
+<style>
+/* ── Barra de navegación entre hilos ─────────────────────────────── */
+.hilo-topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: rgba(0,40,20,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 52px;
+  gap: 1rem;
+}
+
+.hilo-topbar-home {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+.hilo-topbar-home:hover { color: #c9a84c; }
+.hilo-topbar-home svg { opacity: 0.7; flex-shrink: 0; }
+
+.hilo-topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.hilo-topbar-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Fira Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.hilo-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+  text-decoration: none;
+  transition: all 0.25s;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hilo-nav-btn--prev {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.75);
+}
+.hilo-nav-btn--prev:hover {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+}
+
+.hilo-nav-btn--next {
+  background: #006837;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+}
+.hilo-nav-btn--next:hover {
+  background: #00843f;
+  box-shadow: 0 4px 16px rgba(0,104,55,0.4);
+}
+
+.hilo-nav-btn--disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+
+.hilo-nav-separator {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+/* Empujar el contenido del header hacia abajo para que no quede bajo la barra */
+body { padding-top: 52px !important; }
+
+@media (max-width: 640px) {
+  .hilo-topbar-label { display: none; }
+  .hilo-nav-btn { padding: 0.35rem 0.65rem; font-size: 0.72rem; max-width: 130px; }
+  .hilo-topbar-home span { display: none; }
+}
+</style>
+
 </head>
 <body>
+<!-- ── Barra de navegación entre hilos ── -->
+<div class="hilo-topbar">
+  <a class="hilo-topbar-home" href="../index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Santander Visión 2050</span>
+  </a>
+  <div class="hilo-topbar-nav">
+    <a class="hilo-nav-btn hilo-nav-btn--prev" href="hilo_04_sofisticacion_santander2050.html">← Hilo 04: Sofisticación Productiva</a>
+    <span class="hilo-topbar-label">6 / 9</span>
+    <a class="hilo-nav-btn hilo-nav-btn--next" href="hilo_06_conocimiento_santander2050.html">Hilo 06: Conocimiento e Innovación →</a>
+  </div>
+</div>
+
 
 <!-- ===================== HEADER ===================== -->
 <header>
