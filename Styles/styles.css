@@ -1998,3 +1998,214 @@ footer {
 @media (max-width: 860px) {
   .prosp-top-panels { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════
+   PORTAFOLIO DE PROYECTOS
+   ═══════════════════════════════════════════ */
+
+/* ── Mission tabs ────────────────────────── */
+.port-missions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.port-mission-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 50px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.08);
+  background: var(--blanco);
+  color: var(--texto-suave);
+  transition: var(--trans);
+}
+.port-mission-btn span {
+  background: var(--gris-suave);
+  color: var(--gris-medio);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 50px;
+  transition: var(--trans);
+}
+.port-mission-btn:hover {
+  border-color: var(--verde-oscuro);
+  color: var(--verde-oscuro);
+}
+.port-mission-btn.active {
+  background: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+  color: var(--blanco);
+}
+.port-mission-btn.active span {
+  background: rgba(255,255,255,0.2);
+  color: var(--blanco);
+}
+
+/* ── Level filters ───────────────────────── */
+.port-filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.pf-levels {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.pf-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  background: var(--blanco);
+  color: var(--texto-suave);
+  transition: var(--trans);
+}
+.pf-btn:hover { border-color: var(--verde-oscuro); color: var(--verde-oscuro); }
+.pf-btn.active {
+  background: var(--texto);
+  border-color: var(--texto);
+  color: var(--blanco);
+}
+
+.pf-count {
+  margin-left: auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  background: var(--verde-pálido);
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+}
+
+/* ── Project grid ────────────────────────── */
+.port-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.port-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: var(--trans);
+}
+.port-card:hover {
+  box-shadow: var(--sombra-md);
+  transform: translateY(-3px);
+}
+.port-card.hidden {
+  display: none;
+}
+
+/* Card top band */
+.pc-top {
+  padding: 0.85rem 1.1rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pc-code {
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pc-anchor {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--oro);
+  background: rgba(201,168,76,0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 50px;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+
+.pc-level {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blanco);
+  padding: 0.22rem 0.65rem;
+  border-radius: 50px;
+}
+
+/* Card body */
+.pc-body {
+  padding: 0.9rem 1.1rem 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pc-name {
+  font-family: var(--fuente-display);
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.pc-desc {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Card footer */
+.pc-footer {
+  padding: 0.75rem 1.1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.pc-budget, .pc-province, .pc-mission {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+.pc-budget { color: var(--verde-oscuro); }
+.pc-province { color: var(--texto-suave); }
+.pc-mission {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 640px) {
+  .port-grid { grid-template-columns: 1fr; }
+  .port-filters { flex-direction: column; align-items: flex-start; }
+  .pf-count { margin-left: 0; }
+}
