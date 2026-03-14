@@ -691,828 +691,210 @@
 </section>
 
 <!-- ═══════════════════════════ PORTAFOLIO DE PROYECTOS ══════════════ -->
-<section id="proyectos" style="background: var(--gris-suave);">
+<section id="proyectos" style="background:#002a17; padding: 5rem 0;">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="tag">Portafolio Estratégico · 2026–2030</span>
-      <h2 class="section-title">Los 50 Proyectos Estratégicos</h2>
+ 
+    <!-- Header -->
+    <div class="section-header reveal" style="margin-bottom:2.5rem">
+      <span class="tag" style="color:var(--oro)">Portafolio Estratégico · 2026–2030</span>
+      <h2 class="section-title" style="color:#fff">Los 50 Proyectos Estratégicos</h2>
       <div class="divider"></div>
-      <p class="section-subtitle" style="max-width:700px">
-        Banco de proyectos interdependientes organizados en cinco misiones.
-        Los marcados con <strong style="color:var(--oro)">★</strong> son proyectos ancla de arranque prioritario 2026–2027.
+      <p style="color:rgba(255,255,255,0.65);font-size:1rem;max-width:720px;line-height:1.75;margin-top:.5rem">
+        El portafolio se organiza en <strong style="color:#fff">cuatro niveles interdependientes</strong>: fundacional, habilitador, tractor e impacto.
+        Los proyectos marcados con <strong style="color:var(--oro)">★</strong> son ancla de arranque prioritario 2026–2027.
       </p>
     </div>
  
-    <!-- Tabs de misión -->
-    <div class="port-missions reveal">
-      <button class="port-mission-btn active" data-mission="todos">🗂 Todos <span>50</span></button>
-      <button class="port-mission-btn" data-mission="Misión 1">🌿 Misión 1 <span>12</span></button>
-      <button class="port-mission-btn" data-mission="Misión 2">🔗 Misión 2 <span>10</span></button>
-      <button class="port-mission-btn" data-mission="Misión 3">⚡ Misión 3 <span>11</span></button>
-      <button class="port-mission-btn" data-mission="Misión 4">🏛️ Misión 4 <span>6</span></button>
-      <button class="port-mission-btn" data-mission="Misión 5">🎓 Misión 5 <span>10</span></button>
-    </div>
+    <!-- Layout principal: sidebar + contenido -->
+    <div class="dash-layout reveal">
  
-    <!-- Filtros nivel + contador -->
-    <div class="port-filters reveal">
-      <div class="pf-levels">
-        <button class="pf-btn active" data-level="todos">Todos los niveles</button>
-        <button class="pf-btn" data-level="Fundacional">Fundacional</button>
-        <button class="pf-btn" data-level="Habilitador">Habilitador</button>
-        <button class="pf-btn" data-level="Tractor">Tractor</button>
-        <button class="pf-btn" data-level="Impacto">Impacto</button>
-      </div>
-      <span class="pf-count" id="portCount">50 proyectos</span>
-    </div>
+      <!-- ── Sidebar ─────────────────────────── -->
+      <aside class="dash-sidebar">
  
-    <!-- Grid de proyectos -->
-    <div class="port-grid" id="portGrid">
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P01</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Plan Maestro Hídrico Santander 2050</h4>
-          <p class="pc-desc">Restaurar 30.000 ha con especies nativas y agroforestería (cacao, café, frutales). 3.000 productores vinculados con asistencia técnica …</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 30–60 miles M</span>
-          <span class="pc-province">📍 Soto Norte · Guanentá · Comunera</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P02</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Fondo Territorial de Pagos por Servicios Ecosistémicos (PSE)</h4>
-          <p class="pc-desc">200 estaciones de monitoreo hidrometeorológico, sísmico y de movimientos en masa con sensores IoT, app de alertas y articulación IDEAM-…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–120 miles M</span>
-          <span class="pc-province">📍 García Rovira · Guanentá · Mares</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P03</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Restauración productiva de cuencas estratégicas</h4>
-          <p class="pc-desc">PTAR del AMB y plantas en San Gil, Barrancabermeja, Vélez y Málaga. Cierre del ciclo hídrico urbano y recuperación de cuerpos de agua.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 25–45 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P04</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Red de monitoreo y alerta temprana multiamenaza</h4>
-          <p class="pc-desc">Delimitar y proteger Santurbán, Almorzadero y Yariguíes con planes de manejo participativos y reconversión productiva para comunidades.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 800–1.200 miles M</span>
-          <span class="pc-province">📍 AMB · San Gil · Barrancabermeja · Véle</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P05</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ PTAR Metropolitana Bucaramanga y PTAR subregionales</h4>
-          <p class="pc-desc">Parque tecnológico regional: separación en fuente, reciclaje, compostaje, biogás y valorización energética para el AMB y provincias.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 40–70 miles M</span>
-          <span class="pc-province">📍 Soto Norte · García Rovira · Yariguíes</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P06</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Protección y reconversión productiva de páramos</h4>
-          <p class="pc-desc">Riego con telemetría, sensores y gestión digital del agua para las provincias de mayor déficit hídrico estacional.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 120–200 miles M</span>
-          <span class="pc-province">📍 AMB · Barrancabermeja</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P07</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Sistema Departamental de Gestión de Residuos Sólidos — Basura Cero</h4>
-          <p class="pc-desc">50 acueductos rurales con economía circular, energía renovable y gobernanza comunitaria. 80.000 beneficiarios.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–150 miles M</span>
-          <span class="pc-province">📍 García Rovira · Guanentá</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P08</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Distritos de Riego de nueva generación (García Rovira y Guanentá)</h4>
-          <p class="pc-desc">Zonificar el territorio según disponibilidad hídrica incorporando los resultados en los 87 POT municipales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 50–90 miles M</span>
-          <span class="pc-province">📍 Vélez · García Rovira · Comunera · Mar</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P09</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de acueductos rurales sostenibles</h4>
-          <p class="pc-desc">Cadenas cortas de valor entre productores campesinos y mercados urbanos, biorefinerías rurales y plataformas digitales de comercializac…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 15–30 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P10</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Sistema Departamental de Ordenamiento Productivo del Agua</h4>
-          <p class="pc-desc">200 huertas comunitarias agroecológicas, bancos de semillas, mercados campesinos digitales y asistencia técnica especializada en las pr…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 60–100 miles M</span>
-          <span class="pc-province">📍 Mares · Magdalena Medio</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P11</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Distrito Agroalimentario Circular del Magdalena Medio</h4>
-          <p class="pc-desc">200 huertas comunitarias agroecológicas, bancos de semillas, mercados campesinos digitales y asistencia técnica especializada en las pr…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 20–40 miles M</span>
-          <span class="pc-province">📍 García Rovira · Comunera</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 1" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(0,104,55,0.1)">
-          <span class="pc-code" style="color:#006837">P12</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de Seguridad Alimentaria y Soberanía Rural — García Rovira y Comunera</h4>
-          <p class="pc-desc">Mejoramiento y pavimentación de vías secundarias y terciarias en Vélez, García Rovira, Comunera y Mares con placas huella y criterios d…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 500–900 miles M</span>
-          <span class="pc-province">📍 Vélez · García Rovira · Comunera · Mar</span>
-          <span class="pc-mission" style="color:#006837">🌿 Misión 1</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P13</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Red Vial de las Provincias — 2.000 km resilientes</h4>
-          <p class="pc-desc">Integrar río-tren-carretera en Barrancabermeja. Rehabilitar ramal férreo La Dorada–Chiriguaná para carga diversificada.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 150–280 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P14</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Fibra Óptica Santander y Aldeas Digitales 5G</h4>
-          <p class="pc-desc">Infraestructura de servicios en ciudades intermedias para descentralizar funciones del AMB y activar economías provinciales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 400–700 miles M</span>
-          <span class="pc-province">📍 Mares · Magdalena Medio</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P15</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Plataforma Logística Multimodal de Barrancabermeja</h4>
-          <p class="pc-desc">Centros físico-digitales en cada provincia: salud, educación, trámites, telemedicina y conectividad. Acceso universal ≤30 minutos.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 200–350 miles M</span>
-          <span class="pc-province">📍 Barbosa · San Gil · Vélez · Barrancabe</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P16</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Fortalecimiento de nodos subregionales (Barbosa, San Gil, Vélez, Barrancabermeja)</h4>
-          <p class="pc-desc">Integrar Metrolínea, ciclorrutas, cables aéreos y tren de cercanías con pago unificado. 20% viajes en modos sostenibles.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 40–70 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P17</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Centros de Servicios Ciudadanos Integrados por Provincias</h4>
-          <p class="pc-desc">Telemedicina especializada para municipios categoría 5 y 6. Hospitales regionales conectados con centros de salud rurales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–150 miles M</span>
-          <span class="pc-province">📍 AMB</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P18</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Sistema integrado de transporte multimodal para el AMB</h4>
-          <p class="pc-desc">7 Consejos Provinciales con recursos propios, monitoreo de brechas en tiempo real y poder de decisión sobre inversiones supramunicipale…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 15–30 miles M</span>
-          <span class="pc-province">📍 Vélez · García Rovira · Comunera · Gua</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P19</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Red Provincial de Salud Digital y Telemedicina</h4>
-          <p class="pc-desc">Renovación de flota pública eléctrica en el AMB y corredores intermunicipales. 500 buses eléctricos y 100 estaciones de carga.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 25–50 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P20</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Consejos Provinciales de Desarrollo con presupuesto participativo</h4>
-          <p class="pc-desc">5.000 viviendas rurales mejoradas y 2.000 hogares reubicados de zonas de alto riesgo no mitigable.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 60–120 miles M</span>
-          <span class="pc-province">📍 AMB · corredores intermunicipales</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P21</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Plan de electrificación vehicular y movilidad sostenible</h4>
-          <p class="pc-desc">5.000 viviendas rurales mejoradas y 2.000 hogares reubicados de zonas de alto riesgo no mitigable.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 100–180 miles M</span>
-          <span class="pc-province">📍 García Rovira · Vélez · Comunera · Mar</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 2" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(21,101,192,0.1)">
-          <span class="pc-code" style="color:#1565c0">P22</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de Vivienda rural resiliente y reubicación de zonas de riesgo</h4>
-          <p class="pc-desc">Transformar la base energética de Barrancabermeja hacia hidrógeno verde, solar industrial y petroquímica avanzada. Incluye Programa de …</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 300–500 miles M</span>
-          <span class="pc-province">📍 Mares · Magdalena Medio</span>
-          <span class="pc-mission" style="color:#1565c0">🔗 Misión 2</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P23</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Distrito de Transición Energética Justa del Magdalena Medio</h4>
-          <p class="pc-desc">50 comunidades energéticas en zonas no interconectadas con paneles solares, biomasa y biogás.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–150 miles M</span>
-          <span class="pc-province">📍 Mares · Barrancabermeja</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P24</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Planta de Hidrógeno Verde — piloto industrial ICP/Ecopetrol</h4>
-          <p class="pc-desc">Parque Tecnológico Guatiguará como centro de I+D en bioinsumos, cosmética sostenible, ingredientes naturales y farmacéutica verde.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 30–60 miles M</span>
-          <span class="pc-province">📍 García Rovira · Vélez · Comunera</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P25</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de Comunidades Energéticas Rurales (solar + biomasa)</h4>
-          <p class="pc-desc">50.000 ha en sistemas regenerativos (cacao, café, ganadería silvopastoril). Mercados de carbono y denominaciones de origen.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 120–200 miles M</span>
-          <span class="pc-province">📍 AMB (Guatiguará)</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P26</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ BioSantander 2050 — Hub de Bioeconomía Avanzada (Guatiguará)</h4>
-          <p class="pc-desc">Petroquímica avanzada, economía circular y manufactura limpia. 30 empresas ancladas y 2.000 empleos directos.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–150 miles M</span>
-          <span class="pc-province">📍 Vélez · Comunera · Guanentá · Mares</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P27</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de Agricultura Regenerativa y Carbono Neutro</h4>
-          <p class="pc-desc">Tecnologías 4.0 en 2.000 mipymes. Incluye Fusión y Escalamiento Empresarial para superar el minifundismo empresarial.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 200–400 miles M</span>
-          <span class="pc-province">📍 Mares · Barrancabermeja</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P28</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Parque Industrial Verde y de Reindustrialización en Barrancabermeja</h4>
-          <p class="pc-desc">Minería de oro artesanal hacia economía circular, sin mercurio, con certificación de sostenibilidad.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 40–80 miles M</span>
-          <span class="pc-province">📍 AMB · Soto · Guanentá</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P29</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa Mipyme 4.0 — Transformación digital y escalamiento empresarial</h4>
-          <p class="pc-desc">Fondo mixto de capital semilla y riesgo para EBT en bioeconomía, energías limpias y economía circular.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 50 EBT creadas; 100.000 M en capital riesgo; 5 fondos activos</span>
-          <span class="pc-province">📍 Soto Norte</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P30</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Minería Circular y Sostenible — Vetas y California</h4>
-          <p class="pc-desc">Cadenas de valor diferenciadas con denominaciones de origen, certificaciones de comercio justo y acceso a mercados internacionales espe…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 60–100 miles M</span>
-          <span class="pc-province">📍 AMB · Barrancabermeja</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P31</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Fondo Santander de Innovación Circular y Empresas de Base Tecnológica</h4>
-          <p class="pc-desc">Posicionar a Santander como destino de inversión en economía verde. Marca-territorio, ruedas de negocios y cooperación multilateral.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 500.000 M en inversión verde; 20 alianzas; marca en 5 mercados</span>
-          <span class="pc-province">📍 Vélez · García Rovira · Mares</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Fundacional">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P32</span>
-          
-          <span class="pc-level" style="background:#bf360c">Fundacional</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Clúster Agroexportador Cacao, Café Especial y Frutales Tropicales</h4>
-          <p class="pc-desc">Posicionar a Santander como destino de inversión en economía verde. Marca-territorio, ruedas de negocios y cooperación multilateral.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 15–30 miles M</span>
-          <span class="pc-province">📍 AMB · Regional</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 3" data-level="Fundacional">
-        <div class="pc-top" style="background:rgba(191,54,12,0.1)">
-          <span class="pc-code" style="color:#bf360c">P33</span>
-          
-          <span class="pc-level" style="background:#bf360c">Fundacional</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Plataforma de Internacionalización y Atracción de Inversión Verde</h4>
-          <p class="pc-desc">Sistema interoperable de datos de los 87 municipios con acceso público, IA para seguimiento de inversiones y Observatorio de Dinámicas …</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 20–40 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#bf360c">⚡ Misión 3</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 4" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(74,20,140,0.1)">
-          <span class="pc-code" style="color:#4a148c">P34</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Plataforma de Gobierno Abierto y Datos Territoriales Santander 2050</h4>
-          <p class="pc-desc">Catastro en 30 municipios y apoyo a los 87 POT con determinantes ambientales, riesgo y criterios Visión 2050.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 5–15 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#4a148c">🏛️ Misión 4</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 4" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(74,20,140,0.1)">
-          <span class="pc-code" style="color:#4a148c">P35</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Consejo de Futuro de Santander — Centro de Pensamiento Estratégico 2050</h4>
-          <p class="pc-desc">Asistencia técnica a 87 municipios en planeación y gestión fiscal. 50 municipios con participación ciudadana digital y rendición de cue…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 30–60 miles M</span>
-          <span class="pc-province">📍 Vélez · García Rovira · Comunera</span>
-          <span class="pc-mission" style="color:#4a148c">🏛️ Misión 4</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 4" data-level="Fundacional">
-        <div class="pc-top" style="background:rgba(74,20,140,0.1)">
-          <span class="pc-code" style="color:#4a148c">P36</span>
-          
-          <span class="pc-level" style="background:#bf360c">Fundacional</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Catastro Multipropósito, POT de segunda generación y Ordenamiento Territorial</h4>
-          <p class="pc-desc">Pacto territorial con Fondo de Coinversión Público-Privada, contratos orientados a resultados adaptativos y mecanismos de continuidad t…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 Pacto firmado; 50 aliados activos; 200.000 M en cofinanciación privada</span>
-          <span class="pc-province">📍 Vélez · García Rovira · Comunera · Mar</span>
-          <span class="pc-mission" style="color:#4a148c">🏛️ Misión 4</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 4" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(74,20,140,0.1)">
-          <span class="pc-code" style="color:#4a148c">P37</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de Fortalecimiento Institucional Municipal y Gobierno Digital</h4>
-          <p class="pc-desc">Fondo mixto de CTeI (50 proyectos) y Laboratorio de Innovación Pública para experimentación de soluciones a problemas públicos complejo…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 Fondo operativo; 50 proyectos I+D+i; 80.000 M; 10 prototipos implementados</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#4a148c">🏛️ Misión 4</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 4" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(74,20,140,0.1)">
-          <span class="pc-code" style="color:#4a148c">P38</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Alianza por Santander — Pacto Territorial Multiactor 2026-2030</h4>
-          <p class="pc-desc">Fondo mixto de CTeI (50 proyectos) y Laboratorio de Innovación Pública para experimentación de soluciones a problemas públicos complejo…</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 25–50 miles M</span>
-          <span class="pc-province">📍 AMB (UIS)</span>
-          <span class="pc-mission" style="color:#4a148c">🏛️ Misión 4</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 4" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(74,20,140,0.1)">
-          <span class="pc-code" style="color:#4a148c">P39</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Sistema de CTeI orientado a misiones y Laboratorio de Innovación Pública</h4>
-          <p class="pc-desc">Centros universitarios técnicos en García Rovira, Vélez, Comunera, Mares y Yariguíes con programas alineados a vocaciones productivas.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–150 miles M</span>
-          <span class="pc-province">📍 García Rovira · Vélez · Comunera · Mar</span>
-          <span class="pc-mission" style="color:#4a148c">🏛️ Misión 4</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P40</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Red de Campus Territoriales de Innovación y Educación Técnica</h4>
-          <p class="pc-desc">2 nuevos programas en IA y ciencia de datos en la UIS con laboratorios especializados y vinculación empresarial.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 30–60 miles M</span>
-          <span class="pc-province">📍 AMB · Provincial</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Tractor">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P41</span>
-          
-          <span class="pc-level" style="background:#006837">Tractor</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Programa Talento Santander Global 2050 — becas, retorno y primer empleo</h4>
-          <p class="pc-desc">10.000 estudiantes con nivel B1 y 1.000 docentes formados al 2030 en inglés y competencias interculturales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 20–40 miles M</span>
-          <span class="pc-province">📍 AMB (UIS)</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P43</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Centro de Innovación Educativa Digital y Formación en IA y Ciencia de Datos</h4>
-          <p class="pc-desc">Centro interdisciplinario para cuidado, gerontecnología y salud mental. 5.000 personas formadas y 10 proyectos de investigación.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 15–30 miles M</span>
-          <span class="pc-province">📍 AMB · Soto · Guanentá</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Habilitador">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P44</span>
-          
-          <span class="pc-level" style="background:#1565c0">Habilitador</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Programa de Bilingüismo y Competencias Globales</h4>
-          <p class="pc-desc">Formación técnica en energías renovables, hidrógeno, eficiencia energética y bioprocesos. Articulada al Distrito de Transición.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 25–45 miles M</span>
-          <span class="pc-province">📍 AMB · Comunera · Vélez</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P45</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Centro de Formación en Economía del Cuidado y Economía Plateada</h4>
-          <p class="pc-desc">Acceso a tierra, financiación, asistencia técnica y redes de comercialización para jóvenes rurales. 2.000 vinculados al 2030.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 30–60 miles M</span>
-          <span class="pc-province">📍 Mares · Barrancabermeja · AMB</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P46</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Escuela Departamental de Habilidades para la Transición Energética</h4>
-          <p class="pc-desc">Infraestructura de calidad, experiencias innovadoras, sostenibilidad ambiental y encadenamiento cultural y gastronómico.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 40–80 miles M</span>
-          <span class="pc-province">📍 García Rovira · Vélez · Guanentá · Com</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P47</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Programa de Relevo Generacional en el Campo</h4>
-          <p class="pc-desc">Centro de interpretación de la biodiversidad, transición energética y museo vivo de la bioeconomía.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 80–150 miles M</span>
-          <span class="pc-province">📍 Guanentá · García Rovira · Soto</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P48</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">★ Corredor Turístico de Alto Valor — Chicamocha, San Gil, Barichara, Mesa de Los Santos</h4>
-          <p class="pc-desc">Industrias creativas, patrimonio cultural, cine, producción audiovisual y circuitos culturales provinciales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 30–60 miles M</span>
-          <span class="pc-province">📍 Soto · Guanentá</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P49</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Geoparque Chicamocha — Integración tecnológica, científica y cultural</h4>
-          <p class="pc-desc">Industrias creativas, patrimonio cultural, cine, producción audiovisual y circuitos culturales provinciales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 20–40 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-      <div class="port-card reveal" data-mission="Misión 5" data-level="Impacto">
-        <div class="pc-top" style="background:rgba(136,14,79,0.1)">
-          <span class="pc-code" style="color:#880e4f">P50</span>
-          
-          <span class="pc-level" style="background:#555555">Impacto</span>
-        </div>
-        <div class="pc-body">
-          <h4 class="pc-name">Plan de Cultura, Creatividad y Economía Naranja — Santander Viva</h4>
-          <p class="pc-desc">Industrias creativas, patrimonio cultural, cine, producción audiovisual y circuitos culturales provinciales.</p>
-        </div>
-        <div class="pc-footer">
-          <span class="pc-budget">💰 20–40 miles M</span>
-          <span class="pc-province">📍 Todas las provincias</span>
-          <span class="pc-mission" style="color:#880e4f">🎓 Misión 5</span>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><span class="ds-n">50</span><span class="ds-l">Proyectos estratégicos</span></div>
+          <div class="dash-stat"><span class="ds-n">5</span><span class="ds-l">Misiones</span></div>
+          <div class="dash-stat"><span class="ds-n">8</span><span class="ds-l">Motores</span></div>
+          <div class="dash-stat"><span class="ds-n">5</span><span class="ds-l">Rutas críticas</span></div>
+        </div>
+ 
+        <div class="dash-group-title">Filtrar por nivel</div>
+        <div class="dash-chip-list" id="levelFilters">
+          <button class="dash-chip active" data-level="all">Todos</button>
+          <button class="dash-chip" data-level="fundacional">Fundacional</button>
+          <button class="dash-chip" data-level="habilitador">Habilitador</button>
+          <button class="dash-chip" data-level="tractor">Tractor</button>
+          <button class="dash-chip" data-level="impacto">Impacto</button>
+        </div>
+ 
+        <div class="dash-group-title">Filtrar por misión</div>
+        <div class="dash-chip-list" id="missionFilters">
+          <button class="dash-chip active" data-mission="all">Todas</button>
+          <button class="dash-chip" data-mission="M1">🌿 M1</button>
+          <button class="dash-chip" data-mission="M2">🔗 M2</button>
+          <button class="dash-chip" data-mission="M3">⚡ M3</button>
+          <button class="dash-chip" data-mission="M4">🏛 M4</button>
+          <button class="dash-chip" data-mission="M5">🎓 M5</button>
+        </div>
+ 
+        <div class="dash-group-title">Rutas críticas</div>
+        <div class="dash-chip-list" id="routeFilters">
+          <button class="dash-route-btn" data-route="rc1">RC1 · Agua y soberanía</button>
+          <button class="dash-route-btn" data-route="rc2">RC2 · Energía justa</button>
+          <button class="dash-route-btn" data-route="rc3">RC3 · Conectividad</button>
+          <button class="dash-route-btn" data-route="rc4">RC4 · Bioeconomía</button>
+          <button class="dash-route-btn" data-route="rc5">RC5 · Talento y cuidado</button>
+          <button class="dash-route-btn active" data-route="all">Ver todo</button>
+        </div>
+ 
+        <div class="dash-group-title">Leyenda de niveles</div>
+        <div class="dash-legend">
+          <div class="dl-item"><span class="dl-dot" style="background:#4caf50"></span>Fundacional</div>
+          <div class="dl-item"><span class="dl-dot" style="background:#42a5f5"></span>Habilitador</div>
+          <div class="dl-item"><span class="dl-dot" style="background:#c9a84c"></span>Tractor</div>
+          <div class="dl-item"><span class="dl-dot" style="background:#a5d6a7"></span>Impacto</div>
+        </div>
+ 
+        <p class="dash-note">El portafolio no es una lista de 50 proyectos. Es una arquitectura de inversiones donde los proyectos fundacionales habilitan cadenas de transformación sistémica.</p>
+      </aside>
+ 
+      <!-- ── Contenido principal ─────────────── -->
+      <div class="dash-main">
+ 
+        <!-- Mapa radial de nodos -->
+        <div class="dash-card dash-rings-card">
+          <div class="dash-card-label">Arquitectura radial · haz clic en un nodo · filtra por ruta crítica</div>
+          <div class="dash-rings-wrap" id="ringsWrap">
+            <div class="dash-ring dash-r1"></div>
+            <div class="dash-ring dash-r2"></div>
+            <div class="dash-ring dash-r3"></div>
+            <div class="dash-center-orb" id="centerOrb">
+              <b>Núcleo del sistema</b>
+              <span>Gobernanza, datos<br>y continuidad</span>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Tabs de detalle -->
+        <div class="dash-card dash-detail-card">
+          <div class="dash-tabs" id="dashTabs">
+            <button class="dash-tab active" data-tab="clusters">Clústeres</button>
+            <button class="dash-tab" data-tab="presupuesto">Magnitudes</button>
+            <button class="dash-tab" data-tab="niveles">Niveles</button>
+          </div>
+ 
+          <!-- Panel clústeres -->
+          <div class="dash-panel active" id="dash-panel-clusters">
+            <div class="dash-clusters-grid">
+              <div class="dash-cluster">
+                <h4>Gobernanza adaptativa</h4>
+                <p>Núcleo fundacional del sistema. Sin este clúster, el resto pierde viabilidad institucional, financiera o técnica.</p>
+                <div class="dash-tags"><span>P34</span><span>P35</span><span>P38</span><span>P36</span><span>P37</span><span>P39</span></div>
+              </div>
+              <div class="dash-cluster">
+                <h4>Seguridad hídrica</h4>
+                <p>Toda la Misión 1 más el relevo rural. Ruta más larga y sistémica del banco: agua, cuencas, alimentos y adaptación climática.</p>
+                <div class="dash-tags"><span>P01–P12</span><span>P47</span></div>
+              </div>
+              <div class="dash-cluster">
+                <h4>Conectividad territorial</h4>
+                <p>Vías + fibra como palancas duales. Integra provincias, activa servicios y destraba la desigualdad territorial.</p>
+                <div class="dash-tags"><span>P13–P18</span><span>P20</span><span>P22</span></div>
+              </div>
+              <div class="dash-cluster">
+                <h4>Transición energética</h4>
+                <p>Reconversión justa de Barrancabermeja y el Magdalena Medio con transición laboral y sandbox regulatorio.</p>
+                <div class="dash-tags"><span>P21</span><span>P23–P25</span><span>P28</span><span>P46</span></div>
+              </div>
+              <div class="dash-cluster">
+                <h4>Bioeconomía</h4>
+                <p>Sofisticación productiva basada en biodiversidad, conocimiento e internacionalización verde. BioSantander es el nodo articulador.</p>
+                <div class="dash-tags"><span>P26–P33</span></div>
+              </div>
+              <div class="dash-cluster">
+                <h4>Demografía, cuidado y talento</h4>
+                <p>Conectividad + formación + cuidado como respuesta al envejecimiento, la fuga de talento y el relevo generacional.</p>
+                <div class="dash-tags"><span>P19</span><span>P40–P41</span><span>P43–P45</span><span>P47</span></div>
+              </div>
+              <div class="dash-cluster dash-cluster--full">
+                <h4>Turismo y economía cultural</h4>
+                <p>Diversificación económica desde la identidad territorial, el paisaje y la creatividad. Resultado de la conectividad y la cultura acumulada.</p>
+                <div class="dash-tags"><span>P48</span><span>P49</span><span>P50</span></div>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Panel presupuesto -->
+          <div class="dash-panel" id="dash-panel-presupuesto">
+            <p style="color:rgba(255,255,255,0.6);font-size:.9rem;margin-bottom:1.25rem">
+              Orden de magnitud estimado. El portafolio total se ubica entre
+              <strong style="color:#fff">COP 4.510 y 7.820 miles de millones</strong>.
+            </p>
+            <div class="dash-budget-grid">
+              <div class="dash-budget-box" style="border-top-color:#006837">
+                <div class="dbb-m">M1 · Naturaleza para la Vida</div>
+                <div class="dbb-v">1.420–2.335</div>
+                <div class="dbb-t">miles M COP · 25% del total · PTAR, restauración, residuos, riego</div>
+              </div>
+              <div class="dash-budget-box" style="border-top-color:#42a5f5">
+                <div class="dbb-m">M2 · Santander Conectado</div>
+                <div class="dbb-v">1.555–2.750</div>
+                <div class="dbb-t">miles M COP · 28% del total · Vías, logística MM, nodos, fibra</div>
+              </div>
+              <div class="dash-budget-box" style="border-top-color:#c9a84c">
+                <div class="dbb-m">M3 · Reconversión Productiva</div>
+                <div class="dbb-v">1.075–1.870</div>
+                <div class="dbb-t">miles M COP · 20% del total · Distrito energía, BioSantander</div>
+              </div>
+              <div class="dash-budget-box" style="border-top-color:#a78bfa">
+                <div class="dbb-m">M4 · Gobernanza Territorial</div>
+                <div class="dbb-v">90–180</div>
+                <div class="dbb-t">miles M COP · 2% del total · Datos, catastro, CTeI</div>
+              </div>
+              <div class="dash-budget-box" style="border-top-color:#f472b6">
+                <div class="dbb-m">M5 · Educación y Talento</div>
+                <div class="dbb-v">370–685</div>
+                <div class="dbb-t">miles M COP · 8% del total · Campus, vivienda rural, turismo</div>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Panel niveles -->
+          <div class="dash-panel" id="dash-panel-niveles">
+            <div class="dash-clusters-grid">
+              <div class="dash-cluster" style="border-top-color:#4caf50">
+                <h4 style="color:#4caf50">Fundacional · 3 proyectos</h4>
+                <p>P34, P35 y P38 crean las condiciones de posibilidad del sistema completo. Deben arrancar antes que cualquier otro proyecto.</p>
+              </div>
+              <div class="dash-cluster" style="border-top-color:#42a5f5">
+                <h4 style="color:#42a5f5">Habilitador · 11 proyectos</h4>
+                <p>Infraestructuras, plataformas o capacidades que habilitan la ejecución y escalamiento de múltiples proyectos materiales.</p>
+              </div>
+              <div class="dash-cluster" style="border-top-color:#c9a84c">
+                <h4 style="color:#c9a84c">Tractor · 25 proyectos</h4>
+                <p>Modifican directamente la estructura territorial, productiva, ambiental o social. Son los de mayor volumen de inversión.</p>
+              </div>
+              <div class="dash-cluster" style="border-top-color:#a5d6a7">
+                <h4 style="color:#a5d6a7">Impacto · 11 proyectos</h4>
+                <p>Expresan resultados visibles en bienestar, sofisticación productiva, cohesión territorial o posicionamiento regional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Rutas críticas -->
+        <div class="dash-card dash-route-card" id="routeCard">
+          <h4 id="dashRouteTitle" style="color:#fff;font-family:var(--fuente-display);font-size:1.25rem;margin:0 0 .5rem">Rutas críticas de implementación</h4>
+          <p id="dashRouteText" style="color:rgba(255,255,255,0.6);font-size:.88rem;line-height:1.7;margin:0 0 1rem">
+            Selecciona una ruta crítica para ver la secuencia causal y su lógica estratégica.
+          </p>
+          <div class="dash-flow" id="dashRouteFlow"></div>
+          <p class="dash-note" id="dashRouteLogic" style="margin-top:.75rem">Estas rutas no son cronogramas. Son secuencias causales a través de las cuales los proyectos se activan mutuamente para producir transformaciones sistémicas.</p>
+        </div>
+ 
+      </div><!-- /dash-main -->
+    </div><!-- /dash-layout -->
+  </div><!-- /container -->
 </section>
       
 <!-- ═══════════════════════════ 6. DOCUMENTOS ════════════════════════ -->
@@ -1637,6 +1019,161 @@
 
 <!-- ═══════════════════════════ SCRIPTS ══════════════════════════════ -->
 <script>
+/* ── Dashboard portafolio de proyectos ───── */
+(function() {
+  const nodes = [
+    {id:'P38',title:'Alianza por Santander',level:'fundacional',mission:'M4',ring:0,angle:0,route:['rc1','rc2','rc3','rc4'],detail:'Pacto territorial multiactor y fondo de coinversión público-privada.',anchor:true},
+    {id:'P34',title:'Plataforma de Datos',level:'fundacional',mission:'M4',ring:1,angle:270,route:['rc1','rc3'],detail:'Sistema interoperable de datos de los 87 municipios.',anchor:true},
+    {id:'P35',title:'Consejo de Futuro',level:'fundacional',mission:'M4',ring:1,angle:90,route:['rc4'],detail:'Continuidad estratégica, sandbox y actualización prospectiva.',anchor:true},
+    {id:'P14',title:'Fibra Óptica Santander',level:'habilitador',mission:'M2',ring:2,angle:330,route:['rc3','rc5'],detail:'Conectividad digital y aldeas 5G para todo el territorio.'},
+    {id:'P13',title:'Red Vial Provincias',level:'habilitador',mission:'M2',ring:2,angle:30,route:['rc3'],detail:'2.000 km resilientes para integrar provincias y bajar costos logísticos.'},
+    {id:'P36',title:'Catastro + POT',level:'habilitador',mission:'M4',ring:2,angle:145,route:['rc1'],detail:'Ordenamiento territorial de segunda generación y recaudo.'},
+    {id:'P37',title:'Fortalecimiento Municipal',level:'habilitador',mission:'M4',ring:2,angle:215,route:['rc5'],detail:'Capacidad técnica, gobierno digital y continuidad local.'},
+    {id:'P39',title:'CTeI + Innovación',level:'habilitador',mission:'M4',ring:2,angle:270,route:['rc4'],detail:'Sistema de CTeI orientado a misiones y laboratorio de innovación pública.'},
+    {id:'P01',title:'Plan Maestro Hídrico',level:'tractor',mission:'M1',ring:3,angle:0,route:['rc1'],detail:'Gestión hídrica con enfoque de cuenca en siete sistemas estratégicos.',anchor:true},
+    {id:'P23',title:'Distrito Transición Energética',level:'tractor',mission:'M3',ring:3,angle:58,route:['rc2'],detail:'Reconversión justa del Magdalena Medio con transición laboral.',anchor:true},
+    {id:'P26',title:'BioSantander 2050',level:'tractor',mission:'M3',ring:3,angle:115,route:['rc4'],detail:'Hub de bioeconomía avanzada en Guatiguará.',anchor:true},
+    {id:'P16',title:'Nodos Subregionales',level:'tractor',mission:'M2',ring:3,angle:172,route:['rc3','rc5'],detail:'Fortalecimiento de ciudades intermedias para descentralizar funciones.'},
+    {id:'P40',title:'Campus Territoriales',level:'habilitador',mission:'M5',ring:3,angle:228,route:['rc3','rc5'],detail:'Centros técnicos territoriales alineados a vocaciones productivas.',anchor:true},
+    {id:'P27',title:'Agricultura Regenerativa',level:'tractor',mission:'M3',ring:3,angle:286,route:['rc1','rc4'],detail:'50.000 ha en sistemas regenerativos y carbono neutro.'},
+    {id:'P48',title:'Corredor Turístico',level:'impacto',mission:'M5',ring:3,angle:340,route:['rc3'],detail:'Turismo de alto valor entre Chicamocha, San Gil y Barichara.',anchor:true},
+    {id:'P12',title:'Soberanía Alimentaria',level:'impacto',mission:'M1',ring:3,angle:18,route:['rc1'],detail:'Huertas, semillas y mercados campesinos en provincias vulnerables.'},
+    {id:'P25',title:'Energías Rurales',level:'impacto',mission:'M3',ring:3,angle:82,route:['rc2'],detail:'50 comunidades energéticas rurales con solar, biomasa y biogás.'},
+    {id:'P32',title:'Clúster Agroexportador',level:'impacto',mission:'M3',ring:3,angle:130,route:['rc4'],detail:'Cacao, café y frutales con denominaciones de origen y exportación.',anchor:true},
+    {id:'P41',title:'Talento Global',level:'impacto',mission:'M5',ring:3,angle:205,route:['rc5'],detail:'Becas, retorno y primer empleo para retener y atraer jóvenes.',anchor:true},
+    {id:'P45',title:'Economía del Cuidado',level:'impacto',mission:'M5',ring:3,angle:248,route:['rc5'],detail:'Centro de cuidado, gerontecnología y salud mental territorial.'},
+    {id:'P47',title:'Relevo Rural',level:'impacto',mission:'M1',ring:3,angle:305,route:['rc1','rc3','rc5'],detail:'Acceso a tierra, financiación y redes de comercialización para jóvenes.',anchor:true}
+  ];
+ 
+  const routeMap = {
+    rc1:{title:'RC1 · Seguridad Hídrica y Soberanía Alimentaria',text:'Sin gobernanza y datos no hay gestión del agua; sin gestión del agua no hay base ecológica para ningún otro motor. Es la ruta más larga y sistémica del banco.',steps:['P38 Alianza','P34 Datos','P01 Plan Hídrico','P02 PSE + P03 Restauración','P27 Agricultura regenerativa','P11 Distrito agroalimentario + P47 Relevo rural']},
+    rc2:{title:'RC2 · Transición Energética Justa del Magdalena Medio',text:'Responde a la pregunta más crítica del territorio: cómo pasar de la dependencia fósil a una nueva economía energética sin fractura social.',steps:['P38 Alianza','P23 Distrito de transición','P24 Hidrógeno + P46 Escuela de habilidades','P28 Parque industrial verde','P25 Comunidades energéticas rurales']},
+    rc3:{title:'RC3 · Conectividad Territorial y Cierre de Brechas',text:'La doble desconexión física y digital es el principal reproductor de la desigualdad territorial. Vías + fibra juntas potencian toda la transformación provincial.',steps:['P38 Alianza','P13 Red vial + P14 Fibra óptica','P16 Nodos + P17 Centros + P19 Telemedicina + P40 Campus','P47 Relevo rural + P48 Turismo','Cohesión territorial']},
+    rc4:{title:'RC4 · Sofisticación Productiva y Bioeconomía',text:'Rompe la trampa de baja complejidad productiva. Convierte conocimiento en estructura económica territorial con BioSantander como nodo articulador.',steps:['P39 CTeI + innovación','P26 BioSantander','P27 Agricultura + P29 Mipyme 4.0 + P31 Fondo','P32 Clúster agroexportador','P33 Internacionalización verde']},
+    rc5:{title:'RC5 · Demografía, Cuidado y Retención de Talento',text:'Gestiona el envejecimiento y la fuga de talento. Conectividad + formación + cuidado son las tres condiciones para mantener población productiva en el territorio.',steps:['P14 Fibra + P40 Campus + P16 Nodos','P41 Talento global + P44 Bilingüismo + P19 Telemedicina + P45 Cuidado','P47 Relevo generacional']}
+  };
+ 
+  const levelClass = {fundacional:'dn-fund',habilitador:'dn-hab',tractor:'dn-tract',impacto:'dn-imp'};
+ 
+  const wrap = document.getElementById('ringsWrap');
+  if (!wrap) return;
+ 
+  const radii = {0:0,1:130,2:195,3:255};
+ 
+  function polar(cx,cy,r,angle) {
+    const rad = (angle-90)*Math.PI/180;
+    return {x:cx+r*Math.cos(rad), y:cy+r*Math.sin(rad)};
+  }
+ 
+  const nodeEls = {};
+  let currentLevel = 'all';
+  let currentRoute = 'all';
+  let currentMission = 'all';
+ 
+  function buildNodes() {
+    const cx = wrap.clientWidth/2;
+    const cy = wrap.clientHeight/2;
+    nodes.forEach(n => {
+      const pos = polar(cx, cy, radii[n.ring], n.angle);
+      const div = document.createElement('div');
+      div.className = 'dash-node ' + (levelClass[n.level]||'');
+      div.dataset.level = n.level;
+      div.dataset.mission = n.mission;
+      div.dataset.routes = n.route.join(',');
+      div.style.left = (pos.x-55)+'px';
+      div.style.top  = (pos.y-22)+'px';
+      const anchor = n.anchor ? '<span style="color:var(--oro);font-size:.65rem">★</span> ' : '';
+      div.innerHTML = '<span class="nd-code">'+n.id+'</span>'+anchor+n.title;
+      div.addEventListener('click', () => focusNode(n));
+      wrap.appendChild(div);
+      nodeEls[n.id] = div;
+    });
+  }
+ 
+  function focusNode(n) {
+    Object.values(nodeEls).forEach(el=>el.classList.remove('active'));
+    nodeEls[n.id].classList.add('active');
+    const orb = document.getElementById('centerOrb');
+    orb.innerHTML = '<b>'+n.id+'</b><span>'+n.title+'</span><span style="margin-top:5px;font-size:.65rem;color:rgba(255,255,255,0.45)">'+n.detail+'</span>';
+  }
+ 
+  function applyFilters() {
+    nodes.forEach(n => {
+      const el = nodeEls[n.id];
+      if (!el) return;
+      const lm = currentLevel==='all' || n.level===currentLevel;
+      const rm = currentRoute==='all' || n.route.includes(currentRoute);
+      const mm = currentMission==='all' || n.mission===currentMission;
+      el.classList.toggle('dim', !(lm&&rm&&mm));
+    });
+  }
+ 
+  // Level filters
+  document.querySelectorAll('#levelFilters .dash-chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#levelFilters .dash-chip').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLevel=btn.dataset.level;
+      applyFilters();
+    });
+  });
+ 
+  // Mission filters
+  document.querySelectorAll('#missionFilters .dash-chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#missionFilters .dash-chip').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentMission=btn.dataset.mission;
+      applyFilters();
+    });
+  });
+ 
+  // Route filters
+  document.querySelectorAll('#routeFilters .dash-route-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#routeFilters .dash-route-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentRoute=btn.dataset.route;
+      if(currentRoute==='all'){
+        document.getElementById('dashRouteTitle').textContent='Rutas críticas de implementación';
+        document.getElementById('dashRouteText').textContent='Selecciona una ruta crítica para ver la secuencia causal y su lógica estratégica.';
+        document.getElementById('dashRouteFlow').innerHTML='';
+        document.getElementById('dashRouteLogic').textContent='Estas rutas no son cronogramas. Son secuencias causales a través de las cuales los proyectos se activan mutuamente.';
+      } else {
+        renderRoute(currentRoute);
+      }
+      applyFilters();
+    });
+  });
+ 
+  function renderRoute(key) {
+    const r=routeMap[key];
+    document.getElementById('dashRouteTitle').textContent=r.title;
+    document.getElementById('dashRouteText').textContent=r.text;
+    const flow=document.getElementById('dashRouteFlow');
+    flow.innerHTML='';
+    r.steps.forEach((s,i)=>{
+      const step=document.createElement('div');
+      step.className='dash-step'; step.textContent=s; flow.appendChild(step);
+      if(i<r.steps.length-1){const arr=document.createElement('span');arr.className='dash-arrow';arr.textContent='→';flow.appendChild(arr);}
+    });
+    document.getElementById('dashRouteLogic').textContent='Ruta activa: los nodos asociados se resaltan en el mapa radial.';
+  }
+ 
+  // Tabs
+  document.querySelectorAll('#dashTabs .dash-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('#dashTabs .dash-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.dash-panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById('dash-panel-'+tab.dataset.tab).classList.add('active');
+    });
+  });
+ 
+  // Build after layout
+  setTimeout(()=>{ buildNodes(); focusNode(nodes[0]); }, 120);
+})();
+ 
 /* ── Carrusel hero ────────────────────────── */
 (function() {
   const slides  = Array.from(document.querySelectorAll('.carousel-slide'));
