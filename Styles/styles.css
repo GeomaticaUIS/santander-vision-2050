@@ -2346,11 +2346,7 @@ footer {
 
 /* Rings visualization */
 .dash-rings-card { padding-bottom: 1.25rem; }
-.dash-rings-wrap {
-  position: relative;
-  height: 520px;
-  margin: 0.5rem 0;
-}
+
 
 .dash-ring {
   position: absolute;
@@ -2517,7 +2513,7 @@ footer {
   .dash-sidebar { position: static; }
   .dash-clusters-grid { grid-template-columns: 1fr; }
   .dash-cluster--full { grid-column: 1; }
-  .dash-rings-wrap { height: 420px; overflow: hidden; }
+  
   .dash-node { width: 96px; font-size: 10px; }
 }
 @media (max-width: 560px) {
@@ -3417,4 +3413,32 @@ footer {
 @media (max-width: 700px) {
   .lbt-head, .lbt-row { grid-template-columns: 1fr; gap: 0.2rem; }
   .lbt-head span:not(:first-child), .lbt-row span:not(:first-child) { font-size: 0.75rem; padding-left: 0.5rem; }
+}
+
+/* ── Ring 4 (anillo exterior 49 proyectos) ── */
+.dash-r4 { width: 630px; height: 630px; }
+
+
+@media (max-width: 960px) {
+  
+}
+
+
+/* ── Rings wrap & anillos — 49 proyectos ─── */
+.dash-rings-wrap {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: visible;
+}
+
+.dash-ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); border-radius: 50%; border: 1px dashed rgba(255,255,255,0.1); pointer-events: none; }
+.dash-r1 { width: 210px;  height: 210px; }
+.dash-r2 { width: 350px;  height: 350px; }
+.dash-r3 { width: 510px;  height: 510px; }
+.dash-r4 { width: 660px;  height: 660px; }
+
+@media (max-width: 960px) {
+  .dash-rings-wrap { height: 560px; overflow: hidden; }
+  .dash-node { width: 88px; font-size: 9px; }
 }
