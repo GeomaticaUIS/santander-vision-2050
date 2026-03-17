@@ -2710,3 +2710,711 @@ footer {
 
 .arq-dpanel { display: none; animation: fadeSlide 0.3s ease; }
 .arq-dpanel.active { display: block; }
+
+/* ═══════════════════════════════════════════
+   LABORATORIOS VIVOS TERRITORIALES
+   ═══════════════════════════════════════════ */
+
+/* ── Las 3 capas ─────────────────────────── */
+.lab-capas {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 0.5rem;
+  background: var(--gris-suave);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0,104,55,0.1);
+}
+
+.lab-capa {
+  flex: 1;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--blanco);
+  transition: var(--trans);
+}
+.lab-capa:hover { background: var(--verde-pálido); }
+
+.lab-capa-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.lab-capa h4 {
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.lab-capa p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.lab-capa-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 0.25rem;
+  font-size: 1.4rem;
+  color: var(--verde-menta);
+  background: var(--gris-suave);
+  font-weight: 700;
+}
+
+.lab-capas-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris-medio);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Grid de laboratorios ────────────────── */
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── Card de laboratorio ─────────────────── */
+.lab-card-v2 {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+  border: 1px solid rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  transition: var(--trans);
+}
+.lab-card-v2:hover {
+  box-shadow: var(--sombra-lg);
+  transform: translateY(-4px);
+}
+
+/* Header coloreado */
+.lab-card-header {
+  background: linear-gradient(135deg, var(--lc), var(--lc2));
+  padding: 1.35rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.lab-badge {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-family: var(--fuente-display);
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.lab-card-htitle h3 {
+  font-family: var(--fuente-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.2rem;
+  line-height: 1.25;
+}
+.lab-card-htitle span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.72);
+  font-style: italic;
+}
+
+/* Meta row */
+.lab-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--gris-suave);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.lab-card-meta span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+/* Tags */
+.lab-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.lab-card-tags span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+  background: var(--verde-pálido);
+  border: 1px solid rgba(0,104,55,0.15);
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+}
+
+/* Items list */
+.lab-card-items {
+  list-style: none;
+  padding: 1rem 1.25rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+.lab-card-items li {
+  font-size: 0.83rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+  padding-left: 1rem;
+  position: relative;
+}
+.lab-card-items li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--verde-oscuro);
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+/* Visión/hipótesis al pie */
+.lab-card-vision {
+  margin: 0 1.25rem 1.25rem;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(135deg, var(--verde-pálido), #f1f8e9);
+  border-left: 3px solid var(--verde-oscuro);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--verde-oscuro);
+  line-height: 1.65;
+}
+
+/* UAA — card especial ancho completo */
+.lab-card-uaa {
+  grid-column: span 3;
+  flex-direction: row;
+  align-items: stretch;
+}
+.lab-card-uaa .lab-card-header {
+  min-width: 240px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lab-uaa-text {
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  line-height: 1.8;
+  margin: 0;
+  flex: 1;
+}
+.lab-uaa-text strong { color: var(--verde-oscuro); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 1100px) {
+  .lab-grid { grid-template-columns: repeat(2, 1fr); }
+  .lab-card-uaa { grid-column: span 2; }
+}
+@media (max-width: 700px) {
+  .lab-capas { flex-direction: column; }
+  .lab-capa-arrow { padding: 0.25rem 1.5rem; transform: rotate(90deg); }
+  .lab-grid { grid-template-columns: 1fr; }
+  .lab-card-uaa { grid-column: 1; flex-direction: column; }
+  .lab-card-uaa .lab-card-header { min-width: auto; }
+}
+
+
+
+/* ═══════════════════════════════════════════
+   LABORATORIOS VIVOS TERRITORIALES
+   ═══════════════════════════════════════════ */
+
+/* ── Tres capas ──────────────────────────── */
+.lab-capas {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 3rem;
+  background: var(--blanco);
+  border: 1px solid rgba(0,104,55,0.1);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+}
+
+.lab-capa {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-right: 1px solid rgba(0,104,55,0.08);
+  background: var(--blanco);
+}
+.lab-capa:last-child { border-right: none; }
+
+.lab-capa--highlight {
+  background: var(--verde-pálido);
+  border-left: 3px solid var(--verde-oscuro);
+  border-right: 3px solid var(--verde-oscuro);
+}
+
+.lab-capa-sep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  font-size: 1.4rem;
+  color: rgba(0,104,55,0.3);
+  font-weight: 300;
+  background: var(--blanco);
+}
+
+.lab-capa-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.7rem;
+  border-radius: 50px;
+  width: fit-content;
+}
+.lct--gray  { background: var(--gris-suave); color: var(--gris-medio); }
+.lct--green { background: var(--verde-pálido); color: var(--verde-oscuro); }
+.lct--gold  { background: rgba(201,168,76,0.15); color: #7a5800; }
+
+.lab-capa h4 {
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.lab-capa p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.lab-capa-modo {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gris-medio);
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(0,104,55,0.08);
+}
+.lab-capa--highlight .lab-capa-modo { color: var(--verde-oscuro); }
+
+/* ── Tabs de laboratorio ─────────────────── */
+.lab-tabs-wrap {
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lab-tabs {
+  display: flex;
+  gap: 0.4rem;
+  border-bottom: 2px solid rgba(0,104,55,0.12);
+  padding-bottom: 0;
+  min-width: max-content;
+}
+
+.lab-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background: transparent;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: var(--trans);
+  border-radius: 6px 6px 0 0;
+  white-space: nowrap;
+}
+.lab-tab:hover { color: var(--texto); background: rgba(0,104,55,0.05); }
+.lab-tab.active {
+  color: var(--verde-oscuro);
+  border-bottom-color: var(--verde-oscuro);
+  background: transparent;
+}
+
+.lab-tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Panel del laboratorio ───────────────── */
+.lab-panel {
+  display: none;
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-md);
+  animation: fadeSlide 0.3s ease;
+}
+.lab-panel.active { display: block; }
+
+/* Cabecera coloreada */
+.lab-header {
+  background: linear-gradient(135deg, var(--lg), var(--lc));
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.75rem;
+}
+
+.lb-left { flex-shrink: 0; }
+
+.lb-badge {
+  width: 54px;
+  height: 54px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.lb-right { flex: 1; display: flex; flex-direction: column; gap: 0.65rem; }
+
+.lb-meta {
+  font-size: 0.73rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.03em;
+}
+
+.lb-title {
+  font-family: var(--fuente-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+.lb-title small {
+  display: block;
+  font-size: 0.72em;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+  margin-top: 0.25rem;
+}
+
+.lb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.lb-chips span {
+  font-size: 0.69rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.82);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 50px;
+  padding: 0.22rem 0.7rem;
+  background: rgba(255,255,255,0.08);
+}
+
+/* Cuerpo blanco */
+.lab-body {
+  background: var(--blanco);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.lb-desc {
+  font-size: 1rem;
+  color: var(--texto-suave);
+  line-height: 1.8;
+  border-left: 3px solid var(--verde-oscuro);
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+/* Grid de campos */
+.lb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.lb-field {
+  background: var(--gris-suave);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+}
+.lb-field--full { grid-column: 1 / -1; }
+
+.lb-field-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.35rem;
+}
+.lb-field-val {
+  font-size: 0.84rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+}
+
+/* Experimentos */
+.lb-exps-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris-medio);
+}
+
+.lb-exps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.lb-exp {
+  background: var(--gris-suave);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  border: 1.5px solid transparent;
+  transition: var(--trans);
+}
+.lb-exp:hover {
+  border-color: var(--verde-oscuro);
+  background: var(--verde-pálido);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-sm);
+}
+
+.lb-exp h5 {
+  font-family: var(--fuente-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--texto);
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+.lb-exp p {
+  font-size: 0.81rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .lab-capas { grid-template-columns: 1fr; }
+  .lab-capa-sep { display: none; }
+  .lab-capa--highlight { border: 2px solid var(--verde-oscuro); }
+  .lab-header { flex-direction: column; gap: 1rem; padding: 1.75rem; }
+  .lb-grid { grid-template-columns: 1fr; }
+  .lab-body { padding: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .lb-exps { grid-template-columns: 1fr; }
+  .lab-tab { font-size: 0.75rem; padding: 0.55rem 0.8rem; }
+}
+
+/* ── Tabla umbrales de escala/cierre ─────── */
+.lb-thresh {
+  background: #fff8f6;
+  border: 1px solid rgba(191,54,12,0.12);
+  border-radius: var(--radio);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lb-thresh-title {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #bf360c;
+}
+
+.lb-thresh-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.07);
+}
+
+.lbt-head {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.5fr;
+  background: var(--gris-suave);
+  padding: 0.55rem 0.9rem;
+  gap: 1rem;
+}
+.lbt-head span {
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.lbt-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.5fr;
+  padding: 0.65rem 0.9rem;
+  gap: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  background: var(--blanco);
+  transition: background var(--trans);
+}
+.lbt-row:hover { background: #fff8f6; }
+
+.lbt-row span {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  line-height: 1.5;
+}
+
+.lbt-row span:nth-child(2) {
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+.lbt-stop {
+  font-weight: 600 !important;
+  color: #bf360c !important;
+  font-size: 0.76rem !important;
+}
+
+@media (max-width: 700px) {
+  .lbt-head,
+  .lbt-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .lbt-head span:not(:first-child),
+  .lbt-row span:not(:first-child) {
+    padding-left: 0.5rem;
+    border-left: 2px solid rgba(0,0,0,0.06);
+  }
+}
+
+/* ── Laboratorios: tabla umbrales ────────── */
+.lb-threshold {
+  border-radius: var(--radio);
+  overflow: hidden;
+  border: 1px solid rgba(0,104,55,0.15);
+}
+
+.lb-threshold-title {
+  background: var(--verde-oscuro);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.1rem;
+}
+
+.lb-threshold-table { display: flex; flex-direction: column; }
+
+.lbt-head {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.5fr;
+  gap: 0;
+  background: rgba(0,104,55,0.08);
+  padding: 0.55rem 1.1rem;
+}
+.lbt-head span {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+}
+
+.lbt-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.5fr;
+  gap: 0;
+  padding: 0.65rem 1.1rem;
+  border-top: 1px solid rgba(0,104,55,0.08);
+  transition: var(--trans);
+}
+.lbt-row:hover { background: var(--verde-pálido); }
+.lbt-row span { font-size: 0.81rem; color: var(--texto-suave); line-height: 1.5; padding-right: 0.5rem; }
+.lbt-row span:nth-child(2) { color: var(--verde-oscuro); font-weight: 600; }
+.lbt-row span:nth-child(3) { color: #c62828; font-size: 0.78rem; }
+
+/* ── Laboratorios: caja de cierre ────────── */
+.lb-close-box {
+  background: #fff8e1;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-left: 4px solid var(--oro);
+  border-radius: var(--radio);
+  padding: 1.1rem 1.35rem;
+}
+
+.lb-close-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a5800;
+  margin-bottom: 0.45rem;
+}
+
+.lb-close-box p {
+  font-size: 0.85rem;
+  color: #5a4000;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .lbt-head, .lbt-row { grid-template-columns: 1fr; gap: 0.2rem; }
+  .lbt-head span:not(:first-child), .lbt-row span:not(:first-child) { font-size: 0.75rem; padding-left: 0.5rem; }
+}
