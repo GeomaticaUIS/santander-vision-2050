@@ -3442,3 +3442,82 @@ footer {
   .dash-rings-wrap { height: 560px; overflow: hidden; }
   .dash-node { width: 88px; font-size: 9px; }
 }
+
+/* ── Acordeón enriquecido — contenido docs ── */
+.acord-inner {
+  padding: 1.5rem 1.5rem 1.5rem 44px;
+}
+
+.acord-intro {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+  border-left: 3px solid var(--verde-oscuro);
+  padding-left: 1rem;
+}
+
+.acord-section-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.acord-bullets {
+  padding: 0;
+  margin: 0 0 0.5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.acord-bullets li {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+  line-height: 1.7;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.acord-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--verde-oscuro);
+  font-weight: 900;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.acord-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.acord-col {
+  background: var(--gris-suave);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+
+.acord-futuro,
+.acord-conexion {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.acord-col .acord-section-label { margin-top: 0; }
+
+@media (max-width: 700px) {
+  .acord-inner { padding: 1.25rem 1rem; }
+  .acord-two-col { grid-template-columns: 1fr; }
+  .acord-intro { padding-left: 0.75rem; }
+}
