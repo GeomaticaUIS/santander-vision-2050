@@ -2614,21 +2614,18 @@ footer {
   grid-template-rows: 1fr;
 }
 
-.acord-body > * {
+/* wrapper directo — sin padding ni margin, solo overflow:hidden */
+.acord-body-inner {
   overflow: hidden;
+  min-height: 0;
 }
 
-.acord-body p {
-  font-size: 0.93rem;
-  color: var(--texto-suave);
-  line-height: 1.8;
-  margin: 0 0 1rem;
-  padding: 1.25rem 1.5rem 0 44px;
-}
-
-.acord-body .diag-tags {
-  padding: 0 1.5rem 0 44px;
-  margin-bottom: 1rem;
+.acord-body p,
+.acord-body .diag-tags,
+.acord-hilo-link {
+  /* estilos heredados por compatibilidad, el contenido real está en acord-inner */
+  padding: 0;
+  margin: 0;
 }
 
 .acord-hilo-link {
@@ -3520,4 +3517,19 @@ footer {
   .acord-inner { padding: 1.25rem 1rem; }
   .acord-two-col { grid-template-columns: 1fr; }
   .acord-intro { padding-left: 0.75rem; }
+}
+
+/* ── Fix acordeón: evitar sangrado cuando cerrado ── */
+.acord-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s ease;
+  overflow: hidden;
+}
+.acord-item.open .acord-body {
+  grid-template-rows: 1fr;
+}
+.acord-body-inner {
+  min-height: 0;
+  overflow: hidden;
 }
