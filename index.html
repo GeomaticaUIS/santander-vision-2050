@@ -1916,7 +1916,7 @@ layerTabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const layer = tab.dataset.layer;
     layerTabs.forEach(t => t.classList.remove('active'));
-    layerPanels.forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('#diagnostico .diag-layer').forEach(p => p.classList.remove('active'));
     tab.classList.add('active');
     const target = document.getElementById('layer-' + layer);
     if (target) target.classList.add('active');
