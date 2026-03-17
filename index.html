@@ -1909,13 +1909,13 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Diagnóstico: layer tabs ──────────────── */
-const layerTabs   = document.querySelectorAll('.diag-tab');
-const layerPanels = document.querySelectorAll('.diag-layer');
+const layerTabs = document.querySelectorAll('.diag-tab');
 
 layerTabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const layer = tab.dataset.layer;
     layerTabs.forEach(t => t.classList.remove('active'));
+    // Ocultar solo los paneles dentro de la sección diagnóstico
     document.querySelectorAll('#diagnostico .diag-layer').forEach(p => p.classList.remove('active'));
     tab.classList.add('active');
     const target = document.getElementById('layer-' + layer);
