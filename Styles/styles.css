@@ -2523,3 +2523,149 @@ footer {
 @media (max-width: 560px) {
   .dash-budget-grid { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════
+   ACORDEÓN — 8 PROBLEMÁTICAS
+   ═══════════════════════════════════════════ */
+.acord-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(0,104,55,0.15);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  background: var(--blanco);
+  box-shadow: var(--sombra-md);
+}
+
+/* ── Cada ítem ───────────────────────────── */
+.acord-item {
+  border-bottom: 1px solid rgba(0,104,55,0.1);
+}
+.acord-item:last-child { border-bottom: none; }
+
+/* ── Trigger (cabecera clickeable) ──────── */
+.acord-trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px 160px 1fr 36px;
+  align-items: center;
+  gap: 0;
+  padding: 1.1rem 1.5rem 1.1rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--trans);
+  font-family: var(--fuente-cuerpo);
+}
+.acord-trigger:hover { background: var(--verde-pálido); }
+.acord-item.open .acord-trigger {
+  background: var(--verde-pálido);
+  border-bottom: 1px solid rgba(0,104,55,0.12);
+}
+
+.acord-num {
+  font-family: var(--fuente-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--verde-oscuro);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.acord-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oro);
+  padding-right: 1rem;
+  flex-shrink: 0;
+}
+
+.acord-title {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--texto);
+  line-height: 1.35;
+  padding-right: 0.5rem;
+}
+.acord-item.open .acord-title { color: var(--verde-oscuro); }
+
+.acord-icon {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--verde-oscuro);
+  line-height: 1;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  text-align: center;
+}
+.acord-item.open .acord-icon {
+  transform: rotate(45deg);
+  color: var(--verde-oscuro);
+}
+
+/* ── Cuerpo colapsable ───────────────────── */
+.acord-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+  overflow: hidden;
+}
+.acord-item.open .acord-body {
+  grid-template-rows: 1fr;
+}
+
+.acord-body > * {
+  overflow: hidden;
+}
+
+.acord-body p {
+  font-size: 0.93rem;
+  color: var(--texto-suave);
+  line-height: 1.8;
+  margin: 0 0 1rem;
+  padding: 1.25rem 1.5rem 0 44px;
+}
+
+.acord-body .diag-tags {
+  padding: 0 1.5rem 0 44px;
+  margin-bottom: 1rem;
+}
+
+.acord-hilo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  margin: 0 0 1.25rem 44px;
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid var(--verde-oscuro);
+  border-radius: 50px;
+  transition: var(--trans);
+  width: fit-content;
+}
+.acord-hilo-link:hover {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 700px) {
+  .acord-trigger {
+    grid-template-columns: 36px 1fr 28px;
+    gap: 0;
+    padding-right: 1rem;
+  }
+  .acord-category { display: none; }
+  .acord-num { font-size: 0.95rem; }
+  .acord-title { font-size: 0.85rem; }
+  .acord-body p,
+  .acord-body .diag-tags,
+  .acord-hilo-link { padding-left: 1rem; margin-left: 0; }
+}
