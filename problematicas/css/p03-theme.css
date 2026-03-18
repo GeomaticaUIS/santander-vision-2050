@@ -1,0 +1,18 @@
+:root {
+  --color-bg: #0a0e14;
+  --color-surface: #111820;
+  --color-surface-2: #161e28;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-accent: #e07b3c;
+  --color-accent-light: #f0a066;
+  --color-gold: #c9a84c;
+  --color-text: #e8edf3;
+  --color-text-muted: #8a9ab0;
+  --color-text-dim: #4a5a6a;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --hero-bg: linear-gradient(160deg, #1a0e05 0%, #140a08 40%, #0a0c0e 100%);
+  --hero-glow-bg: radial-gradient(circle, rgba(224, 123, 60, 0.1) 0%, transparent 70%);
+}
