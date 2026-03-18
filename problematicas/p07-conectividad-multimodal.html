@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P07 · Conectividad Multimodal — Santander 2050</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #0a0e14;
+      --color-surface: #111820;
+      --color-surface-2: #161e28;
+      --color-border: rgba(255,255,255,0.07);
+      --color-accent: #f59e0b;
+      --color-accent-light: #fbbf24;
+      --color-gold: #c9a84c;
+      --color-text: #e8edf3;
+      --color-text-muted: #8a9ab0;
+      --color-text-dim: #4a5a6a;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,14,20,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand-icon { font-size: 1.25rem; }
+    .nav-brand-text { font-size: 0.8rem; color: var(--color-text-muted); letter-spacing: 0.05em; }
+    .nav-back { font-size: 0.78rem; color: var(--color-text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-num { font-size: 0.7rem; font-weight: 600; color: var(--color-accent); letter-spacing: 0.1em; text-transform: uppercase; background: rgba(100,100,200,0.12); border: 1px solid rgba(100,100,200,0.25); padding: 0.2rem 0.6rem; border-radius: 20px; }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: linear-gradient(160deg, #1a1005 0%, #140e06 40%, #0c0a04 100%); }
+    .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(100,150,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(100,150,200,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; top: 15%; left: 10%; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; max-width: 900px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .badge { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(200,200,200,0.25); background: rgba(200,200,200,0.08); color: #ccc; }
+    .badge-accent { border-color: rgba(200,200,200,0.3); background: rgba(200,200,200,0.1); color: var(--color-accent-light); }
+    .hero-num { font-size: 0.75rem; color: var(--color-text-dim); letter-spacing: 0.08em; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 1.25rem; }
+    .hero-title em { font-style: italic; color: var(--color-accent-light); }
+    .hero-subtitle { font-size: 1.15rem; color: var(--color-text-muted); max-width: 680px; line-height: 1.6; margin-bottom: 2.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 20px; border: 1px solid var(--color-border); color: var(--color-text-muted); background: rgba(255,255,255,0.04); }
+    .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; max-width: 700px; }
+    .stat-card { background: rgba(255,255,255,0.04); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem 1.25rem; }
+    .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--color-accent-light); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.3rem; line-height: 1.4; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--color-text-dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; animation: bounce 2s infinite; }
+    .scroll-hint svg { width: 20px; height: 20px; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+    main { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    section { margin-bottom: 5rem; }
+    .section-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--color-accent); flex-shrink: 0; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.25rem; }
+    .intro-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 2.5rem; border-left: 3px solid var(--color-accent); margin-bottom: 2rem; }
+    .intro-card p { color: var(--color-text); font-size: 1.05rem; line-height: 1.8; }
+    .intro-card p + p { margin-top: 1rem; }
+    .pull-quote { border-left: 3px solid var(--color-gold); padding: 1.25rem 1.75rem; margin: 2rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .pull-quote p { font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; color: #d4b96a; line-height: 1.6; }
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .data-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.3s, transform 0.3s; }
+    .data-card:hover { border-color: rgba(200,200,200,0.2); transform: translateY(-2px); }
+    .data-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .data-card-title { font-size: 0.85rem; font-weight: 600; color: var(--color-accent-light); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .data-card p { font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6; }
+    .data-card strong { color: var(--color-text); }
+    .consequences { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; margin-top: 2rem; }
+    .consequences-header { background: rgba(150,150,200,0.08); border-bottom: 1px solid var(--color-border); padding: 1rem 1.5rem; display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+    .consequences-header span { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-light); }
+    .consequence-row { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--color-border); transition: background 0.2s; }
+    .consequence-row:last-child { border-bottom: none; }
+    .consequence-row:hover { background: rgba(255,255,255,0.02); }
+    .consequence-dim { font-size: 0.8rem; font-weight: 600; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.1rem; }
+    .consequence-text { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; }
+    .connection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .connection-card { background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; }
+    .connection-card-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); margin-bottom: 0.4rem; }
+    .connection-card-title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem; }
+    .connection-card p { font-size: 0.83rem; color: var(--color-text-muted); line-height: 1.5; }
+    .page-nav { border-top: 1px solid var(--color-border); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .page-nav a { text-decoration: none; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: color 0.2s; }
+    .page-nav a:hover { color: var(--color-accent); }
+    .page-nav-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); }
+    footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-dim); font-size: 0.8rem; }
+    footer a { color: var(--color-accent); text-decoration: none; }
+    @media (max-width: 640px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } .consequences-header, .consequence-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><span class="nav-brand-icon">🌿</span><span class="nav-brand-text">Santander Visión 2050</span></a>
+  <div class="nav-links">
+    <span class="nav-num">P — 07 / 08</span>
+    <a href="index.html#diagnostico" class="nav-back">← Diagnóstico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="badge badge-accent">Problemática 07</span>
+      <span class="badge">Conectividad Física</span>
+      <span class="hero-num">Santander Visión 2050 · Diagnóstico Territorial</span>
+    </div>
+    <h1 class="hero-title">Infraestructura, conectividad<br>y logística <em>insuficientes</em><br>y vulnerables</h1>
+    <p class="hero-subtitle">Santander tiene una paradoja geográfica: está ubicado estratégicamente, pero desconectado funcionalmente. El río Magdalena atraviesa el departamento 270 km. Cuenta con red ferroviaria, aeropuertos y puertos fluviales clave. Y, sin embargo, el 95% del transporte depende de una sola carretera.</p>
+    <div class="hero-tags"><span class="tag">🛣️ Red vial</span><span class="tag">🚢 Logística fluvial</span><span class="tag">🚂 Ferrocarril</span><span class="tag">📡 Conectividad digital</span><span class="tag">🌀 Resiliencia climática</span></div>
+    <div class="hero-stats"><div class="stat-card"><div class="stat-num">95%+</div><div class="stat-label">Del transporte de pasajeros y carga realizado por carretera — sin redundancia multimodal</div></div><div class="stat-card"><div class="stat-num">18.9%</div><div class="stat-label">Índice de Resiliencia Funcional de Conectividad — una red que colapsa ante perturbaciones</div></div><div class="stat-card"><div class="stat-num">71.4%</div><div class="stat-label">De la red estratégica expuesta a amenazas geotécnicas o climáticas significativas</div></div><div class="stat-card"><div class="stat-num">$555K</div><div class="stat-label">Costo promedio de transporte intradepartamental por viaje — hasta $1,2M en rutas periféricas</div></div></div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Desplázate
+  </div>
+</section>
+
+<main>
+  <section id="estrategica">
+    <div class="section-label">¿Por qué es una problemática estratégica?</div>
+    <h2 class="section-title">La red frágil que mantiene unido (o separa) el territorio</h2>
+    <div class="intro-card"><p>El problema no es la ausencia de infraestructura, sino su configuración estructural: dependencia casi absoluta del modo carretero, baja integración multimodal, altísima vulnerabilidad climática y una red terciaria en condiciones precarias que aísla a amplias zonas rurales. Solo el 9% de la red vial está pavimentada. El 84% corresponde a vías terciarias, la mayoría en tierra.</p><p>Esta configuración tiene consecuencias concretas: altos costos logísticos que restan competitividad, desconexión recurrente por eventos climáticos, tiempos de viaje que convierten distancias cortas en trayectos de horas, y una fragmentación funcional que profundiza las brechas territoriales.</p></div>
+    <div class="pull-quote"><p>"El corredor Bucaramanga–Puerto Parra es más eficiente en costo por tonelada-kilómetro que el equivalente Medellín–Puerto Berrío en Antioquia. Y sin embargo, Santander no ha aprovechado esa ventaja. La infraestructura existe. La integración sistémica, no."</p></div>
+  </section>
+
+  <section id="datos">
+    <div class="section-label">Lo que muestran los datos</div>
+    <h2 class="section-title">Una red cara, frágil y subutilizada</h2>
+    <div class="data-grid"><div class="data-card"><div class="data-card-icon">🛣️</div><div class="data-card-title">Dependencia sin redundancia</div><p>Más del <strong>95% del transporte se realiza por carretera</strong>. La red vial tiene 23.183 km, de los cuales el 84% son vías terciarias en tierra y solo el 9% está pavimentado. En la red terciaria específicamente, el pavimento cubre apenas el 0,1%. Más de 19.000 km de vías terciarias no tienen información completa sobre su estado.</p></div><div class="data-card"><div class="data-card-icon">🌀</div><div class="data-card-title">Un sistema que colapsa ante el clima</div><p>El <strong>71,4% de la red estratégica está expuesta a amenazas geotécnicas o climáticas</strong>. Ante erosión, la red operativa se reduce al 32%, dejando dos tercios de los municipios parcial o totalmente aislados. El IRFC es del 18,9%. Entre 1970 y 2025, los daños documentados superan los $205.000 millones de pesos.</p></div><div class="data-card"><div class="data-card-icon">🏥</div><div class="data-card-title">Infraestructura crítica expuesta</div><p>El Índice de Vulnerabilidad Climática de Infraestructura Crítica alcanza el <strong>59,6% — clasificación media-alta</strong>. Los hospitales, con 78% de exposición, son los activos más vulnerables. La interrupción de la conectividad no solo afecta la logística: afecta el acceso a urgencias en municipios donde el hospital más cercano está a horas de distancia.</p></div><div class="data-card"><div class="data-card-icon">💸</div><div class="data-card-title">Sobrecosto logístico que excluye provincias</div><p>El costo promedio de transporte intradepartamental es de $555.557 por viaje. Pero rutas como El Carmen–Macaravita alcanzan hasta <strong>$1,2 millones con 13 horas y 49 minutos de trayecto</strong>. Los sobrecostos logísticos pueden alcanzar el 35% sobre el promedio nacional — la diferencia entre ser competitivo o no para un productor de cacao en García Rovira o Vélez.</p></div><div class="data-card"><div class="data-card-icon">🚢</div><div class="data-card-title">Infraestructura multimodal subutilizada</div><p>El río Magdalena tiene 13 puertos, pero el 67% de la carga es Oil & Gas, con aprovechamiento marginal para cacao o café. El ferrocarril opera solo <strong>206 de sus 368 km disponibles</strong> y mueve 12.185 toneladas anuales frente a 12,9 millones por carretera. El aeropuerto exporta menos de 700 toneladas de carga al año.</p></div><div class="data-card"><div class="data-card-icon">📡</div><div class="data-card-title">Doble aislamiento: físico y digital</div><p>El 88% de los municipios rurales no supera el 9% de penetración de banda ancha. La superposición entre zonas de menor conectividad física y digital crea territorios <strong>doblemente aislados</strong>: sin carretera confiable en lluvias y sin internet estable el resto del año. No es un problema cultural: es una falla de infraestructura.</p></div></div>
+  </section>
+
+  <section id="consecuencias">
+    <div class="section-label">Horizonte de inacción</div>
+    <h2 class="section-title">Si no actuamos en los próximos diez años</h2>
+    <div class="consequences">
+      <div class="consequences-header"><span>Dimensión</span><span>Consecuencia hacia 2050</span></div>
+      <div class="consequence-row"><div class="consequence-dim">Económica</div><div class="consequence-text">Los sobrecostos logísticos seguirían excluyendo territorios periféricos de las cadenas de valor. La ventaja comparativa sobre el Magdalena permanecería desaprovechada, cediendo a otras regiones el protagonismo en los corredores logísticos del país.</div></div><div class="consequence-row"><div class="consequence-dim">Social</div><div class="consequence-text">La desconexión crónica de provincias durante temporadas de lluvias se normalizaría. El acceso a salud, educación y abastecimiento sería intermitente y desigual. La fragmentación funcional aceleraría el despoblamiento rural.</div></div><div class="consequence-row"><div class="consequence-dim">Territorial</div><div class="consequence-text">Los municipios de García Rovira se consolidarían como satélites de Boyacá; los del sur, de Cundinamarca; los del Magdalena Medio, de Antioquia. La cohesión departamental se perdería no solo en lo económico sino en lo institucional y cultural.</div></div><div class="consequence-row"><div class="consequence-dim">Climática</div><div class="consequence-text">Sin resiliencia estructural, el incremento en eventos climáticos extremos multiplicaría los cortes viales. La inversión se perdería recurrentemente en reconstrucción. El ciclo emergencia-reconstrucción-emergencia se volvería permanente.</div></div><div class="consequence-row"><div class="consequence-dim">Estratégica</div><div class="consequence-text">La ventana para posicionar a Santander como nodo logístico nacional tiene un horizonte acotado. Otras regiones están tomando esas decisiones ahora. Cada año de inacción estrecha esa ventana de oportunidad.</div></div>
+    </div>
+  </section>
+
+  <section id="conexion">
+    <div class="section-label">Conexión con Santander Visión 2050</div>
+    <h2 class="section-title">De la red frágil al sistema logístico multimodal resiliente</h2>
+    <p style="color: var(--color-text-muted); margin-bottom: 1.75rem;">Esta problemática da origen al <strong style="color: #fbbf24;">Reto 6: Cohesión territorial mediante conectividad e infraestructura resiliente</strong>. Sin conectividad que integre las provincias con los mercados, la bioeconomía, el turismo y la agroindustria avanzada son aspiraciones sin sistema de entrega.</p>
+    <div class="connection-grid"><div class="connection-card"><div class="connection-card-label">Misión</div><div class="connection-card-title">🔗 M2 · Santander Conectado y Equitativo</div><p>Conectividad como palanca dual: vías y fibra que integran provincias, activan servicios y destraban la desigualdad territorial.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">H · Infraestructura logística multimodal</div><p>Vial, férreo y fluvial integrados con fibra óptica universal, zonas logísticas inteligentes y hub del nororiente colombiano.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">A · Transición energética justa</div><p>La electrificación del transporte requiere conectividad para comunidades energéticas y sistemas de carga distribuidos.</p></div><div class="connection-card"><div class="connection-card-label">Oportunidad concreta</div><div class="connection-card-title">Reactivación del Ferrocarril del Carare</div><p>Reconectar el corazón productivo con el Magdalena y los puertos del Caribe como corredor logístico estratégico.</p></div><div class="connection-card"><div class="connection-card-label">Oportunidad concreta</div><div class="connection-card-title">Hubs logísticos provinciales</div><p>San Gil, Socorro y Vélez como centros de acopio y distribución que reduzcan sobrecostos en las cadenas de valor provinciales.</p></div><div class="connection-card"><div class="connection-card-label">Oportunidad concreta</div><div class="connection-card-title">Movilidad rural adaptada</div><p>Soluciones de pequeña escala — vehículos eléctricos, teleféricos, gestión comunitaria — para zonas de difícil acceso.</p></div></div>
+  </section>
+
+  <div class="page-nav">
+    <div>
+      <div class="page-nav-label">Problemática anterior</div>
+      <a href="p06-conocimiento-innovacion.html">← P06 · Conocimiento e Innovación</a>
+    </div>
+    <div style="text-align: right;">
+      <div class="page-nav-label">Siguiente problemática</div>
+      <a href="p08-gobernanza.html">P08 · Gobernanza →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>🌿 <strong>Santander Visión 2050</strong> · Universidad Industrial de Santander · Bucaramanga, Colombia</p>
+  <p style="margin-top: 0.5rem;"><a href="index.html">← Volver al micrositio</a></p>
+</footer>
+</body>
+</html>

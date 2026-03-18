@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P06 · Conocimiento e Innovación — Santander 2050</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #0a0e14;
+      --color-surface: #111820;
+      --color-surface-2: #161e28;
+      --color-border: rgba(255,255,255,0.07);
+      --color-accent: #06b6d4;
+      --color-accent-light: #22d3ee;
+      --color-gold: #c9a84c;
+      --color-text: #e8edf3;
+      --color-text-muted: #8a9ab0;
+      --color-text-dim: #4a5a6a;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,14,20,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand-icon { font-size: 1.25rem; }
+    .nav-brand-text { font-size: 0.8rem; color: var(--color-text-muted); letter-spacing: 0.05em; }
+    .nav-back { font-size: 0.78rem; color: var(--color-text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-num { font-size: 0.7rem; font-weight: 600; color: var(--color-accent); letter-spacing: 0.1em; text-transform: uppercase; background: rgba(100,100,200,0.12); border: 1px solid rgba(100,100,200,0.25); padding: 0.2rem 0.6rem; border-radius: 20px; }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: linear-gradient(160deg, #021420 0%, #051018 40%, #030c0c 100%); }
+    .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(100,150,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(100,150,200,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; top: 15%; left: 10%; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; max-width: 900px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .badge { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(200,200,200,0.25); background: rgba(200,200,200,0.08); color: #ccc; }
+    .badge-accent { border-color: rgba(200,200,200,0.3); background: rgba(200,200,200,0.1); color: var(--color-accent-light); }
+    .hero-num { font-size: 0.75rem; color: var(--color-text-dim); letter-spacing: 0.08em; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 1.25rem; }
+    .hero-title em { font-style: italic; color: var(--color-accent-light); }
+    .hero-subtitle { font-size: 1.15rem; color: var(--color-text-muted); max-width: 680px; line-height: 1.6; margin-bottom: 2.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 20px; border: 1px solid var(--color-border); color: var(--color-text-muted); background: rgba(255,255,255,0.04); }
+    .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; max-width: 700px; }
+    .stat-card { background: rgba(255,255,255,0.04); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem 1.25rem; }
+    .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--color-accent-light); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.3rem; line-height: 1.4; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--color-text-dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; animation: bounce 2s infinite; }
+    .scroll-hint svg { width: 20px; height: 20px; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+    main { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    section { margin-bottom: 5rem; }
+    .section-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--color-accent); flex-shrink: 0; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.25rem; }
+    .intro-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 2.5rem; border-left: 3px solid var(--color-accent); margin-bottom: 2rem; }
+    .intro-card p { color: var(--color-text); font-size: 1.05rem; line-height: 1.8; }
+    .intro-card p + p { margin-top: 1rem; }
+    .pull-quote { border-left: 3px solid var(--color-gold); padding: 1.25rem 1.75rem; margin: 2rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .pull-quote p { font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; color: #d4b96a; line-height: 1.6; }
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .data-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.3s, transform 0.3s; }
+    .data-card:hover { border-color: rgba(200,200,200,0.2); transform: translateY(-2px); }
+    .data-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .data-card-title { font-size: 0.85rem; font-weight: 600; color: var(--color-accent-light); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .data-card p { font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6; }
+    .data-card strong { color: var(--color-text); }
+    .consequences { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; margin-top: 2rem; }
+    .consequences-header { background: rgba(150,150,200,0.08); border-bottom: 1px solid var(--color-border); padding: 1rem 1.5rem; display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+    .consequences-header span { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-light); }
+    .consequence-row { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--color-border); transition: background 0.2s; }
+    .consequence-row:last-child { border-bottom: none; }
+    .consequence-row:hover { background: rgba(255,255,255,0.02); }
+    .consequence-dim { font-size: 0.8rem; font-weight: 600; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.1rem; }
+    .consequence-text { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; }
+    .connection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .connection-card { background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; }
+    .connection-card-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); margin-bottom: 0.4rem; }
+    .connection-card-title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem; }
+    .connection-card p { font-size: 0.83rem; color: var(--color-text-muted); line-height: 1.5; }
+    .page-nav { border-top: 1px solid var(--color-border); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .page-nav a { text-decoration: none; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: color 0.2s; }
+    .page-nav a:hover { color: var(--color-accent); }
+    .page-nav-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); }
+    footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-dim); font-size: 0.8rem; }
+    footer a { color: var(--color-accent); text-decoration: none; }
+    @media (max-width: 640px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } .consequences-header, .consequence-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><span class="nav-brand-icon">🌿</span><span class="nav-brand-text">Santander Visión 2050</span></a>
+  <div class="nav-links">
+    <span class="nav-num">P — 06 / 08</span>
+    <a href="index.html#diagnostico" class="nav-back">← Diagnóstico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="badge badge-accent">Problemática 06</span>
+      <span class="badge">Conocimiento e Innovación</span>
+      <span class="hero-num">Santander Visión 2050 · Diagnóstico Territorial</span>
+    </div>
+    <h1 class="hero-title">Brechas de conocimiento,<br>innovación y <em>apropiación</em><br>tecnológica</h1>
+    <p class="hero-subtitle">Santander tiene una paradoja incómoda: produce conocimiento de alto nivel, pero ese conocimiento no transforma su realidad. Es el 4.º departamento en pruebas Saber 11, tiene 303 grupos de investigación y lidera el país en patentes. Y sin embargo, ese capital no se traduce en innovación empresarial.</p>
+    <div class="hero-tags"><span class="tag">🎓 Talento calificado</span><span class="tag">🔬 Ciencia y tecnología</span><span class="tag">💻 Economía digital</span><span class="tag">📡 Conectividad</span><span class="tag">🤖 IA y automatización</span></div>
+    <div class="hero-stats"><div class="stat-card"><div class="stat-num">93.7%</div><div class="stat-label">De las patentes concedidas entre 2010-2024 concentradas en el AMB — solo 11 en el resto del departamento en 14 años</div></div><div class="stat-card"><div class="stat-num">88%</div><div class="stat-label">De municipios rurales con menos del 9% de penetración de banda ancha</div></div><div class="stat-card"><div class="stat-num">−25.7%</div><div class="stat-label">Caída en ventas del sector TIC en Santander en 2024 con pérdida de 732 empleos</div></div><div class="stat-card"><div class="stat-num">0.81%</div><div class="stat-label">Inversión en CTI sobre PIB en 2023 — pico de 2,39% en 2021 pero sin consolidar</div></div></div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Desplázate
+  </div>
+</section>
+
+<main>
+  <section id="estrategica">
+    <div class="section-label">¿Por qué es una problemática estratégica?</div>
+    <h2 class="section-title">El conocimiento que se genera y no transforma</h2>
+    <div class="intro-card"><p>El problema no es de cantidad, sino de desacople estructural. El conocimiento se genera predominantemente en la universidad, pero el tejido empresarial — 96% microempresas de baja productividad — no tiene capacidad para absorberlo. Las patentes se quedan en el papel porque no hay empresas que las escalen. Los grupos de investigación publican en revistas internacionales, pero sus hallazgos no llegan a los territorios.</p><p>El talento se forma y luego migra — a Bogotá, al extranjero, o a formas de trabajo remoto para empresas de otros países — porque la economía local no ofrece oportunidades acordes a su calificación. La universidad se convierte en una exportadora neta de capital humano, subsidiando el desarrollo de otras regiones con recursos que la sociedad santandereana generó.</p></div>
+    <div class="pull-quote"><p>"La pregunta no es si Santander tiene capacidades científicas: las tiene. La pregunta es ¿por qué esas capacidades no están transformando la estructura productiva y social del departamento? ¿Qué tiene que cambiar para que eso ocurra en los próximos 25 años?"</p></div>
+  </section>
+
+  <section id="datos">
+    <div class="section-label">Lo que muestran los datos</div>
+    <h2 class="section-title">Cinco dimensiones del desacople entre conocimiento y territorio</h2>
+    <div class="data-grid"><div class="data-card"><div class="data-card-icon">📉</div><div class="data-card-title">Inversión en CTI sin tendencia</div><p>Santander alcanzó picos históricos — <strong>2,39% del PIB en 2021</strong> — pero para 2023 cayó al 0,81%. La I+D propiamente dicha se ha mantenido en niveles de 0,3%–0,4% entre 2018 y 2023. Esta volatilidad impide consolidar capacidades científicas profundas y hace imposible la planificación estratégica a largo plazo.</p></div><div class="data-card"><div class="data-card-icon">🏆</div><div class="data-card-title">La paradoja de la innovación</div><p>Santander lidera el país en patentes concedidas, pero <strong>163 de las 174 otorgadas entre 2010 y 2024 se concentran en el AMB</strong>. Solo 11 patentes en 14 años fuera de ese perímetro. Y de las que sí se otorgan, casi ninguna llega al mercado. El conocimiento existe, pero no transforma la estructura productiva.</p></div><div class="data-card"><div class="data-card-icon">💻</div><div class="data-card-title">Economía digital en contracción</div><p>El sector TIC mostró en 2024 un deterioro preocupante: <strong>ventas con caída del 25,7% y pérdida de 732 empleos directos</strong>. La economía digital representó el 3,5% del PIB nacional, pero Santander no está capturando esa oportunidad. La tasa de graduados en TIC bajó de 30 a 22 por cada 100 mil habitantes entre 2019 y 2023.</p></div><div class="data-card"><div class="data-card-icon">🤖</div><div class="data-card-title">Adopción tecnológica incipiente</div><p>El 72,7% de las empresas del sector textil usa computación en la nube — la tecnología más básica —, pero el conocimiento sobre robótica o inteligencia artificial es prácticamente nulo. Santander <strong>carece de infraestructura de computación de alto rendimiento (HPC)</strong>. Existen casos de éxito aislados pero sin política sistemática que los escale.</p></div><div class="data-card"><div class="data-card-icon">📡</div><div class="data-card-title">Brecha digital que reproduce la exclusión</div><p>El <strong>88% de los municipios rurales tiene penetración de banda ancha inferior al 9%</strong>. Las zonas con menor conectividad coinciden exactamente con los mayores índices de pobreza multidimensional, configurando un círculo vicioso donde la exclusión tecnológica y la pobreza se refuerzan mutuamente.</p></div><div class="data-card"><div class="data-card-icon">🎓</div><div class="data-card-title">Una universidad que exporta talento</div><p>La fuga de talento no es espontánea: es el resultado lógico de un sistema donde el departamento invierte en formar profesionales de alto nivel que no encuentran oportunidades locales. Cada graduado que emigra lleva consigo una <strong>inversión pública que Santander financia y otra región cosecha</strong>.</p></div></div>
+  </section>
+
+  <section id="consecuencias">
+    <div class="section-label">Horizonte de inacción</div>
+    <h2 class="section-title">Si no actuamos en los próximos diez años</h2>
+    <div class="consequences">
+      <div class="consequences-header"><span>Dimensión</span><span>Consecuencia hacia 2050</span></div>
+      <div class="consequence-row"><div class="consequence-dim">Capital humano</div><div class="consequence-text">La fuga de talento se profundizaría estructuralmente. La UIS formaría talento de calidad que el departamento no retendría, transfiriendo a otras regiones el retorno de una inversión educativa que la sociedad santandereana financió.</div></div><div class="consequence-row"><div class="consequence-dim">Productiva</div><div class="consequence-text">Sin apropiación tecnológica en el tejido empresarial, la economía no podría competir en los mercados de 2050, donde la IA, la automatización y la bioeconomía digital serán condiciones de entrada.</div></div><div class="consequence-row"><div class="consequence-dim">Territorial</div><div class="consequence-text">La brecha digital urbano-rural se consolidaría como nueva forma de exclusión estructural. Los municipios sin conectividad quedarían fuera de la economía digital, incapaces de acceder a servicios, mercados y oportunidades que en 2050 serán predominantemente digitales.</div></div><div class="consequence-row"><div class="consequence-dim">Científica</div><div class="consequence-text">Los grupos de investigación seguirían produciendo conocimiento de calidad sin impacto territorial. Santander sería reconocido como territorio que produce buenos investigadores para el mundo, pero no como uno que usa el conocimiento para transformarse.</div></div><div class="consequence-row"><div class="consequence-dim">Cultural</div><div class="consequence-text">Se instalaría una narrativa de resignación tecnológica —"la economía del conocimiento no es para nosotros"— que justificaría la inacción y desmovilizaría a quienes podrían impulsar el cambio.</div></div>
+    </div>
+  </section>
+
+  <section id="conexion">
+    <div class="section-label">Conexión con Santander Visión 2050</div>
+    <h2 class="section-title">Cerrar la desconexión entre conocimiento y producción</h2>
+    <p style="color: var(--color-text-muted); margin-bottom: 1.75rem;">Esta problemática da origen a dos retos centrales: <strong style="color: #22d3ee;">Reto 5 — Retener y atraer talento</strong> y <strong style="color: #22d3ee;">Reto 4 — Transformar el modelo hacia mayor valor agregado</strong>. Ambos son inviables sin resolver primero la desconexión estructural entre conocimiento y producción.</p>
+    <div class="connection-grid"><div class="connection-card"><div class="connection-card-label">Misión</div><div class="connection-card-title">🏛️ M4 · Inteligencia Territorial y Gobernanza Participativa</div><p>Datos abiertos, interoperabilidad y toma de decisiones basada en evidencia como infraestructura del Estado territorial.</p></div><div class="connection-card"><div class="connection-card-label">Misión</div><div class="connection-card-title">🎓 M5 · Educación, Cultura y Talento</div><p>Capital humano como motor del desarrollo, de la productividad y de la capacidad de aprendizaje territorial.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">C · Economía del conocimiento y servicios digitales</div><p>Convertir la capacidad científica instalada en plataforma de exportación de servicios, software e innovación.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">G · Gobernanza e inteligencia territorial</div><p>Datos abiertos e interoperabilidad como condición habilitante de una economía basada en conocimiento.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">H · Infraestructura logística y conectividad inteligente</div><p>La conectividad digital como condición habilitante de todo lo demás — sin ella, no hay economía del conocimiento en las provincias.</p></div><div class="connection-card"><div class="connection-card-label">Reto estratégico</div><div class="connection-card-title">Reto 5 · Talento territorial</div><p>Retener y atraer talento, democratizando el conocimiento como motor económico del departamento.</p></div></div>
+  </section>
+
+  <div class="page-nav">
+    <div>
+      <div class="page-nav-label">Problemática anterior</div>
+      <a href="p05-desigualdad-territorial.html">← P05 · Desigualdad Territorial</a>
+    </div>
+    <div style="text-align: right;">
+      <div class="page-nav-label">Siguiente problemática</div>
+      <a href="p07-conectividad-multimodal.html">P07 · Conectividad Multimodal →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>🌿 <strong>Santander Visión 2050</strong> · Universidad Industrial de Santander · Bucaramanga, Colombia</p>
+  <p style="margin-top: 0.5rem;"><a href="index.html">← Volver al micrositio</a></p>
+</footer>
+</body>
+</html>

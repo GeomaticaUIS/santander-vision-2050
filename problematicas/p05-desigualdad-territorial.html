@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>P05 · Desigualdad Territorial — Santander 2050</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #0a0e14;
+      --color-surface: #111820;
+      --color-surface-2: #161e28;
+      --color-border: rgba(255,255,255,0.07);
+      --color-accent: #ef4444;
+      --color-accent-light: #f87171;
+      --color-gold: #c9a84c;
+      --color-text: #e8edf3;
+      --color-text-muted: #8a9ab0;
+      --color-text-dim: #4a5a6a;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,14,20,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-brand-icon { font-size: 1.25rem; }
+    .nav-brand-text { font-size: 0.8rem; color: var(--color-text-muted); letter-spacing: 0.05em; }
+    .nav-back { font-size: 0.78rem; color: var(--color-text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-num { font-size: 0.7rem; font-weight: 600; color: var(--color-accent); letter-spacing: 0.1em; text-transform: uppercase; background: rgba(100,100,200,0.12); border: 1px solid rgba(100,100,200,0.25); padding: 0.2rem 0.6rem; border-radius: 20px; }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: linear-gradient(160deg, #1a0505 0%, #140808 40%, #0c0608 100%); }
+    .hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(100,150,200,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(100,150,200,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; top: 15%; left: 10%; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; background: radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; max-width: 900px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .badge { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(200,200,200,0.25); background: rgba(200,200,200,0.08); color: #ccc; }
+    .badge-accent { border-color: rgba(200,200,200,0.3); background: rgba(200,200,200,0.1); color: var(--color-accent-light); }
+    .hero-num { font-size: 0.75rem; color: var(--color-text-dim); letter-spacing: 0.08em; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 1.25rem; }
+    .hero-title em { font-style: italic; color: var(--color-accent-light); }
+    .hero-subtitle { font-size: 1.15rem; color: var(--color-text-muted); max-width: 680px; line-height: 1.6; margin-bottom: 2.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 20px; border: 1px solid var(--color-border); color: var(--color-text-muted); background: rgba(255,255,255,0.04); }
+    .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; max-width: 700px; }
+    .stat-card { background: rgba(255,255,255,0.04); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem 1.25rem; }
+    .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--color-accent-light); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.3rem; line-height: 1.4; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--color-text-dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; animation: bounce 2s infinite; }
+    .scroll-hint svg { width: 20px; height: 20px; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+    main { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    section { margin-bottom: 5rem; }
+    .section-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--color-accent); flex-shrink: 0; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.25rem; }
+    .intro-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 2.5rem; border-left: 3px solid var(--color-accent); margin-bottom: 2rem; }
+    .intro-card p { color: var(--color-text); font-size: 1.05rem; line-height: 1.8; }
+    .intro-card p + p { margin-top: 1rem; }
+    .pull-quote { border-left: 3px solid var(--color-gold); padding: 1.25rem 1.75rem; margin: 2rem 0; background: rgba(201,168,76,0.05); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .pull-quote p { font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; color: #d4b96a; line-height: 1.6; }
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .data-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.3s, transform 0.3s; }
+    .data-card:hover { border-color: rgba(200,200,200,0.2); transform: translateY(-2px); }
+    .data-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .data-card-title { font-size: 0.85rem; font-weight: 600; color: var(--color-accent-light); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .data-card p { font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6; }
+    .data-card strong { color: var(--color-text); }
+    .consequences { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; margin-top: 2rem; }
+    .consequences-header { background: rgba(150,150,200,0.08); border-bottom: 1px solid var(--color-border); padding: 1rem 1.5rem; display: grid; grid-template-columns: 180px 1fr; gap: 1rem; }
+    .consequences-header span { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent-light); }
+    .consequence-row { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--color-border); transition: background 0.2s; }
+    .consequence-row:last-child { border-bottom: none; }
+    .consequence-row:hover { background: rgba(255,255,255,0.02); }
+    .consequence-dim { font-size: 0.8rem; font-weight: 600; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.1rem; }
+    .consequence-text { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; }
+    .connection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .connection-card { background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; }
+    .connection-card-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); margin-bottom: 0.4rem; }
+    .connection-card-title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem; }
+    .connection-card p { font-size: 0.83rem; color: var(--color-text-muted); line-height: 1.5; }
+    .page-nav { border-top: 1px solid var(--color-border); padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .page-nav a { text-decoration: none; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: color 0.2s; }
+    .page-nav a:hover { color: var(--color-accent); }
+    .page-nav-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-dim); }
+    footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-dim); font-size: 0.8rem; }
+    footer a { color: var(--color-accent); text-decoration: none; }
+    @media (max-width: 640px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } .consequences-header, .consequence-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><span class="nav-brand-icon">🌿</span><span class="nav-brand-text">Santander Visión 2050</span></a>
+  <div class="nav-links">
+    <span class="nav-num">P — 05 / 08</span>
+    <a href="index.html#diagnostico" class="nav-back">← Diagnóstico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="badge badge-accent">Problemática 05</span>
+      <span class="badge">Impacto Social</span>
+      <span class="hero-num">Santander Visión 2050 · Diagnóstico Territorial</span>
+    </div>
+    <h1 class="hero-title">Desigualdad estructural<br>y <em>fragmentación territorial</em><br>urbano–rural</h1>
+    <p class="hero-subtitle">El 71% del valor agregado de Santander se genera en solo cinco municipios. Los otros 82, el 94% del territorio, se reparten el 29% restante. La brecha entre Barrancabermeja y Sucre (Santander) en PIB per cápita es de 7,5 veces.</p>
+    <div class="hero-tags"><span class="tag">📍 Brechas territoriales</span><span class="tag">🏘️ Exclusión</span><span class="tag">🌾 Urbano-rural</span><span class="tag">📊 Gini</span><span class="tag">🔗 Cohesión</span></div>
+    <div class="hero-stats"><div class="stat-card"><div class="stat-num">7.5×</div><div class="stat-label">Brecha de PIB per cápita entre Barrancabermeja y Sucre (Santander) — superior a la brecha Bogotá-Chocó</div></div><div class="stat-card"><div class="stat-num">48%</div><div class="stat-label">Cobertura de acueducto en zonas rurales vs 96% en cabeceras urbanas</div></div><div class="stat-card"><div class="stat-num">2.7×</div><div class="stat-label">La pobreza multidimensional rural frente a la urbana en Santander</div></div><div class="stat-card"><div class="stat-num">28.5%</div><div class="stat-label">Solo el 28,5% de quienes nacen en el quintil más bajo logran ascender de posición socioeconómica</div></div></div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Desplázate
+  </div>
+</section>
+
+<main>
+  <section id="estrategica">
+    <div class="section-label">¿Por qué es una problemática estratégica?</div>
+    <h2 class="section-title">El espejismo del desarrollo concentrado</h2>
+    <div class="intro-card"><p>Santander suele presentarse como un departamento próspero. Y lo es, si se mira desde el área metropolitana de Bucaramanga. Pero esa prosperidad es un espejismo territorial: se concentra en unos pocos municipios y no irriga el resto. Lo que hace de esto un límite estructural es que el crecimiento económico de las últimas décadas no generó convergencia territorial — por el contrario, generó más concentración.</p><p>La red vial, diseñada para comunicar cada municipio con Bucaramanga — no los municipios entre sí —, reproduce y refuerza esa jerarquía. El área metropolitana funciona como un nodo dominante que concentra flujos, servicios y relaciones, mientras amplias zonas del departamento operan en condiciones de accesibilidad y bienestar comparables a regiones de otros departamentos.</p></div>
+    <div class="pull-quote"><p>"La brecha entre Barrancabermeja y Sucre (Santander) en PIB per cápita es de 7,5 veces — superior a la brecha entre Bogotá y el Chocó, la desigualdad territorial más citada del país. La de Santander la supera, y casi nadie la nombra así."</p></div>
+  </section>
+
+  <section id="datos">
+    <div class="section-label">Lo que muestran los datos</div>
+    <h2 class="section-title">Un territorio dual con crecimiento sin convergencia</h2>
+    <div class="data-grid"><div class="data-card"><div class="data-card-icon">💧</div><div class="data-card-title">Brechas de servicios básicos en 2026</div><p>La cobertura de acueducto en cabeceras urbanas es del 96%. En zonas rurales, del <strong>48%</strong>. El alcantarillado cubre el 95% de las cabeceras y apenas el 13% de las zonas rurales. Estas cifras no describen un rezago gradual: describen una exclusión estructural. En 45 municipios el porcentaje con NBI supera el promedio nacional.</p></div><div class="data-card"><div class="data-card-icon">🗺️</div><div class="data-card-title">Sistema territorial jerárquico</div><p>El AMB alcanza 23 relaciones territoriales únicas. Barrancabermeja, el segundo nodo, registra 12 relaciones. El <strong>55% de los municipios tiene menos de 16 conexiones intermunicipales</strong>. Esta jerarquía es el problema cuando la base carece de condiciones mínimas de integración para acceder a salud, educación, mercados y administración.</p></div><div class="data-card"><div class="data-card-icon">📈</div><div class="data-card-title">Movilidad social que no funciona</div><p>Solo el <strong>28,5% de quienes nacen en el quintil más bajo logran ascender</strong> de posición socioeconómica. El coeficiente de Gini es de 0,50 — mejor que el nacional (0,54) pero sin tendencia clara de mejora. El 31% del territorio tiene orientación funcional hacia departamentos vecinos, no hacia Bucaramanga.</p></div><div class="data-card"><div class="data-card-icon">🏙️</div><div class="data-card-title">Un costo oculto que afecta al centro</div><p>La concentración en el AMB no solo genera periferias débiles: genera deseconomías en el propio centro. Movilidad congestionada, presión sobre servicios públicos, mercado de vivienda tensionado, expansión urbana sobre zonas de recarga hídrica. El modelo actual no es sostenible ni para la periferia ni para el núcleo.</p></div><div class="data-card"><div class="data-card-icon">🌾</div><div class="data-card-title">Pobreza multidimensional rural persistente</div><p>La pobreza multidimensional rural es <strong>2,7 veces mayor que la urbana</strong>. Nacer fuera del AMB sigue siendo un condicionante de oportunidades de vida que ningún mérito individual puede compensar fácilmente. La geografía del nacimiento determina más que el esfuerzo personal.</p></div><div class="data-card"><div class="data-card-icon">💸</div><div class="data-card-title">Brecha fiscal que reproduce la brecha productiva</div><p>Sin financiación suficiente, los municipios periféricos quedan atrapados en un círculo vicioso: menos recursos → menos capacidad técnica → peor ejecución → menos recursos. La dependencia de transferencias nacionales cancela cualquier posibilidad de desarrollo autónomo.</p></div></div>
+  </section>
+
+  <section id="consecuencias">
+    <div class="section-label">Horizonte de inacción</div>
+    <h2 class="section-title">Si no actuamos en los próximos diez años</h2>
+    <div class="consequences">
+      <div class="consequences-header"><span>Dimensión</span><span>Consecuencia hacia 2050</span></div>
+      <div class="consequence-row"><div class="consequence-dim">Económica</div><div class="consequence-text">La brecha de productividad entre el AMB y las provincias se ampliaría irreversiblemente. El PIB per cápita de provincias como García Rovira o Vélez podría caer al 30% del promedio departamental, consolidando una geografía permanente de la pobreza.</div></div><div class="consequence-row"><div class="consequence-dim">Social</div><div class="consequence-text">La población joven migraría masivamente, acelerando el envejecimiento y el despoblamiento en provincias ya frágiles. Nacer fuera del AMB seguiría siendo un condicionante de oportunidades que ningún mérito individual puede compensar fácilmente.</div></div><div class="consequence-row"><div class="consequence-dim">Territorial</div><div class="consequence-text">Varios municipios podrían volverse inviables como entidades territoriales autónomas. Amplias zonas profundizarían su orientación funcional hacia otros departamentos, fragmentando la cohesión interna de Santander como proyecto colectivo.</div></div><div class="consequence-row"><div class="consequence-dim">Ambiental</div><div class="consequence-text">La migración campo-ciudad intensificaría la presión sobre las zonas de recarga hídrica del AMB. La expansión urbana no planificada ocuparía áreas de protección, profundizando el riesgo hídrico de la Problemática 1.</div></div><div class="consequence-row"><div class="consequence-dim">Cultural</div><div class="consequence-text">Se consolidaría una narrativa de resignación territorial —"las provincias siempre han sido así"— que naturalizaría la desigualdad como inevitable y desmovilizaría a los actores que podrían impulsar un desarrollo más equilibrado.</div></div>
+    </div>
+  </section>
+
+  <section id="conexion">
+    <div class="section-label">Conexión con Santander Visión 2050</div>
+    <h2 class="section-title">Del nodo único al sistema territorial policéntrico</h2>
+    <p style="color: var(--color-text-muted); margin-bottom: 1.75rem;">Esta problemática da origen al <strong style="color: #f87171;">Reto 6: Lograr cohesión territorial y cierre efectivo de brechas urbano-rurales</strong>. Es, en cierta medida, la problemática que da sentido al conjunto de la visión: si el desarrollo hacia 2050 no llega a los 82 municipios fuera del AMB, no es un proyecto departamental — es un proyecto metropolitano con 82 municipios de entorno.</p>
+    <div class="connection-grid"><div class="connection-card"><div class="connection-card-label">Misión</div><div class="connection-card-title">🔗 M2 · Santander Conectado y Equitativo</div><p>Cohesión territorial y cero brechas mediante conectividad, acceso y oportunidades distribuidas de manera más justa.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">F · Turismo de alto valor y economía cultural</div><p>El potencial turístico de Guanentá, Comunera y Soto Norte requiere conectividad y servicios para convertirse en motor de desarrollo provincial.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">G · Gobernanza e inteligencia territorial</div><p>Cerrar brechas estructurales requiere esquemas de gobernanza supramunicipal y planificación con visión de sistema, no de 87 municipios aislados.</p></div><div class="connection-card"><div class="connection-card-label">Motor de Desarrollo</div><div class="connection-card-title">H · Infraestructura logística multimodal</div><p>La integración territorial real depende de una red que conecte municipios entre sí, no solo cada municipio con Bucaramanga.</p></div><div class="connection-card"><div class="connection-card-label">Rol de la Academia</div><div class="connection-card-title">UIS e IPRED</div><p>La UIS es la única institución con presencia académica en todo el territorio a través del IPRED, y con capacidad para pensar el departamento como sistema, no como suma de municipios.</p></div><div class="connection-card"><div class="connection-card-label">Reto estratégico</div><div class="connection-card-title">Reto 6 · Cohesión territorial</div><p>Lograr conectividad, infraestructura resiliente y acceso equitativo a servicios y oportunidades en todo el territorio departamental.</p></div></div>
+  </section>
+
+  <div class="page-nav">
+    <div>
+      <div class="page-nav-label">Problemática anterior</div>
+      <a href="p04-sofisticacion-productiva.html">← P04 · Sofisticación Productiva</a>
+    </div>
+    <div style="text-align: right;">
+      <div class="page-nav-label">Siguiente problemática</div>
+      <a href="p06-conocimiento-innovacion.html">P06 · Conocimiento e Innovación →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>🌿 <strong>Santander Visión 2050</strong> · Universidad Industrial de Santander · Bucaramanga, Colombia</p>
+  <p style="margin-top: 0.5rem;"><a href="index.html">← Volver al micrositio</a></p>
+</footer>
+</body>
+</html>
