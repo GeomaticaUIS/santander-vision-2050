@@ -154,7 +154,7 @@ header {
 .nav-logo-icon {
   width: 36px;
   height: 36px;
-  background: var(--oro);
+  background: white;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -3501,6 +3501,31 @@ footer {
   background: var(--gris-suave);
   border-radius: 10px;
   padding: 1rem 1.1rem;
+}
+
+.acord-more-btn {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.55rem;
+  margin-left: auto;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 104, 55, 0.35);
+  background: #ffffff;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.acord-more-btn:hover {
+  background: var(--verde-oscuro);
+  color: #ffffff;
+  border-color: var(--verde-oscuro);
 }
 
 .acord-futuro,
