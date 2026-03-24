@@ -493,6 +493,319 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── ARQ NIVELES ── */
+    .arq-niveles {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2.5rem 0 2rem;
+    }
+    .arq-nivel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      min-width: 90px;
+    }
+    .arq-n-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde-medio), var(--verde-oscuro));
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    .arq-n-gold { background: linear-gradient(135deg, var(--dorado), #a8741e); }
+    .arq-n-label {
+      font-size: 0.72rem;
+      text-align: center;
+      color: var(--texto-suave);
+      line-height: 1.3;
+      max-width: 80px;
+    }
+    .arq-nivel-sep {
+      color: var(--dorado);
+      font-size: 1.1rem;
+      opacity: 0.6;
+      margin-top: -1rem;
+    }
+    .arq-nivel-2050 .arq-n-num { width: 52px; height: 52px; font-size: 0.9rem; }
+
+    /* ── ARQ CARDS ── */
+    .arq-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .arq-card {
+      background: var(--crema);
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 10px;
+      padding: 1.4rem 1.2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .arq-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,92,46,0.08);
+    }
+    .arq-card-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: rgba(0,104,55,0.08);
+      border: 1px solid rgba(0,104,55,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--verde-medio);
+      margin-bottom: 0.8rem;
+    }
+    .arq-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .arq-card p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--texto-suave);
+    }
+
+    /* ── ARQ QUOTE ── */
+    .arq-quote {
+      background: linear-gradient(135deg, rgba(0,104,55,0.04), rgba(200,150,62,0.04));
+      border-left: 3px solid var(--dorado);
+      border-radius: 0 10px 10px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 0 0 3rem;
+    }
+    .arq-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--verde-oscuro);
+    }
+
+    /* ── TABS ── */
+    .arq-detail-tabs { margin-bottom: 3rem; }
+    .arq-dtabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(0,104,55,0.12);
+      padding-bottom: 0.75rem;
+    }
+    .arq-dtab {
+      background: none;
+      border: 1px solid rgba(0,104,55,0.18);
+      border-radius: 20px;
+      padding: 0.45rem 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      color: var(--texto-suave);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .arq-dtab:hover { border-color: var(--verde-medio); color: var(--verde-medio); }
+    .arq-dtab.active {
+      background: var(--verde-medio);
+      border-color: var(--verde-medio);
+      color: #fff;
+    }
+    .arq-dpanel { display: none; }
+    .arq-dpanel.active { display: block; }
+
+    .layer-intro {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--texto-suave);
+      margin-bottom: 1.8rem;
+      padding: 1rem 1.2rem;
+      background: rgba(0,104,55,0.03);
+      border-radius: 8px;
+    }
+
+    /* ── 2-COL CARDS ── */
+    .cards-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: var(--blanco);
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .info-card-full { grid-column: 1 / -1; }
+    .info-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: rgba(0,104,55,0.2);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .info-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .info-card p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--texto-suave);
+    }
+    .mission-tipo {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      background: rgba(200,150,62,0.1);
+      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .mission-transversal {
+      background: linear-gradient(135deg, rgba(0,104,55,0.05), rgba(200,150,62,0.06));
+      border: 1px solid rgba(200,150,62,0.25);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .mt-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 0.5rem;
+    }
+    .mission-transversal h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.5rem;
+    }
+    .mission-transversal p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--texto-suave);
+    }
+
+    /* ── RETOS ── */
+    .retos-scroll {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .reto-card {
+      background: var(--blanco);
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 10px;
+      padding: 1.3rem;
+      position: relative;
+    }
+    .reto-transversal {
+      grid-column: 1 / -1;
+      border-color: rgba(200,150,62,0.3);
+      background: linear-gradient(135deg, rgba(0,104,55,0.03), rgba(200,150,62,0.04));
+    }
+    .reto-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(0,104,55,0.08);
+      border: 1px solid rgba(0,104,55,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      color: var(--verde-medio);
+      margin-bottom: 0.7rem;
+    }
+    .reto-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.98rem;
+      font-weight: 400;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+    }
+    .reto-card p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--texto-suave);
+    }
+    .reto-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      background: rgba(200,150,62,0.12);
+      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── MOTORES ── */
+    .motores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .motor-card {
+      background: var(--blanco);
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 10px;
+      padding: 1.3rem;
+    }
+    .motor-letra {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(0,104,55,0.1), rgba(200,150,62,0.1));
+      border: 1px solid rgba(0,104,55,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--verde-medio);
+      margin-bottom: 0.8rem;
+    }
+    .motor-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.98rem;
+      font-weight: 400;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .motor-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .motor-card ul li {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--texto-suave);
+      padding-left: 0.8rem;
+      position: relative;
+    }
+    .motor-card ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--dorado);
+    }
+
     /* ── REVEAL ── */
     .reveal {
       opacity: 0;
@@ -674,7 +987,7 @@
       </div>
     </section>
 
-    <!-- TARJETAS DE COMPONENTES -->
+    <!-- NIVELES + TABS -->
     <section class="cards-section">
       <div class="container">
 
@@ -684,48 +997,157 @@
           </div>
         </div>
 
-        <div class="cards-grid">
+        <!-- Fila de niveles numerados -->
+        <div class="arq-niveles reveal">
+          <div class="arq-nivel">
+            <div class="arq-n-num">1</div>
+            <div class="arq-n-label">Problemáticas estructurales</div>
+          </div>
+          <div class="arq-nivel-sep">→</div>
+          <div class="arq-nivel">
+            <div class="arq-n-num">2</div>
+            <div class="arq-n-label">Transiciones</div>
+          </div>
+          <div class="arq-nivel-sep">→</div>
+          <div class="arq-nivel">
+            <div class="arq-n-num">3</div>
+            <div class="arq-n-label">Modelo y retos</div>
+          </div>
+          <div class="arq-nivel-sep">→</div>
+          <div class="arq-nivel">
+            <div class="arq-n-num">4</div>
+            <div class="arq-n-label">Misiones</div>
+          </div>
+          <div class="arq-nivel-sep">→</div>
+          <div class="arq-nivel">
+            <div class="arq-n-num">5</div>
+            <div class="arq-n-label">Motores</div>
+          </div>
+          <div class="arq-nivel-sep">→</div>
+          <div class="arq-nivel arq-nivel-2050">
+            <div class="arq-n-num arq-n-gold">2050</div>
+            <div class="arq-n-label">Horizonte de transformación</div>
+          </div>
+        </div>
 
-          <!-- C1: Diagnóstico -->
-          <div class="sys-card reveal">
-            <div class="card-num">C1</div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#006837" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
-              </svg>
-            </div>
-            <p class="card-label">Componente 1</p>
-            <h3 class="card-title">Diagnóstico</h3>
-            <p class="card-desc">Identificación y análisis de los problemas estructurales y retos del territorio. Permite comprender las fuerzas de cambio, las tensiones sistémicas y las ventanas de oportunidad que orientan la acción colectiva.</p>
+        <!-- Cards de lectura del mapa -->
+        <div class="arq-cards reveal">
+          <div class="arq-card">
+            <div class="arq-card-num">1</div>
+            <h4>Lo que nos limita hoy</h4>
+            <p>Las 8 problemáticas estructurales muestran los límites ecológicos, sociales, productivos, territoriales e institucionales del desarrollo actual.</p>
+          </div>
+          <div class="arq-card">
+            <div class="arq-card-num">2</div>
+            <h4>El cambio inevitable</h4>
+            <p>Las 6 transiciones explican los grandes procesos de transformación que ya atraviesan el territorio y que no pueden ignorarse.</p>
+          </div>
+          <div class="arq-card">
+            <div class="arq-card-num">3</div>
+            <h4>Las capacidades a construir</h4>
+            <p>El desarrollo no se define como una meta abstracta, sino como 5 capacidades fundamentales e interdependientes.</p>
+          </div>
+          <div class="arq-card">
+            <div class="arq-card-num">4</div>
+            <h4>Las decisiones colectivas</h4>
+            <p>Los 7 retos territoriales traducen esas capacidades en decisiones estratégicas que Santander debe resolver hacia 2050.</p>
+          </div>
+          <div class="arq-card">
+            <div class="arq-card-num">5</div>
+            <h4>La movilización del cambio</h4>
+            <p>Las 5 misiones y los 8 motores articulan acción pública, inversión, conocimiento e innovación para materializar la visión.</p>
+          </div>
+        </div>
+
+        <!-- Cita destacada -->
+        <div class="arq-quote reveal">
+          <p>Santander no necesita solo crecer. Necesita fortalecer su capacidad de reproducir bienestar económico, social, ecológico e institucional de manera sostenida, justa y territorialmente equilibrada.</p>
+        </div>
+
+        <!-- Tabs de detalle -->
+        <div class="arq-detail-tabs reveal">
+          <div class="arq-dtabs" id="arqDetailTabs">
+            <button class="arq-dtab active" data-panel="trans">6 Transiciones</button>
+            <button class="arq-dtab" data-panel="cap">5 Capacidades</button>
+            <button class="arq-dtab" data-panel="ret">7 Retos</button>
+            <button class="arq-dtab" data-panel="mis">5 Misiones</button>
+            <button class="arq-dtab" data-panel="mot">8 Motores</button>
           </div>
 
-          <!-- C2: Ejecución -->
-          <div class="sys-card reveal reveal-d1">
-            <div class="card-num">C2</div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#006837" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
+          <div class="arq-dpanel active" id="arqdp-trans">
+            <div class="layer-intro">
+              <p>Las transiciones son dinámicas abiertas, inciertas y no lineales. No son un deseo; son procesos que ya están reconfigurando el territorio y frente a los cuales Santander debe desarrollar capacidad de adaptación dinámica.</p>
             </div>
-            <p class="card-label">Componente 2</p>
-            <h3 class="card-title">Ejecución</h3>
-            <p class="card-desc">Despliegue de misiones, proyectos piloto y mecanismos de coordinación territorial. Transforma las apuestas estratégicas en intervenciones concretas que generan valor y producen evidencia de cambio.</p>
+            <div class="cards-2col">
+              <div class="info-card"><div class="info-card-num">1</div><h4>Transición Energética</h4><p>Del modelo fósil basado en petróleo a un hub de energías limpias, con énfasis en hidrógeno verde, energías renovables y eficiencia.</p></div>
+              <div class="info-card"><div class="info-card-num">2</div><h4>Transición Productiva</h4><p>De una economía extractiva de materia prima a una bioeconomía diversificada y una reindustrialización verde apoyada en agro-valor y manufactura 4.0.</p></div>
+              <div class="info-card"><div class="info-card-num">3</div><h4>Transición Tecnológica</h4><p>De la brecha digital a una economía del conocimiento inclusiva, cerrando distancias urbano-rurales con conectividad, IA y Big Data.</p></div>
+              <div class="info-card"><div class="info-card-num">4</div><h4>Transición Demográfica</h4><p>Gestionar el envejecimiento poblacional, activar la economía plateada y retener talento joven en la última década del bono demográfico.</p></div>
+              <div class="info-card"><div class="info-card-num">5</div><h4>Transición Climática</h4><p>De la vulnerabilidad a la resiliencia, protegiendo páramos y garantizando seguridad hídrica como base de todo desarrollo.</p></div>
+              <div class="info-card"><div class="info-card-num">6</div><h4>Transición Institucional - Cultural</h4><p>De un modelo sectorial, vertical y reactivo hacia una gobernanza territorial multiactor, basada en evidencia, diálogo de saberes y corresponsabilidad social.</p></div>
+            </div>
           </div>
 
-          <!-- CA: Aprendizaje -->
-          <div class="sys-card featured reveal reveal-d2">
-            <div class="card-num">C∞</div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#C8963E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                <path d="M3 3v5h5"/>
-                <path d="M12 7v5l4 2"/>
-              </svg>
+          <div class="arq-dpanel" id="arqdp-cap">
+            <div class="layer-intro">
+              <p>En este enfoque, el desarrollo territorial no es un estado final. Es un sistema de capacidades fundamentales e interdependientes que permiten sostener la vida, la economía, el aprendizaje y la decisión colectiva en el tiempo.</p>
             </div>
-            <p class="card-label">Componente Adaptativo</p>
-            <h3 class="card-title">Aprendizaje</h3>
-            <p class="card-desc">Ciclo continuo de evaluación, retroalimentación y ajuste basado en evidencia. El aprendizaje no es un componente terminal, sino el motor que mantiene al sistema en evolución y mejora su capacidad de respuesta.</p>
+            <div class="cards-2col">
+              <div class="info-card"><div class="info-card-num">1</div><h4>Capacidad de reproducción ecológica</h4><p>¿El territorio puede sostener su economía sin destruir su base natural? Incluye agua, suelos, biodiversidad y resiliencia climática.</p></div>
+              <div class="info-card"><div class="info-card-num">2</div><h4>Capacidad de reproducción económica diversificada</h4><p>¿El territorio puede sostener ingresos, empleo digno y valor agregado en el tiempo con resiliencia?</p></div>
+              <div class="info-card"><div class="info-card-num">3</div><h4>Capacidad de reproducción social y demográfica</h4><p>¿Las personas pueden vivir con dignidad hoy y proyectar su vida futura, sin que dependa del municipio donde nacieron?</p></div>
+              <div class="info-card"><div class="info-card-num">4</div><h4>Capacidad de reproducción del aprendizaje e innovación territorial</h4><p>¿El territorio aprende, innova y se adapta al cambio? Implica conocimiento, tecnología, adaptación, formación y retención de talento.</p></div>
+              <div class="info-card info-card-full"><div class="info-card-num">5</div><h4>Capacidad de decisión colectiva basada en evidencia</h4><p>¿El territorio puede decidir y ejecutar su propio futuro? Supone gobernanza, datos, continuidad institucional y capacidad de implementación.</p></div>
+            </div>
+          </div>
+
+          <div class="arq-dpanel" id="arqdp-ret">
+            <div class="layer-intro">
+              <p>Los retos son las decisiones colectivas que Santander debe asumir para alcanzar las cinco capacidades de reproducción que definen el desarrollo territorial.</p>
+            </div>
+            <div class="retos-scroll">
+              <div class="reto-card"><div class="reto-num">1</div><h4>Garantizar seguridad hídrica, alimentaria y resiliencia climática</h4><p>Reto habilitante de la sostenibilidad del sistema y condición de posibilidad de toda la visión.</p></div>
+              <div class="reto-card"><div class="reto-num">2</div><h4>Gestionar la transición demográfica garantizando salud, bienestar y sistemas de cuidado en todo el territorio</h4><p>Busca responder al envejecimiento y a la presión silenciosa sobre bienestar, cuidado y cohesión social.</p></div>
+              <div class="reto-card"><div class="reto-num">3</div><h4>Gestionar una transición productiva y energética justa desde un modelo fósil–extractivo</h4><p>Conecta la reconversión económica con la justicia territorial y laboral.</p></div>
+              <div class="reto-card"><div class="reto-num">4</div><h4>Transformar el modelo económico hacia una economía de mayor valor agregado, basada en el conocimiento y la innovación</h4><p>Busca redefinir qué vive el territorio y cómo genera bienestar sostenible.</p></div>
+              <div class="reto-card"><div class="reto-num">5</div><h4>Retener y atraer talento, democratizando el conocimiento como motor económico</h4><p>Convierte aprendizaje, ciencia y tecnología en base de productividad, adaptación e innovación territorial.</p></div>
+              <div class="reto-card"><div class="reto-num">6</div><h4>Lograr cohesión territorial y cierre efectivo de brechas urbano–rurales</h4><p>Busca una integración territorial efectiva y reducción de desigualdades espaciales.</p></div>
+              <div class="reto-card reto-transversal"><div class="reto-num">7</div><h4>Construcción de gobernanza eficaz, participativa y basada en datos</h4><p>Reto transversal que condiciona la viabilidad de los demás.</p><span class="reto-badge">Reto transversal</span></div>
+            </div>
+          </div>
+
+          <div class="arq-dpanel" id="arqdp-mis">
+            <div class="layer-intro">
+              <p>Las misiones no son programas sectoriales ni listados de proyectos. Son plataformas integradoras que articulan política pública, inversión privada, conocimiento científico e innovación tecnológica hacia objetivos comunes.</p>
+            </div>
+            <div class="cards-2col">
+              <div class="info-card"><div class="info-card-num">1</div><span class="mission-tipo">Misión material</span><h4>Naturaleza para la Vida</h4><p>Seguridad hídrica, alimentaria y climática como base del bienestar y del desarrollo territorial.</p></div>
+              <div class="info-card"><div class="info-card-num">2</div><span class="mission-tipo">Misión material</span><h4>Santander Conectado y Equitativo</h4><p>Cohesión territorial y cero brechas mediante conectividad, acceso y oportunidades distribuidas de manera más justa.</p></div>
+              <div class="info-card"><div class="info-card-num">3</div><span class="mission-tipo">Misión material</span><h4>Reconversión Productiva y Energética</h4><p>De la economía extractiva a la bioeconomía verde, con transición justa, empleo y sofisticación productiva.</p></div>
+              <div class="info-card"><div class="info-card-num">4</div><span class="mission-tipo">Misión habilitante</span><h4>Inteligencia Territorial y Gobernanza Participativa</h4><p>Construcción de un Estado capaz, basado en datos, confianza social y gestión adaptativa del territorio.</p></div>
+              <div class="info-card"><div class="info-card-num">5</div><span class="mission-tipo">Misión habilitante</span><h4>Educación, Cultura y Talento para la Transformación</h4><p>Capital humano como motor del desarrollo, de la productividad y de la capacidad de aprendizaje territorial.</p></div>
+            </div>
+            <div class="mission-transversal" style="margin-top:1.5rem">
+              <div class="mt-label">Misión transversal de viabilidad</div>
+              <h4>Paz con Justicia Social (Seguridad Humana Integral)</h4>
+              <p>Condición de viabilidad de todas las demás. Sin cohesión social, ninguna transición económica o ambiental será políticamente viable.</p>
+            </div>
+          </div>
+
+          <div class="arq-dpanel" id="arqdp-mot">
+            <div class="layer-intro">
+              <p>Los motores se entienden como ecosistemas de innovación productivos y socioeconómicos adaptativos, capaces de generar empleo de calidad, ingresos fiscales, innovación y bienestar social de forma sostenida.</p>
+            </div>
+            <div class="motores-grid">
+              <div class="motor-card"><div class="motor-letra">A</div><h4>Transición energética e industria de transición justa</h4><ul><li>Hidrógeno verde</li><li>Solar y eólica</li><li>Reconversión Barrancabermeja</li><li>Comunidades energéticas</li><li>Biomasa</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">B</div><h4>Bioeconomía y agroindustria avanzada</h4><ul><li>Cacao y café especial</li><li>Biotecnología aplicada</li><li>Ingredientes naturales</li><li>Agricultura regenerativa</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">C</div><h4>Servicios basados en conocimiento y economía digital</h4><ul><li>Software exportable</li><li>IA aplicada</li><li>Retención de talento</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">D</div><h4>Reindustrialización verde y manufactura avanzada</h4><ul><li>Química verde</li><li>Economía circular</li><li>Manufactura 4.0</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">E</div><h4>Economía del cuidado y economía plateada</h4><ul><li>Gerontecnología</li><li>Telemedicina</li><li>Formalización del cuidado</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">F</div><h4>Turismo de alto valor y economía cultural</h4><ul><li>Geoturismo y astroturismo</li><li>Gastronomía de biodiversidad</li><li>Patrimonio natural y cultural</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">G</div><h4>Gobernanza e inteligencia territorial</h4><ul><li>Plataforma de datos territorial</li><li>Consejo de Futuro de Santander</li><li>Participación ciudadana informada</li><li>Gestión por misiones</li></ul></div>
+              <div class="motor-card"><div class="motor-letra">H</div><h4>Infraestructura logística multimodal y conectividad inteligente</h4><ul><li>Vial, férrea y fluvial integradas</li><li>Fibra óptica universal y 5G</li><li>Zonas logísticas inteligentes</li><li>Hub del nororiente</li></ul></div>
+            </div>
           </div>
 
         </div>
@@ -779,7 +1201,20 @@
       els.forEach(el => io.observe(el));
     })();
 
-    // Zoom modal
+    // Tabs arquitectura
+    (function () {
+      const tabs = document.querySelectorAll('.arq-dtab');
+      const panels = document.querySelectorAll('.arq-dpanel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          const target = document.getElementById('arqdp-' + tab.dataset.panel);
+          if (target) target.classList.add('active');
+        });
+      });
+    })();
     (function () {
       const img = document.getElementById('diagrama-img');
       if (!img) return;
