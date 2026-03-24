@@ -5,29 +5,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arquitectura del Sistema - Santander Visión 2050</title>
-  <meta name="description" content="Arquitectura conceptual-operativa del sistema Santander Visión 2050 como sistema operativo territorial adaptativo." />
+
+  <meta name="description" content="Arquitectura conceptual-operativa del sistema Santander Visión 2050." />
+
   <link rel="icon" type="image/png" href="../img/icono.png" />
   <link rel="stylesheet" href="../Styles/styles.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Jost&display=swap" rel="stylesheet" />
+
+  <!-- 🔥 ESTILOS DEL HERO -->
+  <style>
+    .hero-cover {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      margin: 1rem 0;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <!-- ═══════════════════════════ NAVEGACIÓN ═══════════════════════════ -->
+  <!-- NAV -->
   <header>
     <nav class="container nav-inner">
       <a href="../index.html" class="nav-logo">
         <div class="nav-logo-icon">
-          <img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050" width="42">
+          <img src="../img/icono.png" alt="Logo" width="42">
         </div>
         <div class="nav-logo-text">
           SVP
           <span>2050 · UIS</span>
         </div>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+
+      <button class="nav-toggle" id="navToggle">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -35,9 +96,17 @@
 
   <main>
 
-    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-    <section id="hero" class="story-hero">
-      <div class="story-hero-inner">
+    <!-- 🔥 HERO PORTADA CON IMAGEN -->
+    <section id="hero" class="hero-cover">
+
+      <div class="hero-bg">
+        <img src="../img/SVP2050R5P01-D1-Intercambiador a San Vicente-CG-202511260714-008.jpg"
+             alt="Intercambiador a San Vicente">
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
 
         <p class="hero-eyebrow">Santander Visión Prospectiva · 2050</p>
 
@@ -49,15 +118,21 @@
           <div class="ornament-line ornament-line-r"></div>
         </div>
 
-        <h1 class="hero-title">Arquitectura del sistema operativo territorial Santander 2050</h1>
-        <p class="hero-scientific">Diagnóstico estructural, ejecución-coordinación y aprendizaje adaptativo permanente</p>
+        <h1 class="hero-title">
+          Arquitectura del sistema operativo territorial Santander 2050
+        </h1>
+
+        <p class="hero-subtitle">
+          Diagnóstico estructural, ejecución coordinada y aprendizaje adaptativo permanente
+        </p>
 
         <div class="hero-scroll">Explorar</div>
 
       </div>
+
     </section>
 
-    <!-- ═══════════════════════════ TEXTO + DIAGRAMA ═══════════════════════════ -->
+    <!-- CONTENIDO ORIGINAL -->
     <section style="background: var(--blanco);">
       <div class="container">
 
@@ -65,130 +140,46 @@
           <span class="tag">Arquitectura del Sistema</span>
           <h2 class="section-title">Sistema operativo territorial adaptativo</h2>
           <div class="divider"></div>
-          <p class="section-subtitle" style="max-width: 780px">
-            El diagrama lógico muestra la arquitectura completa de Santander 2050 como un sistema operativo territorial
-            adaptativo que articula en un mismo circuito el diagnóstico, la ejecución y el aprendizaje.[file:2]
-            Dos componentes centrales —<strong>C1 diagnóstico estructural</strong> y <strong>C2 ejecución-coordinación</strong>—
-            son observados de manera continua por una columna de <strong>aprendizaje permanente</strong> que convierte la
-            experiencia en evidencia y ajustes de política.[file:2]
-            Sobre el margen izquierdo, dos <strong>hilos transversales</strong> recorren todo el sistema como lentes éticas de
-            evaluación sin interrumpir el flujo operativo.[file:2]
+          <p class="section-subtitle">
+            El sistema articula diagnóstico, ejecución y aprendizaje en un modelo adaptativo territorial.
           </p>
         </div>
 
-        <!-- Layout dos columnas: prosa + diagrama -->
+        <!-- Layout -->
         <div class="prosp-layout reveal">
 
-          <!-- Columna izquierda: texto (manual) -->
           <aside class="prosp-intro">
-
             <p>
-              Santander Visión 2050 no se concibe como un plan tradicional ni como un listado de proyectos, sino como
-              la construcción deliberada de un <strong>sistema operativo territorial adaptativo</strong> capaz de aprender,
-              coordinarse y transformarse en un entorno de cambio estructural permanente.[file:2]
-              El componente <strong>C1</strong> reúne las <em>problemáticas estructurales</em>, las <em>transiciones en curso</em> y los
-              <em>retos‑capacidades</em> que describen qué limita hoy al territorio y qué debe ser transformado hacia 2050.[file:2]
+              Santander Visión 2050 no es un plan tradicional, sino un sistema operativo territorial adaptativo.
             </p>
 
             <div class="prosp-quote">
-              El modelo no busca “ejecutar mejor” los instrumentos existentes, sino transformar la forma en que el
-              territorio <strong>decide, actúa y aprende</strong>, haciendo del aprendizaje colectivo un criterio central de éxito.[file:2]
+              El modelo transforma la forma en que el territorio decide, actúa y aprende.
             </div>
-
-            <div class="prosp-context">
-              <p>
-                El componente <strong>C2</strong> organiza la acción transformadora a través de <strong>misiones estratégicas</strong>,
-                <strong>motores de desarrollo soportados en ECTI</strong>, un <strong>portafolio de proyectos</strong> y
-                <strong>laboratorios vivos</strong> que permiten experimentar antes de escalar.[file:2]
-                En el corazón de este sistema se ubica la <strong>Misión 4 – Inteligencia Territorial y Gobernanza Participativa</strong>,
-                que actúa como sistema operativo interno al articular datos, actores, decisiones y compromisos en una
-                lógica de continuidad supraelectoral.[file:2]
-              </p>
-              <p>
-                Dos hilos transversales —<strong>Paz con Justicia Social, Derechos Humanos y Seguridad Humana</strong>, y
-                <strong>Equidad, Diversidad e Inclusión</strong>— funcionan como lentes ético‑normativos que evalúan si cada
-                decisión, inversión o instrumento está construyendo desarrollo con justicia o solo crecimiento.[file:2]
-                El resultado es un modelo <strong>no lineal, sino sistémico y recursivo</strong>: las decisiones orientan la acción,
-                la acción genera aprendizaje y el aprendizaje reconfigura continuamente la estrategia territorial.[file:2]
-              </p>
-            </div>
-
           </aside>
 
-          <!-- Columna derecha: tarjetas (diagrama) -->
           <div class="prosp-cards">
 
-            <div class="prosp-card reveal">
+            <div class="prosp-card">
               <div class="prosp-num">C1</div>
-              <h4>Diagnóstico estructural</h4>
-              <p>
-                Agrupa las <strong>problemáticas estructurales</strong>, las <strong>transiciones</strong> y los
-                <strong>retos‑capacidades</strong> que describen lo que hoy limita al territorio y hacia dónde debe
-                reorientarse su desarrollo.[file:2]
-              </p>
+              <h4>Diagnóstico</h4>
+              <p>Problemas estructurales y retos del territorio.</p>
             </div>
 
-            <div class="prosp-card reveal">
+            <div class="prosp-card">
               <div class="prosp-num">C2</div>
-              <h4>Ejecución y coordinación</h4>
-              <p>
-                Sistema operativo que traduce los retos en acción mediante <strong>misiones M1‑M5</strong>, <strong>motores ECTI</strong>,
-                <strong>portafolio de proyectos</strong> y <strong>laboratorios vivos</strong>, coordinando políticas, inversión y
-                participación ciudadana.[file:2]
-              </p>
+              <h4>Ejecución</h4>
+              <p>Misiones, proyectos y coordinación territorial.</p>
             </div>
 
-            <div class="prosp-card reveal">
+            <div class="prosp-card">
               <div class="prosp-num">CA</div>
-              <h4>Aprendizaje adaptativo</h4>
-              <p>
-                Columna lateral que observa simultáneamente C1 y C2, convierte la experiencia en evidencia y esa
-                evidencia en <strong>ajustes de política y de estrategia</strong> a través de dispositivos como el Consejo de
-                Futuro y la inteligencia territorial.[file:2]
-              </p>
-            </div>
-
-            <div class="prosp-card reveal">
-              <div class="prosp-num">T1</div>
-              <h4>Paz con justicia social</h4>
-              <p>
-                Hilo transversal que incorpora paz, derechos humanos y seguridad humana como <strong>criterio permanente de
-                evaluación</strong> de cada misión, motor, proyecto y experimento del sistema.[file:2]
-              </p>
-            </div>
-
-            <div class="prosp-card reveal">
-              <div class="prosp-num">T2</div>
-              <h4>Equidad, diversidad e inclusión</h4>
-              <p>
-                Lente ético‑normativo que vela porque ninguna transición genere nuevas exclusiones y que el
-                desarrollo territorial sea <strong>equitativo, diverso e inclusivo</strong> en todas sus escalas.[file:2]
-              </p>
+              <h4>Aprendizaje</h4>
+              <p>Adaptación continua basada en evidencia.</p>
             </div>
 
           </div>
 
-        </div>
-
-        <!-- Diagrama visual -->
-        <div class="arq-quote reveal" style="padding: 0; background: none; border: none; margin-top: 3rem;">
-          <div class="diagram-frame">
-            <!-- CAMBIA ESTA RUTA SI ES NECESARIO -->
-            <img
-              src="../img/diagrama_limpio_v3_santander2050-2.svg"
-              alt="Diagrama lógico del sistema Santander 2050"
-              style="display:block; width:100%; height:auto; border-radius:12px;"
-            />
-          </div>
-        </div>
-
-        <!-- Cita de cierre -->
-        <div class="arq-quote reveal">
-          <p>
-            El desarrollo territorial no se planifica linealmente: <strong>se coordina, se experimenta,
-            se aprende y se reconfigura</strong> de manera continua a partir de la evidencia generada por el
-            propio territorio.[file:2]
-          </p>
         </div>
 
       </div>
@@ -196,67 +187,21 @@
 
   </main>
 
-  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="nav-logo">
-            <div class="nav-logo-icon">
-              <img src="../img/icono.png" alt="Logo Santander Visión 2050" width="42">
-            </div>
-            <div class="nav-logo-text">
-              Santander Visión 2050
-              <span style="color: rgba(255,255,255,0.4)">UIS</span>
-            </div>
-          </div>
-          <p>
-            Proyecto de planeación prospectiva participativa para construir una visión compartida
-            del futuro territorial de Santander, Colombia.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h5>Navegación</h5>
-          <ul>
-            <li><a href="../index.html#arquitectura">Arquitectura</a></li>
-            <li><a href="../index.html#diagnostico">Diagnóstico</a></li>
-            <li><a href="../index.html#hilos">Hilos del Desarrollo</a></li>
-            <li><a href="../index.html#laboratorios">Laboratorios</a></li>
-            <li><a href="../index.html#documentos">Documentos</a></li>
-          </ul>
-        </div>
-      </div>
-
       <div class="footer-bottom">
         <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
-        <span>Bucaramanga, Santander · Colombia</span>
       </div>
     </div>
   </footer>
 
-  <!-- ═══════════════════════════ SCRIPTS ═══════════════════════════ -->
+  <!-- SCRIPTS -->
   <script>
-    (function () {
-      const navToggle = document.getElementById('navToggle');
-      const navLinks  = document.getElementById('navLinks');
-      if (!navToggle || !navLinks) return;
-      navToggle.addEventListener('click', function () {
-        navLinks.classList.toggle('open');
-        navToggle.classList.toggle('active');
-      });
-    })();
-
-    (function () {
-      const els = document.querySelectorAll('.reveal');
-      if (!els.length) return;
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(el => io.observe(el));
-    })();
+    const navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+    });
   </script>
 
 </body>
