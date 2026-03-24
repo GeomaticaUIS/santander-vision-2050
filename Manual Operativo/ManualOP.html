@@ -263,6 +263,8 @@
       height: auto;
       opacity: 0.88;
       filter: drop-shadow(0 12px 40px rgba(0,92,46,0.1));
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
     }
     @media (max-width: 860px) {
       .intro-layout {
@@ -662,9 +664,9 @@
             </div>
           </div>
 
-          <!-- Columna visual — REEMPLAZA LA RUTA con la tuya -->
+          <!-- Columna visual -->
           <div class="intro-visual reveal reveal-d2">
-            <img src="../img/Captura de pantalla 2026-03-24 162235.png" alt="Diagrama sistema operativo territorial Santander 2050" />
+            <img id="diagrama-img" src="../img/Captura de pantalla 2026-03-24 162235.png" alt="Diagrama sistema operativo territorial Santander 2050" />
           </div>
 
         </div>
@@ -733,26 +735,27 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:1rem;">
-          <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050" width="36"></div>
-          <div class="nav-logo-text">
-            Santander Visión 2050
-            <span style="color:rgba(255,255,255,0.4)">UIS</span>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:1rem;">
+            <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050" width="36"></div>
+            <div class="nav-logo-text">
+              Santander Visión 2050
+              <span style="color:rgba(255,255,255,0.4)">UIS</span>
+            </div>
           </div>
+          <p>Proyecto de planeación prospectiva participativa para la construcción de una visión compartida del futuro territorial de Santander, Colombia.</p>
         </div>
-        <p>Proyecto de planeación prospectiva participativa para la construcción de una visión compartida del futuro territorial de Santander, Colombia.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
+        <span>Bucaramanga, Santander · Colombia</span>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
-      <span>Bucaramanga, Santander · Colombia</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
   <script>
     // Nav toggle
@@ -774,6 +777,42 @@
         });
       }, { threshold: 0.1 });
       els.forEach(el => io.observe(el));
+    })();
+
+    // Zoom modal
+    (function () {
+      const img = document.getElementById('diagrama-img');
+      if (!img) return;
+
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        display:none; position:fixed; inset:0; z-index:999;
+        background:rgba(10,31,15,0.88); backdrop-filter:blur(6px);
+        align-items:center; justify-content:center; cursor:zoom-out;
+      `;
+      const zoomImg = document.createElement('img');
+      zoomImg.style.cssText = `
+        max-width:90vw; max-height:90vh; border-radius:10px;
+        box-shadow:0 24px 80px rgba(0,0,0,0.5);
+        animation: zoomIn 0.25s cubic-bezier(0.16,1,0.3,1) forwards;
+      `;
+      const style = document.createElement('style');
+      style.textContent = `@keyframes zoomIn { from { opacity:0; transform:scale(0.88); } to { opacity:1; transform:scale(1); } }`;
+      document.head.appendChild(style);
+
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+
+      img.addEventListener('click', function () {
+        zoomImg.src = img.src;
+        overlay.style.display = 'flex';
+      });
+      overlay.addEventListener('click', function () {
+        overlay.style.display = 'none';
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') overlay.style.display = 'none';
+      });
     })();
   </script>
 
