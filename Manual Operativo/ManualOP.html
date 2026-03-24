@@ -1,1 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arquitectura del Sistema - Santander Visión 2050</title>
+  <meta name="description" content="Arquitectura conceptual-operativa del sistema Santander Visión 2050 como sistema operativo territorial adaptativo." />
+  <link rel="icon" type="image/png" href="../img/icono.png" />
+  <link rel="stylesheet" href="../Styles/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
+  <style>
+    :root {
+      --verde-oscuro: #005C2E;
+      --verde-medio: #006837;
+      --dorado: #C8963E;
+      --crema: #F7F3EC;
+      --blanco: #FFFFFF;
+      --texto: #1a1a1a;
+      --texto-suave: #3d3d3d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--crema);
+      color: var(--texto);
+      font-family: 'Jost', sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      background: rgba(247,243,236,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,92,46,0.08);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--verde-oscuro);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    .nav-logo-icon img {
+      width: 38px;
+      height: auto;
+      display: block;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: rgba(0,0,0,0.5);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+    }
+
+    /* HERO */
+    .story-hero {
+      position: relative;
+      padding: calc(80px + 4rem) 1.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .story-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 50% 45%, rgba(0,104,55,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 70% at 8% 55%, rgba(200,150,62,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 55% at 92% 60%, rgba(0,92,46,0.06) 0%, transparent 60%);
+    }
+
+    .story-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.1s ease forwards;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.25s ease forwards;
+    }
+    .ornament-line { height: 1px; width: 55px; }
+    .ornament-line-l { background: linear-gradient(90deg, transparent, var(--dorado)); }
+    .ornament-line-r { background: linear-gradient(90deg, var(--dorado), transparent); }
+    .ornament-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--dorado); }
+    .ornament-diamond { width: 6px; height: 6px; background: var(--dorado); transform: rotate(45deg); }
+
+    .story-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5.1vw, 3.4rem);
+      line-height: 1.2;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s ease forwards;
+    }
+
+    .hero-scientific {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(0,104,55,0.6);
+      letter-spacing: 0.07em;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.85s ease forwards;
+    }
+
+    .scroll-cue {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 1.1s ease forwards;
+    }
+    .scroll-cue-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(0,104,55,0.4);
+    }
+    .scroll-cue-bar {
+      width: 1px; height: 34px;
+      background: linear-gradient(to bottom, rgba(0,104,55,0.4), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    /* SECCIÓN PRINCIPAL TEXTO + IMAGEN */
+    .layout-section {
+      padding: 4rem 0 6rem;
+    }
+
+    .layout-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .article-top-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+    }
+    .ato-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,104,55,0.2), rgba(200,150,62,0.3), rgba(0,104,55,0.2), transparent);
+    }
+    .ato-center { display: flex; align-items: center; gap: 0.4rem; }
+    .ato-center span { display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--dorado); opacity: 0.7; }
+    .ato-center span.big { width: 8px; height: 8px; opacity: 1; }
+
+    .story-prose {
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--texto-suave);
+    }
+
+    .story-prose p {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-prose p:first-child::first-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      float: left;
+      line-height: 0.78;
+      margin: 0.08em 0.1em 0 0;
+      color: var(--verde-medio);
+    }
+
+    .mid-ornament {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin: 2.4rem 0;
+      opacity: 0.55;
+    }
+    .mid-ornament::before,
+    .mid-ornament::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,104,55,0.25), transparent);
+    }
+    .mid-ornament-icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(0,104,55,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mid-ornament-icon svg { width: 12px; height: 12px; fill: var(--verde-medio); }
+
+    .story-prose p:last-child {
+      background: linear-gradient(135deg, rgba(0,104,55,0.04), rgba(200,150,62,0.04));
+      border-left: 3px solid var(--dorado);
+      border-radius: 0 10px 10px 0;
+      padding: 1.2rem 1.4rem 1.2rem 1.5rem;
+      margin-bottom: 0;
+      font-style: italic;
+      color: var(--texto);
+    }
+
+    /* LADO IMAGEN */
+    .diagram-wrap {
+      position: relative;
+      padding: 1.8rem 1.6rem;
+      background: radial-gradient(circle at top left, rgba(0,104,55,0.06), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(200,150,62,0.05), transparent 60%);
+      border-radius: 18px;
+      border: 1px solid rgba(0,92,46,0.15);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.04);
+    }
+
+    .diagram-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(0,104,55,0.7);
+      margin-bottom: 0.9rem;
+    }
+
+    .diagram-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--verde-oscuro);
+      margin-bottom: 1rem;
+    }
+
+    .diagram-note {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.55);
+      margin-bottom: 1.1rem;
+    }
+
+    .diagram-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(0,92,46,0.25);
+      background: var(--blanco);
+    }
+
+    .diagram-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.35; transform: scaleY(1); }
+      50%      { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    footer {
+      background: #032016;
+      color: rgba(255,255,255,0.85);
+      padding: 2.5rem 0 2rem;
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand p {
+      max-width: 440px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 880px) {
+      .layout-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .story-hero { padding: calc(68px + 2.5rem) 1rem 3.2rem; }
+      .story-prose p:first-child::first-letter { font-size: 3rem; }
+      .story-prose p:last-child { padding: 1rem 1.1rem 1rem 1.3rem; }
+      .diagram-wrap { padding: 1.4rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050" />
+        </div>
+        <div class="nav-logo-text">
+          SVP
+          <span>2050 · UIS</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="story-hero">
+      <div class="story-hero-inner">
+        <p class="hero-eyebrow">Santander Visión Prospectiva · 2050</p>
+
+        <div class="ornament">
+          <div class="ornament-line ornament-line-l"></div>
+          <div class="ornament-dot"></div>
+          <div class="ornament-diamond"></div>
+          <div class="ornament-dot"></div>
+          <div class="ornament-line ornament-line-r"></div>
+        </div>
+
+        <h1>Arquitectura del sistema operativo territorial Santander 2050</h1>
+        <p class="hero-scientific">Diagnóstico estructural, ejecución-coordinación y aprendizaje adaptativo permanente</p>
+
+        <div class="scroll-cue">
+          <div class="scroll-cue-bar"></div>
+          <span class="scroll-cue-label">Explorar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXTO IZQUIERDA + IMAGEN DERECHA -->
+    <section class="layout-section">
+      <div class="layout-inner">
+
+        <!-- COLUMNA TEXTO -->
+        <div>
+          <div class="article-top-ornament">
+            <div class="ato-line"></div>
+            <div class="ato-center">
+              <span></span><span class="big"></span><span></span>
+            </div>
+            <div class="ato-line"></div>
+          </div>
+
+          <div class="story-prose">
+            <p class="reveal">
+              El diagrama lógico del sistema Santander 2050 sintetiza la arquitectura completa del modelo como sistema operativo territorial adaptativo. [file:1] No se trata de un plan lineal, sino de una estructura recursiva que articula diagnóstico, ejecución y aprendizaje en un mismo flujo.
+            </p>
+
+            <p class="reveal reveal-d1">
+              Dos grandes componentes organizan el corazón del sistema. [file:1] El componente C1 de diagnóstico estructural identifica las problemáticas persistentes y las transiciones inevitables que redefinen el entorno, mientras que el componente C2 de ejecución y coordinación organiza la acción transformadora a través de misiones, motores ECTI, portafolio de proyectos y laboratorios vivos. [file:1]
+            </p>
+
+            <p class="reveal reveal-d2">
+              A la izquierda del diagrama, una columna de aprendizaje adaptativo observa de forma simultánea el diagnóstico y la ejecución. [file:1] Esta columna convierte la experiencia en evidencia, la evidencia en ajustes de política y, cuando es necesario, en reconfiguración de los propios retos estratégicos del territorio. [file:1]
+            </p>
+
+            <div class="mid-ornament reveal">
+              <div class="mid-ornament-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                </svg>
+              </div>
+            </div>
+
+            <p class="reveal reveal-d3">
+              Dos hilos transversales recorren el sistema como lentes éticos permanentes: paz con justicia social y equidad, diversidad e inclusión. [file:1] No son capítulos separados, sino criterios para evaluar si cada decisión, instrumento o inversión está construyendo desarrollo con justicia o solo crecimiento. [file:1]
+            </p>
+
+            <p class="reveal reveal-d3">
+              En conjunto, la arquitectura implícita que muestra el diagrama hace explícita la lógica central de Santander 2050: el desarrollo territorial no se planifica linealmente; se coordina, se experimenta, se aprende y se reconfigura de manera continua. [file:1]
+            </p>
+          </div>
+        </div>
+
+        <!-- COLUMNA IMAGEN -->
+        <aside class="diagram-wrap reveal reveal-d1">
+          <div class="diagram-eyebrow">Diagrama lógico</div>
+          <div class="diagram-title">Sistema operativo Santander 2050</div>
+          <p class="diagram-note">
+            Representación visual de los componentes C1 y C2, la columna de aprendizaje y los hilos transversales. [file:1][file:2]
+          </p>
+          <div class="diagram-frame">
+            <!-- AQUÍ CAMBIAS LA RUTA DE LA IMAGEN -->
+            <!-- LÍNEA CLAVE PARA RUTA DEL ARCHIVO -->
+            <img src="../img/diagrama_limpio_v3_santander2050-2.svg" alt="Diagrama lógico del sistema Santander 2050" />
+            <!-- SI QUIERES OTRA RUTA, CAMBIA ../img/diagrama_limpio_v3_santander2050-2.svg POR LA NUEVA -->
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-icon">
+              <img src="../img/icono.png" alt="Logo Santander Visión 2050">
+            </div>
+            <div class="nav-logo-text">
+              Santander Visión 2050
+              <span style="color:rgba(255,255,255,0.4)">UIS</span>
+            </div>
+          </div>
+          <p>
+            Proyecto de planeación prospectiva participativa para construir una visión compartida del futuro territorial de Santander, Colombia. [file:1]
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
+        <span>Bucaramanga, Santander · Colombia</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const navToggle = document.getElementById('navToggle');
+      const navLinks  = document.getElementById('navLinks');
+      if (!navToggle || !navLinks) return;
+      navToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+        navToggle.classList.toggle('active');
+      });
+    })();
+
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>
