@@ -57,8 +57,8 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════ TEXTO + DIAGRAMA ═══════════════════════════ -->
-    <section style="background: var(--blanco);">
+    <!-- ═══════════════════════════ LAYOUT DOS COLUMNAS WORD vs PDF ═══════════════════════════ -->
+    <section style="background: var(--blanco); padding: 4rem 0 6rem;">
       <div class="container">
 
         <div class="section-header reveal">
@@ -66,88 +66,110 @@
           <h2 class="section-title">Sistema operativo territorial adaptativo</h2>
           <div class="divider"></div>
           <p class="section-subtitle" style="max-width: 780px">
-            El diagrama lógico sintetiza la arquitectura completa del modelo como sistema operativo territorial
-            adaptativo. No se trata de un plan lineal, sino de una estructura recursiva que articula diagnóstico,
-            ejecución y aprendizaje en un mismo flujo.
+            Comparación paralela entre documento Word (izquierda) y PDF (derecha) de la arquitectura del sistema.
           </p>
         </div>
 
-        <!-- Layout dos columnas: prosa + diagrama -->
-        <div class="prosp-layout reveal">
+        <!-- Layout dos columnas: Word (izq) + PDF (der) -->
+        <div class="prosp-layout reveal" style="display: flex; gap: 4rem; max-width: 1400px; margin: 0 auto;">
 
-          <!-- Columna izquierda: texto -->
-          <aside class="prosp-intro">
+          <!-- IZQUIERDA: Contenido WORD -->
+          <div style="flex: 1; min-width: 0;">
 
-            <p>
-              Dos grandes componentes organizan el corazón del sistema. El componente <strong>C1 de diagnóstico
-              estructural</strong> identifica las problemáticas persistentes y las transiciones inevitables que
-              redefinen el entorno, mientras que el componente <strong>C2 de ejecución y coordinación</strong>
-              organiza la acción transformadora a través de misiones, motores ECTI, portafolio de proyectos y
-              laboratorios vivos.
-            </p>
+            <aside class="prosp-intro">
 
-            <div class="prosp-quote">
-              A la izquierda del diagrama, una columna de aprendizaje adaptativo convierte la experiencia en
-              evidencia y, cuando es necesario, reconfigura los propios retos estratégicos del territorio.
-            </div>
-
-            <div class="prosp-context">
               <p>
-                Dos hilos transversales recorren el sistema como lentes éticos permanentes: <strong>paz con justicia
-                social</strong> y <strong>equidad, diversidad e inclusión</strong>. No son capítulos separados,
-                sino criterios para evaluar si cada decisión, instrumento o inversión está construyendo desarrollo
-                con justicia o solo crecimiento.
+                Dos grandes componentes organizan el corazón del sistema. El componente <strong>C1 de diagnóstico
+                estructural</strong> identifica las problemáticas persistentes y las transiciones inevitables que
+                redefinen el entorno, mientras que el componente <strong>C2 de ejecución y coordinación</strong>
+                organiza la acción transformadora a través de misiones, motores ECTI, portafolio de proyectos y
+                laboratorios vivos.
               </p>
-              <p>
-                En conjunto, la arquitectura hace explícita la lógica central de Santander 2050: el desarrollo
-                territorial no se planifica linealmente; se coordina, se experimenta, se aprende y se reconfigura
-                de manera continua.
-              </p>
+
+              <div class="prosp-quote">
+                A la izquierda del diagrama, una columna de aprendizaje adaptativo convierte la experiencia en
+                evidencia y, cuando es necesario, reconfigura los propios retos estratégicos del territorio.
+              </div>
+
+              <div class="prosp-context">
+                <p>
+                  Dos hilos transversales recorren el sistema como lentes éticos permanentes: <strong>paz con justicia
+                  social</strong> y <strong>equidad, diversidad e inclusión</strong>. No son capítulos separados,
+                  sino criterios para evaluar si cada decisión, instrumento o inversión está construyendo desarrollo
+                  con justicia o solo crecimiento.
+                </p>
+                <p>
+                  En conjunto, la arquitectura hace explícita la lógica central de Santander 2050: el desarrollo
+                  territorial no se planifica linealmente; se coordina, se experimenta, se aprende y se reconfigura
+                  de manera continua.
+                </p>
+              </div>
+
+            </aside>
+
+            <!-- Cards WORD -->
+            <div class="prosp-cards">
+
+              <div class="prosp-card reveal">
+                <div class="prosp-num">C1</div>
+                <h4>Diagnóstico estructural</h4>
+                <p>Problemáticas persistentes y transiciones inevitables que redefinen el entorno territorial.</p>
+              </div>
+
+              <div class="prosp-card reveal">
+                <div class="prosp-num">C2</div>
+                <h4>Ejecución y coordinación</h4>
+                <p>Misiones, motores ECTI, portafolio de proyectos y laboratorios vivos orientados a la transformación.</p>
+              </div>
+
+              <div class="prosp-card reveal">
+                <div class="prosp-num">CA</div>
+                <h4>Aprendizaje adaptativo</h4>
+                <p>Columna que observa diagnóstico y ejecución en simultáneo, convirtiendo experiencia en ajustes de política.</p>
+              </div>
+
+              <div class="prosp-card reveal">
+                <div class="prosp-num">T1</div>
+                <h4>Paz con justicia social</h4>
+                <p>Hilo transversal ético que evalúa si cada decisión construye desarrollo con justicia territorial.</p>
+              </div>
+
+              <div class="prosp-card reveal">
+                <div class="prosp-num">T2</div>
+                <h4>Equidad, diversidad e inclusión</h4>
+                <p>Criterio permanente para garantizar que ninguna transición genere exclusión o fractura social.</p>
+              </div>
+
             </div>
 
-          </aside>
+          </div>
 
-          <!-- Columna derecha: cards de componentes -->
-          <div class="prosp-cards">
+          <!-- DERECHA: Contenido PDF (usando estructura narrativa de referencia) -->
+          <div style="flex: 1; min-width: 0;">
 
-            <div class="prosp-card reveal">
-              <div class="prosp-num">C1</div>
-              <h4>Diagnóstico estructural</h4>
-              <p>Problemáticas persistentes y transiciones inevitables que redefinen el entorno territorial.</p>
-            </div>
+            <div class="story-prose">
 
-            <div class="prosp-card reveal">
-              <div class="prosp-num">C2</div>
-              <h4>Ejecución y coordinación</h4>
-              <p>Misiones, motores ECTI, portafolio de proyectos y laboratorios vivos orientados a la transformación.</p>
-            </div>
+              <p>El sistema operativo territorial adaptativo de Santander 2050 organiza sus componentes en una arquitectura recursiva. El <strong>C1 Diagnóstico estructural</strong> mapea problemáticas persistentes y transiciones inevitables del entorno.</p>
 
-            <div class="prosp-card reveal">
-              <div class="prosp-num">CA</div>
-              <h4>Aprendizaje adaptativo</h4>
-              <p>Columna que observa diagnóstico y ejecución en simultáneo, convirtiendo experiencia en ajustes de política.</p>
-            </div>
+              <p>El <strong>C2 Ejecución y coordinación</strong> despliega misiones transformadoras, motores ECTI, portafolio de proyectos y laboratorios vivos como instrumentos de acción coordinada y escalable.</p>
 
-            <div class="prosp-card reveal">
-              <div class="prosp-num">T1</div>
-              <h4>Paz con justicia social</h4>
-              <p>Hilo transversal ético que evalúa si cada decisión construye desarrollo con justicia territorial.</p>
-            </div>
+              <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(0,92,46,0.03); border-left: 4px solid #C8963E; border-radius: 0 8px 8px 0;">
+                <strong>CA Aprendizaje adaptativo:</strong> Columna vertebral que convierte experiencia operativa en evidencia, reconfigurando retos estratégicos cuando la realidad territorial lo exige.
+              </div>
 
-            <div class="prosp-card reveal">
-              <div class="prosp-num">T2</div>
-              <h4>Equidad, diversidad e inclusión</h4>
-              <p>Criterio permanente para garantizar que ninguna transición genere exclusión o fractura social.</p>
+              <p><strong>T1 Paz con justicia social</strong> y <strong>T2 Equidad, diversidad e inclusión</strong> operan como hilos éticos transversales que evalúan permanentemente la justicia territorial de cada decisión e inversión.</p>
+
+              <p>Esta arquitectura no es estática: aprende de su propia ejecución, se adapta a transiciones imprevistas y reconfigura continuamente sus prioridades basándose en evidencia territorial acumulada.</p>
+
             </div>
 
           </div>
 
         </div>
 
-        <!-- Diagrama visual -->
-        <div class="arq-quote reveal" style="padding: 0; background: none; border: none; margin-top: 3rem;">
-          <div class="diagram-frame">
-            <!-- CAMBIA ESTA RUTA SI ES NECESARIO -->
+        <!-- Diagrama visual centrado -->
+        <div class="arq-quote reveal" style="padding: 0; background: none; border: none; margin-top: 4rem;">
+          <div class="diagram-frame" style="max-width: 1000px; margin: 0 auto;">
             <img
               src="../img/diagrama_limpio_v3_santander2050-2.svg"
               alt="Diagrama lógico del sistema Santander 2050"
@@ -156,8 +178,8 @@
           </div>
         </div>
 
-        <!-- Cita de cierre -->
-        <div class="arq-quote reveal">
+        <!-- Cita de cierre centrada -->
+        <div class="arq-quote reveal" style="max-width: 680px; margin: 3rem auto 0;">
           <p>
             Santander 2050 no es un plan estático. Es un sistema que aprende, se adapta y reconfigura sus retos
             en función de la evidencia territorial acumulada.
