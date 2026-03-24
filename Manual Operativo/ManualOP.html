@@ -241,8 +241,38 @@
       background: var(--blanco);
     }
     .section-intro .container {
-      max-width: 820px;
+      max-width: 1080px;
       margin: 0 auto;
+    }
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .intro-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .intro-visual img,
+    .intro-visual svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      opacity: 0.88;
+      filter: drop-shadow(0 12px 40px rgba(0,92,46,0.1));
+    }
+    @media (max-width: 860px) {
+      .intro-layout {
+        grid-template-columns: 1fr;
+      }
+      .intro-visual {
+        order: -1;
+        max-width: 320px;
+        margin: 0 auto;
+      }
     }
 
     .article-top-ornament {
@@ -611,20 +641,32 @@
           <div class="ato-line"></div>
         </div>
 
-        <p class="intro-tag reveal">Arquitectura del Sistema</p>
-        <h2 class="intro-title reveal reveal-d1">Sistema operativo territorial adaptativo</h2>
-        <div class="intro-divider reveal reveal-d2"></div>
+        <div class="intro-layout">
 
-        <p class="intro-text reveal reveal-d1">
-          Santander Visión 2050 no es un plan tradicional, sino un sistema operativo territorial adaptativo. A diferencia de los enfoques de planificación convencional, este modelo no prescribe rutas fijas ni soluciones predeterminadas: articula capacidades de diagnóstico, ejecución y aprendizaje en una arquitectura que se ajusta continuamente a las condiciones cambiantes del territorio.
-        </p>
+          <!-- Columna texto -->
+          <div class="intro-text-col">
+            <p class="intro-tag reveal">Arquitectura del Sistema</p>
+            <h2 class="intro-title reveal reveal-d1">Sistema operativo territorial adaptativo</h2>
+            <div class="intro-divider reveal reveal-d2"></div>
 
-        <p class="intro-text reveal reveal-d2">
-          El sistema opera a través de tres componentes interdependientes que transforman la forma en que el territorio decide, actúa y aprende. Cada componente cumple una función específica dentro del ciclo adaptativo, pero es la interacción entre ellos —y no cada uno por separado— lo que genera la capacidad sistémica de transformación estructural.
-        </p>
+            <p class="intro-text reveal reveal-d1">
+              Santander Visión 2050 no es un plan tradicional, sino un sistema operativo territorial adaptativo. A diferencia de los enfoques de planificación convencional, este modelo no prescribe rutas fijas ni soluciones predeterminadas: articula capacidades de diagnóstico, ejecución y aprendizaje en una arquitectura que se ajusta continuamente a las condiciones cambiantes del territorio.
+            </p>
 
-        <div class="intro-quote reveal reveal-d3">
-          El modelo transforma la forma en que el territorio decide, actúa y aprende, convirtiendo la incertidumbre en una condición de operación y no en un obstáculo para la acción.
+            <p class="intro-text reveal reveal-d2">
+              El sistema opera a través de tres componentes interdependientes que transforman la forma en que el territorio decide, actúa y aprende. Cada componente cumple una función específica dentro del ciclo adaptativo, pero es la interacción entre ellos —y no cada uno por separado— lo que genera la capacidad sistémica de transformación estructural.
+            </p>
+
+            <div class="intro-quote reveal reveal-d3">
+              El modelo transforma la forma en que el territorio decide, actúa y aprende, convirtiendo la incertidumbre en una condición de operación y no en un obstáculo para la acción.
+            </div>
+          </div>
+
+          <!-- Columna visual — REEMPLAZA LA RUTA con la tuya -->
+          <div class="intro-visual reveal reveal-d2">
+            <img src="../img/NOMBRE-DE-TU-ARCHIVO.svg" alt="Diagrama sistema operativo territorial Santander 2050" />
+          </div>
+
         </div>
 
       </div>
@@ -697,7 +739,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:1rem;">
-            <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050" width="36"></div>
+            <div class="nav-logo-icon"><img src=" img/diagrama_limpio_v3_santander2050.svg " width="36"></div>
             <div class="nav-logo-text">
               Santander Visión 2050
               <span style="color:rgba(255,255,255,0.4)">UIS</span>
