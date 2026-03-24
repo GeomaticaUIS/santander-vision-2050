@@ -15,7 +15,10 @@
   --radius-sm: 8px;
   --nav-num-bg: rgba(46, 158, 107, 0.12);
   --nav-num-border: rgba(46, 158, 107, 0.25);
-  --hero-bg: linear-gradient(160deg, #071a12 0%, #0a1420 40%, #0c1008 100%);
+  --hero-bg:
+    linear-gradient(100deg, rgba(8, 18, 14, 0.86) 0%, rgba(8, 18, 14, 0.72) 45%, rgba(8, 18, 14, 0.56) 100%),
+    url('../img/riesgo_hidrico.jpg') center / cover no-repeat,
+    linear-gradient(160deg, #071a12 0%, #0a1420 40%, #0c1008 100%);
   --hero-grid-color: rgba(46, 158, 107, 0.04);
   --hero-glow-bg: radial-gradient(circle, rgba(46, 158, 107, 0.12) 0%, transparent 70%);
   --hero-em-color: #5ecb99;

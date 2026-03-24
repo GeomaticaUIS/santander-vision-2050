@@ -34,13 +34,54 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background: radial-gradient(circle at top right, rgba(29,78,216,0.16), transparent 28%),
-                  radial-gradient(circle at top left, rgba(180,83,9,0.16), transparent 30%),
-                  linear-gradient(135deg, #0f172a 0%, #172554 55%, #0f3b37 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #0f3b37 100%);
       color: white;
       border-radius: 28px;
       padding: 56px 56px 42px;
       box-shadow: var(--shadow);
+    }
+
+    .hero-bg-carousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-bg-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation-duration: 16s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .hero-bg-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(29,78,216,0.2), transparent 30%),
+        radial-gradient(circle at top left, rgba(180,83,9,0.2), transparent 32%),
+        linear-gradient(100deg, rgba(8, 12, 20, 0.84) 0%, rgba(8, 12, 20, 0.7) 45%, rgba(8, 12, 20, 0.54) 100%);
+    }
+
+    .hero-bg-slide.s1 {
+      background-image: url('../img/hilo_intro.jpg');
+      animation-name: heroFadeOne;
+    }
+
+    .hero-bg-slide.s2 {
+      background-image: url('../img/hilo_intro2.jpg');
+      animation-name: heroFadeTwo;
+    }
+
+    .hero > :not(.hero-bg-carousel) {
+      position: relative;
+      z-index: 2;
     }
 
     .hero::after {
@@ -51,6 +92,19 @@
       height: 360px;
       border-radius: 50%;
       border: 64px solid rgba(255,255,255,0.05);
+      z-index: 1;
+    }
+
+    @keyframes heroFadeOne {
+      0%, 45% { opacity: 1; }
+      50%, 95% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes heroFadeTwo {
+      0%, 45% { opacity: 0; }
+      50%, 95% { opacity: 1; }
+      100% { opacity: 0; }
     }
 
     .eyebrow {

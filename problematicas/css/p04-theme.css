@@ -13,6 +13,9 @@
   --font-serif: 'Playfair Display', serif;
   --radius: 12px;
   --radius-sm: 8px;
-  --hero-bg: linear-gradient(160deg, #050e1f 0%, #080f1a 40%, #060a0e 100%);
+  --hero-bg:
+    linear-gradient(100deg, rgba(8, 14, 24, 0.86) 0%, rgba(8, 14, 24, 0.72) 45%, rgba(8, 14, 24, 0.56) 100%),
+    url('../img/sofisticacion_productiva.jpg') center / cover no-repeat,
+    linear-gradient(160deg, #050e1f 0%, #080f1a 40%, #060a0e 100%);
   --hero-glow-bg: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
 }

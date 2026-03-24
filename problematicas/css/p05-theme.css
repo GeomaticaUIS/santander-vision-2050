@@ -13,6 +13,9 @@
   --font-serif: 'Playfair Display', serif;
   --radius: 12px;
   --radius-sm: 8px;
-  --hero-bg: linear-gradient(160deg, #1a0505 0%, #140808 40%, #0c0608 100%);
+  --hero-bg:
+    linear-gradient(100deg, rgba(26, 8, 10, 0.86) 0%, rgba(26, 8, 10, 0.72) 45%, rgba(26, 8, 10, 0.56) 100%),
+    url('../img/desigualdad_territorial.jpg') center / cover no-repeat,
+    linear-gradient(160deg, #1a0505 0%, #140808 40%, #0c0608 100%);
   --hero-glow-bg: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
 }

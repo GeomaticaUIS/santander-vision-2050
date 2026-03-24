@@ -48,7 +48,10 @@
 
   /* ======================== HEADER ======================== */
   header {
-    background: var(--carbon);
+    background:
+      linear-gradient(100deg, rgba(16, 14, 12, 0.88) 0%, rgba(16, 14, 12, 0.74) 45%, rgba(16, 14, 12, 0.58) 100%),
+      url('../img/hilo_extractivo.jpg') center / cover no-repeat,
+      var(--carbon);
     color: #fff;
     padding: 52px 64px 46px;
     position: relative;
