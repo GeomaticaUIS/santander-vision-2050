@@ -1,1002 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arquitectura del Sistema - Santander VisiÃ³n 2050</title>
-  <meta name="description" content="Arquitectura conceptual-operativa del sistema Santander VisiÃ³n 2050." />
+  <title>Arquitectura del Sistema - Santander Visión 2050</title>
+  <meta name="description" content="Arquitectura conceptual-operativa del sistema Santander Visión 2050." />
   <link rel="icon" type="image/png" href="../img/icono.png" />
   <link rel="stylesheet" href="../Styles/styles.css" />
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --verde-oscuro: #005C2E;
-      --verde-medio: #006837;
-      --dorado: #C8963E;
-      --crema: #F7F3EC;
-      --blanco: #FFFFFF;
-      --texto: #1a1a1a;
-      --texto-suave: #3d3d3d;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--crema);
-      color: var(--texto);
-      font-family: 'Jost', sans-serif;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ NAV Ã¢â€â‚¬Ã¢â€â‚¬ */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(247,243,236,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,104,55,0.08);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      text-decoration: none;
-    }
-    .nav-logo-icon img { display: block; }
-    .nav-logo-text {
-      font-family: 'Jost', sans-serif;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.06em;
-      color: var(--verde-oscuro);
-      line-height: 1.3;
-    }
-    .nav-logo-text span {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      color: var(--dorado);
-      text-transform: uppercase;
-    }
-    .nav-toggle {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--verde-oscuro);
-      transition: all 0.3s;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ HERO Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .story-hero {
-      position: relative;
-      padding: calc(80px + 4.5rem) 1.5rem 5.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .story-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 65% 55% at 50% 45%, rgba(0,104,55,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 35% 70% at 8% 55%, rgba(200,150,62,0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 55% at 92% 60%, rgba(0,92,46,0.06) 0%, transparent 60%);
-    }
-
-    /* SVG decorativo de fondo */
-    .botanical-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      opacity: 0.12;
-    }
-
-    .story-hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Jost', sans-serif;
-      font-weight: 400;
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      margin-bottom: 1.8rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.1s ease forwards;
-    }
-
-    .ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      margin-bottom: 2.4rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.25s ease forwards;
-    }
-    .ornament-line { height: 1px; width: 55px; }
-    .ornament-line-l { background: linear-gradient(90deg, transparent, var(--dorado)); }
-    .ornament-line-r { background: linear-gradient(90deg, var(--dorado), transparent); }
-    .ornament-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--dorado); }
-    .ornament-diamond { width: 6px; height: 6px; background: var(--dorado); transform: rotate(45deg); }
-
-    /* Ãcono central del hero */
-    .hero-icon-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 2.2rem;
-      opacity: 0;
-      animation: birdReveal 1.1s 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
-    .hero-icon-ring-outer {
-      position: absolute; inset: -30px;
-      border-radius: 50%;
-      border: 1px solid rgba(0,104,55,0.18);
-    }
-    .hero-icon-ring-inner {
-      position: absolute; inset: -15px;
-      border-radius: 50%;
-      border: 1px dashed rgba(200,150,62,0.28);
-    }
-    .hero-icon-glow {
-      position: absolute; inset: -20px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,104,55,0.1) 0%, transparent 70%);
-    }
-    .hero-icon-svg {
-      width: clamp(80px, 12vw, 110px);
-      height: auto;
-      position: relative; z-index: 1;
-      filter: drop-shadow(0 6px 28px rgba(0,104,55,0.18));
-      animation: iconFloat 6s ease-in-out infinite;
-    }
-    @keyframes iconFloat {
-      0%,100% { transform: translateY(0) rotate(-0.5deg); }
-      50%      { transform: translateY(-7px) rotate(0.5deg); }
-    }
-
-    .story-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.2;
-      color: var(--verde-oscuro);
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.8s ease forwards;
-    }
-
-    .hero-subtitle {
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      font-size: 0.97rem;
-      line-height: 1.7;
-      color: rgba(0,104,55,0.6);
-      letter-spacing: 0.03em;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.95s ease forwards;
-    }
-
-    .scroll-cue {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 1.2s ease forwards;
-    }
-    .scroll-cue-label {
-      font-size: 0.66rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(0,104,55,0.4);
-    }
-    .scroll-cue-bar {
-      width: 1px; height: 34px;
-      background: linear-gradient(to bottom, rgba(0,104,55,0.4), transparent);
-      animation: scrollPulse 2.2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%,100% { opacity: 0.35; transform: scaleY(1); }
-      50%      { opacity: 1; transform: scaleY(1.1); }
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ SECCIÃ€œN INTRO Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .section-intro {
-      padding: 5rem 1.5rem 2rem;
-      background: var(--blanco);
-    }
-    .section-intro .container {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .intro-layout {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 4rem;
-      align-items: center;
-    }
-    .intro-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .intro-visual img,
-    .intro-visual svg {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      opacity: 0.88;
-      filter: drop-shadow(0 12px 40px rgba(0,92,46,0.1));
-      cursor: zoom-in;
-      transition: opacity 0.2s ease;
-    }
-    @media (max-width: 860px) {
-      .intro-layout {
-        grid-template-columns: 1fr;
-      }
-      .intro-visual {
-        order: -1;
-        max-width: 320px;
-        margin: 0 auto;
-      }
-    }
-
-    .article-top-ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      margin-bottom: 3.5rem;
-    }
-    .ato-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,104,55,0.2), rgba(200,150,62,0.3), rgba(0,104,55,0.2), transparent);
-    }
-    .ato-center { display: flex; align-items: center; gap: 0.4rem; }
-    .ato-center span { display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--dorado); opacity: 0.7; }
-    .ato-center span.big { width: 8px; height: 8px; opacity: 1; }
-
-    .intro-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      font-weight: 400;
-      margin-bottom: 1.2rem;
-    }
-    .intro-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      line-height: 1.25;
-      color: var(--verde-oscuro);
-      margin-bottom: 1.4rem;
-    }
-    .intro-divider {
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--dorado), rgba(200,150,62,0.2));
-      margin-bottom: 1.5rem;
-    }
-    .intro-text {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: var(--texto-suave);
-      margin-bottom: 1.6rem;
-    }
-    .intro-text:first-of-type::first-letter {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.8rem;
-      font-weight: 300;
-      float: left;
-      line-height: 0.78;
-      margin: 0.08em 0.12em 0 0;
-      color: var(--verde-medio);
-    }
-    .intro-quote {
-      background: linear-gradient(135deg, rgba(0,104,55,0.04), rgba(200,150,62,0.04));
-      border-left: 3px solid var(--dorado);
-      border-radius: 0 10px 10px 0;
-      padding: 1.4rem 1.4rem 1.4rem 1.6rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      line-height: 1.75;
-      color: var(--verde-oscuro);
-      margin: 2rem 0;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ TARJETAS Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .cards-section {
-      padding: 3rem 1.5rem 6rem;
-      background: var(--blanco);
-    }
-    .cards-section .container {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .mid-ornament {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin: 0 auto 3.5rem;
-      max-width: 820px;
-      opacity: 0.55;
-    }
-    .mid-ornament::before,
-    .mid-ornament::after {
-      content: '';
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,104,55,0.25), transparent);
-    }
-    .mid-ornament-icon {
-      width: 28px; height: 28px;
-      border: 1px solid rgba(0,104,55,0.3);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .mid-ornament-icon svg { width: 12px; height: 12px; fill: var(--verde-medio); }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .sys-card {
-      position: relative;
-      background: var(--crema);
-      border: 1px solid rgba(0,104,55,0.1);
-      border-radius: 14px;
-      padding: 2.4rem 2rem 2.2rem;
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    }
-    .sys-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--verde-medio), var(--dorado));
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-    .sys-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 48px rgba(0,92,46,0.1);
-      border-color: rgba(0,104,55,0.22);
-    }
-    .sys-card:hover::before { opacity: 1; }
-
-    .card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
-      font-weight: 300;
-      color: rgba(0,104,55,0.12);
-      line-height: 1;
-      margin-bottom: 1.2rem;
-      letter-spacing: -0.02em;
-    }
-    .card-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, rgba(0,104,55,0.08), rgba(200,150,62,0.08));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.2rem;
-      border: 1px solid rgba(0,104,55,0.12);
-    }
-    .card-icon svg { width: 20px; height: 20px; }
-
-    .card-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 400;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.9rem;
-      line-height: 1.25;
-    }
-    .card-desc {
-      font-size: 0.93rem;
-      line-height: 1.75;
-      color: var(--texto-suave);
-    }
-
-    /* Tarjeta destacada (C_A) */
-    .sys-card.featured {
-      background: linear-gradient(145deg, rgba(0,92,46,0.04), rgba(200,150,62,0.05));
-      border-color: rgba(200,150,62,0.25);
-    }
-    .sys-card.featured::before { opacity: 0.6; }
-    .sys-card.featured .card-title { color: var(--verde-medio); }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ FOOTER Ã¢â€â‚¬Ã¢â€â‚¬ */
-    footer {
-      background: #0a1f0f;
-      color: rgba(255,255,255,0.65);
-      padding: 3.5rem 1.5rem 1.5rem;
-    }
-    footer .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-inner {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    .footer-brand { max-width: 380px; }
-    .footer-brand .nav-logo { margin-bottom: 1rem; }
-    .footer-brand .nav-logo-text { color: rgba(255,255,255,0.85); }
-    .footer-brand p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.45);
-    }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.04em;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ ARQ NIVELES Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .arq-niveles {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 2.5rem 0 2rem;
-    }
-    .arq-nivel {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      min-width: 90px;
-    }
-    .arq-n-num {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--verde-medio), var(--verde-oscuro));
-      color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
-    .arq-n-gold { background: linear-gradient(135deg, var(--dorado), #a8741e); }
-    .arq-n-label {
-      font-size: 0.72rem;
-      text-align: center;
-      color: var(--texto-suave);
-      line-height: 1.3;
-      max-width: 80px;
-    }
-    .arq-nivel-sep {
-      color: var(--dorado);
-      font-size: 1.1rem;
-      opacity: 0.6;
-      margin-top: -1rem;
-    }
-    .arq-nivel-2050 .arq-n-num { width: 52px; height: 52px; font-size: 0.9rem; }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ ARQ CARDS Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .arq-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-    .arq-card {
-      background: var(--crema);
-      border: 1px solid rgba(0,104,55,0.1);
-      border-radius: 10px;
-      padding: 1.4rem 1.2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .arq-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,92,46,0.08);
-    }
-    .arq-card-num {
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      background: rgba(0,104,55,0.08);
-      border: 1px solid rgba(0,104,55,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--verde-medio);
-      margin-bottom: 0.8rem;
-    }
-    .arq-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .arq-card p {
-      font-size: 0.82rem;
-      line-height: 1.65;
-      color: var(--texto-suave);
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ ARQ QUOTE Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .arq-quote {
-      background: linear-gradient(135deg, rgba(0,104,55,0.04), rgba(200,150,62,0.04));
-      border-left: 3px solid var(--dorado);
-      border-radius: 0 10px 10px 0;
-      padding: 1.4rem 1.6rem;
-      margin: 0 0 3rem;
-    }
-    .arq-quote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.75;
-      color: var(--verde-oscuro);
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ TABS Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .arq-detail-tabs { margin-bottom: 3rem; }
-    .arq-dtabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid rgba(0,104,55,0.12);
-      padding-bottom: 0.75rem;
-    }
-    .arq-dtab {
-      background: none;
-      border: 1px solid rgba(0,104,55,0.18);
-      border-radius: 20px;
-      padding: 0.45rem 1rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      color: var(--texto-suave);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .arq-dtab:hover { border-color: var(--verde-medio); color: var(--verde-medio); }
-    .arq-dtab.active {
-      background: var(--verde-medio);
-      border-color: var(--verde-medio);
-      color: #fff;
-    }
-    .arq-dpanel { display: none; }
-    .arq-dpanel.active { display: block; }
-
-    .layer-intro {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--texto-suave);
-      margin-bottom: 1.8rem;
-      padding: 1rem 1.2rem;
-      background: rgba(0,104,55,0.03);
-      border-radius: 8px;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ 2-COL CARDS Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .cards-2col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-    .info-card {
-      background: var(--blanco);
-      border: 1px solid rgba(0,104,55,0.1);
-      border-radius: 10px;
-      padding: 1.4rem;
-    }
-    .info-card-full { grid-column: 1 / -1; }
-    .info-card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      color: rgba(0,104,55,0.2);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .info-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .info-card p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: var(--texto-suave);
-    }
-    .mission-tipo {
-      display: inline-block;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      background: rgba(200,150,62,0.1);
-      border-radius: 20px;
-      padding: 0.2rem 0.6rem;
-      margin-bottom: 0.5rem;
-    }
-    .mission-transversal {
-      background: linear-gradient(135deg, rgba(0,104,55,0.05), rgba(200,150,62,0.06));
-      border: 1px solid rgba(200,150,62,0.25);
-      border-radius: 10px;
-      padding: 1.4rem;
-    }
-    .mt-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      margin-bottom: 0.5rem;
-    }
-    .mission-transversal h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.5rem;
-    }
-    .mission-transversal p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: var(--texto-suave);
-    }
-    .mission-subtitle {
-      margin-top: 1rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(0,104,55,0.72);
-    }
-    .submission-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 0.65rem;
-      display: grid;
-      gap: 0.45rem;
-    }
-    .submission-trigger {
-      width: 100%;
-      text-align: left;
-      border: 1px solid rgba(0,104,55,0.14);
-      background: rgba(0,104,55,0.03);
-      color: var(--verde-medio);
-      border-radius: 8px;
-      padding: 0.45rem 0.6rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.78rem;
-      line-height: 1.35;
-      cursor: pointer;
-      transition: all 0.22s ease;
-    }
-    .submission-trigger:hover {
-      background: rgba(0,104,55,0.1);
-      border-color: rgba(0,104,55,0.28);
-    }
-
-    .mission-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 1800;
-      display: none;
-    }
-    .mission-modal.active { display: block; }
-    .mission-modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(10,31,15,0.65);
-      backdrop-filter: blur(4px);
-    }
-    .mission-modal-dialog {
-      position: relative;
-      width: min(760px, calc(100% - 2rem));
-      max-height: calc(100vh - 2.5rem);
-      overflow-y: auto;
-      margin: 1.25rem auto;
-      background: var(--blanco);
-      border-radius: 14px;
-      border: 1px solid rgba(0,104,55,0.14);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-      padding: 1.4rem 1.4rem 1.5rem;
-    }
-    .mission-modal-close {
-      position: absolute;
-      top: 0.7rem;
-      right: 0.7rem;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid rgba(0,104,55,0.2);
-      background: rgba(0,104,55,0.04);
-      color: var(--verde-medio);
-      font-size: 1.1rem;
-      line-height: 1;
-      cursor: pointer;
-    }
-    .mission-modal-tag {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      margin-bottom: 0.6rem;
-    }
-    .mission-modal h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.9rem;
-      max-width: 94%;
-      border: 1px solid rgba(0,104,55,0.16);
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(0,104,55,0.05), rgba(200,150,62,0.05));
-      padding: 0.55rem 0.8rem;
-    }
-    .mission-modal-summary {
-      margin-bottom: 1.1rem;
-      display: grid;
-      gap: 0.65rem;
-    }
-    .mission-summary-item {
-      border-left: 2px solid rgba(0,104,55,0.2);
-      padding: 0.15rem 0 0.15rem 0.75rem;
-    }
-    .mission-summary-item h5 {
-      margin: 0 0 0.35rem;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      text-transform: none;
-      color: var(--verde-oscuro);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .mission-summary-item h5::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--dorado);
-      flex-shrink: 0;
-    }
-    .mission-summary-item p {
-      margin: 0;
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: var(--texto-suave);
-    }
-    .mission-summary-item-full {
-      border-left: 2px solid rgba(0,104,55,0.2);
-    }
-    .mission-modal-links h4 {
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--verde-medio);
-      margin-bottom: 0.6rem;
-    }
-    .mission-modal-links ul {
-      list-style: none;
-      display: grid;
-      gap: 0.6rem;
-      padding: 0;
-    }
-    .mission-modal-links li {
-      border: 1px solid rgba(0,104,55,0.1);
-      border-radius: 8px;
-      background: rgba(247,243,236,0.7);
-      padding: 0.7rem 0.8rem;
-      font-size: 0.84rem;
-      line-height: 1.55;
-      color: var(--texto-suave);
-    }
-    .mission-modal-links a {
-      color: var(--verde-medio);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .mission-modal-links a:hover { text-decoration: underline; }
-    .mission-link-note {
-      display: block;
-      font-size: 0.75rem;
-      color: rgba(0,104,55,0.72);
-      margin-top: 0.25rem;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ RETOS Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .retos-scroll {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-    .reto-card {
-      background: var(--blanco);
-      border: 1px solid rgba(0,104,55,0.1);
-      border-radius: 10px;
-      padding: 1.3rem;
-      position: relative;
-    }
-    .reto-transversal {
-      grid-column: 1 / -1;
-      border-color: rgba(200,150,62,0.3);
-      background: linear-gradient(135deg, rgba(0,104,55,0.03), rgba(200,150,62,0.04));
-    }
-    .reto-num {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: rgba(0,104,55,0.08);
-      border: 1px solid rgba(0,104,55,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      color: var(--verde-medio);
-      margin-bottom: 0.7rem;
-    }
-    .reto-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.98rem;
-      font-weight: 400;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.4rem;
-      line-height: 1.35;
-    }
-    .reto-card p {
-      font-size: 0.82rem;
-      line-height: 1.65;
-      color: var(--texto-suave);
-    }
-    .reto-badge {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--dorado);
-      background: rgba(200,150,62,0.12);
-      border-radius: 20px;
-      padding: 0.2rem 0.6rem;
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ MOTORES Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .motores-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .motor-card {
-      background: var(--blanco);
-      border: 1px solid rgba(0,104,55,0.1);
-      border-radius: 10px;
-      padding: 1.3rem;
-    }
-    .motor-letra {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, rgba(0,104,55,0.1), rgba(200,150,62,0.1));
-      border: 1px solid rgba(0,104,55,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--verde-medio);
-      margin-bottom: 0.8rem;
-    }
-    .motor-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.98rem;
-      font-weight: 400;
-      color: var(--verde-oscuro);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-    .motor-card ul {
-      list-style: none;
-      padding: 0;
-    }
-    .motor-card ul li {
-      font-size: 0.8rem;
-      line-height: 1.6;
-      color: var(--texto-suave);
-      padding-left: 0.8rem;
-      position: relative;
-    }
-    .motor-card ul li::before {
-      content: 'Ã‚Â·';
-      position: absolute;
-      left: 0;
-      color: var(--dorado);
-    }
-
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ REVEAL Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-d1 { transition-delay: 0.08s; }
-    .reveal-d2 { transition-delay: 0.16s; }
-    .reveal-d3 { transition-delay: 0.24s; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes birdReveal {
-      from { opacity: 0; transform: scale(0.72) translateY(12px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    @media (max-width: 640px) {
-      .story-hero { padding: calc(68px + 2.5rem) 1rem 3.5rem; }
-      .cards-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; }
-      .mission-modal-dialog { width: calc(100% - 1rem); padding: 1.1rem 1rem 1.2rem; }
-      .mission-modal h3 { font-size: 1.45rem; }
-    }
-  </style>
+  
 </head>
 <body>
 
@@ -1005,11 +20,11 @@
     <nav class="nav-inner container">
       <a href="../index.html" class="nav-logo">
         <div class="nav-logo-icon">
-          <img src="../img/icono.png" alt="ColibrÃ­ Santander 2050" width="40" />
+          <img src="../img/icono.png" alt="Colibrí Santander 2050" width="40" />
         </div>
         <div class="nav-logo-text">
           SVP
-          <span>2050 Ã‚Â· UIS</span>
+          <span>2050 · UIS</span>
         </div>
       </a>
     </nav>
@@ -1020,7 +35,7 @@
     <!-- HERO -->
     <section class="story-hero">
 
-      <!-- SVG geomÃ©trico de fondo Ã¢â‚¬â€ redes y nodos para arquitectura de sistema -->
+      <!-- SVG geométrico de fondo — redes y nodos para arquitectura de sistema -->
       <svg class="botanical-bg" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <!-- Red izquierda -->
         <circle cx="120" cy="320" r="5" fill="#006837" opacity="0.6"/>
@@ -1056,7 +71,7 @@
       </svg>
 
       <div class="story-hero-inner">
-        <p class="hero-eyebrow">Santander VisiÃ³n Prospectiva Ã‚Â· 2050</p>
+        <p class="hero-eyebrow">Santander Visión Prospectiva · 2050</p>
 
         <div class="ornament">
           <div class="ornament-line ornament-line-l"></div>
@@ -1066,16 +81,16 @@
           <div class="ornament-line ornament-line-r"></div>
         </div>
 
-        <!-- Ãcono central: sistema / engranaje territorial -->
+        <!-- Ãcono central: sistema / engranaje territorial -->
         <div class="hero-icon-wrap">
           <div class="hero-icon-glow"></div>
           <div class="hero-icon-ring-outer"></div>
           <div class="hero-icon-ring-inner"></div>
           <svg class="hero-icon-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- CÃ­rculo central -->
+            <!-- Círculo central -->
             <circle cx="60" cy="60" r="18" stroke="#006837" stroke-width="1.5" fill="rgba(0,104,55,0.06)"/>
             <circle cx="60" cy="60" r="9" fill="rgba(200,150,62,0.25)" stroke="#C8963E" stroke-width="1"/>
-            <!-- Nodos externos y lÃ­neas de red -->
+            <!-- Nodos externos y líneas de red -->
             <circle cx="60" cy="22" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
             <circle cx="60" cy="98" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
             <circle cx="22" cy="60" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
@@ -1084,7 +99,7 @@
             <circle cx="90" cy="30" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
             <circle cx="30" cy="90" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
             <circle cx="90" cy="90" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
-            <!-- LÃ­neas de conexiÃ³n -->
+            <!-- Líneas de conexión -->
             <line x1="60" y1="42" x2="60" y2="27.5" stroke="#006837" stroke-width="1" opacity="0.7"/>
             <line x1="60" y1="78" x2="60" y2="92.5" stroke="#006837" stroke-width="1" opacity="0.7"/>
             <line x1="42" y1="60" x2="27.5" y2="60" stroke="#006837" stroke-width="1" opacity="0.7"/>
@@ -1097,7 +112,7 @@
         </div>
 
         <h1>Arquitectura del sistema operativo territorial Santander 2050</h1>
-        <p class="hero-subtitle">DiagnÃ³stico estructural, ejecuciÃ³n coordinada y aprendizaje adaptativo permanente</p>
+        <p class="hero-subtitle">Diagnóstico estructural, ejecución coordinada y aprendizaje adaptativo permanente</p>
 
         <div class="scroll-cue">
           <div class="scroll-cue-bar"></div>
@@ -1127,15 +142,15 @@
             <div class="intro-divider reveal reveal-d2"></div>
 
             <p class="intro-text reveal reveal-d1">
-              Santander VisiÃ³n 2050 no es un plan tradicional, sino un sistema operativo territorial adaptativo. A diferencia de los enfoques de planificaciÃ³n convencional, este modelo no prescribe rutas fijas ni soluciones predeterminadas: articula capacidades de diagnÃ³stico, ejecuciÃ³n y aprendizaje en una arquitectura que se ajusta continuamente a las condiciones cambiantes del territorio.
+              Santander Visión 2050 no es un plan tradicional, sino un sistema operativo territorial adaptativo. A diferencia de los enfoques de planificación convencional, este modelo no prescribe rutas fijas ni soluciones predeterminadas: articula capacidades de diagnóstico, ejecución y aprendizaje en una arquitectura que se ajusta continuamente a las condiciones cambiantes del territorio.
             </p>
 
             <p class="intro-text reveal reveal-d2">
-              El sistema opera a travÃ©s de tres componentes interdependientes que transforman la forma en que el territorio decide, actÃºa y aprende. Cada componente cumple una funciÃ³n especÃ­fica dentro del ciclo adaptativo, pero es la interacciÃ³n entre ellos Ã¢â‚¬â€y no cada uno por separadoÃ¢â‚¬â€ lo que genera la capacidad sistÃ©mica de transformaciÃ³n estructural.
+              El sistema opera a través de tres componentes interdependientes que transforman la forma en que el territorio decide, actúa y aprende. Cada componente cumple una función específica dentro del ciclo adaptativo, pero es la interacción entre ellos —y no cada uno por separado— lo que genera la capacidad sistémica de transformación estructural.
             </p>
 
             <div class="intro-quote reveal reveal-d3">
-              El modelo transforma la forma en que el territorio decide, actÃºa y aprende, convirtiendo la incertidumbre en una condiciÃ³n de operaciÃ³n y no en un obstÃ¡culo para la acciÃ³n.
+              El modelo transforma la forma en que el territorio decide, actúa y aprende, convirtiendo la incertidumbre en una condición de operación y no en un obstáculo para la acción.
             </div>
           </div>
 
@@ -1163,32 +178,32 @@
         <div class="arq-niveles reveal">
           <div class="arq-nivel">
             <div class="arq-n-num">1</div>
-            <div class="arq-n-label">ProblemÃ¡ticas estructurales</div>
+            <div class="arq-n-label">Problemáticas estructurales</div>
           </div>
-          <div class="arq-nivel-sep">Ã¢â€ â€™</div>
+          <div class="arq-nivel-sep">→</div>
           <div class="arq-nivel">
             <div class="arq-n-num">2</div>
             <div class="arq-n-label">Transiciones</div>
           </div>
-          <div class="arq-nivel-sep">Ã¢â€ â€™</div>
+          <div class="arq-nivel-sep">→</div>
           <div class="arq-nivel">
             <div class="arq-n-num">3</div>
             <div class="arq-n-label">Modelo y retos</div>
           </div>
-          <div class="arq-nivel-sep">Ã¢â€ â€™</div>
+          <div class="arq-nivel-sep">→</div>
           <div class="arq-nivel">
             <div class="arq-n-num">4</div>
             <div class="arq-n-label">Misiones</div>
           </div>
-          <div class="arq-nivel-sep">Ã¢â€ â€™</div>
+          <div class="arq-nivel-sep">→</div>
           <div class="arq-nivel">
             <div class="arq-n-num">5</div>
             <div class="arq-n-label">Motores</div>
           </div>
-          <div class="arq-nivel-sep">Ã¢â€ â€™</div>
+          <div class="arq-nivel-sep">→</div>
           <div class="arq-nivel arq-nivel-2050">
             <div class="arq-n-num arq-n-gold">2050</div>
-            <div class="arq-n-label">Horizonte de transformaciÃ³n</div>
+            <div class="arq-n-label">Horizonte de transformación</div>
           </div>
         </div>
 
@@ -1197,12 +212,12 @@
           <div class="arq-card">
             <div class="arq-card-num">1</div>
             <h4>Lo que nos limita hoy</h4>
-            <p>Las 8 problemÃ¡ticas estructurales muestran los lÃ­mites ecolÃ³gicos, sociales, productivos, territoriales e institucionales del desarrollo actual.</p>
+            <p>Las 8 problemáticas estructurales muestran los límites ecológicos, sociales, productivos, territoriales e institucionales del desarrollo actual.</p>
           </div>
           <div class="arq-card">
             <div class="arq-card-num">2</div>
             <h4>El cambio inevitable</h4>
-            <p>Las 6 transiciones explican los grandes procesos de transformaciÃ³n que ya atraviesan el territorio y que no pueden ignorarse.</p>
+            <p>Las 6 transiciones explican los grandes procesos de transformación que ya atraviesan el territorio y que no pueden ignorarse.</p>
           </div>
           <div class="arq-card">
             <div class="arq-card-num">3</div>
@@ -1212,18 +227,18 @@
           <div class="arq-card">
             <div class="arq-card-num">4</div>
             <h4>Las decisiones colectivas</h4>
-            <p>Los 7 retos territoriales traducen esas capacidades en decisiones estratÃ©gicas que Santander debe resolver hacia 2050.</p>
+            <p>Los 7 retos territoriales traducen esas capacidades en decisiones estratégicas que Santander debe resolver hacia 2050.</p>
           </div>
           <div class="arq-card">
             <div class="arq-card-num">5</div>
-            <h4>La movilizaciÃ³n del cambio</h4>
-            <p>Las 5 misiones y los 8 motores articulan acciÃ³n pÃºblica, inversiÃ³n, conocimiento e innovaciÃ³n para materializar la visiÃ³n.</p>
+            <h4>La movilización del cambio</h4>
+            <p>Las 5 misiones y los 8 motores articulan acción pública, inversión, conocimiento e innovación para materializar la visión.</p>
           </div>
         </div>
 
         <!-- Cita destacada -->
         <div class="arq-quote reveal">
-          <p>Santander no necesita solo crecer. Necesita fortalecer su capacidad de reproducir bienestar econÃ³mico, social, ecolÃ³gico e institucional de manera sostenida, justa y territorialmente equilibrada.</p>
+          <p>Santander no necesita solo crecer. Necesita fortalecer su capacidad de reproducir bienestar económico, social, ecológico e institucional de manera sostenida, justa y territorialmente equilibrada.</p>
         </div>
 
         <!-- Tabs de detalle -->
@@ -1238,77 +253,77 @@
 
           <div class="arq-dpanel active" id="arqdp-trans">
             <div class="layer-intro">
-              <p>Las transiciones son dinÃ¡micas abiertas, inciertas y no lineales. No son un deseo; son procesos que ya estÃ¡n reconfigurando el territorio y frente a los cuales Santander debe desarrollar capacidad de adaptaciÃ³n dinÃ¡mica.</p>
+              <p>Las transiciones son dinámicas abiertas, inciertas y no lineales. No son un deseo; son procesos que ya están reconfigurando el territorio y frente a los cuales Santander debe desarrollar capacidad de adaptación dinámica.</p>
             </div>
             <div class="cards-2col">
-              <div class="info-card"><div class="info-card-num">1</div><h4>TransiciÃ³n EnergÃ©tica</h4><p>Del modelo fÃ³sil basado en petrÃ³leo a un hub de energÃ­as limpias, con Ã©nfasis en hidrÃ³geno verde, energÃ­as renovables y eficiencia.</p></div>
-              <div class="info-card"><div class="info-card-num">2</div><h4>TransiciÃ³n Productiva</h4><p>De una economÃ­a extractiva de materia prima a una bioeconomÃ­a diversificada y una reindustrializaciÃ³n verde apoyada en agro-valor y manufactura 4.0.</p></div>
-              <div class="info-card"><div class="info-card-num">3</div><h4>TransiciÃ³n TecnolÃ³gica</h4><p>De la brecha digital a una economÃ­a del conocimiento inclusiva, cerrando distancias urbano-rurales con conectividad, IA y Big Data.</p></div>
-              <div class="info-card"><div class="info-card-num">4</div><h4>TransiciÃ³n DemogrÃ¡fica</h4><p>Gestionar el envejecimiento poblacional, activar la economÃ­a plateada y retener talento joven en la Ãºltima dÃ©cada del bono demogrÃ¡fico.</p></div>
-              <div class="info-card"><div class="info-card-num">5</div><h4>TransiciÃ³n ClimÃ¡tica</h4><p>De la vulnerabilidad a la resiliencia, protegiendo pÃ¡ramos y garantizando seguridad hÃ­drica como base de todo desarrollo.</p></div>
-              <div class="info-card"><div class="info-card-num">6</div><h4>TransiciÃ³n Institucional - Cultural</h4><p>De un modelo sectorial, vertical y reactivo hacia una gobernanza territorial multiactor, basada en evidencia, diÃ¡logo de saberes y corresponsabilidad social.</p></div>
+              <div class="info-card"><div class="info-card-num">1</div><h4>Transición Energética</h4><p>Del modelo fósil basado en petróleo a un hub de energías limpias, con énfasis en hidrógeno verde, energías renovables y eficiencia.</p></div>
+              <div class="info-card"><div class="info-card-num">2</div><h4>Transición Productiva</h4><p>De una economía extractiva de materia prima a una bioeconomía diversificada y una reindustrialización verde apoyada en agro-valor y manufactura 4.0.</p></div>
+              <div class="info-card"><div class="info-card-num">3</div><h4>Transición Tecnológica</h4><p>De la brecha digital a una economía del conocimiento inclusiva, cerrando distancias urbano-rurales con conectividad, IA y Big Data.</p></div>
+              <div class="info-card"><div class="info-card-num">4</div><h4>Transición Demográfica</h4><p>Gestionar el envejecimiento poblacional, activar la economía plateada y retener talento joven en la última década del bono demográfico.</p></div>
+              <div class="info-card"><div class="info-card-num">5</div><h4>Transición Climática</h4><p>De la vulnerabilidad a la resiliencia, protegiendo páramos y garantizando seguridad hídrica como base de todo desarrollo.</p></div>
+              <div class="info-card"><div class="info-card-num">6</div><h4>Transición Institucional - Cultural</h4><p>De un modelo sectorial, vertical y reactivo hacia una gobernanza territorial multiactor, basada en evidencia, diálogo de saberes y corresponsabilidad social.</p></div>
             </div>
           </div>
 
           <div class="arq-dpanel" id="arqdp-cap">
             <div class="layer-intro">
-              <p>En este enfoque, el desarrollo territorial no es un estado final. Es un sistema de capacidades fundamentales e interdependientes que permiten sostener la vida, la economÃ­a, el aprendizaje y la decisiÃ³n colectiva en el tiempo.</p>
+              <p>En este enfoque, el desarrollo territorial no es un estado final. Es un sistema de capacidades fundamentales e interdependientes que permiten sostener la vida, la economía, el aprendizaje y la decisión colectiva en el tiempo.</p>
             </div>
             <div class="cards-2col">
-              <div class="info-card"><div class="info-card-num">1</div><h4>Capacidad de reproducciÃ³n ecolÃ³gica</h4><p>Ã‚Â¿El territorio puede sostener su economÃ­a sin destruir su base natural? Incluye agua, suelos, biodiversidad y resiliencia climÃ¡tica.</p></div>
-              <div class="info-card"><div class="info-card-num">2</div><h4>Capacidad de reproducciÃ³n econÃ³mica diversificada</h4><p>Ã‚Â¿El territorio puede sostener ingresos, empleo digno y valor agregado en el tiempo con resiliencia?</p></div>
-              <div class="info-card"><div class="info-card-num">3</div><h4>Capacidad de reproducciÃ³n social y demogrÃ¡fica</h4><p>Ã‚Â¿Las personas pueden vivir con dignidad hoy y proyectar su vida futura, sin que dependa del municipio donde nacieron?</p></div>
-              <div class="info-card"><div class="info-card-num">4</div><h4>Capacidad de reproducciÃ³n del aprendizaje e innovaciÃ³n territorial</h4><p>Ã‚Â¿El territorio aprende, innova y se adapta al cambio? Implica conocimiento, tecnologÃ­a, adaptaciÃ³n, formaciÃ³n y retenciÃ³n de talento.</p></div>
-              <div class="info-card info-card-full"><div class="info-card-num">5</div><h4>Capacidad de decisiÃ³n colectiva basada en evidencia</h4><p>Ã‚Â¿El territorio puede decidir y ejecutar su propio futuro? Supone gobernanza, datos, continuidad institucional y capacidad de implementaciÃ³n.</p></div>
+              <div class="info-card"><div class="info-card-num">1</div><h4>Capacidad de reproducción ecológica</h4><p>¿El territorio puede sostener su economía sin destruir su base natural? Incluye agua, suelos, biodiversidad y resiliencia climática.</p></div>
+              <div class="info-card"><div class="info-card-num">2</div><h4>Capacidad de reproducción económica diversificada</h4><p>¿El territorio puede sostener ingresos, empleo digno y valor agregado en el tiempo con resiliencia?</p></div>
+              <div class="info-card"><div class="info-card-num">3</div><h4>Capacidad de reproducción social y demográfica</h4><p>¿Las personas pueden vivir con dignidad hoy y proyectar su vida futura, sin que dependa del municipio donde nacieron?</p></div>
+              <div class="info-card"><div class="info-card-num">4</div><h4>Capacidad de reproducción del aprendizaje e innovación territorial</h4><p>¿El territorio aprende, innova y se adapta al cambio? Implica conocimiento, tecnología, adaptación, formación y retención de talento.</p></div>
+              <div class="info-card info-card-full"><div class="info-card-num">5</div><h4>Capacidad de decisión colectiva basada en evidencia</h4><p>¿El territorio puede decidir y ejecutar su propio futuro? Supone gobernanza, datos, continuidad institucional y capacidad de implementación.</p></div>
             </div>
           </div>
 
           <div class="arq-dpanel" id="arqdp-ret">
             <div class="layer-intro">
-              <p>Los retos son las decisiones colectivas que Santander debe asumir para alcanzar las cinco capacidades de reproducciÃ³n que definen el desarrollo territorial.</p>
+              <p>Los retos son las decisiones colectivas que Santander debe asumir para alcanzar las cinco capacidades de reproducción que definen el desarrollo territorial.</p>
             </div>
             <div class="retos-scroll">
-              <div class="reto-card"><div class="reto-num">1</div><h4>Garantizar seguridad hÃ­drica, alimentaria y resiliencia climÃ¡tica</h4><p>Reto habilitante de la sostenibilidad del sistema y condiciÃ³n de posibilidad de toda la visiÃ³n.</p></div>
-              <div class="reto-card"><div class="reto-num">2</div><h4>Gestionar la transiciÃ³n demogrÃ¡fica garantizando salud, bienestar y sistemas de cuidado en todo el territorio</h4><p>Busca responder al envejecimiento y a la presiÃ³n silenciosa sobre bienestar, cuidado y cohesiÃ³n social.</p></div>
-              <div class="reto-card"><div class="reto-num">3</div><h4>Gestionar una transiciÃ³n productiva y energÃ©tica justa desde un modelo fÃ³silÃ¢â‚¬â€œextractivo</h4><p>Conecta la reconversiÃ³n econÃ³mica con la justicia territorial y laboral.</p></div>
-              <div class="reto-card"><div class="reto-num">4</div><h4>Transformar el modelo econÃ³mico hacia una economÃ­a de mayor valor agregado, basada en el conocimiento y la innovaciÃ³n</h4><p>Busca redefinir quÃ© vive el territorio y cÃ³mo genera bienestar sostenible.</p></div>
-              <div class="reto-card"><div class="reto-num">5</div><h4>Retener y atraer talento, democratizando el conocimiento como motor econÃ³mico</h4><p>Convierte aprendizaje, ciencia y tecnologÃ­a en base de productividad, adaptaciÃ³n e innovaciÃ³n territorial.</p></div>
-              <div class="reto-card"><div class="reto-num">6</div><h4>Lograr cohesiÃ³n territorial y cierre efectivo de brechas urbanoÃ¢â‚¬â€œrurales</h4><p>Busca una integraciÃ³n territorial efectiva y reducciÃ³n de desigualdades espaciales.</p></div>
-              <div class="reto-card reto-transversal"><div class="reto-num">7</div><h4>ConstrucciÃ³n de gobernanza eficaz, participativa y basada en datos</h4><p>Reto transversal que condiciona la viabilidad de los demÃ¡s.</p><span class="reto-badge">Reto transversal</span></div>
+              <div class="reto-card"><div class="reto-num">1</div><h4>Garantizar seguridad hídrica, alimentaria y resiliencia climática</h4><p>Reto habilitante de la sostenibilidad del sistema y condición de posibilidad de toda la visión.</p></div>
+              <div class="reto-card"><div class="reto-num">2</div><h4>Gestionar la transición demográfica garantizando salud, bienestar y sistemas de cuidado en todo el territorio</h4><p>Busca responder al envejecimiento y a la presión silenciosa sobre bienestar, cuidado y cohesión social.</p></div>
+              <div class="reto-card"><div class="reto-num">3</div><h4>Gestionar una transición productiva y energética justa desde un modelo fósil—œextractivo</h4><p>Conecta la reconversión económica con la justicia territorial y laboral.</p></div>
+              <div class="reto-card"><div class="reto-num">4</div><h4>Transformar el modelo económico hacia una economía de mayor valor agregado, basada en el conocimiento y la innovación</h4><p>Busca redefinir qué vive el territorio y cómo genera bienestar sostenible.</p></div>
+              <div class="reto-card"><div class="reto-num">5</div><h4>Retener y atraer talento, democratizando el conocimiento como motor económico</h4><p>Convierte aprendizaje, ciencia y tecnología en base de productividad, adaptación e innovación territorial.</p></div>
+              <div class="reto-card"><div class="reto-num">6</div><h4>Lograr cohesión territorial y cierre efectivo de brechas urbano—rurales</h4><p>Busca una integración territorial efectiva y reducción de desigualdades espaciales.</p></div>
+              <div class="reto-card reto-transversal"><div class="reto-num">7</div><h4>Construcción de gobernanza eficaz, participativa y basada en datos</h4><p>Reto transversal que condiciona la viabilidad de los demás.</p><span class="reto-badge">Reto transversal</span></div>
             </div>
           </div>
 
           <div class="arq-dpanel" id="arqdp-mis">
             <div class="layer-intro">
-              <p>Las misiones no son programas sectoriales ni listados de proyectos. Son plataformas integradoras que articulan polÃ­tica pÃºblica, inversiÃ³n privada, conocimiento cientÃ­fico e innovaciÃ³n tecnolÃ³gica hacia objetivos comunes.</p>
+              <p>Las misiones no son programas sectoriales ni listados de proyectos. Son plataformas integradoras que articulan política pública, inversión privada, conocimiento científico e innovación tecnológica hacia objetivos comunes.</p>
             </div>
             <div class="cards-2col">
-              <div class="info-card"><div class="info-card-num">1</div><span class="mission-tipo">MisiÃ³n material</span><h4>Naturaleza para la Vida</h4><p>Seguridad hÃ­drica, alimentaria y climÃ¡tica como base del bienestar y del desarrollo territorial.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m1_1">Paises Bajos - Gestion Delta</button></li><li><button class="submission-trigger" type="button" data-submission="m1_2">Costa Rica - FONAFIFO</button></li><li><button class="submission-trigger" type="button" data-submission="m1_3">Water Funds TNC</button></li><li><button class="submission-trigger" type="button" data-submission="m1_4">Israel - Gestion hidrica</button></li></ul></div>
-              <div class="info-card"><div class="info-card-num">2</div><span class="mission-tipo">MisiÃ³n material</span><h4>Santander Conectado y Equitativo</h4><p>CohesiÃ³n territorial y cero brechas mediante conectividad, acceso y oportunidades distribuidas de manera mÃ¡s justa.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m2_1">Pais Vasco - Cohesion regional</button></li><li><button class="submission-trigger" type="button" data-submission="m2_2">Uruguay - Plan Ceibal</button></li><li><button class="submission-trigger" type="button" data-submission="m2_3">Programa LEADER - UE rural</button></li></ul></div>
-              <div class="info-card"><div class="info-card-num">3</div><span class="mission-tipo">MisiÃ³n material</span><h4>ReconversiÃ³n Productiva y EnergÃ©tica</h4><p>De la economÃ­a extractiva a la bioeconomÃ­a verde, con transiciÃ³n justa, empleo y sofisticaciÃ³n productiva.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m3_1">Ruhr - Transicion justa</button></li><li><button class="submission-trigger" type="button" data-submission="m3_2">Dinamarca - Transicion energetica</button></li><li><button class="submission-trigger" type="button" data-submission="m3_3">Wageningen - Bioeconomia circular</button></li><li><button class="submission-trigger" type="button" data-submission="m3_4">Noruega - Fondo soberano</button></li></ul></div>
-              <div class="info-card"><div class="info-card-num">4</div><span class="mission-tipo">MisiÃ³n habilitante</span><h4>Inteligencia Territorial y Gobernanza Participativa</h4><p>ConstrucciÃ³n de un Estado capaz, basado en datos, confianza social y gestiÃ³n adaptativa del territorio.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m4_1">Estonia - Gobierno digital</button></li><li><button class="submission-trigger" type="button" data-submission="m4_2">Medellin - Urbanismo social</button></li><li><button class="submission-trigger" type="button" data-submission="m4_3">Barcelona/Helsinki - Gemelos digitales</button></li></ul></div>
-              <div class="info-card"><div class="info-card-num">5</div><span class="mission-tipo">MisiÃ³n habilitante</span><h4>EducaciÃ³n, Cultura y Talento para la TransformaciÃ³n</h4><p>Capital humano como motor del desarrollo, de la productividad y de la capacidad de aprendizaje territorial.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m5_1">Finlandia - Sistema educativo</button></li><li><button class="submission-trigger" type="button" data-submission="m5_2">Medellin - Economia naranja</button></li><li><button class="submission-trigger" type="button" data-submission="m5_3">Singapur - SkillsFuture</button></li></ul></div>
+              <div class="info-card"><div class="info-card-num">1</div><span class="mission-tipo">Misión material</span><h4>Naturaleza para la Vida</h4><p>Seguridad hídrica, alimentaria y climática como base del bienestar y del desarrollo territorial.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m1_1">Paises Bajos - Gestion Delta</button></li><li><button class="submission-trigger" type="button" data-submission="m1_2">Costa Rica - FONAFIFO</button></li><li><button class="submission-trigger" type="button" data-submission="m1_3">Water Funds TNC</button></li><li><button class="submission-trigger" type="button" data-submission="m1_4">Israel - Gestion hidrica</button></li></ul></div>
+              <div class="info-card"><div class="info-card-num">2</div><span class="mission-tipo">Misión material</span><h4>Santander Conectado y Equitativo</h4><p>Cohesión territorial y cero brechas mediante conectividad, acceso y oportunidades distribuidas de manera más justa.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m2_1">Pais Vasco - Cohesion regional</button></li><li><button class="submission-trigger" type="button" data-submission="m2_2">Uruguay - Plan Ceibal</button></li><li><button class="submission-trigger" type="button" data-submission="m2_3">Programa LEADER - UE rural</button></li></ul></div>
+              <div class="info-card"><div class="info-card-num">3</div><span class="mission-tipo">Misión material</span><h4>Reconversión Productiva y Energética</h4><p>De la economía extractiva a la bioeconomía verde, con transición justa, empleo y sofisticación productiva.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m3_1">Ruhr - Transicion justa</button></li><li><button class="submission-trigger" type="button" data-submission="m3_2">Dinamarca - Transicion energetica</button></li><li><button class="submission-trigger" type="button" data-submission="m3_3">Wageningen - Bioeconomia circular</button></li><li><button class="submission-trigger" type="button" data-submission="m3_4">Noruega - Fondo soberano</button></li></ul></div>
+              <div class="info-card"><div class="info-card-num">4</div><span class="mission-tipo">Misión habilitante</span><h4>Inteligencia Territorial y Gobernanza Participativa</h4><p>Construcción de un Estado capaz, basado en datos, confianza social y gestión adaptativa del territorio.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m4_1">Estonia - Gobierno digital</button></li><li><button class="submission-trigger" type="button" data-submission="m4_2">Medellin - Urbanismo social</button></li><li><button class="submission-trigger" type="button" data-submission="m4_3">Barcelona/Helsinki - Gemelos digitales</button></li></ul></div>
+              <div class="info-card"><div class="info-card-num">5</div><span class="mission-tipo">Misión habilitante</span><h4>Educación, Cultura y Talento para la Transformación</h4><p>Capital humano como motor del desarrollo, de la productividad y de la capacidad de aprendizaje territorial.</p><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger" type="button" data-submission="m5_1">Finlandia - Sistema educativo</button></li><li><button class="submission-trigger" type="button" data-submission="m5_2">Medellin - Economia naranja</button></li><li><button class="submission-trigger" type="button" data-submission="m5_3">Singapur - SkillsFuture</button></li></ul></div>
             </div>
             <div class="mission-transversal" style="margin-top:1.5rem">
-              <div class="mt-label">MisiÃ³n transversal de viabilidad</div>
+              <div class="mt-label">Misión transversal de viabilidad</div>
               <h4>Paz con Justicia Social (Seguridad Humana Integral)</h4>
-              <p>CondiciÃ³n de viabilidad de todas las demÃ¡s. Sin cohesiÃ³n social, ninguna transiciÃ³n econÃ³mica o ambiental serÃ¡ polÃ­ticamente viable.</p>
+              <p>Condición de viabilidad de todas las demás. Sin cohesión social, ninguna transición económica o ambiental será políticamente viable.</p>
             </div>
           </div>
 
           <div class="arq-dpanel" id="arqdp-mot">
             <div class="layer-intro">
-              <p>Los motores se entienden como ecosistemas de innovaciÃ³n productivos y socioeconÃ³micos adaptativos, capaces de generar empleo de calidad, ingresos fiscales, innovaciÃ³n y bienestar social de forma sostenida.</p>
+              <p>Los motores se entienden como ecosistemas de innovación productivos y socioeconómicos adaptativos, capaces de generar empleo de calidad, ingresos fiscales, innovación y bienestar social de forma sostenida.</p>
             </div>
             <div class="motores-grid">
-              <div class="motor-card"><div class="motor-letra">A</div><h4>TransiciÃ³n energÃ©tica e industria de transiciÃ³n justa</h4><ul><li>HidrÃ³geno verde</li><li>Solar y eÃ³lica</li><li>ReconversiÃ³n Barrancabermeja</li><li>Comunidades energÃ©ticas</li><li>Biomasa</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_a1">Ruhr (Alemania)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_a2">Aberdeen (Escocia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_a3">Pernambuco (Brasil)</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">B</div><h4>BioeconomÃ­a y agroindustria avanzada</h4><ul><li>Cacao y cafÃ© especial</li><li>BiotecnologÃ­a aplicada</li><li>Ingredientes naturales</li><li>Agricultura regenerativa</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_b1">Amazonas Legal (Brasil)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_b2">Ghana / CÃ´te d'Ivoire</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_b3">Finlandia / Estonia</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">C</div><h4>Servicios basados en conocimiento y economÃ­a digital</h4><ul><li>Software exportable</li><li>IA aplicada</li><li>RetenciÃ³n de talento</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_c1">Irlanda</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_c2">Tallin (Estonia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_c3">Bangalore (India)</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">D</div><h4>ReindustrializaciÃ³n verde y manufactura avanzada</h4><ul><li>QuÃ­mica verde</li><li>EconomÃ­a circular</li><li>Manufactura 4.0</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_d1">Baden-WÃ¼rttemberg</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_d2">Eslovenia</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_d3">Monterrey (MÃ©xico)</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">E</div><h4>EconomÃ­a del cuidado y economÃ­a plateada</h4><ul><li>GerontecnologÃ­a</li><li>Telemedicina</li><li>FormalizaciÃ³n del cuidado</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_e1">Akita (JapÃ³n)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_e2">PaÃ­s Vasco (EspaÃ±a)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_e3">Costa Rica</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">F</div><h4>Turismo de alto valor y economÃ­a cultural</h4><ul><li>Geoturismo y astroturismo</li><li>GastronomÃ­a de biodiversidad</li><li>Patrimonio natural y cultural</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_f1">UmbrÃ­a (Italia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_f2">San SebastiÃ¡n (EspaÃ±a)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_f3">BhutÃ¡n</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">G</div><h4>Gobernanza e inteligencia territorial</h4><ul><li>Plataforma de datos territorial</li><li>Consejo de Futuro de Santander</li><li>ParticipaciÃ³n ciudadana informada</li><li>GestiÃ³n por misiones</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_g1">Cantabria (EspaÃ±a)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_g2">Corea del Sur</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_g3">Porto Alegre (Brasil)</button></li></ul></div>
-              <div class="motor-card"><div class="motor-letra">H</div><h4>Infraestructura logÃ­stica multimodal y conectividad inteligente</h4><ul><li>Vial, fÃ©rrea y fluvial integradas</li><li>Fibra Ã³ptica universal y 5G</li><li>Zonas logÃ­sticas inteligentes</li><li>Hub del nororiente</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_h1">Rotterdam (PaÃ­ses Bajos)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_h2">LombardÃ­a (Italia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_h3">Singapur</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">A</div><h4>Transición energética e industria de transición justa</h4><ul><li>Hidrógeno verde</li><li>Solar y eólica</li><li>Reconversión Barrancabermeja</li><li>Comunidades energéticas</li><li>Biomasa</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_a1">Ruhr (Alemania)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_a2">Aberdeen (Escocia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_a3">Pernambuco (Brasil)</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">B</div><h4>Bioeconomía y agroindustria avanzada</h4><ul><li>Cacao y café especial</li><li>Biotecnología aplicada</li><li>Ingredientes naturales</li><li>Agricultura regenerativa</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_b1">Amazonas Legal (Brasil)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_b2">Ghana / Côte d'Ivoire</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_b3">Finlandia / Estonia</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">C</div><h4>Servicios basados en conocimiento y economía digital</h4><ul><li>Software exportable</li><li>IA aplicada</li><li>Retención de talento</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_c1">Irlanda</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_c2">Tallin (Estonia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_c3">Bangalore (India)</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">D</div><h4>Reindustrialización verde y manufactura avanzada</h4><ul><li>Química verde</li><li>Economía circular</li><li>Manufactura 4.0</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_d1">Baden-Württemberg</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_d2">Eslovenia</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_d3">Monterrey (México)</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">E</div><h4>Economía del cuidado y economía plateada</h4><ul><li>Gerontecnología</li><li>Telemedicina</li><li>Formalización del cuidado</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_e1">Akita (Japón)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_e2">País Vasco (España)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_e3">Costa Rica</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">F</div><h4>Turismo de alto valor y economía cultural</h4><ul><li>Geoturismo y astroturismo</li><li>Gastronomía de biodiversidad</li><li>Patrimonio natural y cultural</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_f1">Umbría (Italia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_f2">San Sebastián (España)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_f3">Bhután</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">G</div><h4>Gobernanza e inteligencia territorial</h4><ul><li>Plataforma de datos territorial</li><li>Consejo de Futuro de Santander</li><li>Participación ciudadana informada</li><li>Gestión por misiones</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_g1">Cantabria (España)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_g2">Corea del Sur</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_g3">Porto Alegre (Brasil)</button></li></ul></div>
+              <div class="motor-card"><div class="motor-letra">H</div><h4>Infraestructura logística multimodal y conectividad inteligente</h4><ul><li>Vial, férrea y fluvial integradas</li><li>Fibra óptica universal y 5G</li><li>Zonas logísticas inteligentes</li><li>Hub del nororiente</li></ul><p class="mission-subtitle">Referentes</p><ul class="submission-list"><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_h1">Rotterdam (Países Bajos)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_h2">Lombardía (Italia)</button></li><li><button class="submission-trigger motor-trigger" type="button" data-motor-ref="mot_h3">Singapur</button></li></ul></div>
             </div>
           </div>
 
@@ -1353,18 +368,18 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:1rem;">
-            <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander VisiÃ³n 2050" width="36"></div>
+            <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050" width="36"></div>
             <div class="nav-logo-text">
-              Santander VisiÃ³n 2050
+              Santander Visión 2050
               <span style="color:rgba(255,255,255,0.4)">UIS</span>
             </div>
           </div>
-          <p>Proyecto de planeaciÃ³n prospectiva participativa para la construcciÃ³n de una visiÃ³n compartida del futuro territorial de Santander, Colombia.</p>
+          <p>Proyecto de planeación prospectiva participativa para la construcción de una visión compartida del futuro territorial de Santander, Colombia.</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>Ã‚Â© 2025 UIS Ã‚Â· Santander VisiÃ³n Prospectiva 2050</span>
-        <span>Bucaramanga, Santander Ã‚Â· Colombia</span>
+        <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
+        <span>Bucaramanga, Santander · Colombia</span>
       </div>
     </div>
   </footer>
@@ -1583,7 +598,7 @@
         tipo: 'Mision habilitante - Educacion, Cultura y Talento',
         titulo: 'Singapur - SkillsFuture',
         resumen: 'Tipo de caso: Formación técnica y profesional para la transformación productiva. Problema equivalente: Ciudad-estado sin recursos naturales ni territorio que necesitaba construir una economía basada exclusivamente en capital humano y conocimiento para competir globalmente. ¿Qué hicieron?: Crearon SkillsFuture: programa nacional de formación continua con crédito individual para toda la población adulta ($500 SGD/persona/año actualizable), articulado con demanda empresarial real. Institutos Politécnicos diseñados por industria. Programa ReSkillingSG para transiciones productivas. Toda la formación técnica está conectada con la hoja de ruta económica del país. Instrumento central: Crédito individual universal de formación, institutos técnicos codiseñados por empresas, programa de reconversión laboral y sistema de certificación nacional. Resultados verificados: 75% de adultos en formación continua. Empleabilidad técnica del 96%. Tasa de retención de talento local del 92%. Singapur está clasificado entre los 3 países más competitivos del mundo (WEF, 2024). Lección transferible a Santander: SkillsFuture es el referente para el Programa Talento Santander Global (P41) y el diseño de los Campus Territoriales de Innovación (P40). La lógica de formación orientada por demanda productiva es aplicable directamente al diseño curricular de los 8 motores. Conexión en Santander 2050: P40 Campus territoriales · P41 Talento Global · P42 UIS Provincias · SB4 Ecosistema Talento · Motor C.',
-        fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
+        fuente: 'Fuente: Volumen I en enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
           { titulo: 'SkillsFuture (Fuente 1)', url: 'https://www.skillsfuture.gov.sg/', nota: 'Programa nacional de aprendizaje permanente.' },
           { titulo: 'Workforce Singapore (Fuente 2)', url: 'https://www.wsg.gov.sg/home/individuals/skills-training-and-development', nota: 'Ruta de habilidades y empleabilidad.' }
@@ -1758,7 +773,7 @@
     "mot_a2":  {
                    "tipo":  "Motor A",
                    "titulo":  "Aberdeen (Escocia/Reino Unido) – La ciudad del petróleo del Mar del Norte se reconvierte en hub de energía offshore limpia",
-                   "resumen":  "Tipo de caso: Reconversión de ciudad petrolera en hub de energía renovable offshore con mismos activos humanos e infraestructura Problema equivalente: Ciudad de 230.000 habitantes cuya economía dependía en un 40% del petróleo del Mar del Norte, con reservas en declive proyectado, ingenieros especializados en riesgo de éxodo y puertos e infraestructura offshore sin nueva vocación. ¿Qué hicieron?: Lanzaron el Aberdeen City Region Deal: estrategia de reconversión usando los mismos ingenieros, buques, plataformas y puertos del petróleo para la industria eólica marina (offshore wind). Crearon el Aberdeen Energy Transition Zone (ETZ): zona especial con incentivos fiscales para empresas de energía limpia que contraten trabajadores del sector fósil. El Hub de Energía de Aberdeen unió a 300 empresas petroleras en transición hacia renovables. Programa de recertificación \u0027Transition to Clean Energy\u0027 del Robert Gordon University para ingenieros petroleros. Instrumento central: Zona de Transición Energética con régimen fiscal especial, programa universitario de recertificación de ingenieros fósiles en renovables, hub empresarial de transición y reutilización deliberada de infraestructura existente (puertos, plataformas, buques). Resultados verificados: Aberdeen atrae hoy el 60% de la inversión en energía eólica offshore del Reino Unido. Más de 15.000 ingenieros reconvertidos. El puerto de Aberdeen es el mayor hub logístico de energía offshore de Europa. PIB per cápita sostenido en la transición — Aberdeen no experimentó recesión durante el declive petrolero. Lección transferible a Santander: El modelo ETZ (Energy Transition Zone) de Aberdeen es el referente más directo para el diseño del marco regulatorio del SB2 (Magdalena Medio 4.0) como sandbox energético. La lógica de recertificación universitaria de ingenieros petroleros en nuevas tecnologías es aplicable al programa UIS-SENA-USO de reconversión laboral del Observatorio de Transición Justa. Conexión en Santander 2050: SB2 Magdalena Medio 4.0 · P23 Distrito Transición · CETE-UIS · Motor A · Reconversión laboral USO",
+                   "resumen":  "Tipo de caso: Reconversión de ciudad petrolera en hub de energía renovable offshore con mismos activos humanos e infraestructura Problema equivalente: Ciudad de 230.000 habitantes cuya economía dependía en un 40% del petróleo del Mar del Norte, con reservas en declive proyectado, ingenieros especializados en riesgo de éxodo y puertos e infraestructura offshore sin nueva vocación. ¿Qué hicieron?: Lanzaron el Aberdeen City Region Deal: estrategia de reconversión usando los mismos ingenieros, buques, plataformas y puertos del petróleo para la industria eólica marina (offshore wind). Crearon el Aberdeen Energy Transition Zone (ETZ): zona especial con incentivos fiscales para empresas de energía limpia que contraten trabajadores del sector fósil. El Hub de Energía de Aberdeen unió a 300 empresas petroleras en transición hacia renovables. Programa de recertificación 'Transition to Clean Energy' del Robert Gordon University para ingenieros petroleros. Instrumento central: Zona de Transición Energética con régimen fiscal especial, programa universitario de recertificación de ingenieros fósiles en renovables, hub empresarial de transición y reutilización deliberada de infraestructura existente (puertos, plataformas, buques). Resultados verificados: Aberdeen atrae hoy el 60% de la inversión en energía eólica offshore del Reino Unido. Más de 15.000 ingenieros reconvertidos. El puerto de Aberdeen es el mayor hub logístico de energía offshore de Europa. PIB per cápita sostenido en la transición — Aberdeen no experimentó recesión durante el declive petrolero. Lección transferible a Santander: El modelo ETZ (Energy Transition Zone) de Aberdeen es el referente más directo para el diseño del marco regulatorio del SB2 (Magdalena Medio 4.0) como sandbox energético. La lógica de recertificación universitaria de ingenieros petroleros en nuevas tecnologías es aplicable al programa UIS-SENA-USO de reconversión laboral del Observatorio de Transición Justa. Conexión en Santander 2050: SB2 Magdalena Medio 4.0 · P23 Distrito Transición · CETE-UIS · Motor A · Reconversión laboral USO",
                    "enlaces":  [
                                    {
                                        "titulo":  "energytransitionzone.com/",
@@ -1808,7 +823,7 @@
                },
     "mot_b2":  {
                    "tipo":  "Motor B",
-                   "titulo":  "Ghana / Côte d\u0027Ivoire – De cacao commodity a cacao fino de origen con valor agregado territorial",
+                   "titulo":  "Ghana / Côte d'Ivoire – De cacao commodity a cacao fino de origen con valor agregado territorial",
                    "resumen":  "Tipo de caso: Transformación de commodity agrícola en producto de alto valor con trazabilidad, certificación y valor agregado local Problema equivalente: Los dos países producen el 60% del cacao mundial pero capturaban solo el 6% del valor de la cadena global. Los agricultores recibían USD 1.800/tonelada mientras el chocolate europeo se vendía a equivalente de USD 25.000/tonelada. Sin certificación, sin trazabilidad, sin diferenciación de origen. ¿Qué hicieron?: Crearon en 2019 el mecanismo COPEC (Iniciativa de Cacao y Bosques) y el Living Income Differential (LID): precio mínimo garantizado de USD 400/tonelada sobre el precio de mercado para cacao certificado. Ghana Cocoa Board y Conseil du Café-Cacao de Costa de Marfil desarrollaron sistemas de trazabilidad blockchain para certificación de origen. Programa de extensión agrícola para 700.000 agricultores en buenas prácticas. Incentivos para procesamiento local (manteca de cacao, polvo, chocolate artesanal) en lugar de exportar grano crudo. Instrumento central: Precio mínimo garantizado diferenciado por calidad y certificación, sistema de trazabilidad blockchain de grano a barra, extensión agrícola masiva y política industrial para procesamiento local antes de exportar. Resultados verificados: Ingresos de agricultores certificados aumentaron un 40% en 4 años. Ghana ahora exporta chocolate elaborado a Europa — primer país africano en hacerlo a escala. Más de 300.000 agricultores con certificación de comercio justo. El modelo LID fue adoptado como estándar internacional por la industria chocolatera. Lección transferible a Santander: Ghana/CIV es el referente más preciso para la transformación del cacao santandereano de commodity a producto premium certificado. La lógica precio diferenciado + trazabilidad + extensión agrícola + procesamiento local es directamente aplicable al clúster cacao especial de la provincia de Mares y el Magdalena Medio. Referente clave para el diseño del Ecosistema BioSantander (P26). Conexión en Santander 2050: P26 BioSantander · P27 Agricultura regenerativa · P11 Distrito Agroalimentario · Motor B · SB1 BioRegión",
                    "enlaces":  [
                                    {
@@ -1996,7 +1011,7 @@
     "mot_f1":  {
                    "tipo":  "Motor F",
                    "titulo":  "Umbría (Italia) – Turismo de experiencia rural de alto valor sin monumentos icónicos",
-                   "resumen":  "Tipo de caso: Turismo gastronómico, cultural y de paisaje de muy alto gasto promedio desde región sin grandes atractivos masivos Problema equivalente: Región italiana sin grandes ciudades turísticas (no es Roma, Venecia o Florencia), sin playa, sin monumentos Patrimonio de la Humanidad masivos y con economía rural en declive frente a la emigración de jóvenes hacia ciudades. ¿Qué hicieron?: Construyeron la marca Umbria: Il Cuore Verde d\u0027Italia basada en gastronomía de origen (trufa negra, aceite DOP, lenteja di Castelluccio, vino Sagrantino), agroturismo de alto nivel en masserías y frantoios restaurados, festivales de alto valor cultural (Umbria Jazz, Spoleto Festival) y rutas temáticas de senderismo y ciclismo en paisaje cultural. El consorcio Strada del Sagrantino certificó la cadena enológica completa con identidad territorial. El programa Borghi Attivi restauró 80 aldeas medievales abandonadas como alojamientos de experiencia. Instrumento central: Marca territorial de identidad gastronómica y cultural con denominación de origen, consorcio de ruta enológica certificada, programa de restauración de aldeas abandonadas como activo turístico y festivales culturales de reputación internacional. Resultados verificados: Umbría recibe 6 millones de visitantes anuales con gasto promedio de EUR 180/día, 80% por encima de la media italiana. La trufa negra de Norcia genera EUR 120 millones anuales. Los Borghi Attivi tienen tasa de ocupación del 85% con tarifa premium. La región pasó de tener despoblación rural a tener lista de espera para comprar inmuebles en zonas rurales. Lección transferible a Santander: Umbría es el espejo más preciso para las provincias de Guanentá, Comunera y Soto Norte de Santander: territorios rurales con patrimonio cultural, gastronómico y paisajístico de alto valor pero sin los grandes atractivos masivos de Cartagena o el Eje Cafetero. La lógica marca territorial + denominación de origen + aldeas restauradas + festivales de nicho es directamente transferible al corredor turístico Barichara-Guane-El Socorro. Conexión en Santander 2050: Motor F · P46 Corredor Turístico · P43 Cultura Santander Viva · Motor B (gastronomía biodiversidad) · P47 Patrimonio Provincial",
+                   "resumen":  "Tipo de caso: Turismo gastronómico, cultural y de paisaje de muy alto gasto promedio desde región sin grandes atractivos masivos Problema equivalente: Región italiana sin grandes ciudades turísticas (no es Roma, Venecia o Florencia), sin playa, sin monumentos Patrimonio de la Humanidad masivos y con economía rural en declive frente a la emigración de jóvenes hacia ciudades. ¿Qué hicieron?: Construyeron la marca Umbria: Il Cuore Verde d'Italia basada en gastronomía de origen (trufa negra, aceite DOP, lenteja di Castelluccio, vino Sagrantino), agroturismo de alto nivel en masserías y frantoios restaurados, festivales de alto valor cultural (Umbria Jazz, Spoleto Festival) y rutas temáticas de senderismo y ciclismo en paisaje cultural. El consorcio Strada del Sagrantino certificó la cadena enológica completa con identidad territorial. El programa Borghi Attivi restauró 80 aldeas medievales abandonadas como alojamientos de experiencia. Instrumento central: Marca territorial de identidad gastronómica y cultural con denominación de origen, consorcio de ruta enológica certificada, programa de restauración de aldeas abandonadas como activo turístico y festivales culturales de reputación internacional. Resultados verificados: Umbría recibe 6 millones de visitantes anuales con gasto promedio de EUR 180/día, 80% por encima de la media italiana. La trufa negra de Norcia genera EUR 120 millones anuales. Los Borghi Attivi tienen tasa de ocupación del 85% con tarifa premium. La región pasó de tener despoblación rural a tener lista de espera para comprar inmuebles en zonas rurales. Lección transferible a Santander: Umbría es el espejo más preciso para las provincias de Guanentá, Comunera y Soto Norte de Santander: territorios rurales con patrimonio cultural, gastronómico y paisajístico de alto valor pero sin los grandes atractivos masivos de Cartagena o el Eje Cafetero. La lógica marca territorial + denominación de origen + aldeas restauradas + festivales de nicho es directamente transferible al corredor turístico Barichara-Guane-El Socorro. Conexión en Santander 2050: Motor F · P46 Corredor Turístico · P43 Cultura Santander Viva · Motor B (gastronomía biodiversidad) · P47 Patrimonio Provincial",
                    "enlaces":  [
                                    {
                                        "titulo":  "www.umbriatourism.it/en/",
@@ -2081,7 +1096,7 @@
     "mot_g3":  {
                    "tipo":  "Motor G",
                    "titulo":  "Porto Alegre (Brasil) – Presupuesto Participativo: el modelo original de democracia presupuestaria territorial",
-                   "resumen":  "Tipo de caso: Gobernanza participativa con asignación ciudadana real de recursos públicos a escala territorial Problema equivalente: Ciudad brasileña de 1,4 millones de habitantes con inversión pública concentrada en zonas de mayor poder político e institucional, exclusión de comunidades periféricas de las decisiones presupuestarias y baja legitimidad de la gestión pública. ¿Qué hicieron?: Desde 1989, Porto Alegre implementó el Orçamento Participativo (OP): proceso anual en el que el 20% del presupuesto de inversión municipal se decide directamente por ciudadanos en asambleas territoriales por barrio y distrito. El ciclo es: diagnóstico participativo → priorización ciudadana → negociación técnica → aprobación → ejecución → rendición de cuentas pública. 50.000 ciudadanos participan anualmente en 16 regiones. El modelo fue adoptado por 3.000 ciudades en el mundo incluyendo ciudades europeas. Instrumento central: Asignación directa de porcentaje fijo del presupuesto de inversión por votación ciudadana territorial, ciclo anual con rendición de cuentas pública, organización territorial por regiones y acompañamiento técnico municipal al proceso ciudadano. Resultados verificados: Porto Alegre aumentó la cobertura de agua potable del 75% al 98% en 10 años, dirigida por priorización ciudadana. Las zonas más pobres recibieron proporcionalmente más inversión. Índice de satisfacción ciudadana con la gestión municipal: del 23% al 68% en 8 años. El modelo OP fue declarado \u0027mejor práctica de gobierno urbano\u0027 por la ONU-Hábitat. Lección transferible a Santander: Porto Alegre es el referente fundacional para el presupuesto participativo con trazabilidad que propone el Motor G de Santander. La lógica de asignación territorial por región (equivalente a provincia en Santander) y la rendición de cuentas pública son los dos elementos más directamente transferibles al diseño del sistema de participación del P38 (Alianza por Santander) y los Consejos Provinciales de Desarrollo. Conexión en Santander 2050: P35 Consejo Futuro · P38 Alianza Santander · P37 Consejos Provinciales · Motor G · M4 Gobernanza · SB3 Inteligencia Territorial",
+                   "resumen":  "Tipo de caso: Gobernanza participativa con asignación ciudadana real de recursos públicos a escala territorial Problema equivalente: Ciudad brasileña de 1,4 millones de habitantes con inversión pública concentrada en zonas de mayor poder político e institucional, exclusión de comunidades periféricas de las decisiones presupuestarias y baja legitimidad de la gestión pública. ¿Qué hicieron?: Desde 1989, Porto Alegre implementó el Orçamento Participativo (OP): proceso anual en el que el 20% del presupuesto de inversión municipal se decide directamente por ciudadanos en asambleas territoriales por barrio y distrito. El ciclo es: diagnóstico participativo → priorización ciudadana → negociación técnica → aprobación → ejecución → rendición de cuentas pública. 50.000 ciudadanos participan anualmente en 16 regiones. El modelo fue adoptado por 3.000 ciudades en el mundo incluyendo ciudades europeas. Instrumento central: Asignación directa de porcentaje fijo del presupuesto de inversión por votación ciudadana territorial, ciclo anual con rendición de cuentas pública, organización territorial por regiones y acompañamiento técnico municipal al proceso ciudadano. Resultados verificados: Porto Alegre aumentó la cobertura de agua potable del 75% al 98% en 10 años, dirigida por priorización ciudadana. Las zonas más pobres recibieron proporcionalmente más inversión. Índice de satisfacción ciudadana con la gestión municipal: del 23% al 68% en 8 años. El modelo OP fue declarado 'mejor práctica de gobierno urbano' por la ONU-Hábitat. Lección transferible a Santander: Porto Alegre es el referente fundacional para el presupuesto participativo con trazabilidad que propone el Motor G de Santander. La lógica de asignación territorial por región (equivalente a provincia en Santander) y la rendición de cuentas pública son los dos elementos más directamente transferibles al diseño del sistema de participación del P38 (Alianza por Santander) y los Consejos Provinciales de Desarrollo. Conexión en Santander 2050: P35 Consejo Futuro · P38 Alianza Santander · P37 Consejos Provinciales · Motor G · M4 Gobernanza · SB3 Inteligencia Territorial",
                    "enlaces":  [
                                    {
                                        "titulo":  "prefeitura.poa.br/",
@@ -2342,9 +1357,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
