@@ -3270,6 +3270,15 @@ footer {
   box-shadow: 0 10px 24px rgba(0, 104, 55, 0.16);
 }
 
+.lab-ref-trigger:focus-visible {
+  outline: 3px solid rgba(11, 79, 138, 0.45);
+  outline-offset: 2px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .labref-modal {
   position: fixed;
   inset: 0;
@@ -3298,16 +3307,6 @@ footer {
   position: relative;
 }
 
-.labref-modal__dialog::before {
-  content: '';
-  position: sticky;
-  top: 0;
-  display: block;
-  height: 4px;
-  margin: -1.3rem -1.45rem 1rem;
-  background: linear-gradient(90deg, var(--verde-oscuro), var(--oro));
-}
-
 .labref-modal__close {
   position: absolute;
   top: 0.6rem;
@@ -3325,6 +3324,11 @@ footer {
 
 .labref-modal__close:hover {
   background: var(--verde-pálido);
+}
+
+.labref-modal__close:focus-visible {
+  outline: 3px solid rgba(11, 79, 138, 0.45);
+  outline-offset: 2px;
 }
 
 .labref-modal__kicker {

@@ -906,7 +906,18 @@
       padding: 0.2rem 0.6rem;
     }
 
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ MOTORES Ã¢â€â‚¬Ã¢â€â‚¬ */
+    .mission-transversal-spaced {
+      margin-top: 1.5rem;
+    }
+
+    .footer-brand-logo {
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-meta {
+      color: rgba(255,255,255,0.4);
+    }
+
     .motores-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -949,13 +960,12 @@
       position: relative;
     }
     .motor-card ul li::before {
-      content: 'Ã‚Â·';
+      content: '·';
       position: absolute;
       left: 0;
       color: var(--dorado);
     }
 
-    /* Ã¢â€â‚¬Ã¢â€â‚¬ REVEAL Ã¢â€â‚¬Ã¢â€â‚¬ */
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -966,6 +976,37 @@
     .reveal-d2 { transition-delay: 0.16s; }
     .reveal-d3 { transition-delay: 0.24s; }
 
+    .diagram-zoom-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background:
+        radial-gradient(circle at center, rgba(247,243,236,0.08) 0%, rgba(10,31,15,0.92) 70%),
+        linear-gradient(135deg, rgba(0,104,55,0.85), rgba(10,31,15,0.95));
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      padding: 2rem;
+    }
+
+    .diagram-zoom-overlay.is-open {
+      display: flex;
+    }
+
+    .diagram-zoom-image {
+      max-width: 95vw;
+      max-height: 92vh;
+      border-radius: 12px;
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.05);
+      background: #fff;
+      padding: 10px;
+      animation: diagramZoomIn 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -973,6 +1014,11 @@
     @keyframes birdReveal {
       from { opacity: 0; transform: scale(0.72) translateY(12px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes diagramZoomIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     @media (max-width: 640px) {
