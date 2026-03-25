@@ -3224,6 +3224,185 @@ footer {
   margin: 0;
 }
 
+.lab-referentes {
+  border-top: 1px solid rgba(0, 104, 55, 0.14);
+  padding: 1.05rem 1rem 0;
+  background: linear-gradient(180deg, rgba(0, 104, 55, 0.04) 0%, rgba(201, 168, 76, 0.08) 100%);
+  border-radius: 12px;
+}
+
+.lab-referentes-title {
+  font-family: var(--fuente-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.75rem;
+}
+
+.lab-referentes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.65rem;
+}
+
+.lab-ref-trigger {
+  text-align: left;
+  border: 1px solid rgba(0, 104, 55, 0.24);
+  background: linear-gradient(160deg, #ffffff 0%, #f3f8f3 100%);
+  color: var(--texto);
+  border-radius: 12px;
+  padding: 0.72rem 0.9rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: var(--trans);
+  box-shadow: 0 4px 14px rgba(0, 104, 55, 0.08);
+}
+
+.lab-ref-trigger:hover {
+  border-color: var(--verde-oscuro);
+  background: linear-gradient(160deg, #ffffff 0%, #e9f4e9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 104, 55, 0.16);
+}
+
+.labref-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: linear-gradient(160deg, rgba(0, 36, 19, 0.78) 0%, rgba(0, 104, 55, 0.68) 100%);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+.labref-modal.is-open {
+  display: flex;
+}
+
+.labref-modal__dialog {
+  width: min(980px, 96vw);
+  max-height: 88vh;
+  overflow: auto;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f5ef 100%);
+  border-radius: 18px;
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.34);
+  border: 1px solid rgba(0, 104, 55, 0.14);
+  padding: 1.3rem 1.45rem 1.55rem;
+  position: relative;
+}
+
+.labref-modal__dialog::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  display: block;
+  height: 4px;
+  margin: -1.3rem -1.45rem 1rem;
+  background: linear-gradient(90deg, var(--verde-oscuro), var(--oro));
+}
+
+.labref-modal__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 104, 55, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--verde-oscuro);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.labref-modal__close:hover {
+  background: var(--verde-pálido);
+}
+
+.labref-modal__kicker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.3rem;
+}
+
+.labref-modal__title {
+  font-family: var(--fuente-display);
+  color: #103020;
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin: 0 0 0.95rem;
+  padding-right: 2.2rem;
+}
+
+.labref-modal__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.labref-modal__summary p {
+  margin: 0;
+  color: #2d3e33;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  padding: 0.58rem 0.72rem;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(0, 104, 55, 0.1);
+  border-radius: 9px;
+}
+
+.labref-modal__summary p strong {
+  color: #143824;
+}
+
+.labref-modal__links-wrap {
+  margin-top: 1.15rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(0, 104, 55, 0.14);
+}
+
+.labref-modal__links-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.5rem;
+}
+
+.labref-modal__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.labref-modal__links a {
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 104, 55, 0.45);
+  word-break: break-word;
+  font-size: 0.89rem;
+  font-weight: 600;
+}
+
+.labref-modal__links a:hover {
+  color: #0b4f8a;
+  border-bottom-color: rgba(11, 79, 138, 0.5);
+}
+
 /* Grid de campos */
 .lb-grid {
   display: grid;
@@ -3308,6 +3487,9 @@ footer {
 @media (max-width: 600px) {
   .lb-exps { grid-template-columns: 1fr; }
   .lab-tab { font-size: 0.75rem; padding: 0.55rem 0.8rem; }
+  .lab-referentes-list { grid-template-columns: 1fr; }
+  .labref-modal__dialog { padding: 1.05rem 1rem 1.2rem; }
+  .labref-modal__title { font-size: 1.2rem; }
 }
 
 /* ── Tabla umbrales de escala/cierre ─────── */

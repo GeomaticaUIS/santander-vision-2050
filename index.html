@@ -238,7 +238,7 @@
           <!-- En la sección id="arquitectura", al final del div class="arq-sistema-text" o "arq-sistema", agrega: -->
 
 <p class="arq-ver-mas">
-  <a href="https://geomaticauis.github.io/santander-vision-2050/Manual%20Operativo/ManualOP.html" target="_blank" rel="noopener" class="btn btn-outline" style="background: #006837; color: white; border: 1px solid #006837; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">
+  <a href="Manual Operativo/ManualOP.html" target="_blank" rel="noopener" class="btn btn-outline" style="background: #006837; color: white; border: 1px solid #006837; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">
     Ver más →
   </a>
 </p>
@@ -711,17 +711,32 @@
 
       <div class="lab-tabs-wrap reveal">
         <div class="lab-tabs" id="labTabs">
-          <button class="lab-tab active" data-lab="sb1"><span class="lab-tab-dot" style="background:#006837"></span>SB1 · BioRegión</button>
+          <button class="lab-tab active" data-lab="uaa"><span class="lab-tab-dot" style="background:var(--oro)"></span>UAA</button>
+          <button class="lab-tab" data-lab="sb1"><span class="lab-tab-dot" style="background:#006837"></span>SB1 · BioRegión</button>
           <button class="lab-tab" data-lab="sb2"><span class="lab-tab-dot" style="background:#bf360c"></span>SB2 · Magdalena Medio</button>
           <button class="lab-tab" data-lab="sb3"><span class="lab-tab-dot" style="background:#1565c0"></span>SB3 · Inteligencia Territorial</button>
           <button class="lab-tab" data-lab="sb4"><span class="lab-tab-dot" style="background:#4a148c"></span>SB4 · Talento Global</button>
           <button class="lab-tab" data-lab="sb5"><span class="lab-tab-dot" style="background:#004d40"></span>SB5 · Movilidad Rural</button>
-          <button class="lab-tab" data-lab="uaa"><span class="lab-tab-dot" style="background:var(--oro)"></span>UAA</button>
         </div>
       </div>
 
       <!-- Los paneles SB1–UAA se mantienen igual que en el original -->
-      <div class="lab-panel active" id="labp-sb1">
+
+      <div class="lab-panel active" id="labp-uaa">
+        <div class="lab-header" style="--lc:#9a7b00;--lg:#4a3a00">
+          <div class="lb-left"><div class="lb-badge" style="background:rgba(201,168,76,0.25);color:var(--oro);border:1px solid rgba(201,168,76,0.4)">UAA</div></div>
+          <div class="lb-right">
+            <div class="lb-meta">Transversal a los 5 laboratorios · Alojada en SB3 · 2026–2031</div>
+            <h3 class="lb-title">Unidad de Aprendizaje Adaptativo<br><small>El sistema que hace que los 5 laboratorios aprendan como sistema</small></h3>
+            <div class="lb-chips"><span>Síntesis trimestral inter-sandbox</span><span>Ajuste de umbrales</span><span>Manual vivo de políticas</span><span>Decisión: escalar · ajustar · cerrar</span></div>
+          </div>
+        </div>
+        <div class="lab-body">
+          <div class="lb-desc">Los cinco laboratorios aprenden en sus territorios. La UAA hace que el sistema aprenda como sistema.</div>
+        </div>
+      </div>
+
+      <div class="lab-panel" id="labp-sb1">
         <div class="lab-header" style="--lc:#006837;--lg:#003d20">
           <div class="lb-left"><div class="lb-badge">SB1</div></div>
           <div class="lb-right">
@@ -732,6 +747,14 @@
         </div>
         <div class="lab-body">
           <div class="lb-desc">Primer territorio de América Latina con un mercado funcional de activos de biodiversidad trazable en blockchain, protegiendo simultáneamente recursos genéticos y conocimientos tradicionales bajo el Protocolo de Nagoya.</div>
+          <div class="lab-referentes">
+            <div class="lab-referentes-title">Referentes</div>
+            <div class="lab-referentes-list">
+              <button class="lab-ref-trigger" data-ref="lab_sb1_1">SB1.1 · Mikoko Pamoja (Kenya)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb1_2">SB1.2 · Nori (EE.UU.)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb1_3">SB1.3 · Satoyama Initiative (Japón / PNUMA)</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -746,6 +769,14 @@
         </div>
         <div class="lab-body">
           <div class="lb-desc">Transforma el río Magdalena de corredor de extracción en plataforma de innovación 4.0.</div>
+          <div class="lab-referentes">
+            <div class="lab-referentes-title">Referentes</div>
+            <div class="lab-referentes-list">
+              <button class="lab-ref-trigger" data-ref="lab_sb2_1">SB2.1 · Bornholm (Dinamarca)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb2_2">SB2.2 · Mekong River Commission</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb2_3">SB2.3 · Silesia (Polonia)</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -760,6 +791,14 @@
         </div>
         <div class="lab-body">
           <div class="lb-desc">Ningún departamento colombiano tiene un gemelo digital predictivo. Si los decisores cambian conducta basándose en simulaciones, Santander habrá construido la capacidad más escasa del sector público colombiano: anticipar.</div>
+          <div class="lab-referentes">
+            <div class="lab-referentes-title">Referentes</div>
+            <div class="lab-referentes-list">
+              <button class="lab-ref-trigger" data-ref="lab_sb3_1">SB3.1 · Herrenberg (Alemania)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb3_2">SB3.2 · MindLab (Dinamarca)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb3_3">SB3.3 · Smart Villages Programme (UE)</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -774,6 +813,14 @@
         </div>
         <div class="lab-body">
           <div class="lb-desc">Invierte la lógica del desarrollo territorial: en lugar de que el talento migre donde están las oportunidades, las oportunidades se construyen donde puede atraerse el talento.</div>
+          <div class="lab-referentes">
+            <div class="lab-referentes-title">Referentes</div>
+            <div class="lab-referentes-list">
+              <button class="lab-ref-trigger" data-ref="lab_sb4_1">SB4.1 · Oulu (Finlandia)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb4_2">SB4.2 · Madeira Digital Nomads</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb4_3">SB4.3 · Sun City (Arizona)</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -788,20 +835,14 @@
         </div>
         <div class="lab-body">
           <div class="lb-desc">Si el modelo funciona en García Rovira — la condición topográfica más exigente de Colombia — es replicable en los 32 departamentos.</div>
-        </div>
-      </div>
-
-      <div class="lab-panel" id="labp-uaa">
-        <div class="lab-header" style="--lc:#9a7b00;--lg:#4a3a00">
-          <div class="lb-left"><div class="lb-badge" style="background:rgba(201,168,76,0.25);color:var(--oro);border:1px solid rgba(201,168,76,0.4)">UAA</div></div>
-          <div class="lb-right">
-            <div class="lb-meta">Transversal a los 5 laboratorios · Alojada en SB3 · 2026–2031</div>
-            <h3 class="lb-title">Unidad de Aprendizaje Adaptativo<br><small>El sistema que hace que los 5 laboratorios aprendan como sistema</small></h3>
-            <div class="lb-chips"><span>Síntesis trimestral inter-sandbox</span><span>Ajuste de umbrales</span><span>Manual vivo de políticas</span><span>Decisión: escalar · ajustar · cerrar</span></div>
+          <div class="lab-referentes">
+            <div class="lab-referentes-title">Referentes</div>
+            <div class="lab-referentes-list">
+              <button class="lab-ref-trigger" data-ref="lab_sb5_1">SB5.1 · Zipline (Rwanda / Ghana)</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb5_2">SB5.2 · Swiss Post</button>
+              <button class="lab-ref-trigger" data-ref="lab_sb5_3">SB5.3 · Amazônia Legal (Brasil)</button>
+            </div>
           </div>
-        </div>
-        <div class="lab-body">
-          <div class="lb-desc">Los cinco laboratorios aprenden en sus territorios. La UAA hace que el sistema aprenda como sistema.</div>
         </div>
       </div>
 
@@ -1034,6 +1075,19 @@
       </div>
     </div>
   </footer>
+
+  <div class="labref-modal" id="labReferenteModal" aria-hidden="true">
+    <div class="labref-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="labRefModalTitle">
+      <button class="labref-modal__close" id="labRefModalClose" aria-label="Cerrar">×</button>
+      <div class="labref-modal__kicker" id="labRefModalTipo"></div>
+      <h3 class="labref-modal__title" id="labRefModalTitle">Referente</h3>
+      <div class="labref-modal__summary" id="labRefModalSummary"></div>
+      <div class="labref-modal__links-wrap">
+        <div class="labref-modal__links-title">Enlaces</div>
+        <ul class="labref-modal__links" id="labRefModalLinks"></ul>
+      </div>
+    </div>
+  </div>
 
   <script src="JavaScript/index.js"></script>
 </body>
