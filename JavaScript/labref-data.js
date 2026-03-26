@@ -226,13 +226,13 @@ window.labReferentes = {
             "resumen": "Tipo de referente: TIPO 2 — REFERENTE DE CONTENIDO Problema equivalente: Aldeas suizas en valles alpinos inaccesibles en invierno, con servicio postal y de transporte deficiente por las condiciones de nieve y pendiente extrema, población envejecida sin movilidad propia y costo de operación de vehículos convencionales prohibitivo. ¿Qué hicieron?: Swiss Post (la empresa postal pública suiza) lanzó desde 2017 el programa de vehículos autónomos eléctricos de última milla en zonas alpinas: vehículos Navya Arma de 15 pasajeros operando en modo autónomo (sin conductor) en rutas rurales montañosas con pendientes de hasta 35% y curvas cerradas. La ASTRA (Agencia Federal de Caminos de Suiza) emitió licencias de operación sandbox con monitoreo en tiempo real, supervisor humano remoto y protocolo de abort automático si el sistema detecta condición inesperada. Tras 4 años de operación piloto con datos de seguridad, 3 cantones otorgaron licencias permanentes. Los vehículos operan a -20°C y en nieve con cadenas eléctricas integradas. Instrumento central: Sandbox regulatorio federal con licencias temporales escalonadas, supervisor humano remoto como condición de operación, protocolo de acumulación de datos de seguridad antes de licencia permanente y cofinanciamiento CHFF con comunidades locales en el costo operativo. Resultados verificados: Más de 250.000 pasajeros transportados en modo autónomo en zonas alpinas. Cero accidentes con pasajeros en 7 años de operación piloto. 3 cantones con licencia permanente. El costo por viaje: 60% menor que taxi convencional. El modelo fue adoptado por Austria, Francia (Alpes) y Noruega. Lección transferible al sandbox: Swiss Post es el referente regulatorio más preciso para la Fase 1 de SB5. Sus tres lecciones para el sandbox MinTransporte de Colombia son: primero, la pendiente máxima operativa validada (35%) es comparable a las veredas de García Rovira donde SB5 quiere probar (≥30°), lo que confirma que la tecnología Navya/similares existe y funciona en esas condiciones; segundo, el modelo de supervisor humano remoto como condición de operación en el sandbox es exactamente lo que MinTransporte requerirá para emitir la excepción regulatoria colombiana; tercero, el escalamiento progresivo (primero 5 veredas, luego 20) replicado del modelo suizo es el protocolo correcto para acumular datos de seguridad antes de ampliar la autorización. Conexión en Santander 2050: SB5 Fase 1 vehículos eléctricos García Rovira · P13 Red Vial · P19 Transporte Intermunicipal · Motor H · Motor A (electrificación transporte)",
             "enlaces": [
                 {
-                    "titulo": "www.post.ch/en/business-solutions/self-driving-vehicles",
-                    "url": "https://www.post.ch/en/business-solutions/self-driving-vehicles",
+                    "titulo": "Automated driving",
+                    "url": "https://www.postauto.ch/en/about-us-and-news/innovation/automated-driving?shortcut=pa-redirect-automatisiertes-fahren-en",
                     "nota": ""
                 },
                 {
-                    "titulo": "www.astra.admin.ch/astra/en/home/topics/automatisiertes...",
-                    "url": "https://www.astra.admin.ch/astra/en/home/topics/automatisiertes-fahren.html",
+                    "titulo": "PostBus to test autonomous car service in four Swiss cantons",
+                    "url": "https://www.swissinfo.ch/eng/research-frontiers/eastern-switzerland-postbus-tests-an-autonomous-car-service/90208020",
                     "nota": ""
                 }
             ]
@@ -248,8 +248,8 @@ window.labReferentes = {
                     "nota": ""
                 },
                 {
-                    "titulo": "www.iadb.org/en/project/BR-L1632",
-                    "url": "https://www.iadb.org/en/project/BR-L1632",
+                    "titulo": "BID lanza “Amazonía Siempre”, un programa para impulsar la coordinación en esa región",
+                    "url": "https://greenfinancelac.org/es/recursos/novedades/bid-lanza-programa-amazonia-siempre-para-impulsar-la-coordinacion-en-esa-region-amazonica/",
                     "nota": ""
                 }
             ]
