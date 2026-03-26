@@ -19,8 +19,8 @@
       resumen: 'Tipo de caso: Servicios ecosistémicos y restauración productiva. Problema equivalente: Deforestación masiva en los años 80 que redujo la cobertura forestal al 21%, con pérdida de cuencas, biodiversidad y base productiva rural. ¿Qué hicieron?: En 1996 crearon el FONAFIFO con base legal nacional, que paga directamente a propietarios privados y comunidades por conservar bosques, reforestar y gestionar agroforestería. Financiado por impuesto a combustibles, ventas de bonos de carbono y cooperación internacional. Hoy gestiona más de 1 millón de hectáreas. Instrumento central: Fondo territorial de PSE con base legal, financiamiento mixto (parafiscal + carbono + cooperación) y contrato directo con productores. Resultados verificados: Cobertura forestal aumentó del 21% al 60% en 30 años. USD 500 millones pagados a comunidades rurales. Carbono-neutralidad declarada y turismo ecológico de USD 4.000 millones anuales. Lección transferible a Santander: El modelo FONAFIFO es el referente más directo para el P02 (Fondo Territorial PSE) de Santander. Los mecanismos de contrato, verificación y pago a comunidades son replicables con adaptaciones mínimas. Conexión en Santander 2050: P02 Fondo PSE · P03 Restauración cuencas · P06 Páramos · Motor B.',
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
-        { titulo: 'FONAFIFO (Fuente 1)', url: 'https://www.fonafifo.go.cr/', nota: 'Modelo institucional de incentivos ambientales.' },
-        { titulo: 'PNUD Costa Rica (Fuente 2)', url: 'https://www.undp.org/costa-rica', nota: 'Contexto de cooperacion para sostenibilidad.' }
+        { titulo: 'FONAFIFO (Fuente 1)', url: 'www.fonafifo.go.cr/es/', nota: 'Modelo institucional de incentivos ambientales.' },
+        { titulo: 'PNUD Costa Rica (Fuente 2)', url: 'www.undp.org/costa-rica', nota: 'Contexto de cooperacion para sostenibilidad.' }
       ]
     },
     m1_3: {
@@ -49,8 +49,8 @@
       resumen: 'Tipo de caso: Cohesión territorial y desarrollo policéntrico. Problema equivalente: En los años 80, región desindustrializada, con altísimo desempleo (27%), conflicto armado activo (ETA), fragmentación territorial entre Bilbao, Vitoria y San Sebastián. ¿Qué hicieron?: Crearon el Plan Estratégico del País Vasco con visión de largo plazo supraelectoral. Invirtieron masivamente en infraestructura intermodal (metro, tren de alta velocidad, puertos). Desarrollaron polos de innovación en cada ciudad-provincia. El proyecto Bilbao Metrópoli-30 articuló lo urbano, rural e industrial en una sola narrativa territorial. Instrumento central: Concierto Económico (autonomía fiscal real), planificación supraelectoral, inversión pública en infraestructura y política de cohesión territorial activa. Resultados verificados: Desempleo bajó del 27% al 8% en 20 años. PIB per cápita 30% por encima de la media española. Modelo de gobernanza territorial replicado en 40 regiones europeas. Lección transferible a Santander: El modelo vasco de desarrollo policéntrico es directamente inspirador para la arquitectura de M2. La lógica de conectar provincias diversas con infraestructura compartida y proyectos áncora por subregión replica el espíritu del clúster Conectividad Territorial. Conexión en Santander 2050: P13 Red vial · P14 Fibra óptica · P17-P22 Nodos provinciales · Motor H.',
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
-        { titulo: 'Gobierno Vasco (Fuente 1)', url: 'https://www.euskadi.eus/', nota: 'Politica regional e institucionalidad.' },
-        { titulo: 'Bilbao Metrópoli-30 (Fuente 2)', url: 'https://www.bm30.eus/', nota: 'Contexto de transformacion del territorio.' }
+        { titulo: 'Gobierno Vasco (Fuente 1)', url: 'https://www.bm30.eus/antecedentes/', nota: 'Politica regional e institucionalidad.' },
+        { titulo: 'Bilbao Metrópoli-30 (Fuente 2)', url: 'https://www.bilbaoturismo.net/BilbaoTurismo/es/personajes-ilustres', nota: 'Contexto de transformacion del territorio.' }
       ]
     },
     m2_2: {
@@ -60,7 +60,7 @@
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
         { titulo: 'Plan Ceibal (Fuente 1)', url: 'https://ceibal.edu.uy/', nota: 'Plataforma de inclusion digital educativa.' },
-        { titulo: 'UNICEF - Plan Ceibal (Fuente 2)', url: 'https://www.unicef.org/uruguay/', nota: 'Analisis de impacto y equidad.' }
+        { titulo: 'UNICEF - Plan Ceibal (Fuente 2)', url: 'https://bibliotecaunicef.uy/opac_css/index.php?lvl=publisher_see&id=60', nota: 'Analisis de impacto y equidad.' }
       ]
     },
     m2_3: {
@@ -120,7 +120,7 @@
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
         { titulo: 'e-Estonia (Fuente 1)', url: 'https://e-estonia.com/', nota: 'Marco de gobierno digital nacional.' },
-        { titulo: 'X-Road (Fuente 2)', url: 'https://x-road.global/', nota: 'Intercambio seguro de datos del Estado.' }
+        { titulo: 'X-Road (Fuente 2)', url: 'www.ria.ee/en/x-road.html', nota: 'Intercambio seguro de datos del Estado.' }
       ]
     },
     m4_2: {
@@ -130,7 +130,7 @@
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
         { titulo: 'Ruta N Medellin (Fuente 1)', url: 'https://www.rutanmedellin.org/', nota: 'Ecosistema de innovacion y desarrollo urbano.' },
-        { titulo: 'PNUD Medellin (Fuente 2)', url: 'https://www.undp.org/colombia', nota: 'Lectura de transformacion territorial.' }
+        { titulo: 'PNUD Medellin (Fuente 2)', url: 'https://www.undp.org/es/colombia/proyectos/alianza-epm-pnud', nota: 'Lectura de transformacion territorial.' }
       ]
     },
     m4_3: {
@@ -149,8 +149,8 @@
       resumen: 'Tipo de caso: Sistema educativo para la innovación, equidad y retención de talento. Problema equivalente: En los años 70, sistema educativo desigual con grandes brechas entre zonas urbanas y rurales, y escasa conexión entre educación y economía productiva. ¿Qué hicieron?: Reforma educativa de largo plazo con base en equidad territorial: toda escuela, sin importar su ubicación, debe tener el mismo nivel de calidad. Eliminación de rankings escolares. Formación docente al nivel de maestría universitaria. Currículum flexible con énfasis en resolución de problemas y colaboración. Educación como bien público universal sin costos. Instrumento central: Reforma sistémica de 30 años con consenso político supraelectoral, inversión equitativa por territorio (no por impuesto local), autonomía pedagógica y evaluación formativa. Resultados verificados: 1.º del mundo en PISA durante una década. Brecha educativa entre zonas rurales y urbanas menor que en cualquier país OCDE. 66% de adultos con educación terciaria. Modelo exportado a Singapur, Corea y Estonia. Lección transferible a Santander: El modelo finlandés de equidad territorial educativa es el referente para el diseño de la Red de Campus Territoriales (P40) y la política de retención de talento en provincias. La autonomía pedagógica es transferible al diseño curricular de los campus provinciales. Conexión en Santander 2050: P40 Campus territoriales · P41 Talento Santander Global · Motor C · SB4 Ecosistema Talento.',
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
-        { titulo: 'Finnish National Agency for Education (Fuente 1)', url: 'https://www.oph.fi/en/education-system', nota: 'Estructura y principios del sistema educativo.' },
-        { titulo: 'Ministry of Education Finland (Fuente 2)', url: 'https://okm.fi/en/', nota: 'Politica publica educativa nacional.' }
+        { titulo: 'Finnish National Agency for Education (Fuente 1)', url: 'www.oph.fi/en/education-system', nota: 'Estructura y principios del sistema educativo.' },
+        { titulo: 'Ministry of Education Finland (Fuente 2)', url: 'https://okm.fi/en/frontpage', nota: 'Politica publica educativa nacional.' }
       ]
     },
     m5_2: {
@@ -159,8 +159,8 @@
       resumen: 'Tipo de caso: Economía cultural, industrias creativas y retención de talento joven. Problema equivalente: Necesidad de diversificar la economía más allá de manufactura y servicios tradicionales, retener talento joven y generar empleos de calidad para población vulnerable. ¿Qué hicieron?: Desarrollaron el Distrito Creativo Ciudad del Río y el Parque del Emprendimiento. Crearon las políticas de Economía Naranja (cultura, diseño, audiovisual, software creativo) con incentivos tributarios, espacios de coworking subsidiados y fondo de capital semilla. La Fiducia Social articuló universidad-empresa-comunidad en proyectos creativos de barrio. Instrumento central: Distrito creativo territorial con incentivos, fondo de capital semilla, programa de formación articulado con demanda empresarial y ecosistema físico de innovación. Resultados verificados: Medellín concentra el 25% de la producción audiovisual de Colombia. Exportaciones de servicios creativos: USD 180 millones anuales. 40.000 empleos en economía naranja con salarios 40% por encima del promedio. Lección transferible a Santander: El modelo Economía Naranja de Medellín es el referente más directo para el Plan de Cultura y Creatividad Santander Viva (P43) y el Motor F (Turismo de alto valor y economía cultural). La estructura del Distrito Creativo puede inspirar los Nodos Provinciales. Conexión en Santander 2050: P43 Cultura Santander Viva · Motor F · P17-P22 Nodos · SB4 Ecosistema Talento.',
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
-        { titulo: 'Economía Naranja Medellín (Fuente 1)', url: 'https://www.medellin.gov.co/', nota: 'Politicas y acciones del distrito creativo.' },
-        { titulo: 'OECD Territorial Review Medellin (Fuente 2)', url: 'https://www.oecd.org/colombia/', nota: 'Evaluacion internacional del modelo territorial.' }
+        { titulo: 'Economía Naranja Medellín (Fuente 1)', url: 'https://acimedellin.org/medellin-trabaja-para-dinamizar-la-economia-naranja/', nota: 'Politicas y acciones del distrito creativo.' },
+        { titulo: 'OECD Territorial Review Medellin (Fuente 2)', url: 'https://www.oecd.org/en/about/programmes/leed-programme.html', nota: 'Evaluacion internacional del modelo territorial.' }
       ]
     },
     m5_3: {
@@ -170,10 +170,12 @@
       fuente: 'Fuente: Volumen I en enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
         { titulo: 'SkillsFuture (Fuente 1)', url: 'https://www.skillsfuture.gov.sg/', nota: 'Programa nacional de aprendizaje permanente.' },
-        { titulo: 'Workforce Singapore (Fuente 2)', url: 'https://www.wsg.gov.sg/', nota: 'Ruta de habilidades y empleabilidad.' }
+        { titulo: 'Workforce Singapore (Fuente 2)', url: 'https://www.wsg.gov.sg/home/employers-industry-partners/workforce-development-job-redesign/career-conversion-programmes-employers', nota: 'Ruta de habilidades y empleabilidad.' }
       ]
     }
   };
+
+
     window.motorReferentes = {
     "mot_a1":  {
                    "tipo":  "Motor A",
