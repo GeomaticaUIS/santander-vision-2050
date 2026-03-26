@@ -29,7 +29,7 @@
         resumen: 'Tipo de caso: Gobernanza de cuencas, financiamiento mixto y pagos por servicios hídricos. Problema equivalente: Ciudades y empresas latinoamericanas con suministro de agua amenazado por deforestación y degradación de cuencas abastecedoras, sin mecanismo financiero que conecte a los beneficiarios urbanos con los guardianes rurales del agua. ¿Qué hicieron?: Desde 2000, TNC impulsó los Water Funds: fondos fiduciarios que capturan pagos de empresas de agua, industrias y gobiernos municipales, y los transfieren como incentivos económicos a comunidades campesinas e indígenas que conservan las cuencas abastecedoras. El Fondo del Agua de Quito (FONAG) fue el primero; hoy operan 38 fondos en 17 países de América Latina. Cada fondo tiene gobernanza multiactor: empresa de agua + municipio + empresas privadas + comunidades. Los criterios de pago son verificados con monitoreo hidrológico independiente. Instrumento central: Fondo fiduciario multiactor con gobernanza territorial, financiamiento continuo de beneficiarios del agua, monitoreo hidrológico independiente y pago directo a comunidades guardianas. Resultados verificados: Más de USD 300 millones movilizados en 20 años. FONAG protege las cuencas que abastecen a 3 millones de habitantes de Quito. El modelo ha reducido costos de tratamiento de agua en un 30% en ciudades participantes. Replicado en Bogotá (Fondo Agua por la Vida), Medellín, Lima y São Paulo. Lección transferible a Santander: Es el referente geográfica e institucionalmente más cercano para el P02 (Fondo Territorial PSE) de Santander. El modelo FONAG puede adaptarse directamente para las cuencas que abastecen al AMB (Río de Oro, Suratá), articulando CDMB, Acueducto Metropolitano, empresas del AMB y comunidades campesinas de Soto Norte y Guanentá. Conexión en Santander 2050: P02 Fondo PSE · P01 Plan Maestro Hídrico · P06 Páramos · SB1 BioRegión · Motor B.',
         fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
-          { titulo: 'The Nature Conservancy - Water Funds (Fuente 1)', url: 'https://www.nature.org/en-us/what-we-do/our-priorities/provide-food-and-water-sustainably/water-funds/', nota: 'Marco y casos regionales de fondos hidricos.' },
+          { titulo: 'The Nature Conservancy - Water Funds (Fuente 1)', url: 'https://www.nature.org/en-us/about-us/where-we-work/latin-america/stories-in-latin-america/water-funds-of-south-america/', nota: 'Marco y casos regionales de fondos hidricos.' },
           { titulo: 'Water Funds Toolbox (Fuente 2)', url: 'https://waterfundstoolbox.org/', nota: 'Guias para diseno e implementacion.' }
         ]
       },
@@ -39,8 +39,8 @@
         resumen: 'Tipo de caso: Eficiencia hídrica, reutilización y tecnología para zonas de escasez. Problema equivalente: País con el 60% de su territorio en zonas áridas o semiáridas, sin ríos perennes significativos, con alta densidad poblacional y necesidad de sostener una agricultura intensiva con disponibilidad hídrica mínima. ¿Qué hicieron?: Construyeron el sistema hídrico más eficiente del mundo: riego por goteo a escala nacional (inventado en Israel), desalinización del 80% del agua potable (5 plantas nacionales), reutilización del 87% de las aguas residuales para agricultura (el porcentaje más alto del mundo), y gestión centralizada de toda el agua nacional a través de Mekorot con monitoreo en tiempo real. Todo el sistema de agua es gestionado como infraestructura crítica de Estado, con tarifas que reflejan el costo real del recurso. Instrumento central: Gestión centralizada del agua como bien estratégico de Estado, inversión masiva en tecnología de eficiencia (goteo, desalinización, reutilización), tarifación real del agua y plataforma de monitoreo nacional en tiempo real. Resultados verificados: Israel produce el 20% de sus exportaciones agrícolas en zonas desérticas. Consumo de agua per cápita reducido en un 30% en 20 años mientras la población crecía. Tecnologías de riego israelíes operan hoy en 150 países. El sector agua generó exportaciones por USD 2.200 millones en 2023. Lección transferible a Santander: Especialmente relevante para las zonas semiáridas del Chicamocha (García Rovira, Comunera), donde la escasez hídrica estructural requiere enfoques de eficiencia extrema más que solo restauración. La lógica de gestionar el agua como bien estratégico con tarifación real es aplicable a la reforma del sistema de acueductos rurales y al P01 (Plan Maestro Hídrico). Conexión en Santander 2050: P01 Plan Maestro Hídrico · P04 Red monitoreo · P07 Riego tecnificado · Motor B.',
         fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
-          { titulo: 'Mekorot (Fuente 1)', url: 'https://www.mekorot.co.il/Eng/Pages/default.aspx', nota: 'Empresa nacional de agua y gestion integral.' },
-          { titulo: 'IDE Water Technologies (Fuente 2)', url: 'https://www.ide-water.com/', nota: 'Soluciones de desalinizacion y tratamiento.' }
+          { titulo: 'Mekorot (Fuente 1)', url: 'https://www.mekorot-int.com/', nota: 'Empresa nacional de agua y gestion integral.' },
+          { titulo: 'IDE Water Technologies (Fuente 2)', url: 'https://ide-tech.com/en/', nota: 'Soluciones de desalinizacion y tratamiento.' }
         ]
       },
       m2_1: {
@@ -49,8 +49,8 @@
         resumen: 'Tipo de caso: Cohesión territorial y desarrollo policéntrico. Problema equivalente: En los años 80, región desindustrializada, con altísimo desempleo (27%), conflicto armado activo (ETA), fragmentación territorial entre Bilbao, Vitoria y San Sebastián. ¿Qué hicieron?: Crearon el Plan Estratégico del País Vasco con visión de largo plazo supraelectoral. Invirtieron masivamente en infraestructura intermodal (metro, tren de alta velocidad, puertos). Desarrollaron polos de innovación en cada ciudad-provincia. El proyecto Bilbao Metrópoli-30 articuló lo urbano, rural e industrial en una sola narrativa territorial. Instrumento central: Concierto Económico (autonomía fiscal real), planificación supraelectoral, inversión pública en infraestructura y política de cohesión territorial activa. Resultados verificados: Desempleo bajó del 27% al 8% en 20 años. PIB per cápita 30% por encima de la media española. Modelo de gobernanza territorial replicado en 40 regiones europeas. Lección transferible a Santander: El modelo vasco de desarrollo policéntrico es directamente inspirador para la arquitectura de M2. La lógica de conectar provincias diversas con infraestructura compartida y proyectos áncora por subregión replica el espíritu del clúster Conectividad Territorial. Conexión en Santander 2050: P13 Red vial · P14 Fibra óptica · P17-P22 Nodos provinciales · Motor H.',
         fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
-          { titulo: 'Gobierno Vasco (Fuente 1)', url: 'https://www.euskadi.eus/gobierno-vasco/', nota: 'Politica regional e institucionalidad.' },
-          { titulo: 'Bilbao turismo y transformacion urbana (Fuente 2)', url: 'https://www.bilbao.eus/cs/Satellite/bilbaoturismo/en/turismo/inicio.html', nota: 'Contexto de transformacion del territorio.' }
+          { titulo: 'Gobierno Vasco (Fuente 1)', url: 'https://www.bm30.eus/antecedentes/', nota: 'Politica regional e institucionalidad.' },
+          { titulo: 'Bilbao turismo y transformacion urbana (Fuente 2)', url: 'https://www.bilbaoturismo.net/BilbaoTurismo/es/personajes-ilustres', nota: 'Contexto de transformacion del territorio.' }
         ]
       },
       m2_2: {
@@ -60,7 +60,7 @@
         fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
           { titulo: 'Plan Ceibal (Fuente 1)', url: 'https://ceibal.edu.uy/', nota: 'Plataforma de inclusion digital educativa.' },
-          { titulo: 'UNICEF - Plan Ceibal (Fuente 2)', url: 'https://www.unicef.org/uruguay/plan-ceibal', nota: 'Analisis de impacto y equidad.' }
+          { titulo: 'UNICEF - Plan Ceibal (Fuente 2)', url: 'https://bibliotecaunicef.uy/opac_css/index.php?lvl=publisher_see&id=60', nota: 'Analisis de impacto y equidad.' }
         ]
       },
       m2_3: {
@@ -79,8 +79,8 @@
         resumen: 'Tipo de caso: Transición post-extractiva y reconversión productiva territorial. Problema equivalente: Región minera e industrial más importante de Europa en declive: cierre de minas de carbón, 500.000 empleos perdidos, contaminación extrema, éxodo de talento, colapso fiscal de municipios. ¿Qué hicieron?: El gobierno estatal creó la Internationale Bauausstellung (IBA Emscher Park): un proyecto de reconversión territorial de 10 años con 120 proyectos simultáneos. Transformó infraestructura industrial en parques, centros culturales y clústeres tecnológicos. Creó el Fondo de Transición Justa con participación activa de sindicatos y comunidades mineras. Reindustrialización verde con química, energías renovables y economía creativa. Instrumento central: Fondo de transición con financiamiento federal y estatal, conversión de pasivos industriales en activos culturales, clústeres de reindustrialización verde y pacto territorial multiactor. Resultados verificados: Región pasó de mayor contaminación en Europa a destino cultural de 5 millones de turistas/año. 200.000 nuevos empleos en sectores verdes y creativos. Modelo replicado en 25 regiones extractivas del mundo. Lección transferible a Santander: El caso Ruhr es el referente más directo para la reconversión del Magdalena Medio santandereano. La lógica del IBA Emscher Park puede inspirar el diseño del SB2 (Magdalena Medio 4.0) y el Distrito Industrial de Transición Energética (P23). Conexión en Santander 2050: P23 Distrito Transición · P24 Parque industrial · SB2 Magdalena Medio 4.0 · Motor A · Motor D.',
         fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
-          { titulo: 'IBA Emscher Park (Fuente 1)', url: 'https://www.iba-emscherpark.de/en/', nota: 'Caso emblematico de regeneracion industrial.' },
-          { titulo: 'Just Transition Fund UE (Fuente 2)', url: 'https://ec.europa.eu/regional_policy/funding/just-transition_en', nota: 'Instrumento de financiacion para transicion justa.' }
+          { titulo: 'IBA Emscher Park (Fuente 1)', url: 'https://www.internationale-bauausstellungen.de/en/history/1989-1999-iba-emscher-park-a-future-for-an-industrial-region/', nota: 'Caso emblematico de regeneracion industrial.' },
+          { titulo: 'Just Transition Fund UE (Fuente 2)', url: 'https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal/finance-and-green-deal/just-transition-mechanism_en', nota: 'Instrumento de financiacion para transicion justa.' }
         ]
       },
       m3_2: {
@@ -90,7 +90,7 @@
         fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
         enlaces: [
           { titulo: 'Energiakademiet (Fuente 1)', url: 'https://www.energiakademiet.dk/en/', nota: 'Laboratorio territorial de energia comunitaria.' },
-          { titulo: 'Energy Island (Fuente 2)', url: 'https://energyisland.dk/', nota: 'Estrategia danesa de infraestructura energetica.' }
+          { titulo: 'Energy Island (Fuente 2)', url: 'https://bornholmenergyisland.eu/en/', nota: 'Estrategia danesa de infraestructura energetica.' }
         ]
       },
       m3_3: {
