@@ -10,8 +10,8 @@ window.labReferentes = {
                     "nota": ""
                 },
                 {
-                    "titulo": "www.goldstandard.org/our-work/innovations-consultancies...",
-                    "url": "https://www.goldstandard.org/our-work/innovations-consultancies/blue-carbon",
+                    "titulo": "Análisis Academico sobre Mikoko Pamoja",
+                    "url": "https://www.tokyofoundation.org/research/detail.php?id=859",
                     "nota": ""
                 }
             ]
@@ -56,13 +56,13 @@ window.labReferentes = {
             "resumen": "Tipo de referente: TIPO 2 — REFERENTE DE CONTENIDO Problema equivalente: Isla danesa de 40.000 habitantes con 50% de generación renovable pero sin capacidad de balancear oferta variable de eólica con demanda residencial. La regulación energética nacional no permitía a hogares actuar como prosumidores (vender excedentes directamente a la red), bloqueando el modelo de comunidades energéticas. ¿Qué hicieron?: Entre 2011 y 2015, el consorcio EcoGrid EU (14 socios europeos, financiado por la UE) convirtió a Bornholm en el primer sandbox energético real de Europa: la Autoridad Regulatoria Energética danesa (DERA) emitió una excepción regulatoria temporal que permitió a 2.000 hogares actuar como prosumidores activos dentro del sandbox. Cada hogar recibió un controlador inteligente que respondía a señales de precio en tiempo real, ajustando consumo de calefacción y electrodomésticos. La isla operó como laboratorio en condiciones reales con medición rigurosa de balance oferta-demanda. Al final del sandbox, los resultados (reducción del 10% de picos de demanda) sustentaron la reforma regulatoria nacional. Instrumento central: Excepción regulatoria temporal emitida por la autoridad nacional, contrato de sandbox con condiciones de operación y métricas de éxito predefinidas, medición rigurosa con metodología científica y protocolo explícito de conversión de aprendizaje en reforma regulatoria. Resultados verificados: Reducción del 10% en picos de demanda energética en la isla. La evidencia del sandbox de Bornholm fue la base técnica de la reforma regulatoria danesa de 2016 que legalizó las comunidades prosumidoras en todo el país. El modelo EcoGrid fue replicado en 8 países europeos. Bornholm tiene hoy el 75% de su electricidad de fuentes renovables. Lección transferible al sandbox: EcoGrid es el modelo exacto para la negociación de SB2 con la CREG colombiana. La estructura del sandbox (excepción temporal + métricas predefinidas + conversión de aprendizaje en reforma) es el mecanismo que el SB2 necesita proponer a la CREG para las 3 comunidades prosumidoras piloto del Magdalena Medio. El indicador de umbral del SB2 (≥3 comunidades operando bajo sandbox CREG al 2028) tiene en EcoGrid su precedente más directo: si Dinamarca lo logró en 4 años, Colombia puede lograrlo en un horizonte comparable con el instrumento adecuado. Conexión en Santander 2050: SB2 sandbox CREG comunidades prosumidoras · P23 Distrito Transición · P25 Energía Renovable · Motor A · Comité Transición Justa",
             "enlaces": [
                 {
-                    "titulo": "www.ecogrid.dk/en",
-                    "url": "https://www.ecogrid.dk/en",
+                    "titulo": "New EcoGrid EU report about smartgrid project on Bornholm",
+                    "url": "https://www.cee.elektro.dtu.dk/news/nyhed?id=b9cd8ad0-ce57-4a8f-88e5-5e4aeb95a073",
                     "nota": ""
                 },
                 {
-                    "titulo": "energyisland.dk/",
-                    "url": "https://energyisland.dk/",
+                    "titulo": "Ecogrid EU",
+                    "url": "https://orbit.dtu.dk/en/publications/ecogrid-eu-a-large-scale-smart-grids-demonstration-of-real-time-m/",
                     "nota": ""
                 }
             ]
@@ -73,13 +73,13 @@ window.labReferentes = {
             "resumen": "Tipo de referente: TIPO 2 — REFERENTE DE CONTENIDO Problema equivalente: Río Mekong con 4.350 km de extensión, navegación de alta complejidad por variación de caudales estacionales extremos, múltiples países y jurisdicciones, conflictos entre uso de agua para agricultura, pesca, generación hidroeléctrica y navegación comercial. ¿Qué hicieron?: La Mekong River Commission (MRC) desarrolló desde 2015 el sistema HYCOS Mekong: red de 130 estaciones hidrométricas con sensórica IoT en tiempo real, plataforma de IA para predicción de caudales con 7 días de anticipación, sistema de alertas tempranas para navegación y agricultura, y dashboard abierto para todos los países miembros. Adicionalmente, el programa Mekong Integrated Water Resources Management integró datos satelitales con sensórica de campo para monitoreo de sedimentos, temperatura y calidad del agua. Toda la plataforma es de código abierto y fue construida con apoyo de la agencia de cooperación finlandesa. Instrumento central: Red de sensórica IoT distribuida en el río, plataforma IA de predicción con modelos hidrológicos calibrados localmente, datos abiertos con acceso para todos los actores del ecosistema fluvial y modelo de gobernanza multinivel (nacional-subnacional) para decisiones de uso del agua. Resultados verificados: Predicción de caudales con 85% de precisión a 7 días. Reducción del 30% en pérdidas agrícolas por inundaciones no anticipadas. La plataforma es usada por 4 millones de agricultores y 50.000 pescadores en los 4 países. El modelo fue adoptado por 12 cuencas fluviales en Asia y África. Lección transferible al sandbox: El sistema HYCOS Mekong es el referente técnico más directo para la plataforma de inteligencia fluvial del río Magdalena que propone SB2. La arquitectura sensórica IoT + IA predictiva + datos abiertos + gobernanza multinivel es exactamente el modelo para el sistema de navegación inteligente del Magdalena entre Barrancabermeja y Barranquilla. El indicador de umbral del SB2 sobre reducción de tiempo de navegación tiene en el Mekong su prueba de viabilidad técnica más robusta. Conexión en Santander 2050: SB2 plataforma IA fluvial Magdalena · P15 Plataforma Logística Barrancabermeja · P16 Hub Nororiente · Motor H · Motor C (plataforma datos)",
             "enlaces": [
                 {
-                    "titulo": "www.mrcmekong.org/",
+                    "titulo": "Mekong River Commission",
                     "url": "https://www.mrcmekong.org/",
                     "nota": ""
                 },
                 {
-                    "titulo": "www.mrcmekong.org/our-work/functions/hydrological-data-...",
-                    "url": "https://www.mrcmekong.org/our-work/functions/hydrological-data-and-monitoring/",
+                    "titulo": "What is Mekong-HYCOS?",
+                    "url": "https://archive.iwlearn.org/mrcmekong.org/MRC_news/press06/mekomg_hycos.htm",
                     "nota": ""
                 }
             ]
@@ -91,7 +91,7 @@ window.labReferentes = {
             "enlaces": [
                 {
                     "titulo": "ec.europa.eu/regional_policy/funding/just-transition_en",
-                    "url": "https://ec.europa.eu/regional_policy/funding/just-transition_en",
+                    "url": "https://ec.europa.eu/regional_policy/sources/funding/just-transition-fund/case-study-regional-observatory-transition-process-silesia.pdf",
                     "nota": ""
                 },
                 {
@@ -112,8 +112,8 @@ window.labReferentes = {
                     "nota": ""
                 },
                 {
-                    "titulo": "www.herrenberg.de/de/stadtentwicklung/",
-                    "url": "https://www.herrenberg.de/de/stadtentwicklung/",
+                    "titulo": "Urban Digital Twins for Smart Cities and Citizens",
+                    "url": "https://www.mdpi.com/2071-1050/12/6/2307",
                     "nota": ""
                 }
             ]
@@ -129,8 +129,8 @@ window.labReferentes = {
                     "nota": ""
                 },
                 {
-                    "titulo": "www.designforpublicpolicy.org/",
-                    "url": "https://www.designforpublicpolicy.org/",
+                    "titulo": "MindLab: The evolution of a public innovation lab",
+                    "url": "https://blog.thegovlab.org/mindlab-the-evolution-of-a-public-innovation-lab",
                     "nota": ""
                 }
             ]
@@ -142,7 +142,7 @@ window.labReferentes = {
             "enlaces": [
                 {
                     "titulo": "smartvillages.eu/",
-                    "url": "https://smartvillages.eu/",
+                    "url": "https://eu-cap-network.ec.europa.eu/topics/smart-villages_en",
                     "nota": ""
                 },
                 {
@@ -214,8 +214,8 @@ window.labReferentes = {
                     "nota": ""
                 },
                 {
-                    "titulo": "www.who.int/news-room/feature-stories/detail/drones-del...",
-                    "url": "https://www.who.int/news-room/feature-stories/detail/drones-delivering-blood",
+                    "titulo": "Rwanda launches world's first national drone delivery service powered by Zipline",
+                    "url": "https://www.gavi.org/news/media-room/rwanda-launches-worlds-first-national-drone-delivery-service-powered-zipline",
                     "nota": ""
                 }
             ]
@@ -253,5 +253,6 @@ window.labReferentes = {
                     "nota": ""
                 }
             ]
-        }
+        }
+
     };
