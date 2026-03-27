@@ -3473,6 +3473,60 @@ body.modal-open {
   color: var(--muted);
   line-height: 1.55;
 }
+
+/* Threshold table */
+.threshold-section {
+  margin-top: 36px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0,0,0,0.07);
+}
+
+.threshold-header {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr;
+  background: var(--navy);
+  padding: 12px 20px;
+  gap: 16px;
+}
+
+.threshold-header span {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.threshold-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr;
+  gap: 16px;
+  padding: 14px 20px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  align-items: start;
+}
+
+.threshold-row:nth-child(odd) { background: var(--light); }
+
+.threshold-row .t-ind { font-size: 0.87rem; color: var(--text); }
+.threshold-row .t-up  {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #1B5E20;
+  background: #E8F5E9;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.threshold-row .t-down {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #B71C1C;
+  background: #FFEBEE;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
 .lb-exps-label {
   font-size: 0.62rem;
   font-weight: 800;
