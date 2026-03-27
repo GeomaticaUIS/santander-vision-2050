@@ -3435,6 +3435,50 @@ body.modal-open {
   line-height: 1.65;
 }
 
+/* Fields grid */
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.field {
+  padding: 20px 22px;
+  border-radius: 12px;
+  background: var(--light);
+}
+
+.field.full { grid-column: 1 / -1; }
+
+.field-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.field-value {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.field-value ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.field-value ul li { padding: 3px 0; }
+.field-value ul li::before {
+  content: '·';
+  color: var(--accent);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
 /* Experimentos */
 /* Experiment components */
 .experiments {
@@ -3893,4 +3937,24 @@ body.modal-open {
 .acord-body-inner {
   min-height: 0;
   overflow: hidden;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .arch-grid, .fields-grid, .uaa-grid, .compare-grid, .summary-grid { grid-template-columns: 1fr; }
+  .threshold-header, .threshold-row { grid-template-columns: 1fr; }
+  .fields-grid .field.full { grid-column: 1; }
+  .total-bar { flex-direction: column; text-align: center; }
+  .hero { padding: 60px 6vw; }
+  .lab-header, .lab-body { padding: 28px 24px; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
 }
