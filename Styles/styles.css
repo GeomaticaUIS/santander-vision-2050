@@ -3518,6 +3518,41 @@ body.modal-open {
   line-height: 1.55;
 }
 
+/* Disruptive factor */
+.disruptive {
+  margin-top: 28px;
+  padding: 24px 28px;
+  border-radius: 14px;
+  position: relative;
+}
+
+.disruptive::before {
+  content: '⚡';
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 1.2rem;
+  opacity: 0.4;
+}
+
+.disruptive .d-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.disruptive p {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
 /* Threshold table */
 .threshold-section {
   margin-top: 36px;
