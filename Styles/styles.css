@@ -3529,7 +3529,7 @@ body.modal-open {
 .threshold-header {
   display: grid;
   grid-template-columns: 2fr 1.2fr 1.2fr;
-  background: var(--navy);
+  background: #0d2240;
   padding: 12px 20px;
   gap: 16px;
 }
