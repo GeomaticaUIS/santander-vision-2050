@@ -3518,6 +3518,17 @@ body.modal-open {
   line-height: 1.55;
 }
 
+/* Close condition */
+.close-box {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border-left: 3px solid;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.close-box strong { font-weight: 600; }
 /* Disruptive factor */
 .disruptive {
   margin-top: 28px;
