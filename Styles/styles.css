@@ -3446,7 +3446,7 @@ body.modal-open {
 .field {
   padding: 20px 22px;
   border-radius: 12px;
-  background: var(--light);
+  background: #f8f7f4;
 }
 
 .field.full { grid-column: 1 / -1; }
