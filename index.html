@@ -229,6 +229,7 @@
 
       setTimeout(() => {
         if (u === USUARIO && p === PASSWORD) {
+          sessionStorage.setItem('svp_auth', '1');
           overlay.classList.add('show');
           setTimeout(() => { window.location.href = REDIRECT; }, 2500);
         } else {
