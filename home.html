@@ -11,7 +11,11 @@
   <link rel="stylesheet" href="Styles/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
 </head>
-
+ <script>
+    if (!sessionStorage.getItem('svp_auth')) {
+      window.location.replace('index.html');
+    }
+  </script>
 <body>
 
   <!-- ═══════════════════════════ NAVEGACIÓN ═══════════════════════════ -->
