@@ -17,31 +17,6 @@
   }
   </script>
 <body>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-
-const app = initializeApp({
-  apiKey: "AIzaSyAEeVufxA0HbPszowPa3hMy43oQt8L7OkE",
-  authDomain: "svp2050-76825.firebaseapp.com",
-  projectId: "svp2050-76825",
-  appId: "1:612719255804:web:2cb2773e154d4c92227779"
-});
-
-// Ocultar página hasta verificar sesión
-document.documentElement.style.visibility = 'hidden';
-
-const auth = getAuth(app);
-onAuthStateChanged(auth, user => {
-  if (user) {
-    // Sesión válida — mostrar página
-    document.documentElement.style.visibility = 'visible';
-  } else {
-    // Sin sesión — redirigir al login
-    window.location.replace('index.html');
-  }
-});
-</script>
   <!-- ═══════════════════════════ NAVEGACIÓN ═══════════════════════════ -->
   <header>
     <nav class="container nav-inner">
