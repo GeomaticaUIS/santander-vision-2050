@@ -49,7 +49,7 @@
  
       setTimeout(() => {
         if (u === USUARIO && p === PASSWORD) {
-          sessionStorage.setItem('svp_auth', '1');
+          localStorage.setItem('svp_auth', '1');
           overlay.classList.add('show');
           setTimeout(() => { try { window.location.assign(REDIRECT); } catch(e) { window.location.replace(REDIRECT); } setTimeout(() => { var lnk = document.getElementById('manualLink'); if(lnk) lnk.style.display='inline-block'; }, 2000); }, 2000);
         } else {
