@@ -1,5 +1,23 @@
-    const USUARIO   = 'admin_svp';
-    const PASSWORD  = 'Stder_pR05_2050';
+    import { initializeApp }        from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+    import { getAnalytics }         from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged }
+                                    from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+ 
+    /* ── Configuración Firebase ── */
+    const firebaseConfig = {
+      apiKey:            "AIzaSyAEeVufxA0HbPszowPa3hMy43oQt8L7OkE",
+      authDomain:        "svp2050-76825.firebaseapp.com",
+      projectId:         "svp2050-76825",
+      storageBucket:     "svp2050-76825.firebasestorage.app",
+      messagingSenderId: "612719255804",
+      appId:             "1:612719255804:web:2cb2773e154d4c92227779",
+      measurementId:     "G-VXS6SN8KRE"
+    };
+ 
+    const app       = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth      = getAuth(app);
+ 
     const REDIRECT  = 'home.html';
  
     const btnLogin  = document.getElementById('btnLogin');
@@ -9,6 +27,11 @@
     const togglePw  = document.getElementById('togglePw');
     const eyeIcon   = document.getElementById('eyeIcon');
     const overlay   = document.getElementById('successOverlay');
+ 
+    /* Si ya hay sesión activa, redirigir directo */
+    onAuthStateChanged(auth, user => {
+      if (user) window.location.replace(REDIRECT);
+    });
  
     /* Toggle visibilidad contraseña */
     togglePw.addEventListener('click', () => {
@@ -32,38 +55,37 @@
       el.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
     });
  
-    /* Login */
     btnLogin.addEventListener('click', doLogin);
  
-    function doLogin() {
-      const u = userInput.value.trim();
-      const p = pwInput.value;
+    async function doLogin() {
+      const usuario = userInput.value.trim();
+      const clave   = pwInput.value;
  
-      if (!u || !p) {
-        shake();
-        return;
-      }
+      if (!usuario || !clave) { shake(); return; }
  
       btnLogin.classList.add('loading');
       btnLogin.disabled = true;
  
-      setTimeout(() => {
-        if (u === USUARIO && p === PASSWORD) {
-          localStorage.setItem('svp_auth', '1');
-          overlay.classList.add('show');
-          setTimeout(() => { try { window.location.assign(REDIRECT); } catch(e) { window.location.replace(REDIRECT); } setTimeout(() => { var lnk = document.getElementById('manualLink'); if(lnk) lnk.style.display='inline-block'; }, 2000); }, 2000);
-        } else {
-          btnLogin.classList.remove('loading');
-          btnLogin.disabled = false;
-          errorMsg.classList.remove('visible');
-          void errorMsg.offsetWidth; // reflow para re-trigger animation
-          errorMsg.classList.add('visible');
-          userInput.classList.add('input-error');
-          pwInput.classList.add('input-error');
-          pwInput.value = '';
-          pwInput.focus();
-        }
-      }, 900);
+      /* Firebase usa email — el usuario se registró como admin_svp@svp2050.com */
+      const email = usuario + '@svp2050.com';
+ 
+      try {
+        await signInWithEmailAndPassword(auth, email, clave);
+        /* Éxito — mostrar overlay y redirigir */
+        overlay.classList.add('show');
+        setTimeout(() => window.location.replace(REDIRECT), 2000);
+ 
+      } catch (err) {
+        btnLogin.classList.remove('loading');
+        btnLogin.disabled = false;
+        errorMsg.classList.remove('visible');
+        void errorMsg.offsetWidth;
+        errorMsg.classList.add('visible');
+        userInput.classList.add('input-error');
+        pwInput.classList.add('input-error');
+        pwInput.value = '';
+        pwInput.focus();
+      }
     }
  
     function shake() {
