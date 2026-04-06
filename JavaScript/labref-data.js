@@ -253,6 +253,75 @@ window.labReferentes = {
                     "nota": ""
                 }
             ]
+        },
+        "lab_sb6_1": {
+            "tipo": "SB6",
+            "titulo": "Corporación Mondragón (España) – Agregación productiva cooperativa",
+            "resumen": "Que es: Conglomerado cooperativo industrial fundado en 1956 por el sacerdote Jose Maria Arizmendiarrieta. Considerado la cooperativa industrial mas grande del mundo. Datos clave al 2024: Mas de 70.000 trabajadores a nivel global; cerca de 100 cooperativas asociadas. Facturacion superior a 11.000 millones de euros en 2024, equivalente al ~12% del PIB vasco. 3.743 cooperativas en Euskadi dan trabajo al 5,7% del empleo total y al 11% del empleo industrial. Entre 2021 y 2024 el empleo cooperativo crecio 9%, con 5.000 nuevos puestos de trabajo. Integra industria, finanzas (Laboral Kutxa), distribucion (Eroski) y conocimiento (Mondragon Unibertsitatea). Mecanismo clave para SB6: Lo relevante no es su tamano final sino su logica de origen: comenzo en 1956 con un taller de 5 trabajadores, sin capital ni tecnologia sofisticada. La unidad de formalizacion y propiedad es colectiva desde el inicio, no el individuo. La Caja Laboral financia el crecimiento de las cooperativas. La inter-cooperacion es tan importante como cada cooperativa individual: fondos de solidaridad permiten reubicar trabajadores de cooperativas en dificultades en otras del grupo. Formacion tecnica integrada para evitar fuga de conocimiento. Experimento que ilumina: Experimento 3 — Agregacion productiva cooperativa. Demuestra que cooperativas de escala media compiten en mercados que las microempresas individuales no pueden alcanzar. Valida que el modelo cooperativo es industrialmente competitivo, no solo socialmente orientado. Para Santander: las cooperativas de cacao de Velez, calzado del AMB y cuidado de las provincias deben tener desde el inicio un fondo de inter-cooperacion, el equivalente santandereano de la Caja Laboral. Escala de inicio comparable: el SB6 puede empezar con cooperativas de 10 a 20 personas, exactamente como Mondragon en 1956. Advertencia critica: La escala no se alcanza en anos sino en decadas; el horizonte 2050 es el correcto. La formacion tecnica es condicion previa, no complemento. El modelo requiere confianza comunitaria profunda y adaptacion cultural al territorio. Mondragon crecio con mercado cautivo regional; el SB6 debe identificar desde el inicio compradores ancla que garanticen demanda antes de escalar.",
+            "enlaces": [
+                {
+                    "titulo": "Corporación Mondragón",
+                    "url": "https://www.mondragon-corporation.com",
+                    "nota": ""
+                },
+                {
+                    "titulo": "Informe Anual 2024",
+                    "url": "https://www.mondragon-corporation.com/people/site/assets/files/103207/informe-anual-2024.pdf",
+                    "nota": ""
+                }
+            ]
+        },
+        "lab_sb6_2": {
+            "tipo": "SB6",
+            "titulo": "Cooperativas Cacao San Martín (Perú) – Creación de mercados premium y formalización por precio",
+            "resumen": "Que es: Red de cooperativas que transformaron una economia informal de subsistencia, en muchos casos ligada al narcotrafico, en un sector exportador formal de cacao organico de alta calidad certificada. Datos clave: San Martin elevo sus exportaciones 113% impulsada por cacao, cafe y palma; primer bimestre 2025: 72,4 millones de dolares exportados. Cooperativas peruanas de cacao estan en el ranking 50 Best Cacao 2025 con premios en ferias de Belgica, Alemania y Paises Bajos. ASPROC-NBT (283 socios, Tocache) logro primera exportacion a Europa en 2014 y comercializo 317 toneladas metricas en 2020-2021. El 75% del cacao peruano es Fino y de Aroma. APPCACAO agrupa cooperativas y asociaciones de todo el pais. Mecanismo clave para SB6: La formalizacion ocurrio a traves del mercado, no del Estado. Paso 1: identificar comprador ancla internacional con volumen minimo. Paso 2: certificacion como activo de acceso, organico + Comercio Justo + trazabilidad. Paso 3: logistica resuelta colectivamente, la cooperativa exporta donde el productor individual no puede. Paso 4: el mayor ingreso del mercado formal genera excedente para pagar seguridad social, tributacion y reinversion. Experimento que ilumina: Experimentos 2 y 3 — Creacion de mercado y agregacion. Aplicacion directa del principio Christensen: existia demanda internacional que los productores informales no podian atender individualmente. Traduccion a Santander: cacao de Velez y Garcia Rovira, cafe especial, panela procesada y frutas con potencial premium. El SB6 debe identificar compradores ancla antes de incubar cooperativas. APPCACAO integra la oferta para alcanzar volumen minimo exigido por compradores. Advertencia critica: El salto no fue tecnico sino institucional y comercial. Sin comprador ancla comprometido antes del inicio, los productores no se organizan. La formacion en gestion contable, certificaciones y logistica fue tan determinante como la mejora agronomica. Certificacion sin demanda es costo inutil. Se requiere acompanamiento tecnico externo en los primeros 3 anos criticos.",
+            "enlaces": [
+                {
+                    "titulo": "Asociación Peruana APPCACAO",
+                    "url": "https://www.appcacao.org",
+                    "nota": ""
+                },
+                {
+                    "titulo": "Exportaciones cacao ComexPeru",
+                    "url": "https://www.comexperu.org.pe/articulo/exportaciones-de-cacao-en-grano-crecieron-un-276-en-el-primer-semestre-del-ano",
+                    "nota": ""
+                }
+            ]
+        },
+        "lab_sb6_3": {
+            "tipo": "SB6",
+            "titulo": "Microempreendedor Individual MEI (Brasil) – Formalidad progresiva como servicio ultra-simplificado",
+            "resumen": "Que es: Regimen de formalizacion ultra-simplificado creado en 2008 en Brasil para sacar de la informalidad a trabajadores autonomos y pequenos emprendedores. Es el caso de mayor escala de formalizacion progresiva en America Latina. Datos clave al 2024: 12 millones de negocios formalizados en 2023, 60% de todas las empresas del pais. 16,3 millones de registros acumulados. Solo en 2024 se registraron 3,1 millones de nuevos MEI. Un MEI formalizado gana en promedio R$ 3.508 por mes, casi 3 veces mas que un emprendedor informal. La formalizacion inyecta R$ 69,5 mil millones adicionales por ano. Mecanismo clave para SB6: El MEI es formalidad como servicio, no como carga burocratica. Un solo pago mensual fijo da acceso a CNPJ propio, emision de notas fiscales, afiliacion a seguridad social (INSS), acceso al sistema financiero y posibilidad de contratar un empleado. Registro 100% digital, gratuito y en minutos. Faturamiento maximo ajustado al tamano real del emprendedor. Beneficios inmediatos y tangibles. Experimento que ilumina: Experimento 1 — Formalidad progresiva (no binaria). Valida que la barrera de entrada, no la carga tributaria posterior, es el principal obstaculo a la formalizacion. Demuestra que la formalidad puede disenarse como producto deseable. Para SB6, la Ventanilla Unica de Experimentacion debe replicar esta logica: un punto, un tramite, beneficios inmediatos. Advertencia critica: Formalizacion sin mercado no transforma. Aunque formalizo millones, la informalidad estructural no se redujo proporcionalmente. Riesgo de microempresa permanente si no hay incentivo para crecer. SB6 debe vincular formalidad con mercados y cooperativas. Pendiente regulatorio en Colombia: negociar excepciones con DIAN y MinTrabajo.",
+            "enlaces": [
+                {
+                    "titulo": "Portal oficial MEI",
+                    "url": "https://www.gov.br/empresas-e-negocios/pt-br/empreendedor",
+                    "nota": ""
+                },
+                {
+                    "titulo": "Perfil del MEI (Sebrae)",
+                    "url": "https://sebraepr.com.br/impulsiona/impactos-do-mei-na-economia-brasileira/",
+                    "nota": ""
+                }
+            ]
+        },
+        "lab_sb6_4": {
+            "tipo": "SB6",
+            "titulo": "SEWA (Self Employed Women\'s Association) (India) – Formalización y crédito basados en el mutualismo femenino",
+            "resumen": "Que es: Sindicato de trabajadoras informales fundado en 1972 en Ahmedabad, Gujarat, por Ela Bhatt. Una de las organizaciones de economia popular mas influyentes del mundo, reconocida por la OIT, el Banco Mundial y las Naciones Unidas. Datos clave: 1,4 millones de miembros, todas mujeres trabajadoras informales. El Banco SEWA proporciona credito, ahorro, seguros y pensiones sin exigir garantias materiales. Opera la confluencia de tres movimientos: sindical, cooperativo y de mujeres. Mecanismo clave para SB6: SEWA invierte la logica convencional de formalizacion. No espera formalizacion individual previa, organiza colectivamente primero y la proteccion social llega como consecuencia. El grupo solidario es la unidad de acceso a credito, seguro y mercado. Formaliza el cuidado como sector economico. Reconoce redes de cooperacion, comunidad y confianza (Factor C) como activos productivos reales. Experimento que ilumina: Experimentos 4 y 5 — Formalizacion del cuidado y seguridad social colectiva. SEWA Kerala organiza mujeres rurales en cooperativas de cuidado con acceso colectivo a mercados. El Banco SEWA demuestra que un fondo colectivo de proteccion social sin garantias materiales puede sostenerse. Para Santander: las JAC de Garcia Rovira y Comunera tienen una estructura de confianza similar y pueden activar ese capital social para formalizacion del cuidado y empleo formal femenino. Advertencia critica: La sostenibilidad exige acceso a mercados reales con ingresos crecientes. Sin ingreso mayor, las cotizaciones de seguridad social no se sostienen. La legalizacion formal de cooperativas es un cuello de botella. La expansion toma decadas y requiere empezar pequeno, documentar aprendizajes y evitar asistencialismo, diseniando salida del financiamiento inicial desde el primer dia.",
+            "enlaces": [
+                {
+                    "titulo": "Self Employed Women\'s Association",
+                    "url": "https://www.sewa.org",
+                    "nota": ""
+                },
+                {
+                    "titulo": "Trabajadoras informales SEWA",
+                    "url": "https://blogs.worldbank.org/es/voices/trabajadores-informales-de-india-generan-economia-popular",
+                    "nota": ""
+                }
+            ]
         }
 
-    };
+    }
+;

@@ -8,9 +8,10 @@
     const titleEl = document.getElementById('labRefModalTitle');
     const summaryEl = document.getElementById('labRefModalSummary');
     const linksEl = document.getElementById('labRefModalLinks');
+    const linksTitleEl = modal.querySelector('.labref-modal__links-title');
     const dialogEl = modal.querySelector('.labref-modal__dialog');
 
-    if (!closeBtn || !tipoEl || !titleEl || !summaryEl || !linksEl || !dialogEl) return;
+    if (!closeBtn || !tipoEl || !titleEl || !summaryEl || !linksEl || !linksTitleEl || !dialogEl) return;
 
     let lastFocusedElement = null;
 
@@ -23,6 +24,7 @@
         'Instrumento central:',
         'Resultados verificados:',
         'Lección transferible al sandbox:',
+        'Advertencia crítica:',
         'Conexión en Santander 2050:'
     ];
 
@@ -58,6 +60,83 @@
         return points.join('');
     }
 
+    function extractMarkerContent(text, marker, allMarkers) {
+        const startIdx = text.indexOf(marker);
+        if (startIdx === -1) return '';
+
+        const contentStart = startIdx + marker.length;
+        let endIdx = text.length;
+
+        allMarkers.forEach(nextMarker => {
+            if (nextMarker === marker) return;
+            const idx = text.indexOf(nextMarker, contentStart);
+            if (idx !== -1 && idx < endIdx) endIdx = idx;
+        });
+
+        return text.slice(contentStart, endIdx).trim();
+    }
+
+    function renderSb6Summary(text) {
+        if (!text) return '';
+
+        const sb6Markers = [
+            'Que es:',
+            'Mecanismo clave para SB6:',
+            'Experimento que ilumina:',
+            'Advertencia critica:'
+        ];
+
+        const hasSb6Markers = sb6Markers.some(marker => text.indexOf(marker) !== -1);
+        if (hasSb6Markers) {
+            const sections = sb6Markers.map(marker => ({
+                title: marker.replace(':', ''),
+                content: extractMarkerContent(text, marker, sb6Markers)
+            }));
+
+            const html = sections
+                .filter(section => section.content)
+                .map(section => '<p><strong>' + escapeHtml(section.title + ':') + '</strong> ' + escapeHtml(section.content) + '</p>');
+
+            return html.length ? html.join('') : '<p>' + escapeHtml(text) + '</p>';
+        }
+
+        const allMarkers = [
+            'Tipo de referente:',
+            'Problema equivalente:',
+            '¿Qué hicieron?:',
+            'Instrumento central:',
+            'Resultados verificados:',
+            'Lección transferible al sandbox:',
+            'Advertencia crítica:',
+            'Conexión en Santander 2050:'
+        ];
+
+        const tipo = extractMarkerContent(text, 'Tipo de referente:', allMarkers);
+        const problema = extractMarkerContent(text, 'Problema equivalente:', allMarkers);
+        const hicieron = extractMarkerContent(text, '¿Qué hicieron?:', allMarkers);
+        const instrumento = extractMarkerContent(text, 'Instrumento central:', allMarkers);
+        const resultados = extractMarkerContent(text, 'Resultados verificados:', allMarkers);
+        const leccion = extractMarkerContent(text, 'Lección transferible al sandbox:', allMarkers);
+        const advertencia = extractMarkerContent(text, 'Advertencia crítica:', allMarkers);
+        const conexion = extractMarkerContent(text, 'Conexión en Santander 2050:', allMarkers);
+
+        const queEs = [tipo, problema, hicieron].filter(Boolean).join(' ');
+        const experimento = [resultados, leccion, conexion].filter(Boolean).join(' ');
+
+        const sections = [
+            { title: 'Que es', content: queEs },
+            { title: 'Mecanismo clave para SB6', content: instrumento },
+            { title: 'Experimento que ilumina', content: experimento },
+            { title: 'Advertencia critica', content: advertencia }
+        ];
+
+        const html = sections
+            .filter(section => section.content)
+            .map(section => '<p><strong>' + escapeHtml(section.title + ':') + '</strong> ' + escapeHtml(section.content) + '</p>');
+
+        return html.length ? html.join('') : '<p>' + escapeHtml(text) + '</p>';
+    }
+
     function getFocusableElements() {
         return dialogEl.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
     }
@@ -66,11 +145,16 @@
         const data = labReferentes[refKey];
         if (!data) return;
 
+        const isSb6 = /^lab_sb6_/.test(refKey);
+
         lastFocusedElement = document.activeElement;
 
         tipoEl.textContent = data.tipo || '';
         titleEl.textContent = data.titulo || 'Referente';
-        summaryEl.innerHTML = renderSummary(data.resumen || '');
+        summaryEl.innerHTML = isSb6
+            ? renderSb6Summary(data.resumen || '')
+            : renderSummary(data.resumen || '');
+        linksTitleEl.textContent = isSb6 ? 'Para consultar' : 'Enlaces';
         linksEl.innerHTML = '';
 
         (data.enlaces || []).forEach(link => {
