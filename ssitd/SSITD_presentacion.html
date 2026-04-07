@@ -7,12 +7,33 @@
 <link rel="icon" type="image/png" href="../img/icono.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="css/base.css" rel="stylesheet">
+<script>
+  // Guard de autenticación — redirige al login si no hay sesión
+  if (!localStorage.getItem('svp_auth')) {
+    window.location.replace('../index.html');
+  }
+
+  // Corrige el logo home para que siempre apunte a home.html desde subcarpetas
+  document.addEventListener('DOMContentLoaded', function () {
+    var logo = document.querySelector('a.nav-logo');
+    if (logo) logo.setAttribute('href', '../home.html');
+
+    // Corrige también las rutas de imágenes del logo si usan src relativo sin ../
+    var logoImg = document.querySelector('a.nav-logo img');
+    if (logoImg) {
+      var src = logoImg.getAttribute('src');
+      if (src && !src.startsWith('../') && !src.startsWith('http')) {
+        logoImg.setAttribute('src', '../' + src);
+      }
+    }
+  });
+</script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="../index.html" class="nav-brand">
+  <a href="../home.html" class="nav-brand">
     <span class="nav-brand-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050"></span>
     <span class="nav-brand-text"><strong>SSITD</strong> · Santander 2050</span>
   </a>
