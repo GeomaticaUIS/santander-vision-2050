@@ -277,12 +277,13 @@
       .story-prose p:last-child { padding: 1rem 1rem 1rem 1.2rem; }
     }
   </style>
+
 </head>
 <body>
 
   <header>
     <nav class="container nav-inner">
-      <a href="../index.html" class="nav-logo">
+      <a href="../home.html" class="nav-logo">
         <div class="nav-logo-icon"><img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050" width="200" /></div>
         <div class="nav-logo-text">
           SVP
@@ -415,27 +416,5 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      const navToggle = document.getElementById('navToggle');
-      const navLinks  = document.getElementById('navLinks');
-      if (!navToggle || !navLinks) return;
-      navToggle.addEventListener('click', function () {
-        navLinks.classList.toggle('open');
-        navToggle.classList.toggle('active');
-      });
-    })();
-
-    (function () {
-      const els = document.querySelectorAll('.reveal');
-      if (!els.length) return;
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
 </body>
 </html>
