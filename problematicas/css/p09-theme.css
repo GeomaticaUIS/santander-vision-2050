@@ -21,3 +21,25 @@
   --hero-grid-color: rgba(119, 200, 238, 0.05);
   --hero-glow-bg: radial-gradient(circle, rgba(63, 167, 214, 0.16) 0%, transparent 70%);
 }
+/* ── Hero: imagen de fondo fotográfica ── */
+.hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/debil_insercion.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Overlay oscuro sobre la foto para legibilidad del texto */
+.hero-bg-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 15, 30, 0.82) 0%,
+    rgba(5, 20, 40, 0.70) 50%,
+    rgba(5, 15, 30, 0.78) 100%
+  );
+}
