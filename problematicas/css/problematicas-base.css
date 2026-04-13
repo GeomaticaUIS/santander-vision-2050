@@ -123,7 +123,7 @@ nav {
 .badge-blue { background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.25); color: #7ab8f5; }
 .badge-amber { background: rgba(201, 168, 76, 0.12); border: 1px solid rgba(201, 168, 76, 0.25); color: var(--color-gold); }
 
-.hero-num { font-size: 0.75rem; color: var(--color-text-dim); letter-spacing: 0.08em; }
+.hero-num { font-size: 0.75rem; letter-spacing: 0.08em; }
 
 .hero-title {
   font-family: var(--font-serif);
