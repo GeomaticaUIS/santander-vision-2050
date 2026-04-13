@@ -19,8 +19,8 @@
       resumen: 'Tipo de caso: Servicios ecosistémicos y restauración productiva. Problema equivalente: Deforestación masiva en los años 80 que redujo la cobertura forestal al 21%, con pérdida de cuencas, biodiversidad y base productiva rural. ¿Qué hicieron?: En 1996 crearon el FONAFIFO con base legal nacional, que paga directamente a propietarios privados y comunidades por conservar bosques, reforestar y gestionar agroforestería. Financiado por impuesto a combustibles, ventas de bonos de carbono y cooperación internacional. Hoy gestiona más de 1 millón de hectáreas. Instrumento central: Fondo territorial de PSE con base legal, financiamiento mixto (parafiscal + carbono + cooperación) y contrato directo con productores. Resultados verificados: Cobertura forestal aumentó del 21% al 60% en 30 años. USD 500 millones pagados a comunidades rurales. Carbono-neutralidad declarada y turismo ecológico de USD 4.000 millones anuales. Lección transferible a Santander: El modelo FONAFIFO es el referente más directo para el P02 (Fondo Territorial PSE) de Santander. Los mecanismos de contrato, verificación y pago a comunidades son replicables con adaptaciones mínimas. Conexión en Santander 2050: P02 Fondo PSE · P03 Restauración cuencas · P06 Páramos · Motor B.',
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
-        { titulo: 'FONAFIFO (Fuente 1)', url: 'www.fonafifo.go.cr/es/', nota: 'Modelo institucional de incentivos ambientales.' },
-        { titulo: 'PNUD Costa Rica (Fuente 2)', url: 'www.undp.org/costa-rica', nota: 'Contexto de cooperacion para sostenibilidad.' }
+        { titulo: 'FONAFIFO (Fuente 1)', url: 'https://www.fonafifo.go.cr/es/', nota: 'Modelo institucional de incentivos ambientales.' },
+        { titulo: 'PNUD Costa Rica (Fuente 2)', url: 'https://www.undp.org/costa-rica', nota: 'Contexto de cooperacion para sostenibilidad.' }
       ]
     },
     m1_3: {
@@ -120,7 +120,7 @@
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
         { titulo: 'e-Estonia (Fuente 1)', url: 'https://e-estonia.com/', nota: 'Marco de gobierno digital nacional.' },
-        { titulo: 'X-Road (Fuente 2)', url: 'www.ria.ee/en/x-road.html', nota: 'Intercambio seguro de datos del Estado.' }
+        { titulo: 'X-Road (Fuente 2)', url: 'https://www.ria.ee/en/x-road.html', nota: 'Intercambio seguro de datos del Estado.' }
       ]
     },
     m4_2: {
@@ -149,7 +149,7 @@
       resumen: 'Tipo de caso: Sistema educativo para la innovación, equidad y retención de talento. Problema equivalente: En los años 70, sistema educativo desigual con grandes brechas entre zonas urbanas y rurales, y escasa conexión entre educación y economía productiva. ¿Qué hicieron?: Reforma educativa de largo plazo con base en equidad territorial: toda escuela, sin importar su ubicación, debe tener el mismo nivel de calidad. Eliminación de rankings escolares. Formación docente al nivel de maestría universitaria. Currículum flexible con énfasis en resolución de problemas y colaboración. Educación como bien público universal sin costos. Instrumento central: Reforma sistémica de 30 años con consenso político supraelectoral, inversión equitativa por territorio (no por impuesto local), autonomía pedagógica y evaluación formativa. Resultados verificados: 1.º del mundo en PISA durante una década. Brecha educativa entre zonas rurales y urbanas menor que en cualquier país OCDE. 66% de adultos con educación terciaria. Modelo exportado a Singapur, Corea y Estonia. Lección transferible a Santander: El modelo finlandés de equidad territorial educativa es el referente para el diseño de la Red de Campus Territoriales (P40) y la política de retención de talento en provincias. La autonomía pedagógica es transferible al diseño curricular de los campus provinciales. Conexión en Santander 2050: P40 Campus territoriales · P41 Talento Santander Global · Motor C · SB4 Ecosistema Talento.',
       fuente: 'Fuente: Volumen I en Enlaces_Referentes_Santander2050_v2.docx/.pdf',
       enlaces: [
-        { titulo: 'Finnish National Agency for Education (Fuente 1)', url: 'www.oph.fi/en/education-system', nota: 'Estructura y principios del sistema educativo.' },
+        { titulo: 'Finnish National Agency for Education (Fuente 1)', url: 'https://www.oph.fi/en/education-system', nota: 'Estructura y principios del sistema educativo.' },
         { titulo: 'Ministry of Education Finland (Fuente 2)', url: 'https://okm.fi/en/frontpage', nota: 'Politica publica educativa nacional.' }
       ]
     },

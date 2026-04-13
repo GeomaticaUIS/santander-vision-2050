@@ -328,6 +328,10 @@
       margin: 2rem 0;
     }
 
+    .intro-quote-spaced {
+      margin-top: 2rem;
+    }
+
     /* Ã¢â€â‚¬Ã¢â€â‚¬ TARJETAS Ã¢â€â‚¬Ã¢â€â‚¬ */
     .cards-section {
       padding: 3rem 1.5rem 6rem;
@@ -1019,6 +1023,141 @@
     @keyframes diagramZoomIn {
       from { opacity: 0; transform: scale(0.85); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Manual v6.0 */
+    .manual-section {
+      padding: 4.5rem 1.5rem;
+      background: var(--blanco);
+    }
+
+    .manual-section:nth-of-type(even) {
+      background: rgba(0,104,55,0.02);
+    }
+
+    .manual-section .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .manual-kicker {
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 400;
+      margin-bottom: 1.2rem;
+    }
+
+    .manual-lead,
+    .manual-note,
+    .manual-apendice {
+      font-size: 0.96rem;
+      line-height: 1.85;
+      color: var(--texto-suave);
+    }
+
+    .manual-note {
+      margin-top: 1rem;
+      font-size: 0.84rem;
+    }
+
+    .manual-apendice {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.84rem;
+    }
+
+    .manual-table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 12px;
+      background: var(--blanco);
+      box-shadow: 0 10px 30px rgba(0,92,46,0.06);
+      margin-top: 1.5rem;
+    }
+
+    .manual-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    .manual-table th,
+    .manual-table td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(0,104,55,0.08);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .manual-table th {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--verde-oscuro);
+      background: rgba(0,104,55,0.04);
+    }
+
+    .manual-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .manual-flow-step {
+      background: linear-gradient(145deg, rgba(0,104,55,0.035), rgba(200,150,62,0.04));
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 14px;
+      padding: 1.15rem 1.2rem;
+    }
+
+    .manual-flow-step .step-num {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 0.6rem;
+    }
+
+    .manual-flow-step h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      color: var(--verde-oscuro);
+      margin-bottom: 0.45rem;
+      font-size: 1.15rem;
+    }
+
+    .manual-flow-step p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--texto-suave);
+    }
+
+    .version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid rgba(0,104,55,0.14);
+      border-radius: 999px;
+      background: rgba(0,104,55,0.04);
+      color: var(--verde-oscuro);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .version-badge span {
+      color: var(--dorado);
+      letter-spacing: 0.14em;
+    }
+
+    .cards-grid .sys-card .card-title {
+      font-size: 1.35rem;
     }
 
     @media (max-width: 640px) {

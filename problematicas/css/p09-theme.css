@@ -1,0 +1,23 @@
+:root {
+  --color-bg: #0a0f16;
+  --color-surface: #111a24;
+  --color-surface-2: #172231;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #3fa7d6;
+  --color-accent-light: #77c8ee;
+  --color-gold: #d4ad63;
+  --color-text: #e8edf3;
+  --color-text-muted: #95a8bd;
+  --color-text-dim: #52677b;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --hero-bg:
+    linear-gradient(100deg, rgba(7, 16, 28, 0.9) 0%, rgba(7, 16, 28, 0.72) 45%, rgba(7, 16, 28, 0.58) 100%),
+    radial-gradient(circle at 15% 25%, rgba(63, 167, 214, 0.26), transparent 42%),
+    radial-gradient(circle at 85% 15%, rgba(212, 173, 99, 0.14), transparent 30%),
+    linear-gradient(155deg, #08111e 0%, #0a1829 48%, #0a121f 100%);
+  --hero-grid-color: rgba(119, 200, 238, 0.05);
+  --hero-glow-bg: radial-gradient(circle, rgba(63, 167, 214, 0.16) 0%, transparent 70%);
+}
