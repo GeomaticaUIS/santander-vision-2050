@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capacidades Territoriales | Santander Vision Prospectiva 2050</title>
+  <meta name="description" content="Documento completo: Las Capacidades Territoriales, Sistema, Brechas y Horizonte de Accion." />
+  <link rel="icon" type="image/png" href="../img/icono.png" />
+  <link rel="stylesheet" href="../Styles/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    .doc-wrap {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 7.5rem 1.5rem 4rem;
+    }
+    .doc-header {
+      background: linear-gradient(135deg, rgba(0,104,55,0.06), rgba(200,150,62,0.08));
+      border: 1px solid rgba(0,104,55,0.14);
+      border-radius: 14px;
+      padding: 1.4rem 1.3rem;
+      margin-bottom: 1.8rem;
+    }
+    .doc-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      line-height: 1.2;
+      color: #005C2E;
+      margin: 0 0 0.45rem;
+      font-weight: 400;
+    }
+    .doc-subtitle {
+      margin: 0;
+      color: #2f5540;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .doc-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.3rem;
+    }
+    .doc-nav a {
+      text-decoration: none;
+      border: 1px solid rgba(0,104,55,0.2);
+      color: #006837;
+      background: rgba(0,104,55,0.04);
+      border-radius: 999px;
+      padding: 0.32rem 0.7rem;
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+    .doc-nav a:hover {
+      background: rgba(0,104,55,0.12);
+    }
+    .doc-section {
+      background: #fff;
+      border: 1px solid rgba(0,104,55,0.1);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .doc-section h2 {
+      margin: 0 0 0.8rem;
+      color: #005C2E;
+      font-size: 1.35rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .doc-section h3 {
+      margin: 0.9rem 0 0.5rem;
+      color: #005C2E;
+      font-size: 1.03rem;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .doc-section p {
+      margin: 0 0 0.85rem;
+      color: #2b2b2b;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+    .doc-quote {
+      margin: 1rem 0;
+      padding: 0.9rem 1rem;
+      background: rgba(0,104,55,0.05);
+      border-left: 3px solid #C8963E;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #184a2f;
+    }
+    .doc-table-wrap {
+      overflow-x: auto;
+      margin: 0.9rem 0;
+    }
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      background: #fff;
+    }
+    .doc-table th,
+    .doc-table td {
+      border: 1px solid rgba(0,104,55,0.14);
+      padding: 0.55rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+    .doc-table th {
+      background: rgba(0,104,55,0.07);
+      color: #005C2E;
+      font-weight: 500;
+    }
+    .doc-note {
+      margin-top: 0.9rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid rgba(200,150,62,0.35);
+      background: rgba(200,150,62,0.08);
+      border-radius: 8px;
+      color: #5d471f;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .doc-list {
+      margin: 0;
+      padding-left: 1rem;
+    }
+    .doc-list li {
+      margin: 0 0 0.6rem;
+      line-height: 1.65;
+      font-size: 0.92rem;
+      color: #2b2b2b;
+    }
+    .doc-footer-line {
+      margin-top: 1.3rem;
+      font-size: 0.82rem;
+      color: #4b4b4b;
+      line-height: 1.6;
+    }
+    @media (max-width: 640px) {
+      .doc-wrap { padding-top: 6.9rem; }
+      .doc-section { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav-inner container">
+      <a href="../home.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="../img/icono.png" alt="Colibri Santander 2050" width="40" />
+        </div>
+        <div class="nav-logo-text nav-logo-text--brand">
+          Santander Vision Prospectiva 2050
+          <span>UIS</span>
+        </div>
+      </a>
+      <a class="submission-trigger" href="ManualOP.html" style="text-decoration:none;">Volver al Manual</a>
+    </nav>
+  </header>
+
+  <main class="doc-wrap">
+    <section class="doc-header">
+      <h1>Santander Vision Prospectiva 2050</h1>
+      <p class="doc-subtitle"><strong>Las Capacidades Territoriales:</strong> Sistema, Brechas y Horizonte de Accion<br/>Marco tecnico-operativo | Universidad Industrial de Santander · IEIAeD · Version 3.0 · Abril 2026</p>
+    </section>
+
+    <nav class="doc-nav" aria-label="Indice de secciones">
+      <a href="#s1">1. Problema de fondo</a>
+      <a href="#s2">2. Tipologia formal</a>
+      <a href="#s3">3. Matriz de brechas</a>
+      <a href="#s31">3.1 Brechas C4</a>
+      <a href="#s4">4. De brechas a retos</a>
+      <a href="#s5">5. Secuencia estrategica</a>
+      <a href="#s6">6. Logica de medicion</a>
+      <a href="#s7">7. Flujo IICTA</a>
+      <a href="#s8">8. Arquitectura de construccion</a>
+      <a href="#s9">9. Eleccion territorial</a>
+      <a href="#refs">Referencias</a>
+    </nav>
+
+    <section class="doc-section" id="s1">
+      <h2>1. El problema de fondo: activos sin capacidad de convertirlos</h2>
+      <p>La paradoja que define el desarrollo de Santander no es de recursos: es de conversion. El departamento genera el 8,3 % de la energia electrica nacional pero no retiene a sus ingenieros. Lidera en produccion cientifica universitaria pero exporta el 92,5 % del talento que forma. Tiene 9.345 especies documentadas pero no las ha transformado en bioeconomia competitiva. Ha formulado planes de desarrollo con rigor tecnico pero ejecuto apenas el 37 % de ellos. Ese patron no es accidental: es sistemico. No describe un territorio con mala politica publica; describe un territorio sin la capacidad estructural de convertir sus activos en bienestar sostenido.</p>
+      <p class="doc-quote">"La capacidad adaptativa del territorio para generar y sostener bienestar integral, resiliente y equitativo para su poblacion, gestionando de manera proactiva las transiciones estructurales, sin comprometer la base ecologica que sustenta la vida y la economia, con instituciones capaces de aprender, decidir y ejecutar, garantizando que las oportunidades esten distribuidas territorialmente de manera justa en el tiempo."<br/>- Definicion orientadora - Proceso SVP 2050, UIS 2025</p>
+      <p>El primer desafio al hablar de capacidades territoriales es epistemologico: por que ese concepto y no el de crecimiento, competitividad o desarrollo humano? La respuesta no es de moda teorica sino de diagnostico. El Informe Barca (2009), elaborado para reformar la politica de cohesion de la Union Europea, demostro con evidencia de docenas de regiones europeas que el fracaso del desarrollo territorial no se explica por escasez de recursos ni por deficit de voluntad politica: se explica por la incapacidad estructural de los sistemas territoriales para convertir sus activos latentes en bienestar distribuido.</p>
+      <p>El PNUD (2006) anade la dimension metodologica que el argumento de Barca necesitaba para ser operacional. La capacidad es la habilidad de individuos, instituciones y sociedades para desempenar funciones, resolver problemas y alcanzar objetivos de manera sostenible. Las cinco capacidades fundamentales de SVP 2050 son exactamente ese horizonte: no son el resultado del diagnostico de las ocho problematicas, sino el estado al que el territorio necesita llegar para que esas problematicas dejen de reproducirse.</p>
+      <p>La OCDE (2018) sistematizo que el desarrollo regional eficaz depende del potencial endogeno del territorio y de una arquitectura de politica disenada con conocimiento del lugar. La OCDE (2025) actualiza este argumento ante transiciones simultaneas (climatica, digital, demografica y energetica): los territorios con menores capacidades previas son mas vulnerables a los choques y menos capaces de capturar oportunidades.</p>
+      <p>Cuatro tradiciones teoricas convergen asi en una misma direccion: el desarrollo territorial depende de que puede hacer un territorio con los recursos que ya tiene. Santander no tiene un problema de recursos: tiene un problema de capacidad para convertirlos en bienestar sostenible y distribuido.</p>
+    </section>
+
+    <section class="doc-section" id="s2">
+      <h2>2. Tipologia formal: las cinco capacidades como sistema operativo territorial</h2>
+      <p>Las cinco capacidades fundamentales del proceso SVP 2050 no son dimensiones sectoriales ni lineas tematicas de un plan: son condiciones sistemicas e interdependientes cuya construccion simultanea define si el territorio puede sostener bienestar en el tiempo.</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Capacidad</th>
+              <th>Pregunta estrategica</th>
+              <th>Definicion operativa</th>
+              <th>Indicador ancla (IICTA)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>C1</td><td>Reproduccion economica diversificada</td><td>Puede el territorio sostener ingresos y empleo digno con resiliencia frente a ciclos externos?</td><td>Diversificacion productiva, sofisticacion exportadora, desacoplamiento de la renta extractiva, generacion de valor agregado local</td><td>Productividad laboral sectorial / Indice de Complejidad Exportadora (DANE / Camaras)</td></tr>
+            <tr><td>C2</td><td>Reproduccion social y demografica</td><td>Pueden las personas vivir con dignidad sin que el municipio de nacimiento determine sus oportunidades?</td><td>Sistemas de cuidado formalizados, movilidad social efectiva, bienestar equitativo intermunicipal, gestion del envejecimiento</td><td>Brecha de bienestar AMB vs. provincias / Cobertura sistema de cuidado formal (DANE)</td></tr>
+            <tr><td>C3</td><td>Reproduccion ecologica</td><td>Puede el territorio sostener su economia sin destruir la base natural que la hace posible?</td><td>Proteccion de paramos y cuencas, regulacion hidrica sostenida, restauracion como inversion productiva, limites biofisicos respetados</td><td>Indice de Vulnerabilidad Hidrica - IVH (IDEAM / CAS)</td></tr>
+            <tr><td>C4</td><td>Aprendizaje e innovacion territorial</td><td>Aprende el territorio, forma, atrae y retiene talento, y convierte conocimiento en productividad?</td><td>Articulacion academia-produccion, retencion de talento local, inversion en CTI, difusion tecnologica, innovacion endogena</td><td>Inversion CTI % PIB / Tasa de retencion de talento joven (OCyT / Prosantander)</td></tr>
+            <tr><td>C5</td><td>Decision colectiva basada en evidencia</td><td>Puede el territorio decidir y ejecutar su futuro con continuidad mas alla de los ciclos politicos?</td><td>Gobernanza orientada a resultados, datos territoriales interoperables, continuidad tecnica supraelectoral, participacion ciudadana efectiva</td><td>Indice de Desempeno Institucional - IDI (DAFP-FURAG)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc-section" id="s3">
+      <h2>3. Matriz de brechas: de las problematicas a las capacidades bloqueadas</h2>
+      <p>Las ocho problematicas estructurales del diagnostico SVP 2050 no son fallas sectoriales independientes: bloquean de manera sistematica y verificable capacidades especificas del territorio.</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>P</th>
+              <th>Problematica</th>
+              <th>Capacidad bloqueada</th>
+              <th>Evidencia cuantitativa</th>
+              <th>Tipo de bloqueo</th>
+              <th>Reto estrategico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>P1</td><td>Riesgo hidrico, climatico y degradacion ecologica</td><td>C3 · Ecologica</td><td>Agua concesionada x9 (1 a 9 m3/s). Sobreutilizacion suelo: 63,5 %. Temperatura +0,8 C en 30 anos</td><td>Bloqueo de base biofisica: la economia carece de sustento ecologico sostenible</td><td>R1: Seguridad hidrica y climatica</td></tr>
+            <tr><td>P2</td><td>Transicion demografica no gestionada</td><td>C2 · Social</td><td>TGF: 1,2 hijos/mujer. 13 municipios con mas adultos que jovenes. Solo 11 % cotiza pension</td><td>Bloqueo de reproduccion social: la base generacional y de cuidado se erosiona silenciosamente</td><td>R2: Gestion demografica con dignidad</td></tr>
+            <tr><td>P3</td><td>Dependencia extractiva y vulnerabilidad fiscal</td><td>C1 · Economica</td><td>PIB minero-energetico: 8,4 % a 2,5 % (2011-2024). 58,6 % municipios en riesgo fiscal</td><td>Bloqueo de diversificacion: la economia no tiene alternativa sostenida al modelo extractivo</td><td>R3: Reconversion productiva justa</td></tr>
+            <tr><td>P4</td><td>Baja sofisticacion productiva</td><td>C1 · Economica</td><td>96,6 % microempresas. 17 % innova tecnologicamente. Exportaciones en bienes primarios</td><td>Trampa de baja complejidad: sin sofisticacion no hay demanda de conocimiento ni retencion de talento</td><td>R4: Economia de valor agregado</td></tr>
+            <tr><td>P5</td><td>Desigualdad estructural y fragmentacion territorial</td><td>C2 · Social</td><td>Gini PIB municipal: 0,841. Sobrecosto logistico zonas rurales: superior a 30 % vs 13-15 % nacional</td><td>Bloqueo territorial: el lugar de nacimiento determina las oportunidades de vida</td><td>R6: Cohesion territorial</td></tr>
+            <tr><td>P6</td><td>Brechas de conocimiento e innovacion</td><td>C4 · Aprendizaje</td><td>CTI: 0,81 % PIB. 92,5 % talento emigra. 88 % municipios rurales menor a 9 % conectividad</td><td>Desacople cognitivo-productivo: el conocimiento no se convierte en productividad territorial</td><td>R5: Retencion de talento</td></tr>
+            <tr><td>P7</td><td>Infraestructura insuficiente y vulnerable</td><td>C1 + C2</td><td>IRFC: 18,9 %. 60 % vias terciarias afectadas. Garcia Rovira: 35 % sobrecosto logistico</td><td>Bloqueo fisico: la conectividad fragmentada reproduce la concentracion territorial</td><td>R6: Cohesion territorial (fisica)</td></tr>
+            <tr><td>P8</td><td>Debil gobernanza territorial</td><td>C5 · Decision</td><td>IDI: 58,4/98. Gestion conocimiento: 34,4/98. 63 % planes muere con cada gobierno. POT actualizado: 15 %</td><td>Bloqueo sistemico multiplicador: sin gobernanza eficaz ninguna otra brecha puede corregirse</td><td>R7: Gobernanza basada en datos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc-section" id="s31">
+      <h2>3.1 Tipologia de brechas de capital humano para C4 (CPC-PNUD-CAF)</h2>
+      <p>La capacidad de aprendizaje e innovacion territorial (C4) tiene una complejidad interna que la matriz general no alcanza a desagregar. El estudio CPC-PNUD-CAF propone una tipologia de tres dimensiones para diagnostico e intervencion diferenciada.</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Tipo de brecha</th>
+              <th>Definicion</th>
+              <th>Expresion en Santander (C4)</th>
+              <th>Indicador de seguimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cantidad</td><td>Deficit en el volumen de personas con competencias requeridas por el sistema productivo</td><td>La fuga del 92,5 % del talento configura brecha de cantidad</td><td>Tasa de retencion de egresados UIS y UNAB en el departamento (Prosantander, anual)</td></tr>
+            <tr><td>Calidad</td><td>Insatisfaccion del sector productivo con el nivel de logro de competencias</td><td>Desacople entre grupos de investigacion UIS y necesidades del tejido empresarial</td><td>Porcentaje de empresas satisfechas con competencias de egresados / porcentaje de grupos CTI con alianza empresa activa</td></tr>
+            <tr><td>Pertinencia</td><td>Desalineacion entre programas de formacion y necesidades actuales/prospectivas</td><td>Oferta orientada a sectores maduros mientras motores emergentes tienen escasez de programas especializados</td><td>Porcentaje de programas alineados con apuestas productivas SVP 2050 (SENA-MEN, bienal)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Esta tipologia debe aplicarse de manera diferenciada en cada Laboratorio Vivo Territorial: SB1 presenta mayor brecha de pertinencia; SB4 de cantidad; SB2 de calidad.</p>
+    </section>
+
+    <section class="doc-section" id="s4">
+      <h2>4. De las brechas a los retos: el puente entre diagnostico y accion</h2>
+      <p>Los retos territoriales son decisiones colectivas estrategicas que convierten diagnostico en voluntad de transformacion. La cadena logica es: brecha de capacidad - reto - mision estrategica.</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>C</th>
+              <th>Capacidad</th>
+              <th>Brecha documentada</th>
+              <th>Reto estrategico</th>
+              <th>Mision / Motor SVP 2050</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>C1</td><td>Reproduccion economica</td><td>Dependencia extractiva en declive y 96,6 % microempresas sin I+D</td><td>Reconversion productiva y energetica justa + economia de valor agregado</td><td>M3 · Motor A · Motor B</td></tr>
+            <tr><td>C2</td><td>Reproduccion social</td><td>TGF 1,2, vaciamiento rural y ausencia de sistemas formales de cuidado</td><td>Gestion demografica con dignidad y cohesion territorial efectiva</td><td>M2 · Motor E</td></tr>
+            <tr><td>C3</td><td>Reproduccion ecologica</td><td>Agua concesionada x9 y sobreutilizacion de suelo 63,5 %</td><td>Seguridad hidrica y climatica como condicion de desarrollo</td><td>M1</td></tr>
+            <tr><td>C4</td><td>Aprendizaje e innovacion</td><td>92,5 % talento emigra; CTI 0,81 % PIB; triple brecha de cantidad, calidad y pertinencia</td><td>Retencion de talento y economia del conocimiento arraigada</td><td>M5 · Motor C</td></tr>
+            <tr><td>C5</td><td>Decision colectiva</td><td>IDI 58,4/98; 63 % de planes muertos con cada gobierno</td><td>Gobernanza eficaz, participativa y basada en datos</td><td>M4 · Motor G</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="doc-note">Estatuto especial de C5: no es un reto sectorial, es la condicion de posibilidad de todos los demas. Sin gobernanza eficaz no hay aprendizaje acumulativo ni continuidad supraelectoral.</p>
+    </section>
+
+    <section class="doc-section" id="s5">
+      <h2>5. Secuencia estrategica: en que orden se construyen las capacidades?</h2>
+      <h3>Primer orden: C5 (Decision colectiva)</h3>
+      <p>Debe construirse primero porque sin ella las otras capacidades no pueden acumular aprendizaje ni sostener continuidad. Implica activar SSITD, Consejo de Futuro y blindajes tecnicos de continuidad.</p>
+      <h3>Segundo orden: C3 (Ecologica)</h3>
+      <p>Es limite biofisico no negociable: si la regulacion hidrica de paramos se compromete, se afecta la base natural de bioeconomia y turismo cientifico.</p>
+      <h3>Tercer orden: C1 y C4 simultaneas</h3>
+      <p>Economia y conocimiento son mutuamente constitutivos: sin demanda de conocimiento no hay retencion de talento; sin talento no hay sofisticacion productiva.</p>
+      <h3>Cuarto orden: C2 (Social) como resultado y condicion</h3>
+      <p>Integra y valida que la transformacion llegue a las personas en todos los municipios y sostenga la reproduccion de talento y bienestar.</p>
+      <p class="doc-note">Sintesis: C5 primero, C3 segundo, C1-C4 en espiral mutua, C2 continuo como criterio de validacion territorial.</p>
+    </section>
+
+    <section class="doc-section" id="s6">
+      <h2>6. Logica de medicion: el Indice Integrado de Capacidad Territorial Adaptativa (IICTA)</h2>
+      <p>El IICTA distingue entre indicadores de estado (restriccion actual) e indicadores de proceso adaptativo (si el territorio aprende y construye capacidad sostenible). Esta diferencia evita confundir mejoras coyunturales con transformacion estructural.</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>C</th>
+              <th>Capacidad</th>
+              <th>Indicador de estado (ancla)</th>
+              <th>Indicador de proceso adaptativo</th>
+              <th>Periodo / Desagregacion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>C1</td><td>Economica</td><td>Productividad laboral sectorial / porcentaje exportaciones media-alta complejidad</td><td>Crece la participacion no extractiva en PIB? Aumenta demanda laboral calificada local?</td><td>Bienal por provincia / anual departamental</td></tr>
+            <tr><td>C2</td><td>Social-demografica</td><td>Brecha PIB per capita AMB-provincias / cobertura cuidado formal</td><td>Se cierran brechas intermunicipales? Acceso a servicios independientemente del municipio?</td><td>Bienal por provincia</td></tr>
+            <tr><td>C3</td><td>Ecologica</td><td>IVH / porcentaje suelo en sobreutilizacion</td><td>Mejora regulacion hidrica? Se reduce presion sobre paramos y cuencas?</td><td>Anual / por cuenca hidrografica</td></tr>
+            <tr><td>C4</td><td>Aprendizaje</td><td>CTI % PIB / retencion talento joven / indice de brechas por tipo</td><td>Crece demanda local de conocimiento? Mejora vinculo academia-produccion?</td><td>Anual departamental / bienal provincial</td></tr>
+            <tr><td>C5</td><td>Decision colectiva</td><td>IDI / porcentaje planes ejecutados / porcentaje POT actualizado</td><td>Mejora continuidad tecnica entre gobiernos? Aprende la institucionalidad?</td><td>Anual IDI / cuatrienal ejecucion</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc-section" id="s7">
+      <h2>7. Flujo de alimentacion del IICTA: como el sistema se autoabastece de datos</h2>
+      <p>El IICTA se alimenta del propio funcionamiento del sistema SVP 2050: SSITD, laboratorios vivos, portafolio de proyectos, misiones estrategicas, plataforma P34 y Consejo de Futuro.</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Dispositivo</th>
+              <th>Datos que aporta</th>
+              <th>Capacidades que alimenta</th>
+              <th>Frecuencia / Receptor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>SSITD</td><td>Diagnosticos georreferenciados, alertas ciudadanas, senales de cambio</td><td>C2, C4, C5</td><td>Continua a P34 y Consejo de Futuro</td></tr>
+            <tr><td>Laboratorios Vivos (SB1-SB5)</td><td>Escalamiento de pilotos, supuestos confirmados/refutados, lecciones por ciclo</td><td>C1, C3, C4</td><td>Semestral a UAA y Consejo de Futuro</td></tr>
+            <tr><td>Portafolio 50 proyectos</td><td>Avance fisico-financiero, metas de producto, tasa de ejecucion por mision</td><td>C1, C2, C3, C4, C5</td><td>Trimestral/semestral/anual</td></tr>
+            <tr><td>Misiones M1-M5</td><td>Indicadores de impacto por mision</td><td>C1, C2, C3, C4, C5</td><td>Anual (horizontes 2028, 2035, 2050)</td></tr>
+            <tr><td>Plataforma P34</td><td>Integracion en tiempo real de fuentes del sistema y oficiales</td><td>Todas</td><td>Actualizacion mensual de dashboards</td></tr>
+            <tr><td>Consejo de Futuro</td><td>Decisiones de ajuste adaptativo y formalizacion de cambios</td><td>C5</td><td>Sesiones semestrales y extraordinarias</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>El circuito opera en tres velocidades: rapida (alertas), media (ajustes tacticos semestrales) y estrategica (reconfiguracion anual).</p>
+    </section>
+
+    <section class="doc-section" id="s8">
+      <h2>8. Arquitectura de construccion: como se convierten las brechas en capacidades</h2>
+      <h3>Misiones estrategicas como plataformas integradoras</h3>
+      <p>Las cinco misiones articulan politica publica, inversion privada, conocimiento cientifico e innovacion institucional con ciclos iterativos: diseno piloto, implementacion controlada, evaluacion con evidencia, ajuste y escalamiento.</p>
+      <h3>Laboratorio de Gestion Adaptativa</h3>
+      <p>Incorpora sandbox territorial para probar modelos regulatorios e incentivos de reconversion antes de escalar. La UAA sintetiza aprendizajes de laboratorios y los convierte en insumos para el Consejo de Futuro.</p>
+      <h3>SSITD y Laboratorios Vivos como base de aprendizaje distribuido</h3>
+      <p>Operan de forma bidireccional: reciben inteligencia de base y retroalimentan con aprendizajes territoriales. Responde a niveles PNUD: entorno habilitante, organizaciones e individuos.</p>
+    </section>
+
+    <section class="doc-section" id="s9">
+      <h2>9. La eleccion que define el territorio</h2>
+      <p class="doc-quote">"La verdadera ventaja competitiva del siglo XXI no es el petroleo, ni el cacao, ni el software. Es la capacidad colectiva de decidir y ejecutar el futuro." - Proceso SVP 2050, UIS 2025</p>
+      <p>El sistema de capacidades territoriales construido en este documento no es un marco teorico adicional: es el corazon operativo del proceso SVP 2050. Define transformar como construir condiciones sistemicas para sostener bienestar, mas alla de variaciones de los ciclos externos.</p>
+      <p>La urgencia es concreta: cierre del bono demografico, declive irreversible de reservas petroleras, presion sobre umbrales ecologicos y competencia geoestrategica creciente. Construir las cinco capacidades en secuencia correcta es la decision estrategica central del corto plazo para Santander.</p>
+    </section>
+
+    <section class="doc-section" id="refs">
+      <h2>Referencias bibliograficas</h2>
+      <ul class="doc-list">
+        <li>Acemoglu, D. y Robinson, J. (2012). Por que fracasan los paises. Deusto.</li>
+        <li>Barca, F. (2009). An Agenda for a Reformed Cohesion Policy. Comision Europea, DG REGIO.</li>
+        <li>CPC, PNUD y CAF. Lineamientos para identificacion y cierre de brechas de capital humano.</li>
+        <li>Hausmann, R. e Hidalgo, C. A. (2011). The Atlas of Economic Complexity. MIT Press.</li>
+        <li>Myrdal, G. (1957). Economic Theory and Under-developed Regions. Duckworth.</li>
+        <li>OCDE. (2018). Rethinking Regional Development Policy-Making. OECD Publishing.</li>
+        <li>OCDE. (2025). Place-Based Policies for the Future. OECD Publishing.</li>
+        <li>PNUD. (2006). Capacity Assessment: Practice Note. Bureau for Development Policy.</li>
+        <li>Sen, A. (1999). Development as Freedom. Oxford University Press.</li>
+        <li>UIS - SVP 2050. (2025). Manual Conceptual-Operativo del Sistema Santander Vision 2050.</li>
+        <li>UIS - SVP 2050. (2026). Documento de Sintesis del Diagnostico Territorial SVP 2050.</li>
+        <li>UIS - SVP 2050. (2026). Sistema Santander 2050 de Inteligencia Territorial Distribuida (SSITD), Version 2.0.</li>
+      </ul>
+      <p class="doc-footer-line">Proceso Santander Vision Prospectiva 2050 · Universidad Industrial de Santander · Instituto de Estudios Interdisciplinarios y Accion Estrategica para el Desarrollo · Version 3.0 · 2026</p>
+    </section>
+  </main>
+</body>
+</html>

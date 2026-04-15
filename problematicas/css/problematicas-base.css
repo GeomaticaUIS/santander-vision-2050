@@ -264,3 +264,46 @@ footer a { color: var(--color-accent); text-decoration: none; }
   .consequences-header,
   .consequence-row { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 5rem 1rem 2rem;
+  }
+  .hero-title {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+  main {
+    padding: 3rem 1rem;
+  }
+  section {
+    margin-bottom: 3.5rem;
+  }
+  .intro-card,
+  .connection-card {
+    padding: 1.2rem;
+  }
+  .data-grid,
+  .connection-grid {
+    grid-template-columns: 1fr;
+  }
+  .consequences-header,
+  .consequence-row {
+    padding: 0.9rem 1rem;
+  }
+  .page-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .page-nav a {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

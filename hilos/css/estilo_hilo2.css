@@ -509,7 +509,7 @@
     .node { grid-template-columns: 58px 1fr; }
     .arrow-row { padding-left: 42px; }
     .synthesis, .diff-section { padding: 0 20px 40px; }
-    .synth-wrap { grid-template-columns: 1fr 1fr; }
+    .synth-wrap { grid-template-columns: 1fr; }
     .diff-inner { grid-template-columns: 1fr; gap: 24px; }
     .box-split, .cap-grid { grid-template-columns: 1fr; }
     footer { padding: 16px 24px; }
@@ -614,7 +614,17 @@
 body { padding-top: 52px !important; }
 
 @media (max-width: 640px) {
+  header, .window-bar, .intro-strip { padding-left: 18px; padding-right: 18px; }
+  .body-wrap { padding: 32px 16px 52px; }
+  .body-wrap::before { left: 34px; }
+  .node { grid-template-columns: 50px 1fr; }
+  .arrow-row { padding-left: 26px; }
+  .synthesis, .diff-section { padding: 0 16px 32px; }
+  .synth-wrap { grid-template-columns: 1fr; }
   .hilo-topbar-label { display: none; }
   .hilo-nav-btn { padding: 0.35rem 0.65rem; font-size: 0.72rem; max-width: 130px; }
   .hilo-topbar-home span { display: none; }
+  .hilo-topbar { padding: 0 0.75rem; height: 48px; }
+  .hilo-topbar-nav { gap: 0.35rem; }
+  body { padding-top: 48px !important; }
 }

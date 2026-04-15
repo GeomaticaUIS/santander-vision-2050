@@ -178,6 +178,23 @@ header {
   letter-spacing: 0.06em;
 }
 
+.nav-logo-text--brand {
+  display: block;
+  white-space: nowrap;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.nav-logo-text--brand span {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -856,6 +873,8 @@ footer {
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
 
+  .nav-logo-text--brand { white-space: normal; }
+
   .hero-title { font-size: 2.6rem; }
 
   .hilos-grid { grid-template-columns: 1fr; }
@@ -869,9 +888,21 @@ footer {
 
 @media (max-width: 480px) {
   .container { padding: 0 1.25rem; }
+  .nav-logo-text--brand { font-size: 0.82rem; }
+  .nav-logo-text--brand span { font-size: 0.55rem; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-title { font-size: 2.15rem; }
+  .hero-subtitle { font-size: 0.98rem; }
   .diagnostico-panel { padding: 1.25rem; }
   .diag-content h2 { font-size: 1.4rem; }
+  .page-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .page-nav a {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 /* ── DIAGNÓSTICO: layer tabs ─────────────── */
