@@ -192,7 +192,7 @@ header {
   font-family: var(--fuente-display);
   font-style: italic;
   font-size: 1.15rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.76);
   letter-spacing: 0.04em;
   margin-bottom: 2.5rem;
   opacity: 0;
@@ -220,7 +220,7 @@ header {
   font-size: 0.62rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.52);
 }
 
 .hmi-value {
@@ -330,7 +330,7 @@ header {
 .resumen-intro {
   font-size: 1.05rem;
   line-height: 1.9;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.86);
   font-family: var(--fuente-display);
   font-style: italic;
   margin-bottom: 2rem;
@@ -339,7 +339,7 @@ header {
 .resumen-body {
   font-size: 0.95rem;
   line-height: 1.85;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.8);
   margin-bottom: 1.5rem;
 }
 
@@ -379,7 +379,7 @@ header {
   font-size: 0.62rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(200,150,62,0.6);
+  color: rgba(200,150,62,0.82);
 }
 
 .ddi-value {
@@ -745,7 +745,7 @@ header {
 
 .proy-info p {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.68);
   line-height: 1.5;
 }
 
@@ -766,7 +766,7 @@ header {
   font-size: 0.62rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.52);
 }
 
 .proy-total-row {

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IESE · Índice de Exposición a Shocks Externos · Santander 2050</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f4f0;
+    --color-background-tertiary: #eceae3;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #73726c;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1c1c1a;
+      --color-background-secondary: #26261f;
+      --color-background-tertiary: #2e2e25;
+      --color-text-primary: #e8e6df;
+      --color-text-secondary: #9c9a92;
+      --color-border-tertiary: rgba(255,255,255,0.10);
+      --color-border-secondary: rgba(255,255,255,0.20);
+    }
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .page-header {
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-header h1 { font-size: 17px; font-weight: 500; margin-bottom: 3px; }
+  .page-header p { font-size: 12px; color: var(--color-text-secondary); }
+  .scenario-tab {
+    padding: 5px 12px; border-radius: 6px;
+    border: 0.5px solid var(--color-border-tertiary);
+    background: transparent; font-size: 12px;
+    color: var(--color-text-secondary); cursor: pointer;
+    transition: background .15s; font-family: var(--font-sans);
+  }
+  .scenario-tab.active {
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-secondary);
+  }
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 640px) { .main-grid { grid-template-columns: 1fr; } }
+  .card {
+    padding: 14px;
+    border-radius: 10px;
+    border: 0.5px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+  }
+  .card-secondary {
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 0 0 10px;
+    display: block;
+  }
+  .iese-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 72px; height: 72px; border-radius: 50%;
+    font-size: 22px; font-weight: 500; flex-shrink: 0;
+  }
+  .dim-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .dim-label { font-size: 12px; color: var(--color-text-primary); min-width: 200px; flex-shrink: 0; }
+  .dim-bar-wrap { flex: 1; height: 9px; background: var(--color-background-secondary); border-radius: 5px; overflow: hidden; }
+  .dim-bar { height: 100%; border-radius: 5px; transition: width .55s ease; }
+  .dim-val { font-size: 12px; font-weight: 500; min-width: 30px; text-align: right; }
+  .metric-pair {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; text-align: center;
+  }
+  .metric-box {
+    padding: 10px; border-radius: 8px;
+    background: var(--color-background-secondary);
+  }
+  .metric-box .mlabel { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 4px; }
+  .metric-box .mval { font-size: 22px; font-weight: 500; margin: 0; }
+  .metric-box .mdesc { font-size: 10px; color: var(--color-text-secondary); margin: 4px 0 0; }
+  .alert-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 8px 10px; border-radius: 7px;
+    border: 0.5px solid var(--color-border-tertiary);
+    font-size: 12px; line-height: 1.5; margin-bottom: 6px;
+  }
+  .alert-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+  .zone-chip {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 12px; font-weight: 500; margin-top: 6px;
+  }
+  .threshold-box {
+    padding: 10px 12px; border-radius: 8px;
+    border: 0.5px solid var(--color-border-tertiary);
+    font-size: 11px; color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-top: 12px;
+  }
+  .metodologia-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px; font-size: 11px; color: var(--color-text-secondary);
+  }
+  @media (max-width: 640px) { .metodologia-grid { grid-template-columns: repeat(2,1fr); } }
+  .met-item strong { display: block; color: var(--color-text-primary); margin-bottom: 2px; font-size: 11px; }
+  .scale-row {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--color-text-secondary);
+    flex-wrap: wrap;
+  }
+  .scale-sq { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .footer {
+    margin-top: 24px; padding-top: 14px;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    font-size: 11px; color: var(--color-text-secondary);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <h1>IESE · Índice de Exposición a Shocks Externos · Santander 2050</h1>
+    <p>Complemento anticipatorio al I3S · Actualización trimestral · NIGT / UIS + CCB</p>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap" id="scenario-tabs">
+    <button class="scenario-tab active" onclick="setScenario(0)">Línea base 2026</button>
+    <button class="scenario-tab" onclick="setScenario(1)">E1 Fragmentación</button>
+    <button class="scenario-tab" onclick="setScenario(2)">E2 Nuevas reglas</button>
+    <button class="scenario-tab" onclick="setScenario(3)">E3 Crisis sistémica</button>
+  </div>
+</div>
+
+<div class="main-grid">
+
+  <!-- Columna izquierda -->
+  <div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;padding:14px;border-radius:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary)">
+      <div class="iese-badge" id="iese-badge">72</div>
+      <div>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0 0 2px">Exposición estimada</p>
+        <p style="font-size:18px;font-weight:500;margin:0" id="iese-zone-label">Alta</p>
+        <span class="zone-chip" id="iese-zone-chip">Zona roja · Activación del NIGT</span>
+      </div>
+    </div>
+
+    <span class="section-label">Dimensiones del IESE (0–100)</span>
+    <div id="dims"></div>
+
+    <div class="card-secondary" style="margin-top:14px">
+      <span class="section-label" style="margin-bottom:8px">Escala de exposición</span>
+      <div class="scale-row">
+        <span class="scale-sq" style="background:#1D9E75"></span>0–30 Baja
+        <span class="scale-sq" style="background:#EF9F27;margin-left:6px"></span>31–55 Moderada
+        <span class="scale-sq" style="background:#E24B4A;margin-left:6px"></span>56–80 Alta
+        <span class="scale-sq" style="background:#A32D2D;margin-left:6px"></span>81–100 Crítica
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha -->
+  <div>
+    <div class="card" style="margin-bottom:14px">
+      <span class="section-label">¿Por qué el IESE complementa al I3S?</span>
+      <div class="metric-pair">
+        <div class="metric-box">
+          <p class="mlabel">I3S (inserción)</p>
+          <p class="mval" id="i3s-val">28</p>
+          <p class="mdesc">mide el presente</p>
+        </div>
+        <div class="metric-box">
+          <p class="mlabel">IESE (exposición)</p>
+          <p class="mval" id="iese-mini">72</p>
+          <p class="mdesc">anticipa el riesgo</p>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--color-text-secondary);margin:10px 0 0;line-height:1.5">I3S bajo + IESE alto = territorio con inserción incipiente <em>y</em> altamente expuesto a shocks. Es la brecha que activa el NIGT.</p>
+    </div>
+
+    <span class="section-label">Alertas tempranas activas</span>
+    <div id="alerts"></div>
+
+    <div class="threshold-box">
+      <strong style="display:block;font-size:11px;color:var(--color-text-primary);margin-bottom:4px">Umbrales de activación del ciclo adaptativo</strong>
+      IESE &gt; 30 → revisión ordinaria del NIGT<br>
+      IESE &gt; 55 → informe extraordinario al Consejo de Futuro<br>
+      IESE &gt; 75 → sesión de emergencia · planes de contingencia activos
+    </div>
+  </div>
+</div>
+
+<!-- Metodología -->
+<div class="card-secondary" style="padding:14px">
+  <span class="section-label">Metodología · Fuentes y periodicidad por dimensión</span>
+  <div class="metodologia-grid">
+    <div class="met-item"><strong>D1 Concentración geográfica</strong>DIAN / GPS CCB · Anual</div>
+    <div class="met-item"><strong>D2 Dependencia logística</strong>ANT / CCB · Semestral</div>
+    <div class="met-item"><strong>D3 Volatilidad Anillo 1 (Venezuela)</strong>Banco República / R4V · Mensual</div>
+    <div class="met-item"><strong>D4 Riesgo geopolítico global (GPR)</strong>Caldara & Iacoviello / CFR · Mensual</div>
+    <div class="met-item"><strong>D5 Certificaciones internacionales</strong>ICONTEC / ProColombia · Anual</div>
+    <div class="met-item"><strong>D6 Dependencia insumos críticos</strong>DIAN / DANE / UIS · Trimestral</div>
+    <div class="met-item"><strong>D7 Exportación de servicios</strong>GPS / UIS · Anual</div>
+    <div class="met-item" style="border-radius:6px;padding:6px 8px;background:var(--color-background-primary)"><strong>Responsable NIGT</strong>UIS + CCB · cálculo trimestral · publicación en SSITD</div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>Santander Visión Prospectiva 2050 · IESE – Instrumento de Anticipación · T7 Geopolítica</span>
+  <span>Para presentación al Consejo de Futuro · Abril 2026</span>
+</div>
+
+<script>
+const SCENARIOS = [
+  {
+    name: "Línea base 2026", iese: 72, i3s: 28,
+    zone: "Alta", zoneColor: "#A32D2D", zoneBg: "#FCEBEB",
+    chipText: "Zona roja · Activación del NIGT",
+    dims: [
+      { label: "D1 Concentración geográfica (NME 41% USA)", val: 78, color: "#E24B4A" },
+      { label: "D2 Dependencia logística (14 puertos, 1 modo)", val: 65, color: "#E24B4A" },
+      { label: "D3 Volatilidad Anillo 1 (Venezuela)", val: 88, color: "#A32D2D" },
+      { label: "D4 Riesgo geopolítico global (GPR)", val: 60, color: "#E24B4A" },
+      { label: "D5 Baja certificación internacional (mipymes)", val: 82, color: "#A32D2D" },
+      { label: "D6 Dependencia importaciones críticas", val: 55, color: "#EF9F27" },
+      { label: "D7 Exportación de servicios (casi nula)", val: 70, color: "#E24B4A" },
+    ],
+    alerts: [
+      { color: "#A32D2D", text: "Anillo 1 · Venezuela: máxima volatilidad — riesgo de contagio directo sobre exportaciones y migración" },
+      { color: "#E24B4A", text: "Anillo 2 · CAN: -14,5% en 2025 — amortiguador regional no operativo ante fragmentación" },
+      { color: "#E24B4A", text: "Certificaciones: 96,6% de exportadoras sin capacidad de cumplir estándares internacionales autónomamente" },
+      { color: "#EF9F27", text: "Insumos críticos: sin índice de dependencia estratégica disponible — iniciar cálculo con UIS (D6)" },
+    ]
+  },
+  {
+    name: "E1 Fragmentación", iese: 85, i3s: 26,
+    zone: "Crítica", zoneColor: "#501313", zoneBg: "#FCEBEB",
+    chipText: "Sesión de emergencia requerida",
+    dims: [
+      { label: "D1 Concentración geográfica", val: 88, color: "#A32D2D" },
+      { label: "D2 Dependencia logística", val: 80, color: "#A32D2D" },
+      { label: "D3 Volatilidad Anillo 1 (Venezuela)", val: 95, color: "#A32D2D" },
+      { label: "D4 Riesgo geopolítico global", val: 90, color: "#A32D2D" },
+      { label: "D5 Baja certificación internacional", val: 85, color: "#A32D2D" },
+      { label: "D6 Dependencia importaciones críticas", val: 75, color: "#E24B4A" },
+      { label: "D7 Exportación de servicios", val: 72, color: "#E24B4A" },
+    ],
+    alerts: [
+      { color: "#A32D2D", text: "SESIÓN DE EMERGENCIA requerida · IESE supera umbral crítico de 75" },
+      { color: "#A32D2D", text: "Activar autarquía mínima viable para todos los motores ECTI (A–H)" },
+      { color: "#A32D2D", text: "Reconversión urgente hacia Anillo 1 y 2 como mercados de proximidad" },
+      { color: "#E24B4A", text: "La dependencia de 14 puertos se vuelve crítica: diversificación logística inmediata" },
+    ]
+  },
+  {
+    name: "E2 Nuevas reglas", iese: 48, i3s: 35,
+    zone: "Moderada", zoneColor: "#633806", zoneBg: "#FAEEDA",
+    chipText: "Informe extraordinario al Consejo de Futuro",
+    dims: [
+      { label: "D1 Concentración geográfica", val: 60, color: "#EF9F27" },
+      { label: "D2 Dependencia logística", val: 50, color: "#EF9F27" },
+      { label: "D3 Volatilidad Anillo 1 (Venezuela)", val: 70, color: "#E24B4A" },
+      { label: "D4 Riesgo geopolítico global", val: 38, color: "#EF9F27" },
+      { label: "D5 Baja certificación internacional", val: 55, color: "#EF9F27" },
+      { label: "D6 Dependencia importaciones críticas", val: 35, color: "#1D9E75" },
+      { label: "D7 Exportación de servicios", val: 30, color: "#1D9E75" },
+    ],
+    alerts: [
+      { color: "#EF9F27", text: "Informe extraordinario al Consejo de Futuro · IESE en zona moderada" },
+      { color: "#EF9F27", text: "Certificaciones (D5): brecha crítica incluso en escenario favorable — actuar antes de 2028" },
+      { color: "#1D9E75", text: "Oportunidad: si D5 y D7 mejoran, IESE bajaría a zona baja (<30). Ventana de acción 2026–2030" },
+    ]
+  },
+  {
+    name: "E3 Crisis sistémica", iese: 94, i3s: 22,
+    zone: "Crítica máxima", zoneColor: "#501313", zoneBg: "#FCEBEB",
+    chipText: "Crisis · Todos los protocolos de contingencia",
+    dims: [
+      { label: "D1 Concentración geográfica", val: 95, color: "#A32D2D" },
+      { label: "D2 Dependencia logística", val: 98, color: "#A32D2D" },
+      { label: "D3 Volatilidad Anillo 1 (Venezuela)", val: 99, color: "#A32D2D" },
+      { label: "D4 Riesgo geopolítico global", val: 97, color: "#A32D2D" },
+      { label: "D5 Baja certificación internacional", val: 90, color: "#A32D2D" },
+      { label: "D6 Dependencia importaciones críticas", val: 88, color: "#A32D2D" },
+      { label: "D7 Exportación de servicios", val: 80, color: "#A32D2D" },
+    ],
+    alerts: [
+      { color: "#501313", text: "NIVEL DE CRISIS MÁXIMO · Todos los motores ECTI activan autarquía mínima viable" },
+      { color: "#A32D2D", text: "D2 y D3 en máximos: puertos bloqueados + frontera cerrada = aislamiento comercial severo" },
+      { color: "#A32D2D", text: "D6: dependencia de insumos críticos sin inventarios estratégicos — riesgo existencial" },
+      { color: "#E24B4A", text: "La Función 0 debería haber detectado este nivel con 6 meses de anticipación" },
+    ]
+  }
+];
+
+function setScenario(idx) {
+  const s = SCENARIOS[idx];
+  document.querySelectorAll(".scenario-tab").forEach((t,i) => t.classList.toggle("active", i===idx));
+
+  const badge = document.getElementById("iese-badge");
+  badge.textContent = s.iese;
+  badge.style.background = s.zoneBg;
+  badge.style.color = s.zoneColor;
+
+  document.getElementById("iese-zone-label").textContent = s.zone;
+  const chip = document.getElementById("iese-zone-chip");
+  chip.style.background = s.zoneBg;
+  chip.style.color = s.zoneColor;
+  chip.textContent = s.chipText;
+
+  document.getElementById("i3s-val").textContent = s.i3s;
+  const ieseM = document.getElementById("iese-mini");
+  ieseM.textContent = s.iese;
+  ieseM.style.color = s.zoneColor;
+
+  const dims = document.getElementById("dims");
+  dims.innerHTML = "";
+  s.dims.forEach(d => {
+    dims.innerHTML += `<div class="dim-row">
+      <span class="dim-label">${d.label}</span>
+      <div class="dim-bar-wrap"><div class="dim-bar" style="width:${d.val}%;background:${d.color}"></div></div>
+      <span class="dim-val" style="color:${d.color}">${d.val}</span>
+    </div>`;
+  });
+
+  const al = document.getElementById("alerts");
+  al.innerHTML = "";
+  s.alerts.forEach(a => {
+    al.innerHTML += `<div class="alert-row"><span class="alert-dot" style="background:${a.color}"></span><span style="color:var(--color-text-secondary);font-size:12px;line-height:1.5">${a.text}</span></div>`;
+  });
+}
+
+setScenario(0);
+</script>
+</body>
+</html>
