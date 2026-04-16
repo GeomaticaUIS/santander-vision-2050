@@ -5,7 +5,7 @@ const REDIRECT = 'home.html';
 
 const CREDENCIALES = [
   { usuario: 'admin_svp', password: 'Stder_pR05_2050', rol: 'admin' },
-  { usuario: 'provisional', password: 'temp_1234', rol: 'invitado' } // 👈 usuario provisional
+  { usuario: 'provisional', password: 'Temp_01234', rol: 'invitado' } // 👈 usuario provisional
 ];
 
 /* =========================
