@@ -11,6 +11,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── HERO BIRD (igual que historia.html) ── */
+    .hero-bird-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: birdReveal 1.1s 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .hero-bird-ring-outer {
+      position: absolute; inset: -30px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,104,55,0.18);
+    }
+    .hero-bird-ring-inner {
+      position: absolute; inset: -15px;
+      border-radius: 50%;
+      border: 1px dashed rgba(200,150,62,0.28);
+    }
+    .hero-bird-glow {
+      position: absolute; inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,104,55,0.1) 0%, transparent 70%);
+    }
+    .hero-bird-img {
+      width: clamp(120px, 18vw, 165px);
+      height: auto;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 6px 28px rgba(0,104,55,0.22));
+      animation: birdHover 5s ease-in-out infinite;
+    }
+    @keyframes birdHover {
+      0%,100% { transform: translateY(0) rotate(-1deg); }
+      50%      { transform: translateY(-8px) rotate(1deg); }
+    }
+    @keyframes birdReveal {
+      from { opacity: 0; transform: scale(0.72) translateY(12px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -70,7 +113,7 @@
       </svg>
 
       <div class="story-hero-inner">
-        <p class="hero-eyebrow">Santander Visión Prospectiva · 2050 · Manual Conceptual-Operativo</p>
+        <p class="hero-eyebrow">Santander Visión Prospectiva · 2050</p>
 
         <div class="ornament">
           <div class="ornament-line ornament-line-l"></div>
@@ -80,34 +123,12 @@
           <div class="ornament-line ornament-line-r"></div>
         </div>
 
-        <!-- Ãcono central: sistema / engranaje territorial -->
-        <div class="hero-icon-wrap">
-          <div class="hero-icon-glow"></div>
-          <div class="hero-icon-ring-outer"></div>
-          <div class="hero-icon-ring-inner"></div>
-          <svg class="hero-icon-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Círculo central -->
-            <circle cx="60" cy="60" r="18" stroke="#006837" stroke-width="1.5" fill="rgba(0,104,55,0.06)"/>
-            <circle cx="60" cy="60" r="9" fill="rgba(200,150,62,0.25)" stroke="#C8963E" stroke-width="1"/>
-            <!-- Nodos externos y líneas de red -->
-            <circle cx="60" cy="22" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
-            <circle cx="60" cy="98" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
-            <circle cx="22" cy="60" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
-            <circle cx="98" cy="60" r="5.5" fill="rgba(0,104,55,0.15)" stroke="#006837" stroke-width="1.2"/>
-            <circle cx="30" cy="30" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
-            <circle cx="90" cy="30" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
-            <circle cx="30" cy="90" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
-            <circle cx="90" cy="90" r="4" fill="rgba(200,150,62,0.2)" stroke="#C8963E" stroke-width="1"/>
-            <!-- Líneas de conexión -->
-            <line x1="60" y1="42" x2="60" y2="27.5" stroke="#006837" stroke-width="1" opacity="0.7"/>
-            <line x1="60" y1="78" x2="60" y2="92.5" stroke="#006837" stroke-width="1" opacity="0.7"/>
-            <line x1="42" y1="60" x2="27.5" y2="60" stroke="#006837" stroke-width="1" opacity="0.7"/>
-            <line x1="78" y1="60" x2="92.5" y2="60" stroke="#006837" stroke-width="1" opacity="0.7"/>
-            <line x1="47" y1="47" x2="33" y2="33" stroke="#C8963E" stroke-width="0.8" opacity="0.6"/>
-            <line x1="73" y1="47" x2="87" y2="33" stroke="#C8963E" stroke-width="0.8" opacity="0.6"/>
-            <line x1="47" y1="73" x2="33" y2="87" stroke="#C8963E" stroke-width="0.8" opacity="0.6"/>
-            <line x1="73" y1="73" x2="87" y2="87" stroke="#C8963E" stroke-width="0.8" opacity="0.6"/>
-          </svg>
+        <!-- Colibrí — igual que historia.html -->
+        <div class="hero-bird-wrap">
+          <div class="hero-bird-glow"></div>
+          <div class="hero-bird-ring-outer"></div>
+          <div class="hero-bird-ring-inner"></div>
+          <img src="../img/icono.png" alt="Colibrí símbolo de Santander Visión 2050" class="hero-bird-img" />
         </div>
 
         <h1>Manual conceptual-operativo del sistema Santander Visión 2050</h1>
@@ -252,19 +273,10 @@
 
     <!-- NIVELES + TABS -->
     <section class="cards-section">
-      
       <div class="container">
         <div class="manual-kicker">6. Apéndice de lectura rápida</div>
         <h2 class="intro-title">Resumen operativo del sistema</h2>
         <div class="intro-divider"></div>
-
-        <!--
-        <div class="mid-ornament reveal">
-          <div class="mid-ornament-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
-        </div> 
-        -->
 
         <!-- Fila de niveles numerados -->
         <div class="arq-niveles reveal">
@@ -665,6 +677,3 @@
 
 </body>
 </html>
-
-
-
