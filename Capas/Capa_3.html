@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejecución Territorial · Santander Visión 2050</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Literata:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde:      #006837;
+      --verde-dark: #003d20;
+      --verde-mid:  #004d2e;
+      --oro:        #c9a84c;
+      --rojo:       #a83228;
+      --azul:       #1a4a6b;
+      --azul-est:   #1565c0;
+      --naranja:    #bf360c;
+      --morado:     #4a148c;
+      --teal:       #004d40;
+      --blanco:     #ffffff;
+      --fondo:      #f5f3ef;
+      --gris-suave: #ece8df;
+      --gris-medio: #7a7468;
+      --gris-dark:  #3d3a34;
+      --negro:      #1a1814;
+      --fuente-display: 'Sora', sans-serif;
+      --fuente-body:    'Literata', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--fuente-body);
+      background: var(--fondo);
+      color: var(--negro);
+      line-height: 1.65;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ══ NAVBAR ══ */
+    .top-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.05);
+    }
+
+    .nav-inner {
+      max-width: 1340px; margin: 0 auto;
+      padding: 0 2rem; height: 68px;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .logo-bird-wrap img { height: 44px; width: auto; }
+    .logo-text-wrap { display: flex; flex-direction: column; }
+    .logo-title { font-family: var(--fuente-display); font-size: 0.78rem; font-weight: 700; color: var(--verde); line-height: 1.2; }
+    .logo-sub { font-size: 0.65rem; color: var(--gris-medio); font-family: var(--fuente-display); }
+    .nav-div { width: 1px; height: 32px; background: rgba(0,0,0,0.1); flex-shrink: 0; }
+
+    .nav-tabs { display: flex; gap: 4px; flex: 1; overflow-x: auto; }
+
+    .ntab {
+      display: flex; align-items: center; gap: 7px;
+      padding: 6px 14px; border-radius: 8px;
+      font-family: var(--fuente-display); font-size: 0.78rem; font-weight: 600;
+      color: var(--gris-medio); white-space: nowrap;
+      transition: all 0.2s; cursor: pointer; border: none; background: transparent;
+    }
+    .ntab:hover { background: var(--gris-suave); color: var(--negro); }
+    .ntab.active { background: var(--verde); color: #fff; }
+
+    .tab-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 0.62rem; font-weight: 800;
+      background: rgba(255,255,255,0.25);
+    }
+    .ntab:not(.active) .tab-badge { background: rgba(0,0,0,0.07); color: var(--gris-dark); }
+
+    .nav-home-btn {
+      flex-shrink: 0; display: flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: 8px;
+      font-family: var(--fuente-display); font-size: 0.78rem; font-weight: 600;
+      background: var(--verde); color: #fff; transition: background 0.2s;
+    }
+    .nav-home-btn:hover { background: var(--verde-dark); }
+
+    /* ══ HERO ══ */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--verde-dark) 0%, #002d15 50%, #001a0d 100%);
+      color: #fff; padding: 5rem 2rem 4rem; overflow: hidden;
+    }
+    .hero-deco {
+      position: absolute; top: -80px; right: -80px;
+      width: 420px; height: 420px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,104,55,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-deco-2 {
+      position: absolute; bottom: -60px; left: 10%;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1340px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 3rem; position: relative; z-index: 1;
+    }
+    .hero-left { max-width: 700px; }
+    .hero-tag {
+      display: inline-block; font-family: var(--fuente-display);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--oro);
+      border: 1px solid rgba(201,168,76,0.4); background: rgba(201,168,76,0.1);
+      padding: 5px 12px; border-radius: 4px; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: var(--fuente-display); font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--oro); }
+    .hero-lead {
+      font-size: 1.05rem; color: rgba(255,255,255,0.75);
+      line-height: 1.75; margin-bottom: 2rem; max-width: 580px;
+    }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .hstat { display: flex; flex-direction: column; }
+    .hstat .n { font-family: var(--fuente-display); font-size: 2rem; font-weight: 800; color: var(--oro); line-height: 1; }
+    .hstat .l { font-size: 0.72rem; color: rgba(255,255,255,0.55); font-family: var(--fuente-display); margin-top: 2px; }
+    .hero-bird { height: 180px; width: auto; opacity: 0.15; flex-shrink: 0; }
+
+    /* ══ TABS SECTIONS ══ */
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+
+    .container { max-width: 1340px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; }
+
+    .s-eyebrow {
+      font-family: var(--fuente-display); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--verde);
+      margin-bottom: 0.75rem;
+    }
+    .s-title {
+      font-family: var(--fuente-display); font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--negro); margin-bottom: 1rem; line-height: 1.2;
+    }
+    .s-desc {
+      font-size: 1rem; color: var(--gris-medio); max-width: 760px;
+      line-height: 1.75; margin-bottom: 3rem;
+    }
+
+    /* ══ TAB 1: MISIONES ══ */
+    .misiones-tipo-intro {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px; margin-bottom: 3rem;
+    }
+    .mision-tipo-badge {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px 18px; border-radius: 12px; border-left: 4px solid;
+    }
+    .mision-tipo-badge--material   { border-color: var(--verde); background: rgba(0,104,55,0.06); }
+    .mision-tipo-badge--habilitante { border-color: var(--azul-est); background: rgba(21,101,192,0.06); }
+    .mision-tipo-badge--transversal { border-color: var(--gris-dark); background: rgba(61,58,52,0.06); }
+
+    .mtb-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+    .mtb--mat { background: var(--verde); }
+    .mtb--hab { background: var(--azul-est); }
+    .mtb--txv { background: var(--gris-dark); }
+    .mtb-text h5 { font-family: var(--fuente-display); font-size: 0.75rem; font-weight: 700; margin-bottom: 3px; }
+    .mtb-text p  { font-size: 0.72rem; color: var(--gris-medio); }
+
+    .misiones-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+
+    .mision-card {
+      background: var(--blanco); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 20px; padding: 30px 28px;
+      position: relative; overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mision-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+    .mision-card--mat::before { background: var(--verde); }
+    .mision-card--hab::before { background: var(--azul-est); }
+    .mision-card--txv::before { background: var(--gris-dark); }
+    .mision-card--full { grid-column: 1 / -1; }
+    .mision-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.11);
+      border-color: transparent;
+    }
+
+    .mc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .mc-num { font-family: var(--fuente-display); font-size: 2.6rem; font-weight: 800; color: #d5d0c8; line-height: 1; }
+    .mc-tipo {
+      font-family: var(--fuente-display); font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+    }
+    .mc-tipo--mat { background: rgba(0,104,55,0.1); color: var(--verde); }
+    .mc-tipo--hab { background: rgba(21,101,192,0.1); color: var(--azul-est); }
+    .mc-tipo--txv { background: rgba(61,58,52,0.1); color: var(--gris-dark); }
+
+    .mc-icon { font-size: 2rem; margin-bottom: 10px; }
+    .mc-title { font-family: var(--fuente-display); font-size: 1.1rem; font-weight: 700; color: var(--verde-dark); line-height: 1.25; margin-bottom: 10px; }
+    .mc-desc { font-size: 0.87rem; color: var(--gris-medio); line-height: 1.7; margin-bottom: 16px; }
+
+    .mc-retos-label { font-family: var(--fuente-display); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gris-medio); margin-bottom: 8px; }
+    .mc-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .mc-chips span {
+      font-family: var(--fuente-display); font-size: 0.65rem; font-weight: 600;
+      background: var(--gris-suave); color: var(--gris-dark);
+      padding: 3px 9px; border-radius: 4px;
+    }
+    .mc-vinculo { font-family: var(--fuente-display); font-size: 0.78rem; font-weight: 700; color: var(--verde); }
+    .mision-card--hab .mc-vinculo { color: var(--azul-est); }
+
+    /* Mision transversal especial */
+    .mision-transversal-card {
+      background: linear-gradient(135deg, var(--gris-dark) 0%, #1a1814 100%);
+      color: #fff; border-radius: 20px; padding: 30px 28px;
+      position: relative; overflow: hidden;
+    }
+    .mision-transversal-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--oro);
+    }
+    .mtc-kicker { font-family: var(--fuente-display); font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--oro); margin-bottom: 8px; }
+    .mtc-title { font-family: var(--fuente-display); font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .mtc-desc { font-size: 0.87rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+    /* ══ TAB 2: MOTORES ECTI ══ */
+    .motores-intro-box {
+      background: linear-gradient(135deg, #002d15 0%, #001a0d 100%);
+      color: #fff; border-radius: 20px; padding: 2.5rem 3rem; margin-bottom: 3rem;
+    }
+    .motores-intro-box h3 { font-family: var(--fuente-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .motores-intro-box p { color: rgba(255,255,255,0.75); font-size: 0.97rem; line-height: 1.75; max-width: 680px; }
+
+    .motores-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    .motor-card-ext {
+      background: var(--blanco); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 18px; padding: 26px 24px;
+      position: relative; overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    .motor-card-ext:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.11);
+      border-color: transparent;
+    }
+    .motor-card-ext::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    }
+    .motor-A::before { background: #c9a84c; }
+    .motor-B::before { background: var(--verde); }
+    .motor-C::before { background: var(--azul-est); }
+    .motor-D::before { background: var(--naranja); }
+    .motor-E::before { background: var(--morado); }
+    .motor-F::before { background: #e65100; }
+    .motor-G::before { background: var(--azul); }
+    .motor-H::before { background: var(--teal); }
+
+    .motor-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .motor-letra-badge {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fuente-display); font-size: 1.3rem; font-weight: 800; color: #fff;
+    }
+    .badge-A { background: #c9a84c; }
+    .badge-B { background: var(--verde); }
+    .badge-C { background: var(--azul-est); }
+    .badge-D { background: var(--naranja); }
+    .badge-E { background: var(--morado); }
+    .badge-F { background: #e65100; }
+    .badge-G { background: var(--azul); }
+    .badge-H { background: var(--teal); }
+
+    .motor-header-text {}
+    .motor-eyebrow {
+      font-family: var(--fuente-display); font-size: 0.62rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--gris-medio); margin-bottom: 3px;
+    }
+    .motor-title { font-family: var(--fuente-display); font-size: 1rem; font-weight: 700; color: var(--negro); line-height: 1.25; }
+    .motor-desc { font-size: 0.84rem; color: var(--gris-medio); line-height: 1.65; margin-bottom: 14px; }
+
+    .motor-pilares-label { font-family: var(--fuente-display); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gris-medio); margin-bottom: 8px; }
+    .motor-pilares { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .motor-pilares span {
+      font-family: var(--fuente-display); font-size: 0.65rem; font-weight: 600;
+      background: var(--gris-suave); color: var(--gris-dark);
+      padding: 3px 9px; border-radius: 4px;
+    }
+    .motor-misiones {
+      font-family: var(--fuente-display); font-size: 0.75rem; font-weight: 700; color: var(--verde);
+      border-top: 1px solid rgba(0,0,0,0.06); padding-top: 12px; margin-top: 4px;
+    }
+
+    /* ══ TAB 3: 50 PROYECTOS ══ */
+    .proyectos-intro-box {
+      background: linear-gradient(135deg, #002a17, #001a10);
+      color: #fff; border-radius: 20px; padding: 2.5rem 3rem; margin-bottom: 3rem;
+    }
+    .proyectos-intro-box h3 { font-family: var(--fuente-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .proyectos-intro-box p { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.75; max-width: 720px; }
+
+    /* Filtros */
+    .proy-filters {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      margin-bottom: 2.5rem; padding: 20px 24px;
+      background: var(--blanco); border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .proy-filter-label {
+      font-family: var(--fuente-display); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--gris-medio);
+      margin-right: 6px;
+    }
+    .pf-chip {
+      font-family: var(--fuente-display); font-size: 0.72rem; font-weight: 700;
+      padding: 5px 13px; border-radius: 6px; border: none; cursor: pointer;
+      background: var(--gris-suave); color: var(--gris-dark);
+      transition: all 0.15s;
+    }
+    .pf-chip:hover { background: var(--gris-dark); color: #fff; }
+    .pf-chip.active { background: var(--verde); color: #fff; }
+    .pf-sep { width: 1px; height: 24px; background: rgba(0,0,0,0.1); }
+
+    /* Niveles leyenda */
+    .niveles-legend {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-bottom: 2rem; align-items: center;
+    }
+    .nl-item { display: flex; align-items: center; gap: 6px; font-family: var(--fuente-display); font-size: 0.72rem; font-weight: 600; color: var(--gris-dark); }
+    .nl-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Grid de proyectos */
+    .proyectos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    .proy-card {
+      background: var(--blanco); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px; padding: 18px 16px;
+      position: relative; overflow: hidden;
+      transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .proy-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+      border-color: transparent;
+    }
+    .proy-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .proy-fundacional::before  { background: #4caf50; }
+    .proy-habilitador::before  { background: #42a5f5; }
+    .proy-tractor::before      { background: var(--oro); }
+    .proy-impacto::before      { background: #a5d6a7; }
+
+    .proy-card.hidden { display: none; }
+
+    .pc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .pc-code {
+      font-family: var(--fuente-display); font-size: 0.62rem; font-weight: 800;
+      color: var(--gris-medio); letter-spacing: 1px;
+    }
+    .pc-ancla { font-size: 0.9rem; title: 'Proyecto ancla de arranque'; }
+
+    .pc-nivel {
+      font-family: var(--fuente-display); font-size: 0.6rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .pc-nivel--fundacional  { background: rgba(76,175,80,0.12);  color: #2e7d32; }
+    .pc-nivel--habilitador  { background: rgba(66,165,245,0.12); color: #1565c0; }
+    .pc-nivel--tractor      { background: rgba(201,168,76,0.12); color: #7a5c00; }
+    .pc-nivel--impacto      { background: rgba(165,214,167,0.15);color: #2e7d32; }
+
+    .pc-title { font-family: var(--fuente-display); font-size: 0.86rem; font-weight: 700; color: var(--negro); line-height: 1.3; margin-bottom: 8px; }
+
+    .pc-mision {
+      font-family: var(--fuente-display); font-size: 0.65rem; font-weight: 700;
+      color: var(--verde); border-top: 1px solid rgba(0,0,0,0.06); padding-top: 8px; margin-top: 4px;
+    }
+
+    /* Stats bar */
+    .proy-stats-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+    .psb-card {
+      background: var(--blanco); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px; padding: 18px; text-align: center;
+    }
+    .psb-n { font-family: var(--fuente-display); font-size: 1.8rem; font-weight: 800; color: var(--verde); line-height: 1; display: block; }
+    .psb-l { font-family: var(--fuente-display); font-size: 0.7rem; color: var(--gris-medio); margin-top: 4px; display: block; }
+
+    /* Rutas críticas */
+    .rutas-section {
+      margin-top: 3.5rem; padding-top: 3rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .rutas-title { font-family: var(--fuente-display); font-size: 1.2rem; font-weight: 700; color: var(--negro); margin-bottom: 0.5rem; }
+    .rutas-desc { font-size: 0.87rem; color: var(--gris-medio); margin-bottom: 2rem; max-width: 620px; }
+    .rutas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+
+    .ruta-card {
+      background: var(--blanco); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 14px; padding: 20px;
+    }
+    .ruta-card::before {
+      content: ''; display: block; height: 3px; border-radius: 3px 3px 0 0;
+      margin: -20px -20px 14px; border-radius: 14px 14px 0 0;
+    }
+    .rc1::before { background: #4caf50; }
+    .rc2::before { background: var(--oro); }
+    .rc3::before { background: var(--azul-est); }
+    .rc4::before { background: var(--verde); }
+    .rc5::before { background: var(--morado); }
+
+    .ruta-eyebrow { font-family: var(--fuente-display); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gris-medio); margin-bottom: 4px; }
+    .ruta-name { font-family: var(--fuente-display); font-size: 0.9rem; font-weight: 700; color: var(--negro); margin-bottom: 10px; }
+    .ruta-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .ruta-nodo {
+      font-family: var(--fuente-display); font-size: 0.62rem; font-weight: 700;
+      background: var(--gris-suave); color: var(--gris-dark);
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .ruta-arr { color: var(--gris-medio); font-size: 0.7rem; }
+
+    /* ══ REVEAL ══ */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 1000px) {
+      .misiones-grid, .motores-grid { grid-template-columns: 1fr; }
+      .mision-card--full { grid-column: auto; }
+      .proyectos-grid { grid-template-columns: repeat(2, 1fr); }
+      .proy-stats-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.5rem; }
+      .section { padding: 3rem 0; }
+      .nav-inner { gap: 0.75rem; padding: 0 1rem; }
+      .logo-text-wrap { display: none; }
+      .nav-tabs { display: none; }
+      .proyectos-grid { grid-template-columns: 1fr; }
+      .hero-bird { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../home.html" class="nav-logo">
+        <div class="logo-bird-wrap">
+          <img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050">
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Santander Visión Prospectiva 2050</span>
+          <span class="logo-sub">UIS · Capa de Ejecución</span>
+        </div>
+      </a>
+
+      <div class="nav-div"></div>
+
+      <div class="nav-tabs">
+        <button class="ntab active" onclick="switchTab('misiones',this)">
+          <span class="tab-badge">5</span>Misiones
+        </button>
+        <button class="ntab" onclick="switchTab('motores',this)">
+          <span class="tab-badge">8</span>Motores ECTI
+        </button>
+        <button class="ntab" onclick="switchTab('proyectos',this)">
+          <span class="tab-badge">50</span>Proyectos
+        </button>
+      </div>
+
+      <a href="../home.html" class="nav-home-btn">
+        <span>←</span> Inicio
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-deco-2"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">03 · Capa de Ejecución</div>
+        <h1>Actuamos sobre<br>el <em>Territorio</em></h1>
+        <p class="hero-lead">La capa de ejecución traduce la estrategia en acción concreta: cinco misiones transformadoras, ocho motores de desarrollo y un portafolio de cincuenta proyectos estratégicos con trazabilidad completa.</p>
+        <div class="hero-stats">
+          <div class="hstat"><span class="n">5</span><span class="l">Misiones estratégicas</span></div>
+          <div class="hstat"><span class="n">8</span><span class="l">Motores ECTI</span></div>
+          <div class="hstat"><span class="n">50</span><span class="l">Proyectos 2026–2030</span></div>
+          <div class="hstat"><span class="n">5</span><span class="l">Rutas críticas</span></div>
+        </div>
+      </div>
+      <img src="../img/icono.png" srcset="../img/icono-2x.png 2x" alt="" class="hero-bird" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       TAB 1: MISIONES
+  ════════════════════════════════════════ -->
+  <div id="tab-misiones" class="tab-section active">
+    <div class="container"><div class="section">
+      <p class="s-eyebrow">Capa 3 · Ejecución territorial</p>
+      <h2 class="s-title">Las 5 Misiones Estratégicas</h2>
+      <p class="s-desc">Las misiones no son programas sectoriales ni listados de proyectos. Son plataformas integradoras que articulan política pública, inversión privada, conocimiento científico e innovación tecnológica hacia objetivos comunes y medibles.</p>
+
+      <div class="misiones-tipo-intro">
+        <div class="mision-tipo-badge mision-tipo-badge--material">
+          <div class="mtb-dot mtb--mat"></div>
+          <div class="mtb-text"><h5>Material</h5><p>Transforma condiciones físicas y económicas del territorio</p></div>
+        </div>
+        <div class="mision-tipo-badge mision-tipo-badge--habilitante">
+          <div class="mtb-dot mtb--hab"></div>
+          <div class="mtb-text"><h5>Habilitante</h5><p>Construye capacidades que hacen posibles las demás</p></div>
+        </div>
+        <div class="mision-tipo-badge mision-tipo-badge--transversal">
+          <div class="mtb-dot mtb--txv"></div>
+          <div class="mtb-text"><h5>Transversal</h5><p>Condición de viabilidad política y social de todo el proceso</p></div>
+        </div>
+      </div>
+
+      <div class="misiones-grid">
+
+        <!-- M1 -->
+        <div class="mision-card mision-card--mat reveal">
+          <div class="mc-top">
+            <div class="mc-num">M1</div>
+            <span class="mc-tipo mc-tipo--mat">Material</span>
+          </div>
+          <div class="mc-icon">🌿</div>
+          <div class="mc-title">Naturaleza para la Vida</div>
+          <p class="mc-desc">Seguridad hídrica, alimentaria y climática como base del bienestar y del desarrollo territorial. Sin agua y suelo sano, ninguna otra misión es viable.</p>
+          <div class="mc-retos-label">Retos que aborda</div>
+          <div class="mc-chips">
+            <span>R1 · Seguridad hídrica</span><span>R6 · Cohesión territorial</span>
+          </div>
+          <div class="mc-retos-label">Referentes internacionales</div>
+          <div class="mc-chips">
+            <span>Países Bajos · Gestión Delta</span><span>Costa Rica · FONAFIFO</span>
+            <span>Water Funds TNC</span><span>Israel · Gestión hídrica</span>
+          </div>
+          <div class="mc-vinculo">→ Motores A · B · Proyectos P01–P12 · P47</div>
+        </div>
+
+        <!-- M2 -->
+        <div class="mision-card mision-card--mat reveal">
+          <div class="mc-top">
+            <div class="mc-num">M2</div>
+            <span class="mc-tipo mc-tipo--mat">Material</span>
+          </div>
+          <div class="mc-icon">🔗</div>
+          <div class="mc-title">Santander Conectado y Equitativo</div>
+          <p class="mc-desc">Cohesión territorial y cero brechas mediante conectividad, acceso y oportunidades distribuidas de manera más justa. El 71% del valor agregado no puede seguir concentrado en 5 municipios.</p>
+          <div class="mc-retos-label">Retos que aborda</div>
+          <div class="mc-chips">
+            <span>R2 · Demografía y cuidado</span><span>R6 · Brechas urbano-rurales</span>
+          </div>
+          <div class="mc-retos-label">Referentes internacionales</div>
+          <div class="mc-chips">
+            <span>País Vasco · Cohesión regional</span><span>Uruguay · Plan Ceibal</span>
+            <span>Programa LEADER · UE rural</span>
+          </div>
+          <div class="mc-vinculo">→ Motores E · H · Proyectos P13–P18 · P19 · P22</div>
+        </div>
+
+        <!-- M3 -->
+        <div class="mision-card mision-card--mat reveal">
+          <div class="mc-top">
+            <div class="mc-num">M3</div>
+            <span class="mc-tipo mc-tipo--mat">Material</span>
+          </div>
+          <div class="mc-icon">⚡</div>
+          <div class="mc-title">Reconversión Productiva y Energética</div>
+          <p class="mc-desc">De la economía extractiva a la bioeconomía verde, con transición justa, empleo y sofisticación productiva. Las exportaciones no pueden depender en más del 50% de petróleo y derivados.</p>
+          <div class="mc-retos-label">Retos que aborda</div>
+          <div class="mc-chips">
+            <span>R3 · Transición energética</span><span>R4 · Modelo económico</span>
+          </div>
+          <div class="mc-retos-label">Referentes internacionales</div>
+          <div class="mc-chips">
+            <span>Ruhr · Transición justa</span><span>Dinamarca · Transición energética</span>
+            <span>Wageningen · Bioeconomía circular</span><span>Noruega · Fondo soberano</span>
+          </div>
+          <div class="mc-vinculo">→ Motores A · B · D · Proyectos P21 · P23–P33 · P46</div>
+        </div>
+
+        <!-- M4 -->
+        <div class="mision-card mision-card--hab reveal">
+          <div class="mc-top">
+            <div class="mc-num">M4</div>
+            <span class="mc-tipo mc-tipo--hab">Habilitante</span>
+          </div>
+          <div class="mc-icon">🏛️</div>
+          <div class="mc-title">Inteligencia Territorial y Gobernanza Participativa</div>
+          <p class="mc-desc">Construcción de un Estado capaz, basado en datos, confianza social y gestión adaptativa del territorio. El 90,8% de los municipios son de sexta categoría: la gobernanza es el multiplicador sistémico.</p>
+          <div class="mc-retos-label">Retos que aborda</div>
+          <div class="mc-chips">
+            <span>R7 · Gobernanza (transversal)</span><span>R8 · Geopolítica estratégica</span>
+          </div>
+          <div class="mc-retos-label">Referentes internacionales</div>
+          <div class="mc-chips">
+            <span>Estonia · Gobierno digital</span><span>Medellín · Urbanismo social</span>
+            <span>Barcelona/Helsinki · Gemelos digitales</span>
+          </div>
+          <div class="mc-vinculo mc-tipo--hab">→ Motores G · C · Proyectos P34–P39</div>
+        </div>
+
+        <!-- M5 -->
+        <div class="mision-card mision-card--hab reveal">
+          <div class="mc-top">
+            <div class="mc-num">M5</div>
+            <span class="mc-tipo mc-tipo--hab">Habilitante</span>
+          </div>
+          <div class="mc-icon">🎓</div>
+          <div class="mc-title">Educación, Cultura y Talento para la Transformación</div>
+          <p class="mc-desc">Capital humano como motor del desarrollo, la productividad y la capacidad de aprendizaje territorial. El sector TIC contrajo un 3,2% cuando el promedio nacional creció 8,1%: sin talento arraigado, las demás misiones quedan huérfanas.</p>
+          <div class="mc-retos-label">Retos que aborda</div>
+          <div class="mc-chips">
+            <span>R2 · Transición demográfica</span><span>R5 · Retención de talento</span>
+          </div>
+          <div class="mc-retos-label">Referentes internacionales</div>
+          <div class="mc-chips">
+            <span>Finlandia · Sistema educativo</span><span>Medellín · Economía naranja</span>
+            <span>Singapur · SkillsFuture</span>
+          </div>
+          <div class="mc-vinculo mc-tipo--hab">→ Motores C · E · Proyectos P40–P45 · P47</div>
+        </div>
+
+        <!-- Misión transversal -->
+        <div class="mision-transversal-card reveal">
+          <div class="mc-top" style="margin-bottom:12px">
+            <div class="mc-num" style="color:rgba(201,168,76,0.4)">MT</div>
+            <span class="mc-tipo" style="background:rgba(201,168,76,0.15);color:var(--oro)">Transversal · Viabilidad</span>
+          </div>
+          <div class="mtc-kicker">Misión transversal de viabilidad política y social</div>
+          <div class="mtc-title">🕊️ Paz con Justicia Social<br><small style="font-size:0.75rem;font-weight:400;opacity:0.7">(Seguridad Humana Integral)</small></div>
+          <p class="mtc-desc">Condición de viabilidad de todas las demás. Sin cohesión social, ninguna transición económica o ambiental será políticamente sostenible en el largo plazo. Es la precondición para que las demás cinco misiones tengan continuidad institucional y adhesión ciudadana.</p>
+        </div>
+
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       TAB 2: MOTORES ECTI
+  ════════════════════════════════════════ -->
+  <div id="tab-motores" class="tab-section">
+    <div class="container"><div class="section">
+      <p class="s-eyebrow">Capa 3 · Ecosistemas productivos</p>
+      <h2 class="s-title">Los 8 Motores del Desarrollo ECTI</h2>
+      <p class="s-desc">Los motores son ecosistemas de innovación productivos y socioeconómicos adaptativos, capaces de generar empleo de calidad, ingresos fiscales, innovación y bienestar social de forma sostenida. No son sectores; son plataformas de creación de valor complejo.</p>
+
+      <div class="motores-intro-box">
+        <h3>¿Qué es un motor ECTI?</h3>
+        <p>Un ecosistema productivo que combina Economía real + Conocimiento + Tecnología + Instituciones en un territorio específico, generando encadenamientos hacia adelante y hacia atrás que sostienen la transformación productiva de largo plazo.</p>
+      </div>
+
+      <div class="motores-grid">
+
+        <!-- MOTOR A -->
+        <div class="motor-card-ext motor-A reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-A">A</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor energético</div>
+              <div class="motor-title">Transición Energética e Industria de Transición Justa</div>
+            </div>
+          </div>
+          <p class="motor-desc">Reconversión de Barrancabermeja y el Magdalena Medio desde la industria fósil hacia plataformas de energía limpia, hidrógeno verde y comunidades energéticas, con justicia laboral y territorial.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Hidrógeno verde</span><span>Solar y eólica</span>
+            <span>Reconversión Barrancabermeja</span><span>Comunidades energéticas</span><span>Biomasa</span>
+          </div>
+          <div class="motor-misiones">→ Misiones M1 · M3 · Ruhr (Alemania) · Aberdeen (Escocia) · Pernambuco (Brasil)</div>
+        </div>
+
+        <!-- MOTOR B -->
+        <div class="motor-card-ext motor-B reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-B">B</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor bioeconómico</div>
+              <div class="motor-title">Bioeconomía y Agroindustria Avanzada</div>
+            </div>
+          </div>
+          <p class="motor-desc">Sofisticación productiva basada en la biodiversidad única del departamento, desde cacao y café especial hasta biotecnología aplicada e ingredientes naturales para mercados globales.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Cacao y café especial</span><span>Biotecnología aplicada</span>
+            <span>Ingredientes naturales</span><span>Agricultura regenerativa</span>
+          </div>
+          <div class="motor-misiones">→ Misiones M1 · M3 · Amazonas Legal (Brasil) · Ghana / Côte d'Ivoire · Finlandia / Estonia</div>
+        </div>
+
+        <!-- MOTOR C -->
+        <div class="motor-card-ext motor-C reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-C">C</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor digital</div>
+              <div class="motor-title">Servicios Basados en Conocimiento y Economía Digital</div>
+            </div>
+          </div>
+          <p class="motor-desc">Software exportable, IA aplicada y ecosistemas de retención de talento que conviertan a Santander en un nodo de la economía digital latinoamericana, capitalizando la base universitaria de la UIS.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Software exportable</span><span>IA aplicada</span><span>Retención de talento</span>
+          </div>
+          <div class="motor-misiones">→ Misiones M4 · M5 · Irlanda · Tallin (Estonia) · Bangalore (India)</div>
+        </div>
+
+        <!-- MOTOR D -->
+        <div class="motor-card-ext motor-D reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-D">D</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor industrial</div>
+              <div class="motor-title">Reindustrialización Verde y Manufactura Avanzada</div>
+            </div>
+          </div>
+          <p class="motor-desc">Química verde, economía circular y manufactura 4.0 que aprovechan la base industrial existente en el AMB para construir una industria transformada, limpia y de mayor valor agregado.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Química verde</span><span>Economía circular</span><span>Manufactura 4.0</span>
+          </div>
+          <div class="motor-misiones">→ Misión M3 · Baden-Württemberg · Eslovenia · Monterrey (México)</div>
+        </div>
+
+        <!-- MOTOR E -->
+        <div class="motor-card-ext motor-E reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-E">E</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor demográfico</div>
+              <div class="motor-title">Economía del Cuidado y Economía Plateada</div>
+            </div>
+          </div>
+          <p class="motor-desc">Gerontecnología, telemedicina y formalización del cuidado como respuesta productiva al envejecimiento. Para 2050, 3 de cada 10 santandereanos serán adultos mayores: esto es un mercado, no solo un reto social.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Gerontecnología</span><span>Telemedicina</span><span>Formalización del cuidado</span>
+          </div>
+          <div class="motor-misiones">→ Misiones M2 · M5 · Akita (Japón) · País Vasco (España) · Costa Rica</div>
+        </div>
+
+        <!-- MOTOR F -->
+        <div class="motor-card-ext motor-F reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-F">F</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor cultural</div>
+              <div class="motor-title">Turismo de Alto Valor y Economía Cultural</div>
+            </div>
+          </div>
+          <p class="motor-desc">Geoturismo, astroturismo, gastronomía de biodiversidad y patrimonio natural y cultural como palancas de diversificación económica desde la identidad territorial única de Santander.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Geoturismo y astroturismo</span><span>Gastronomía de biodiversidad</span>
+            <span>Patrimonio natural y cultural</span>
+          </div>
+          <div class="motor-misiones">→ Misiones M1 · M5 · Umbría (Italia) · San Sebastián (España) · Bhután</div>
+        </div>
+
+        <!-- MOTOR G -->
+        <div class="motor-card-ext motor-G reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-G">G</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor institucional</div>
+              <div class="motor-title">Gobernanza e Inteligencia Territorial</div>
+            </div>
+          </div>
+          <p class="motor-desc">Plataforma de datos territorial, Consejo de Futuro de Santander, participación ciudadana informada y gestión por misiones como ecosistema institucional habilitante de todos los demás motores.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Plataforma de datos territorial</span><span>Consejo de Futuro</span>
+            <span>Participación ciudadana informada</span><span>Gestión por misiones</span>
+          </div>
+          <div class="motor-misiones">→ Misión M4 · Cantabria (España) · Corea del Sur · Porto Alegre (Brasil)</div>
+        </div>
+
+        <!-- MOTOR H -->
+        <div class="motor-card-ext motor-H reveal">
+          <div class="motor-header">
+            <div class="motor-letra-badge badge-H">H</div>
+            <div class="motor-header-text">
+              <div class="motor-eyebrow">Motor logístico</div>
+              <div class="motor-title">Infraestructura Logística Multimodal y Conectividad Inteligente</div>
+            </div>
+          </div>
+          <p class="motor-desc">Integración vial, férrea y fluvial; fibra óptica universal y 5G; zonas logísticas inteligentes. La posición geoestratégica de Santander como hub del nororiente colombiano requiere infraestructura a la altura.</p>
+          <div class="motor-pilares-label">Pilares del motor</div>
+          <div class="motor-pilares">
+            <span>Vial, férrea y fluvial integradas</span><span>Fibra óptica y 5G</span>
+            <span>Zonas logísticas inteligentes</span><span>Hub del nororiente</span>
+          </div>
+          <div class="motor-misiones">→ Misiones M2 · M3 · Rotterdam (Países Bajos) · Lombardía (Italia) · Singapur</div>
+        </div>
+
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       TAB 3: 50 PROYECTOS
+  ════════════════════════════════════════ -->
+  <div id="tab-proyectos" class="tab-section">
+    <div class="container"><div class="section">
+      <p class="s-eyebrow">Capa 3 · Portafolio estratégico 2026–2030</p>
+      <h2 class="s-title">Los 50 Proyectos Estratégicos</h2>
+      <p class="s-desc">El portafolio se organiza en cuatro niveles interdependientes: fundacional, habilitador, tractor e impacto. Los proyectos marcados con ★ son ancla de arranque prioritario 2026–2027. Presupuesto total: COP 4.510–7.820 miles de millones.</p>
+
+      <!-- Stats -->
+      <div class="proy-stats-bar reveal">
+        <div class="psb-card"><span class="psb-n">50</span><span class="psb-l">Proyectos estratégicos</span></div>
+        <div class="psb-card"><span class="psb-n">5</span><span class="psb-l">Misiones articuladoras</span></div>
+        <div class="psb-card"><span class="psb-n">8</span><span class="psb-l">Motores ECTI</span></div>
+        <div class="psb-card"><span class="psb-n">5</span><span class="psb-l">Rutas críticas</span></div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="proy-filters reveal">
+        <span class="proy-filter-label">Nivel:</span>
+        <button class="pf-chip active" data-filter="nivel" data-val="all">Todos</button>
+        <button class="pf-chip" data-filter="nivel" data-val="fundacional">Fundacional</button>
+        <button class="pf-chip" data-filter="nivel" data-val="habilitador">Habilitador</button>
+        <button class="pf-chip" data-filter="nivel" data-val="tractor">Tractor</button>
+        <button class="pf-chip" data-filter="nivel" data-val="impacto">Impacto</button>
+        <div class="pf-sep"></div>
+        <span class="proy-filter-label">Misión:</span>
+        <button class="pf-chip active" data-filter="mision" data-val="all">Todas</button>
+        <button class="pf-chip" data-filter="mision" data-val="M1">🌿 M1</button>
+        <button class="pf-chip" data-filter="mision" data-val="M2">🔗 M2</button>
+        <button class="pf-chip" data-filter="mision" data-val="M3">⚡ M3</button>
+        <button class="pf-chip" data-filter="mision" data-val="M4">🏛 M4</button>
+        <button class="pf-chip" data-filter="mision" data-val="M5">🎓 M5</button>
+      </div>
+
+      <!-- Leyenda -->
+      <div class="niveles-legend reveal">
+        <div class="nl-item"><div class="nl-dot" style="background:#4caf50"></div>Fundacional</div>
+        <div class="nl-item"><div class="nl-dot" style="background:#42a5f5"></div>Habilitador</div>
+        <div class="nl-item"><div class="nl-dot" style="background:#c9a84c"></div>Tractor</div>
+        <div class="nl-item"><div class="nl-dot" style="background:#a5d6a7"></div>Impacto</div>
+        <div class="nl-item" style="margin-left:12px"><span style="color:var(--oro);font-size:0.9rem">★</span>&nbsp;Ancla 2026–2027</div>
+      </div>
+
+      <!-- Grid de proyectos -->
+      <div class="proyectos-grid" id="proyectosGrid">
+
+        <!-- M1: Naturaleza para la Vida (P01–P12, P47) -->
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P01</span><span class="pc-ancla" title="Ancla 2026-2027">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Sistema Departamental de Monitoreo Hídrico en Tiempo Real</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P02</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Plan de Restauración de Cuencas Hidrográficas Estratégicas</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P03</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Acueductos Rurales Regionales con Gestión Comunitaria</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P04</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Corredor de Biodiversidad y Servicios Ecosistémicos Santandereano</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P05</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Fondo de Compensación por Servicios Ambientales (Mercado Local)</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P06</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Sistema de Alerta Temprana por Deslizamientos e Inundaciones</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P07</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Plan de Soberanía Alimentaria Regional: Distritos de Riego Pequeña Escala</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P08</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Programa de Agricultura Regenerativa y Suelos Vivos</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P09</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Economía del Agua: Tarifas Ambientales y Uso Eficiente en Agroindustria</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P10</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Plan de Adaptación Climática Municipal para los 87 Municipios</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P11</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Reforestación Productiva con Especies Nativas y Maderables</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P12</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Turismo Ecológico y Científico en Reservas Estratégicas</div>
+          <div class="pc-mision">🌿 M1 · Naturaleza para la Vida</div>
+        </div>
+
+        <!-- M2: Santander Conectado y Equitativo (P13–P22) -->
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P13</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Plan Vial Rural Santander 2030: Vías Terciarias Estratégicas</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado</div>
+        </div>
+
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P14</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Red de Fibra Óptica Rural para los 87 Municipios</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P15</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Centros de Servicios Territoriales en Provincias Rezagadas</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P16</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Sistema de Transporte Rural Intermodal y Asequible</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P17</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Plataforma Digital de Servicios Públicos para Ciudadanía Rural</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P18</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Red de Mercados Locales y Cadenas Cortas de Comercialización</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P19</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Programa de Salud Rural Integral con Telemedicina</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado · 🎓 M5</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P20</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Proyecto Ferroviario Bucaramanga–Barrancabermeja–Bogotá</div>
+          <div class="pc-mision">🔗 M2 · Santander Conectado · ⚡ M3</div>
+        </div>
+
+        <!-- M3: Reconversión Productiva (P21, P23–P33, P46) -->
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P21</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Hub de Hidrógeno Verde Barrancabermeja — Magdalena Medio</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P22</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Hidrovía del Magdalena Medio: Puerto Logístico Multimodal</div>
+          <div class="pc-mision">🔗 M2 · 🔗 M3 · Motor H</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P23</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Parque de Energías Renovables Santander (Solar + Eólico)</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P24</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Fondo Soberano de Transición Productiva del Magdalena Medio</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P25</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Comunidades Energéticas Rurales: 50 Pilotos de Prosumidores</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P26</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Centro de Biotecnología Aplicada para Bioeconomía Santandereana</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P27</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Clúster de Cacao Especial: Procesamiento y Exportación de Valor</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P28</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Zona Franca Verde de Química Sostenible y Economía Circular</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva · Motor D</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P29</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Plataforma de Certificación y Trazabilidad de Productos de Biodiversidad</div>
+          <div class="pc-mision">⚡ M3 · 🌿 M1</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P30</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Programa de Reconversión Laboral para Trabajadores del Sector Fósil</div>
+          <div class="pc-mision">⚡ M3 · 🎓 M5</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P31</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Clúster Agrofood: Procesamiento y Distribución de Alimentos Saludables</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P32</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Parque Industrial Circular: Manufactura 4.0 y Economía Regenerativa</div>
+          <div class="pc-mision">⚡ M3 · Motor D</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P33</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Sistema de Exportaciones No Minero-Energéticas: Plataforma Nacional</div>
+          <div class="pc-mision">⚡ M3 · Reconversión Productiva</div>
+        </div>
+
+        <!-- M4: Gobernanza Territorial (P34–P39) -->
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M4">
+          <div class="pc-top"><span class="pc-code">P34</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Sistema de Información Territorial de Santander (SSITD) — Gemelo Digital</div>
+          <div class="pc-mision">🏛 M4 · Gobernanza Territorial</div>
+        </div>
+
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M4">
+          <div class="pc-top"><span class="pc-code">P35</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Consejo de Futuro de Santander: Instancia de Gobernanza Prospectiva</div>
+          <div class="pc-mision">🏛 M4 · Gobernanza Territorial</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M4">
+          <div class="pc-top"><span class="pc-code">P36</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Plataforma de Gobierno Abierto y Participación Ciudadana Digital</div>
+          <div class="pc-mision">🏛 M4 · Gobernanza Territorial</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M4">
+          <div class="pc-top"><span class="pc-code">P37</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Fortalecimiento Fiscal y Catastro Multipropósito en Municipios Rezagados</div>
+          <div class="pc-mision">🏛 M4 · Gobernanza Territorial</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M4">
+          <div class="pc-top"><span class="pc-code">P38</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Laboratorio de Inteligencia Institucional y Gestión por Misiones</div>
+          <div class="pc-mision">🏛 M4 · Gobernanza Territorial</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M4">
+          <div class="pc-top"><span class="pc-code">P39</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Red de Observatorios Territoriales Ciudadanos en las 6 Provincias</div>
+          <div class="pc-mision">🏛 M4 · Gobernanza Territorial</div>
+        </div>
+
+        <!-- M5: Educación, Cultura y Talento (P40–P45) -->
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M5">
+          <div class="pc-top"><span class="pc-code">P40</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Ecosistema de Talento Digital: Hub Tecnológico UIS — AMB</div>
+          <div class="pc-mision">🎓 M5 · Educación y Talento · Motor C</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M5">
+          <div class="pc-top"><span class="pc-code">P41</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Red de Centros de Formación Técnica en Transición Verde</div>
+          <div class="pc-mision">🎓 M5 · Educación y Talento</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M5">
+          <div class="pc-top"><span class="pc-code">P42</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Programa de Becas Santander 2050: Retención y Atracción de Talento</div>
+          <div class="pc-mision">🎓 M5 · Educación y Talento</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M5">
+          <div class="pc-top"><span class="pc-code">P43</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">DeepTech Factory: Incubadora de Empresas de Base Tecnológica Profunda</div>
+          <div class="pc-mision">🎓 M5 · Motor C · Sandbox SB4</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M5">
+          <div class="pc-top"><span class="pc-code">P44</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Longevity Valley: Clúster de Salud, Bienestar y Economía Plateada</div>
+          <div class="pc-mision">🎓 M5 · Motor E · Sandbox SB4</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M5">
+          <div class="pc-top"><span class="pc-code">P45</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Circuito Cultural y Creativo Santandereano: Economía Naranja</div>
+          <div class="pc-mision">🎓 M5 · Motor F</div>
+        </div>
+
+        <!-- Proyectos transversales P46–P50 -->
+        <div class="proy-card proy-fundacional" data-nivel="fundacional" data-mision="M3">
+          <div class="pc-top"><span class="pc-code">P46</span><span class="pc-ancla">★</span><span class="pc-nivel pc-nivel--fundacional">Fundacional</span></div>
+          <div class="pc-title">Sandbox Regulatorio CREG: Prosumidores Energéticos Comunitarios</div>
+          <div class="pc-mision">⚡ M3 · Motor A · Sandbox SB2</div>
+        </div>
+
+        <div class="proy-card proy-habilitador" data-nivel="habilitador" data-mision="M1">
+          <div class="pc-top"><span class="pc-code">P47</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--habilitador">Habilitador</span></div>
+          <div class="pc-title">Programa Integral de Relevo Generacional Rural con Arraigo Territorial</div>
+          <div class="pc-mision">🌿 M1 · 🎓 M5 · Motor B</div>
+        </div>
+
+        <div class="proy-card proy-tractor" data-nivel="tractor" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P48</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--tractor">Tractor</span></div>
+          <div class="pc-title">Geoparque y Ruta Paleontológica del Cañón del Chicamocha</div>
+          <div class="pc-mision">🔗 M2 · Motor F</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P49</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Corredor Gastronómico y Marca Territorio Santander</div>
+          <div class="pc-mision">🔗 M2 · Motor F</div>
+        </div>
+
+        <div class="proy-card proy-impacto" data-nivel="impacto" data-mision="M2">
+          <div class="pc-top"><span class="pc-code">P50</span><span class="pc-ancla"></span><span class="pc-nivel pc-nivel--impacto">Impacto</span></div>
+          <div class="pc-title">Plataforma de Nómadas Digitales Rurales: Zonas de Arraigo Creativo</div>
+          <div class="pc-mision">🔗 M2 · 🎓 M5 · Sandbox SB4</div>
+        </div>
+
+      </div>
+
+      <!-- Rutas críticas -->
+      <div class="rutas-section reveal">
+        <h3 class="rutas-title">Rutas Críticas de Implementación</h3>
+        <p class="rutas-desc">Estas rutas no son cronogramas. Son secuencias causales a través de las cuales los proyectos se activan mutuamente. La viabilidad de cada ruta depende del cumplimiento de los hitos anteriores.</p>
+        <div class="rutas-grid">
+          <div class="ruta-card rc1">
+            <div class="ruta-eyebrow">RC1</div>
+            <div class="ruta-name">Agua y Soberanía Alimentaria</div>
+            <div class="ruta-flow">
+              <span class="ruta-nodo">P01</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P02</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P07</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P05</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P12</span>
+            </div>
+          </div>
+          <div class="ruta-card rc2">
+            <div class="ruta-eyebrow">RC2</div>
+            <div class="ruta-name">Energía Justa</div>
+            <div class="ruta-flow">
+              <span class="ruta-nodo">P46</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P21</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P23</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P24</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P25</span>
+            </div>
+          </div>
+          <div class="ruta-card rc3">
+            <div class="ruta-eyebrow">RC3</div>
+            <div class="ruta-name">Conectividad Territorial</div>
+            <div class="ruta-flow">
+              <span class="ruta-nodo">P13</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P14</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P17</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P22</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P20</span>
+            </div>
+          </div>
+          <div class="ruta-card rc4">
+            <div class="ruta-eyebrow">RC4</div>
+            <div class="ruta-name">Bioeconomía y Diversificación</div>
+            <div class="ruta-flow">
+              <span class="ruta-nodo">P26</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P27</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P29</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P31</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P33</span>
+            </div>
+          </div>
+          <div class="ruta-card rc5">
+            <div class="ruta-eyebrow">RC5</div>
+            <div class="ruta-name">Talento y Cuidado</div>
+            <div class="ruta-flow">
+              <span class="ruta-nodo">P40</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P41</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P43</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P44</span><span class="ruta-arr">→</span>
+              <span class="ruta-nodo">P45</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <script>
+    // ── Tab switching ──
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.ntab').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+      btn.classList.add('active');
+      setTimeout(triggerReveal, 50);
+      // Reset filters when switching to proyectos
+      if (tabId === 'proyectos') resetFilters();
+    }
+
+    // ── Reveal ──
+    function triggerReveal() {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.07 });
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+    }
+
+    // ── Proyecto filters ──
+    let activeNivel = 'all';
+    let activeMision = 'all';
+
+    function applyFilters() {
+      document.querySelectorAll('.proy-card').forEach(card => {
+        const n = card.dataset.nivel;
+        const m = card.dataset.mision;
+        const nivelOk  = (activeNivel  === 'all' || n === activeNivel);
+        const misionOk = (activeMision === 'all' || m === activeMision || (card.dataset.mision && card.dataset.mision.includes(activeMision)));
+        if (nivelOk && misionOk) card.classList.remove('hidden');
+        else card.classList.add('hidden');
+      });
+    }
+
+    function resetFilters() {
+      activeNivel = 'all'; activeMision = 'all';
+      document.querySelectorAll('[data-filter]').forEach(b => {
+        b.classList.toggle('active', b.dataset.val === 'all');
+      });
+      applyFilters();
+    }
+
+    document.querySelectorAll('[data-filter="nivel"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter="nivel"]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeNivel = btn.dataset.val;
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll('[data-filter="mision"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter="mision"]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeMision = btn.dataset.val;
+        applyFilters();
+      });
+    });
+
+    // ── Init ──
+    document.addEventListener('DOMContentLoaded', () => {
+      triggerReveal();
+      const hash = window.location.hash.replace('#', '');
+      const validTabs = ['misiones', 'motores', 'proyectos'];
+      if (validTabs.includes(hash)) {
+        const btn = document.querySelector(`.ntab[onclick*="${hash}"]`);
+        if (btn) switchTab(hash, btn);
+      }
+    });
+  </script>
+
+</body>
+</html>

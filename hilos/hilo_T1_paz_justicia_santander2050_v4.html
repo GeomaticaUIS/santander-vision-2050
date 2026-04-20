@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilo Transversal 1 — Paz con Justicia Social · Santander 2050</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:          #121212;
+    --ink-soft:     #1e1e1e;
+    --ink-mid:      #2c2c2c;
+    --parchment:    #f5f0e8;
+    --parchment-d:  #ede6d5;
+    /* Color identity: azul-índigo profundo — viabilidad social como cimiento, no como ornamento */
+    --accent:       #1e3a5f;
+    --accent-soft:  #2563a8;
+    --accent-pale:  rgba(30,58,95,0.08);
+    --amber:        #b45309;
+    --amber-light:  #d97706;
+    --amber-pale:   rgba(180,83,9,0.08);
+    --slate:        #475569;
+    --slate-pale:   rgba(71,85,105,0.08);
+    --white:        #ffffff;
+    --rule:         rgba(18,18,18,0.14);
+    /* Señal de alerta: rojo-conflicto */
+    --alert:        #991b1b;
+    --alert-pale:   rgba(153,27,27,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  header {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 56px 72px 48px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--accent-soft);
+  }
+
+  header::before {
+    content: 'T·1';
+    position: absolute; right: 64px; bottom: -10px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 200px; font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    line-height: 1; letter-spacing: -6px;
+    pointer-events: none;
+  }
+
+  .h-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent-soft);
+    border: 1px solid var(--accent-soft);
+    padding: 4px 12px; margin-bottom: 18px;
+  }
+
+  .h-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: rgba(245,240,232,0.50); text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 40px; font-weight: 700;
+    line-height: 1.18; max-width: 760px;
+    letter-spacing: -0.3px;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+
+  .lead {
+    max-width: 700px; margin-top: 22px;
+    font-size: 15px; font-weight: 300;
+    color: rgba(245,240,232,0.65); line-height: 1.80;
+  }
+
+  .h-epigraph {
+    max-width: 620px; margin-top: 30px;
+    padding: 18px 24px;
+    border-left: 3px solid var(--amber-light);
+    background: rgba(217,119,6,0.10);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px; font-style: italic;
+    color: rgba(245,240,232,0.80); line-height: 1.75;
+  }
+
+  .h-epigraph cite {
+    display: block; margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; font-style: normal;
+    letter-spacing: 0.5px;
+    color: var(--amber-light);
+  }
+
+  .h-stat-bar {
+    display: flex; flex-wrap: wrap; gap: 0;
+    margin-top: 38px;
+    border-top: 1px solid rgba(245,240,232,0.14);
+    padding-top: 28px;
+  }
+
+  .h-stat {
+    flex: 1 1 150px;
+    padding-right: 26px;
+    border-right: 1px solid rgba(245,240,232,0.12);
+    margin-right: 26px;
+    padding-bottom: 6px;
+  }
+  .h-stat:last-child { border-right: none; }
+
+  .h-stat .num {
+    display: block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 38px; font-weight: 700;
+    color: var(--accent-soft); line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .h-stat .desc {
+    display: block; margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; color: rgba(245,240,232,0.55);
+    line-height: 1.55; letter-spacing: 0.3px;
+  }
+
+  /* ── LENTE BAR ───────────────────────────────────────── */
+  .lente-bar {
+    background: var(--accent);
+    color: white;
+    padding: 14px 72px;
+    display: flex; gap: 16px; align-items: flex-start;
+    font-size: 13.5px; font-weight: 400; line-height: 1.65;
+  }
+  .lente-bar .icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .lente-bar strong { font-weight: 700; }
+  .lente-bar em { font-style: italic; font-weight: 300; opacity: 0.85; }
+
+  /* ── INTRO ───────────────────────────────────────────── */
+  .intro-strip {
+    background: var(--parchment-d);
+    border-left: 4px solid var(--amber);
+    padding: 20px 72px 20px 68px;
+    display: flex; gap: 20px; align-items: flex-start;
+    font-size: 13.5px; color: var(--slate); line-height: 1.80;
+  }
+  .intro-strip .icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .intro-strip strong { color: var(--ink); }
+  .intro-strip em { color: var(--amber); font-style: italic; }
+
+  /* ── BODY TIMELINE ───────────────────────────────────── */
+  .body-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 56px 72px 80px;
+    position: relative;
+  }
+
+  .body-wrap::before {
+    content: '';
+    position: absolute; top: 56px; bottom: 80px;
+    left: 72px; width: 2px;
+    background: linear-gradient(180deg,
+      var(--accent-soft) 0%,
+      var(--amber) 35%,
+      #7c3aed 55%,
+      #15803d 75%,
+      var(--accent) 100%
+    );
+  }
+
+  .node {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 0 28px;
+  }
+
+  .marker {
+    display: flex; flex-direction: column;
+    align-items: center; padding-top: 4px;
+    position: relative; z-index: 2;
+  }
+
+  .bubble {
+    width: 52px; height: 52px;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.5px;
+    border: 2px solid currentColor;
+    flex-shrink: 0;
+    text-align: center; line-height: 1.25;
+  }
+
+  .n1 .bubble { color: var(--accent-soft); background: var(--accent-pale); border-color: var(--accent-soft); }
+  .n2 .bubble { color: var(--alert); background: var(--alert-pale); border-color: var(--alert); }
+  .n3 .bubble { color: #7c3aed; background: rgba(124,58,237,0.07); border-color: #7c3aed; }
+  .n4 .bubble { color: #15803d; background: rgba(21,128,61,0.07); border-color: #15803d; }
+  .n5 .bubble { color: var(--amber); background: var(--amber-pale); border-color: var(--amber); }
+  .n6 .bubble { color: #0369a1; background: rgba(3,105,161,0.07); border-color: #0369a1; }
+  .n7 .bubble { color: #064e3b; background: rgba(6,78,59,0.07); border-color: #064e3b; }
+
+  .side-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px; letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(18,18,18,0.28);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    margin-top: 10px;
+  }
+
+  .content { padding: 4px 0 52px; }
+
+  .step-pill {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid var(--rule);
+    color: var(--slate);
+    margin-bottom: 10px;
+  }
+
+  .node-h {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px; font-weight: 700;
+    line-height: 1.25; margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+
+  .node-sub {
+    font-size: 12.5px; color: var(--slate);
+    font-style: italic; margin-bottom: 14px;
+    line-height: 1.65;
+  }
+
+  .node-text {
+    font-size: 14px; line-height: 1.82;
+    color: var(--ink-mid);
+    margin-bottom: 16px;
+  }
+
+  /* ── BOXES ───────────────────────────────────────────── */
+  .box {
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    font-size: 13px; line-height: 1.78;
+  }
+
+  .box.n1 { background: var(--accent-pale); border-left: 3px solid var(--accent-soft); }
+  .box.n2 { background: var(--alert-pale); border-left: 3px solid var(--alert); }
+  .box.n3 { background: rgba(124,58,237,0.05); border-left: 3px solid #7c3aed; }
+  .box.n4 { background: rgba(21,128,61,0.05); border-left: 3px solid #15803d; }
+  .box.n5 { background: var(--amber-pale); border-left: 3px solid var(--amber); }
+  .box.n6 { background: rgba(3,105,161,0.05); border-left: 3px solid #0369a1; }
+  .box.n7 { background: rgba(6,78,59,0.05); border-left: 3px solid #064e3b; }
+
+  .box .bt {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    margin-bottom: 10px; color: var(--ink);
+  }
+
+  .box p { color: var(--ink-mid); margin-bottom: 10px; }
+  .box p:last-child { margin-bottom: 0; }
+  .box strong { color: var(--ink); }
+  .box em { color: var(--slate); font-style: italic; }
+
+  /* ── CRITICAL / ALERT BOX ────────────────────────────── */
+  .critical-box {
+    background: var(--alert-pale);
+    border: 1px solid rgba(153,27,27,0.25);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    font-size: 13px; line-height: 1.78;
+  }
+  .critical-box .cb {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--alert); margin-bottom: 10px;
+  }
+  .critical-box p { color: var(--ink-mid); }
+  .critical-box strong { color: var(--ink); }
+
+  /* ── CAPACITY GRID ───────────────────────────────────── */
+  .cap-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 16px;
+  }
+
+  .cap-cell {
+    padding: 18px 20px;
+    font-size: 12.5px; line-height: 1.75;
+    color: var(--ink-mid);
+    background: rgba(18,18,18,0.03);
+  }
+
+  .cap-label {
+    display: block; margin-bottom: 8px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+
+  /* ── DATA CARDS ──────────────────────────────────────── */
+  .data-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 16px;
+  }
+
+  .data-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent-soft);
+    padding: 16px 18px;
+    font-size: 12.5px; line-height: 1.72;
+    color: var(--ink-mid);
+  }
+
+  .data-card .dtag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 2px 8px; margin-bottom: 6px;
+    background: var(--accent-pale);
+    color: var(--accent-soft);
+    border: 1px solid rgba(30,58,95,0.25);
+  }
+
+  .data-card .dnum {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--accent); margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .data-card .dlabel {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px; color: var(--slate); line-height: 1.5;
+  }
+
+  /* ── TAGS ────────────────────────────────────────────── */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.4px;
+    padding: 4px 10px;
+    background: rgba(18,18,18,0.06);
+    border: 1px solid var(--rule);
+    color: var(--slate);
+  }
+
+  /* ── ARROW ROW ───────────────────────────────────────── */
+  .arrow-row {
+    padding: 0 0 24px 72px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: rgba(18,18,18,0.35);
+    letter-spacing: 0.5px; font-style: italic;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .arr { font-size: 22px; color: var(--accent-soft); font-style: normal; flex-shrink: 0; }
+
+  /* ── BOX SPLIT ───────────────────────────────────────── */
+  .box-split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+
+  /* ── ZONA MUNICIPIOS ─────────────────────────────────── */
+  .muni-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-bottom: 16px;
+  }
+  .muni-card {
+    padding: 12px 14px;
+    font-size: 11.5px; line-height: 1.65;
+    color: var(--ink-mid);
+    background: rgba(30,58,95,0.05);
+    border: 1px solid rgba(30,58,95,0.15);
+  }
+  .muni-card .mc-loc {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--accent-soft);
+    display: block; margin-bottom: 4px;
+  }
+  .muni-card strong { color: var(--ink); font-size: 12px; }
+
+  /* ── SYNTHESIS ───────────────────────────────────────── */
+  .synthesis {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 0 72px 50px;
+    border-top: 4px solid var(--amber);
+  }
+
+  .synth-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber-light);
+    padding: 28px 0 18px;
+    border-bottom: 1px solid rgba(245,240,232,0.10);
+    margin-bottom: 24px;
+  }
+
+  .synth-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+
+  .sc {
+    padding: 14px 16px;
+    font-size: 11px; line-height: 1.65;
+    color: rgba(245,240,232,0.60);
+    border-right: 1px solid rgba(245,240,232,0.08);
+  }
+  .sc:last-child { border-right: none; }
+  .sc strong {
+    display: block; margin-bottom: 4px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.3px;
+    color: var(--parchment);
+  }
+
+  /* ── DIFFERENTIATORS ─────────────────────────────────── */
+  .diff-section {
+    background: var(--parchment-d);
+    padding: 0 72px 56px;
+    border-top: 2px solid var(--rule);
+  }
+
+  .diff-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber);
+    padding: 28px 0 18px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 28px;
+  }
+
+  .diff-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+
+  .diff-inner h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+
+  .diff-inner p { font-size: 12.5px; line-height: 1.82; color: var(--ink-mid); }
+
+  /* ── TESIS ESTRUCTURAL ───────────────────────────────── */
+  .tesis-block {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 32px 72px;
+    border-top: 2px solid rgba(245,240,232,0.08);
+    border-bottom: 4px solid var(--accent-soft);
+  }
+  .tesis-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .tesis-statement {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px; font-weight: 700;
+    line-height: 1.55; max-width: 860px;
+    color: var(--parchment);
+    margin-bottom: 18px;
+    letter-spacing: -0.1px;
+  }
+  .tesis-statement em { color: var(--amber-light); font-style: italic; }
+  .tesis-body {
+    font-size: 13px; line-height: 1.82;
+    color: rgba(245,240,232,0.65);
+    max-width: 860px;
+  }
+  .tesis-body strong { color: var(--parchment); }
+
+  .causal-chain {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 0; margin: 20px 0 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+  .cc-step {
+    padding: 10px 14px;
+    background: rgba(37,99,168,0.20);
+    border: 1px solid rgba(37,99,168,0.35);
+    color: var(--parchment);
+    font-size: 11px; line-height: 1.4;
+    text-align: center; min-width: 110px;
+  }
+  .cc-arrow {
+    padding: 0 6px; font-size: 16px;
+    color: var(--amber-light); flex-shrink: 0;
+  }
+
+  /* ── SEMÁFORO TABLE ──────────────────────────────────── */
+  .semaforo-wrap {
+    overflow-x: auto; margin-bottom: 16px;
+  }
+  .semaforo-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12px; line-height: 1.55;
+  }
+  .semaforo-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 500;
+    padding: 10px 12px;
+    background: var(--ink); color: rgba(245,240,232,0.65);
+    border-bottom: 2px solid var(--accent-soft);
+    white-space: nowrap;
+  }
+  .semaforo-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-mid);
+    vertical-align: top;
+  }
+  .semaforo-table tr:nth-child(even) td { background: rgba(18,18,18,0.025); }
+  .semaforo-table td:first-child { font-weight: 700; color: var(--ink); }
+  .sem-verde { color: #15803d; font-weight: 700; }
+  .sem-amarillo { color: #b45309; font-weight: 700; }
+  .sem-rojo { color: #991b1b; font-weight: 700; }
+  .sem-dot {
+    display: inline-block;
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-right: 5px; vertical-align: middle;
+  }
+  .dot-v { background: #15803d; }
+  .dot-a { background: #b45309; }
+  .dot-r { background: #991b1b; }
+
+  /* ── TRAZABILIDAD TABLE ──────────────────────────────── */
+  .traz-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 11.5px; line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .traz-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 500;
+    padding: 9px 10px;
+    background: rgba(30,58,95,0.90); color: rgba(245,240,232,0.85);
+    border-bottom: 2px solid var(--accent-soft);
+    white-space: nowrap;
+  }
+  .traz-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-mid);
+    vertical-align: top;
+  }
+  .traz-table tr:nth-child(even) td { background: rgba(30,58,95,0.04); }
+  .traz-table td:first-child { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .traz-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; padding: 2px 6px;
+    background: var(--accent-pale);
+    border: 1px solid rgba(30,58,95,0.20);
+    color: var(--accent);
+    margin: 2px 2px 0 0;
+    white-space: nowrap;
+  }
+
+  /* ── PROTOCOLO DE VALIDACIÓN ─────────────────────────── */
+  .protocolo-block {
+    background: rgba(30,58,95,0.06);
+    border: 1px solid rgba(30,58,95,0.20);
+    border-left: 4px solid var(--accent-soft);
+    padding: 22px 26px;
+    margin-bottom: 16px;
+  }
+  .protocolo-block .pb-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .protocolo-block ol {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .protocolo-block ol li {
+    display: flex; gap: 12px;
+    font-size: 13px; line-height: 1.72;
+    color: var(--ink-mid);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(30,58,95,0.10);
+  }
+  .protocolo-block ol li:last-child { border-bottom: none; }
+  .protocolo-block ol li .pnum {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    color: var(--accent-soft);
+    flex-shrink: 0; padding-top: 2px;
+    min-width: 22px;
+  }
+  .protocolo-block ol li strong { color: var(--ink); }
+
+  /* ── T7 / NIGT BLOCK ─────────────────────────────────── */
+  .nigt-block {
+    background: rgba(18,18,18,0.04);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--amber);
+    padding: 20px 24px; margin-bottom: 16px;
+    font-size: 13px; line-height: 1.78;
+  }
+  .nigt-block .nb-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--amber); margin-bottom: 12px;
+  }
+  .nigt-block p { color: var(--ink-mid); margin-bottom: 10px; }
+  .nigt-block p:last-child { margin-bottom: 0; }
+  .nigt-block strong { color: var(--ink); }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    background: var(--ink-soft);
+    border-top: 1px solid rgba(245,240,232,0.08);
+    padding: 18px 72px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.5px;
+    color: rgba(245,240,232,0.25);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
+  }
+  footer span { color: var(--amber-light); }
+
+  @media (max-width: 780px) {
+    header, .lente-bar, .intro-strip { padding-left: 24px; padding-right: 24px; }
+    header::before { display: none; }
+    .body-wrap { padding: 40px 20px 60px; }
+    .body-wrap::before { left: 20px; }
+    .node { grid-template-columns: 54px 1fr; }
+    .arrow-row { padding-left: 38px; }
+    .cap-grid, .data-grid, .box-split, .diff-inner, .synth-grid, .muni-grid { grid-template-columns: 1fr; }
+    .synthesis, .diff-section { padding: 0 20px 40px; }
+    footer { padding: 16px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="h-badge">Hilo Transversal 1 · T·1 · Lente ético del sistema completo</div>
+  <div class="h-eyebrow">Santander Visión 2050 · Arquitectura Estratégica Prospectiva · Diagnóstico inicial</div>
+  <h1>La <em>condición imposible:</em><br>sin paz territorial ninguna misión<br>puede sostenerse.</h1>
+  <p class="lead">El Hilo Transversal 1 no es una misión sectorial: es el lente ético que pregunta al sistema completo si está construyendo viabilidad social. La noción de Seguridad Humana (PNUD, 1994) trasciende la ausencia de violencia armada e incluye seguridad económica, alimentaria, en salud, ambiental, personal, comunitaria y política. En Santander 2050, este hilo reconoce que los conflictos socioambientales bloquean M1 (Naturaleza para la Vida), la violencia estructural fragmenta M2 (Santander Conectado y Equitativo), la inseguridad compromete M3 (Reconversión Productiva y Energética), y la desconfianza institucional erosiona M4 (Inteligencia Territorial y Gobernanza Participativa).</p>
+  <div class="h-epigraph">
+    "La paz territorial no es la ausencia de actores armados. Es la presencia sostenida del Estado, la garantía de derechos, la redistribución equitativa y la capacidad de las comunidades para decidir su futuro sin violencia. Sin ese piso, toda prospectiva es ficción."
+    <cite>— Corporación Compromiso / Marco conceptual Hilo T·1 · Santander 2050</cite>
+  </div>
+  <div class="h-stat-bar">
+    <div class="h-stat">
+      <span class="num">18,54</span>
+      <span class="desc">tasa de homicidios por 100.000 hab. Santander 2023 · la más alta en años recientes · 427 casos · Policía Nacional / BMCV 2024</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">414</span>
+      <span class="desc">casos de violencia contra líderes sociales en Santander durante 2023 · +78 respecto a 2022 · Observatorio Paz y DDHH · Compromiso 2024</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">16,2%</span>
+      <span class="desc">prevalencia de inseguridad alimentaria moderada o grave en Santander 2024 · 3.er mejor resultado nacional · FIES DANE 2025</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">0,47</span>
+      <span class="desc">Gini departamental Santander 2023 · persiste desigualdad moderada-alta · AMB sube a 0,466 · DANE 2024</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">2,7×</span>
+      <span class="desc">la pobreza rural supera a la urbana en Santander · brecha estructural territorial que reproduce violencia sistémica · DANE/UIS 2024</span>
+    </div>
+  </div>
+</header>
+
+<!-- LENTE BAR -->
+<div class="lente-bar">
+  <span class="icon">🔭</span>
+  <div><strong>Por qué este hilo es transversal y no sectorial:</strong> La paz con justicia social no puede asignarse a una entidad ni resolverse desde un único nivel de gobierno. <em>Es una condición de posibilidad del sistema completo.</em> Un departamento con conflictos socioambientales activos no puede garantizar la seguridad hídrica, alimentaria y climática que exige M1 (Naturaleza para la Vida). Uno con violencia estructural y desigualdad persistente no puede lograr cohesión territorial ni cero brechas (M2 — Santander Conectado y Equitativo). Uno con inseguridad y extorsión generalizada no puede ejecutar la reconversión productiva y energética (M3). Y uno con desconfianza institucional profunda no puede articular la inteligencia territorial y gobernanza participativa de M4. T·1 se verifica en cada componente del mapa, no en uno solo.</div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-strip">
+  <span class="icon">⚖</span>
+  <div>El marco conceptual de la Seguridad Humana (PNUD, 1994) comprende <strong>siete dimensiones:</strong> económica, alimentaria, sanitaria, ambiental, personal, comunitaria y política. Por relevancia territorial y disponibilidad de información verificada, este diagnóstico prioriza <strong>cinco dimensiones</strong>: <em>(1) ambiental — conflictos socioambientales;</em> <em>(2) personal — violencia directa y conflicto armado;</em> <em>(3) alimentaria — inseguridad y brecha rural;</em> <em>(4) económica — desigualdad estructural;</em> <em>(5) política — defensores de DDHH.</em> La dimensión <em>comunitaria</em> (identidad cultural, cohesión social) se aborda transversalmente en el análisis de capital social del sistema SVP 2050. La dimensión <em>sanitaria</em> se desarrolla en el hilo P·2 (Transición Demográfica y Salud). Fuentes: corpus UIS 2025, Corporación Compromiso 2023–2024, DANE FIES 2024, Defensoría del Pueblo 2024, UNAB-IEP 2024, Externado/CERAC 2024, Indepaz 2024. <strong>Nota:</strong> diagnóstico inicial sujeto a verificación con fuentes primarias del equipo UIS.</div>
+</div>
+
+<!-- ══════════ TESIS ESTRUCTURAL ══════════ -->
+<div class="tesis-block">
+  <span class="tesis-eyebrow">⊞ Tesis estructural del Hilo T·1</span>
+  <div class="tesis-statement">Santander no enfrenta únicamente problemas de seguridad, pobreza o conflicto.<br>Enfrenta una restricción más profunda: <em>la incapacidad del sistema territorial para garantizar condiciones mínimas de seguridad humana de manera homogénea y sostenida</em>, lo que limita la viabilidad social del desarrollo y bloquea la transformación de capacidades territoriales.</div>
+  <div class="tesis-body">
+    Esta restricción opera a través de un ciclo auto-reforzado que conecta desigualdad territorial, presencia estatal insuficiente, economías ilegales y conflictividad. El ciclo <strong>no se rompe con intervenciones sectoriales</strong> — requiere una acción sistémica simultánea sobre sus múltiples nodos. Las cinco dimensiones del diagnóstico que siguen son las manifestaciones empíricas de ese ciclo en el territorio santandereano.
+  </div>
+  <div class="causal-chain">
+    <div class="cc-step">Desigualdad<br>territorial</div>
+    <span class="cc-arrow">→</span>
+    <div class="cc-step">Baja presencia<br>estatal</div>
+    <span class="cc-arrow">→</span>
+    <div class="cc-step">Economías<br>ilegales</div>
+    <span class="cc-arrow">→</span>
+    <div class="cc-step">Conflictividad<br>armada/social</div>
+    <span class="cc-arrow">→</span>
+    <div class="cc-step">Desincentivo<br>inversión/participación</div>
+    <span class="cc-arrow">→</span>
+    <div class="cc-step">Reproducción<br>de pobreza</div>
+    <span class="cc-arrow">→</span>
+    <div class="cc-step" style="background:rgba(153,27,27,0.25); border-color:rgba(153,27,27,0.40);">↺ Ciclo de<br>inseguridad humana</div>
+  </div>
+</div>
+
+<!-- ══════════ TIMELINE ══════════ -->
+<div class="body-wrap">
+
+  <!-- N1: CONFLICTOS SOCIOAMBIENTALES -->
+  <div class="node n1">
+    <div class="marker">
+      <div class="bubble">DIM<br>I</div>
+      <div class="side-label">Conflicto Socioambiental</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 1 · Seguridad Ambiental y Territorial · Bloqueo a M1 y M3</span>
+      <div class="node-h">Conflictos socioambientales: la violencia que no se nombra — y que es la principal fuente de agresiones post-Acuerdo de Paz</div>
+      <div class="node-sub">En Santander, la dinámica del conflicto se transformó: el origen de la violencia post-2016 ya no son principalmente los actores armados sino las disputas por recursos naturales y actividades extractivas. Esta mutación es invisible para los instrumentos institucionales diseñados para el conflicto armado clásico.</div>
+
+      <div class="node-text">
+        Investigadores del Instituto de Estudios Políticos de la UNAB identificaron que, tras la firma del Acuerdo de Paz en 2016, las dinámicas de conflicto en Santander mutaron: los corredores de narcotráfico y los actores armados tradicionales cedieron protagonismo a disputas de origen socioambiental, especialmente en torno a la explotación minero-energética. Esta caracterización cubre el período 2016-2022 y representa un hallazgo con implicaciones directas para el diseño de M1 (Naturaleza para la Vida) y M3 (Reconversión Productiva y Energética) en el marco de Santander 2050.
+      </div>
+
+      <div class="critical-box">
+        <span class="cb">⚠ Hallazgo estructural — UNAB-IEP 2024 (Scielo / Logos C&T PONAL)</span>
+        <p>Santander es <strong>uno de los departamentos con mayor incidencia de amenazas de muerte a líderes ambientales en Colombia</strong> desde la firma del Acuerdo de Paz en 2016, con registro verificado de la Jurisdicción Especial para la Paz (JEP, corte 2022). Colombia es el sexto país del mundo con más conflictos socioambientales (Mapa Mundial de Justicia Ambiental, 2023) y el país con mayor número de asesinatos a líderes ambientales a nivel global (Global Witness). <strong>Los conflictos socioambientales son hoy el principal vector de conflictividad territorial en economías extractivas en transición —</strong> en Santander, de los 136 casos reportados por Indepaz, la minería encabeza con más de 60 casos; le siguen el monocultivo agroindustrial y la infraestructura (aprox. 20 cada uno) y las explotaciones petroleras (18 casos).</p>
+        <p>Agravante crítico: el Gobierno Nacional no genera cifras sobre asesinatos de líderes ambientales, lo que <strong>invisibiliza el fenómeno y fomenta la impunidad.</strong></p>
+      </div>
+
+      <div class="muni-grid">
+        <div class="muni-card">
+          <span class="mc-loc">📍 California · Suratá · Vetas</span>
+          <strong>Páramo de Santurbán</strong> — contaminación de fuentes hídricas y tensión entre minería industrial y artesanal. Afectación directa a cuencas de los ríos Suratá, Tona, Charta, Vetas y Río de Oro con niveles de mercurio, plomo y arsénico por encima de límites permisibles.
+        </div>
+        <div class="muni-card">
+          <span class="mc-loc">📍 Barrancabermeja · Puerto Wilches</span>
+          <strong>Fracking y extracción de hidrocarburos</strong> — principales nodos de conflictividad en el Magdalena Medio. El Valle del Magdalena Medio concentra el 11% de los bloqueos al sector Oil &amp; Gas en Colombia (ACP/Campetrol 2024).
+        </div>
+        <div class="muni-card">
+          <span class="mc-loc">📍 Cerrito · Chitagá</span>
+          <strong>Páramo El Almorzadero</strong> — posible explotación carbonífera. Tensión entre expansión extractiva y protección de ecosistemas de alta montaña.
+        </div>
+        <div class="muni-card">
+          <span class="mc-loc">📍 Girón · Betulia · Los Santos · San Vicente · Zapatoca</span>
+          <strong>Embalse de Hidrosogamoso</strong> — afectaciones comunitarias derivadas de la megainfraestructura energética. Caso paradigmático de transición sin justicia territorial.
+        </div>
+        <div class="muni-card">
+          <span class="mc-loc">📍 Área subregional · Yariguíes</span>
+          <strong>Mina de carbón Colcco</strong> — lucha campesina de la Región de los Yariguíes documentada por Compromiso en su Revista de Conflictos Ambientales 2023. Proceso de resistencia y soberanía territorial con construcción de agroecología alternativa.
+        </div>
+        <div class="muni-card">
+          <span class="mc-loc">📍 Matanza · Charta · Tona · California</span>
+          <strong>Minería ilegal y contaminación</strong> — Colombia es el país con mayor liberación de mercurio per cápita al ambiente. En Santander, las zonas más críticas están en los municipios citados. La minería ilegal genera desplazamiento forzado, explotación laboral y riesgos de salud para población vulnerable.
+        </div>
+      </div>
+
+      <div class="box n1">
+        <div class="bt">Nexo con la arquitectura Santander 2050</div>
+        <p><strong>Motor A (Transición energética e industria de transición justa):</strong> los conflictos socioambientales en torno a hidrocarburos, fracking y minería en el Magdalena Medio son el principal riesgo de bloqueo para la Misión M1 (Naturaleza para la Vida — Seguridad Hídrica, Alimentaria y Climática). Sin mecanismos de justicia ambiental verificados, la transición reproducirá los mismos conflictos con nuevos vectores (eólico, solar, minería para la transición).</p>
+        <p><strong>Motor B (Bioeconomía y agroindustria avanzada basada en biodiversidad):</strong> el conflicto de uso del suelo en Santander alcanza el 42,8% del área departamental (IGAC, dato histórico citado en corpus UIS). La soberanía alimentaria y la agroecología emergen como respuestas de resistencia desde los territorios — reconocidas en los laboratorios vivos como alternativa al modelo extractivo.</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Páramo Santurbán</span>
+        <span class="tag">Fracking Magdalena Medio</span>
+        <span class="tag">Minería ilegal</span>
+        <span class="tag">Líderes ambientales</span>
+        <span class="tag">Conflicto uso de suelo 42,8%</span>
+        <span class="tag">UNAB-IEP 2024</span>
+        <span class="tag">JEP / Compromiso / Indepaz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La violencia socioambiental genera el contexto estructural en el que se instalan y recrudecen las violencias directas
+  </div>
+
+  <!-- N2: VIOLENCIA DIRECTA Y CONFLICTO ARMADO -->
+  <div class="node n2">
+    <div class="marker">
+      <div class="bubble">DIM<br>II</div>
+      <div class="side-label">Violencia Directa</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 2 · Seguridad Personal y Comunitaria · Impacto en M3 y M4</span>
+      <div class="node-h">Reconfiguración del conflicto armado, homicidios en ascenso y expansión del crimen organizado — la paz que no llegó a todo el territorio</div>
+      <div class="node-sub">La tasa de homicidios de Santander alcanzó en 2023 su nivel más alto en años recientes. Barrancabermeja se convirtió en uno de los municipios intermedios más violentos del país. El Clan del Golfo expande su presencia hacia el AMB. El ELN opera en el Magdalena Medio. Y la ciudad de Bucaramanga enfrenta un fenómeno inédito de sicariato urbano.</div>
+
+      <div class="node-text">
+        La firma del Acuerdo de Paz en 2016 generó expectativas de mejora en la seguridad territorial de Santander. Una década después, el panorama es contradictorio: mientras algunos indicadores muestran mejoras en zonas rurales históricamente afectadas, la violencia urbana y la presencia del crimen organizado se han intensificado. Este fenómeno no es exclusivo de Santander — es parte de una reconfiguración nacional del conflicto — pero tiene expresiones locales que deben leerse con precisión prospectiva.
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="dtag">Tasa homicidios · Santander</div>
+          <div class="dnum">18,54</div>
+          <div class="dlabel">por 100.000 hab. en 2023 — la más alta del departamento en años recientes, equivalente a <strong>427 casos</strong>. La tasa creció 5,24 puntos respecto a 2022. <em>Fuente: Policía Nacional / Programa BMCV 2024.</em></div>
+        </div>
+        <div class="data-card">
+          <div class="dtag">Barrancabermeja · 2024</div>
+          <div class="dnum">161</div>
+          <div class="dlabel">homicidios en 2024 — incremento del <strong>31%</strong> respecto a los 122 de 2023. Tasa de 66 por 100.000 hab., la más elevada en la última década. <em>Fuente: SIPC Ministerio de Defensa / Infobae 2025.</em></div>
+        </div>
+        <div class="data-card">
+          <div class="dtag">Víctimas jóvenes · perfil</div>
+          <div class="dnum">15–24</div>
+          <div class="dlabel">años: rango etario que concentra la mayoría de víctimas y agresores en Bucaramanga y Santander. El sicariato como método de resolución de conflictos cotidianos amenaza con replicar el patrón Medellín años 80–90. <em>Fuente: BMCV / expertos UPB 2024.</em></div>
+        </div>
+        <div class="data-card">
+          <div class="dtag">Extorsión · Barrancabermeja</div>
+          <div class="dnum">50×</div>
+          <div class="dlabel">el subregistro de extorsión estimado: frente a 78 denuncias formales en 2025, testimonios apuntan a que la cifra real puede superar en 50 veces la oficial. La extorsión genera un retén económico invisible que destruye el tejido productivo local. <em>Fuente: Vanguardia / Infobae 2025.</em></div>
+        </div>
+      </div>
+
+      <div class="box n2">
+        <div class="bt">Actores armados y geografía del conflicto en Santander (2023–2025)</div>
+        <p><strong>Clan del Golfo / AGC:</strong> expansión documentada hacia Rionegro y Lebrija (área metropolitana de Bucaramanga), con presencia consolidada en Barrancabermeja, Puerto Wilches y Sabana de Torres. En junio de 2024 fue asesinada en Puerto Wilches Yoli María Toloza, lideresa de la Organización Femenina Popular, en zona de dominio AGC.</p>
+        <p><strong>ELN:</strong> presencia en el Magdalena Medio santandereano; en 2024 realizó un atentado a una estación de Policía en el área metropolitana de Bucaramanga. La Defensoría del Pueblo emitió alertas tempranas sobre su expansión.</p>
+        <p><strong>Criminalidad organizada urbana:</strong> Bucaramanga enfrenta un fenómeno sin precedente histórico — sicariato vinculado a microtráfico, control de rentas ilegales y disputas entre estructuras de criminalidad organizada. El 52% de homicidios en el AMB se atribuye a intolerancia y el 44% a ajuste de cuentas (Policía Metropolitana / Gobernación, 2025).</p>
+      </div>
+
+      <div class="box-split">
+        <div class="box n2" style="margin-bottom:0;">
+          <div class="bt">Conexión con la paz total nacional</div>
+          <p>Los procesos de diálogo del Gobierno Nacional con el ELN y el Clan del Golfo influyen directamente en la dinámica de seguridad de Santander. La ruptura temporal del cese al fuego bilateral con el ELN en 2024 generó alertas sobre posible reactivación del secuestro y la extorsión en el Magdalena Medio. El departamento es escenario de transiciones de paz incompletas.</p>
+        </div>
+        <div class="box n1" style="margin-bottom:0;">
+          <div class="bt">Impacto sobre M3 y M4</div>
+          <p>La inseguridad generalizada y la percepción de impunidad inhiben la inversión estratégica (M3) y destruyen el capital social necesario para la gobernanza participativa (M4). Un territorio donde los líderes son asesinados no puede construir inteligencia territorial colectiva. La confianza es condición previa a la cooperación.</p>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Homicidios Santander 2023</span>
+        <span class="tag">Barrancabermeja crimen organizado</span>
+        <span class="tag">Clan del Golfo</span>
+        <span class="tag">ELN Magdalena Medio</span>
+        <span class="tag">Sicariato Bucaramanga</span>
+        <span class="tag">Extorsión</span>
+        <span class="tag">Paz Total</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La inseguridad física se superpone con la inseguridad alimentaria — especialmente en los territorios rurales más afectados
+  </div>
+
+  <!-- N3: SEGURIDAD ALIMENTARIA -->
+  <div class="node n3">
+    <div class="marker">
+      <div class="bubble">DIM<br>III</div>
+      <div class="side-label">Seguridad Alimentaria</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 3 · Seguridad Alimentaria · Nexo con M2 — Economía Popular</span>
+      <div class="node-h">Logro excepcional con paradoja intacta: Santander reduce su inseguridad alimentaria más que casi cualquier departamento — y aún está a 2,3 puntos de la meta ODS</div>
+      <div class="node-sub">Los datos FIES 2024 del DANE ubican a Santander como uno de los dos únicos departamentos que logró una reducción estadísticamente significativa de la inseguridad alimentaria en 2024 (junto con Cundinamarca), mientras Chocó, Antioquia y Nariño retrocedían hasta 17,4 puntos. 177.000 personas salieron de la vulnerabilidad alimentaria. Aun así, el 31% de los hogares santandereanos manifiesta preocupación cotidiana por la falta de alimentos, y la meta ODS "Hambre Cero" (≤13,9%) permanece a 2,3 puntos de distancia.</div>
+
+      <div class="node-text">
+        La Escala de Experiencia de Inseguridad Alimentaria (FIES) del DANE, aplicada en 2022, 2023 y 2024, permite por primera vez contar con mediciones oficiales y comparables de la situación alimentaria por departamento. Para Santander, el resultado es ambivalente: el progreso en indicadores promedio es genuino y excepcional en el contexto nacional, pero la brecha entre cabeceras y zonas rurales dispersas indica que ese progreso es selectivo y geográficamente concentrado. La desigualdad relevante no es solo distributiva — es territorial y funcional: acceso diferencial a mercados, servicios de distribución y capacidades productivas entre el corredor urbano Bucaramanga-Barrancabermeja y las provincias periféricas.
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card" style="border-top-color: #7c3aed;">
+          <div class="dtag" style="background:rgba(124,58,237,0.06); color:#7c3aed; border-color:rgba(124,58,237,0.25);">FIES Colombia 2024</div>
+          <div class="dnum" style="color:#7c3aed;">27,6%</div>
+          <div class="dlabel">de la población colombiana en inseguridad alimentaria moderada o grave — <strong>14,4 millones de personas.</strong> La inseguridad grave alcanza 5,2% (2,7 millones). Chocó lidera el retroceso (+17,4 pp). <em>Fuente: DANE FIES 2024 / FAO Colombia.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: #7c3aed;">
+          <div class="dtag" style="background:rgba(124,58,237,0.06); color:#7c3aed; border-color:rgba(124,58,237,0.25);">FIES Santander 2024</div>
+          <div class="dnum" style="color:#7c3aed;">16,2%</div>
+          <div class="dlabel">inseguridad alimentaria moderada o grave — 3.er menor porcentaje nacional (tras Caldas 12,8% y Bogotá 13,9%). <strong>Caída de 7 pp frente a 2023 (23,2%)</strong>: el mayor descenso relativo del país junto a Cundinamarca. Meta ODS: ≤13,9%. <em>Fuente: DANE FIES 2024.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: #7c3aed;">
+          <div class="dtag" style="background:rgba(124,58,237,0.06); color:#7c3aed; border-color:rgba(124,58,237,0.25);">Experiencia cotidiana</div>
+          <div class="dnum" style="color:#7c3aed;">31%</div>
+          <div class="dlabel">de hogares santandereanos manifiesta <strong>preocupación cotidiana por la falta de alimentos.</strong> El 10,4% reportó haber omitido al menos una comida en el período de referencia. El progreso estadístico no elimina la inseguridad como experiencia vivida. <em>Fuente: DANE ECV / Melodía en Línea 2025.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: #b45309;">
+          <div class="dtag" style="background:rgba(180,83,9,0.06); color:#b45309; border-color:rgba(180,83,9,0.25);">Efecto frontera · Norte de Santander</div>
+          <div class="dnum" style="color:#b45309;">+2 pp</div>
+          <div class="dlabel">aumento de inseguridad alimentaria <em>grave</em> en Norte de Santander (de 3,6% a 5,6%, ~29.000 hogares). La presión migratoria venezolana y la inestabilidad del Táchira afectan las cadenas de suministro regionales con efecto de derrame sobre Santander. <em>Fuente: DANE FIES 2024 / La Opinión 2025.</em></div>
+        </div>
+      </div>
+
+      <div class="box n3">
+        <div class="bt">La trampa rural: donde convergen el hambre y la violencia</div>
+        <p>A nivel nacional, la inseguridad alimentaria en zonas rurales dispersas aumentó de 31,2% a 34,2% entre 2023 y 2024 — un incremento de 3 puntos porcentuales mientras la inseguridad urbana bajó 1,7 pp. Este patrón es especialmente relevante para Santander, donde <strong>la pobreza rural es 2,7 veces mayor que la urbana</strong> (corpus UIS 2024) y las subregiones de García Rovira, Guanentá y Vélez registran pobreza estructural severa.</p>
+        <p>Los municipios con IPM muy alto (60% o más) en Santander — como Guaca (60,3%), Encino, San Andrés y zonas de García Rovira — son exactamente los mismos donde confluyen el aislamiento territorial, la baja conectividad, la ausencia de servicios de salud y la precariedad agropecuaria. <strong>En estos territorios, la inseguridad alimentaria no es un indicador sectorial — es la expresión de la falla sistémica del Estado.</strong></p>
+        <p>Un factor adicional documentado: los hogares con jefatura femenina registran una prevalencia de inseguridad alimentaria del 28,2%, mayor que los de jefatura masculina (23,1%) — brecha de género que se cruza con la violencia doméstica y la exclusión del mercado formal.</p>
+      </div>
+
+      <div class="box-split">
+        <div class="cap-cell">
+          <span class="cap-label">Factores protectores identificados</span>
+          La base agropecuaria diversa de Santander, el peso del sector agroalimentario como segundo motor económico tras el petróleo (corpus UIS Tomo 2), y la emergencia de procesos de agroecología y autonomía alimentaria desde las comunidades campesinas (Compromiso 2023) constituyen activos para la Misión M2 (Santander Conectado y Equitativo) y para SB6 (Economía Popular y Creación de Mercados Inclusivos). La soberanía alimentaria es una respuesta simultánea a la inseguridad y al modelo extractivo.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label">Factores de riesgo prospectivo</span>
+          El conflicto de uso del suelo (42,8% del territorio), el desplazamiento forzado de comunidades rurales vinculado a conflictos minero-energéticos, y el envejecimiento de la población campesina amenazan la base productiva alimentaria. Un escenario sin transición justa podría intensificar la inseguridad alimentaria rural hacia 2030–2050.
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">FIES DANE 2024</span>
+        <span class="tag">Inseguridad alimentaria 16,2%</span>
+        <span class="tag">Brecha rural-urbana</span>
+        <span class="tag">IPM García Rovira / Vélez</span>
+        <span class="tag">Jefatura femenina</span>
+        <span class="tag">Agroecología / soberanía</span>
+        <span class="tag">M2 — Santander Conectado y Equitativo</span>
+        <span class="tag">SB6 — Economía Popular</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La desigualdad estructural es el sustrato en el que la inseguridad alimentaria y la violencia se reproducen intergeneracionalmente
+  </div>
+
+  <!-- N4: DESIGUALDAD ESTRUCTURAL -->
+  <div class="node n4">
+    <div class="marker">
+      <div class="bubble">DIM<br>IV</div>
+      <div class="side-label">Desigualdad Estructural</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 4 · Seguridad Económica y Social · Violencia sistémica invisible</span>
+      <div class="node-h">Desigualdad persistente y pobreza multidimensional diferenciada territorialmente — la violencia que no deja rastros en las estadísticas criminales</div>
+      <div class="node-sub">El Gini de Santander alcanzó 0,47 en 2023 — mejora histórica desde 0,515 en 2012, pero aún en el rango de desigualdad moderada-alta. El AMB escala a 0,466, mientras García Rovira y Vélez mantienen IPM por encima del 60%. La desigualdad no es solo un dato — es el caldo de cultivo donde se reproducen todas las demás violencias.</div>
+
+      <div class="node-text">
+        Los datos del corpus UIS (Tomo 3 / Diagnóstico Síntesis SVP 2050) revelan una tensión estructural central: Santander ha mejorado sus indicadores de desigualdad a nivel departamental en el largo plazo, pero esa mejora es selectiva. La recuperación post-pandemia benefició más a los sectores con mayor formalidad e ingresos, generando una brecha creciente en el AMB. Simultáneamente, las provincias periféricas — García Rovira, Vélez, Guanentá — mantienen pobreza multidimensional estructural que no mejora al ritmo del promedio departamental.
+      </div>
+
+      <div class="box n4">
+        <div class="bt">La paradoja de la desigualdad en Santander: mejora promedio, brecha territorial</div>
+        <p><strong>Nivel departamental (2012–2023):</strong> reducción del Gini de 0,515 a 0,478 — mejora de 0,037 puntos en once años. La pandemia produjo un repunte a 0,52 en 2021, seguido de una recuperación rápida a 0,47 en 2023, inusualmente acelerada respecto al promedio nacional.</p>
+        <p><strong>Área Metropolitana de Bucaramanga (2020–2023):</strong> aumento sostenido del Gini de 0,427 en 2020 a 0,466 en 2023. La estructura económica metropolitana genera crecimiento sin absorción laboral amplia — beneficia a los sectores de alta productividad y excluye a los trabajadores informales (56,8% de la PEA en 2024).</p>
+        <p><strong>Brechas territoriales extremas:</strong> la pobreza multidimensional en Santander rural es 2,7 veces mayor que en cabeceras. En municipios con IPM muy alto (60%+) como Guaca (60,3%), el bajo logro educativo alcanza el 76–77% de hogares y la informalidad supera el 90%. El legado del conflicto armado — desplazamiento, pérdida de activos productivos — explica parte de la profundidad de esta pobreza.</p>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#15803d;">Pobreza MUY ALTA (IPM 60%+)</span>
+          Municipios como Guaca, Encino, San Andrés, Confines y zonas de García Rovira. Privación educativa estructural, informalidad laboral 76–77%, sin acceso a servicios básicos. Estas comunidades requieren políticas de salto, no de gradualidad.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#b45309;">Pobreza ALTA (IPM 40–60%)</span>
+          Municipios de las provincias de Vélez y Comunera. Aislamiento territorial como principal determinante: la baja conectividad explica la mayor parte de la pobreza multidimensional. Inversión en infraestructura y conectividad tiene retorno directo en reducción de brechas.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#0369a1;">Pobreza MEDIA (IPM 20–40%)</span>
+          Barrancabermeja (26,4%): la pobreza no es extrema pero es persistente. El impulso petrolero generó empleo formal para una élite técnica mientras dejaba a la mayoría en informalidad. Caso paradigmático de enclave económico sin derrame territorial.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#1e3a5f;">Población vulnerable estructural</span>
+          Personas con discapacidad, mujeres rurales y población desplazada registran privaciones transversales. La informalidad femenina rural supera el 90% en las provincias más pobres. Este grupo reproduce ciclos intergeneracionales de pobreza y baja movilidad social.
+        </div>
+      </div>
+
+      <div class="box n4">
+        <div class="bt">Violencia sistémica: lo que no aparece en las estadísticas de homicidios</div>
+        <p>La violencia estructural opera a través de mecanismos que no dejan rastros en los registros criminales: la informalidad laboral (56,8% del departamento), la expulsión de mujeres del mercado formal, la reproducción intergeneracional de la pobreza en los jóvenes de las periferias rurales, y la ausencia de Estado en territorios donde la única presencia institucional es extractiva. <strong>En Santander, la violencia sistémica es el costo que pagan los territorios olvidados para financiar el crecimiento de los privilegiados.</strong></p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Gini 0,47 Santander 2023</span>
+        <span class="tag">Gini AMB 0,466</span>
+        <span class="tag">IPM García Rovira</span>
+        <span class="tag">Informalidad 56,8%</span>
+        <span class="tag">Brecha rural-urbana 2,7×</span>
+        <span class="tag">Movilidad social</span>
+        <span class="tag">DANE / corpus UIS Tomo 3</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    Quienes denuncian la desigualdad, defienden el territorio y organizan a las comunidades enfrentan violencia directa — cerrando el círculo
+  </div>
+
+  <!-- N5: DEFENSORES DE DDHH -->
+  <div class="node n5">
+    <div class="marker">
+      <div class="bubble">DIM<br>V</div>
+      <div class="side-label">Derechos Humanos</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 5 · Seguridad Personal y Política · El termómetro del sistema</span>
+      <div class="node-h">414 casos de violencia contra líderes sociales en 2023 — el silenciamiento de quienes construyen paz es el indicador más sensible del estado de los derechos humanos en el territorio</div>
+      <div class="node-sub">El Observatorio de Paz y Derechos Humanos de la Corporación Compromiso registró en 2023 el mayor número de casos de violencia contra líderes sociales en Santander de los últimos años. El fenómeno no es exclusivo del departamento — es parte de una crisis nacional — pero tiene características propias que lo conectan directamente con los conflictos socioambientales y el crimen organizado.</div>
+
+      <div class="node-text">
+        La medición de agresiones a defensores de derechos humanos es el indicador más sensible del estado de la paz en un territorio. Cuando los líderes que organizan comunidades, denuncian irregularidades y construyen tejido social son amenazados o asesinados, el sistema completo de construcción de paz colapsa. En Santander, este fenómeno se ha intensificado desde 2016 de una forma particular: la violencia contra líderes ya no proviene exclusivamente de actores armados sino de estructuras de crimen organizado y actores ligados a los conflictos socioambientales.
+      </div>
+
+      <div class="critical-box">
+        <span class="cb">⚠ Cifras del Observatorio de Paz y DDHH · Corporación Compromiso 2024</span>
+        <p><strong>414 casos de violencia</strong> contra líderes y lideresas sociales en Santander durante 2023 — 78 más que en 2022 (+23%). De estos, <strong>100 fueron agresiones directas</strong> (22 más que en 2022), incluyendo <strong>2 asesinatos de firmantes del Acuerdo de Paz</strong> que además aspiraban a cargos de elección popular en Mogotes y Barrancabermeja.</p>
+        <p>En 2024, según el informe "Bajo las Sombras" (Compromiso), Bucaramanga se convirtió en una ciudad muy insegura con fenómeno inédito de sicariato, y los actores documentados incluyen ELN (atentado a estación de Policía en el AMB) y Clan del Golfo (expansión a Rionegro y Lebrija). <strong>Santander aparece en los 10 departamentos con mayor ocurrencia de agresiones a defensores de DDHH en Colombia en 2024</strong> (Somos Defensores / Mongabay 2025).</p>
+      </div>
+
+      <div class="box-split">
+        <div class="box n5" style="margin-bottom:0;">
+          <div class="bt">Contexto nacional · 2023</div>
+          <p>Colombia registró <strong>181 líderes sociales asesinados</strong> en 2023 (Defensoría del Pueblo) — uno cada dos días. En los últimos ocho años (2016–2023) han sido asesinados <strong>1.294 líderes</strong> en el país. En 2024 la cifra alcanzó <strong>173 asesinatos</strong> (Indepaz) — más de 1.500 líderes asesinados desde la firma del Acuerdo de Paz. La impunidad alcanza el 90% de los casos (Somos Defensores 2025).</p>
+        </div>
+        <div class="box n2" style="margin-bottom:0;">
+          <div class="bt">Perfil de las víctimas en Santander</div>
+          <p>Las víctimas incluyen líderes campesinos y ambientales (vinculados a conflictos minero-energéticos), defensores de derechos de mujeres (como Yoli Toloza, OFP Puerto Wilches, asesinada en junio 2024 en zona AGC), firmantes del Acuerdo de Paz y precandidatos políticos. <strong>El patrón de victimización refleja quiénes representan una amenaza para las estructuras que controlan recursos y economías ilegales.</strong></p>
+        </div>
+      </div>
+
+      <div class="box n5">
+        <div class="bt">Impunidad estructural: el problema detrás del problema</div>
+        <p>La Corporación Compromiso señala que la impunidad histórica — estimada en 94,7% en investigaciones de períodos anteriores — es el principal motor que reproduce la violencia contra defensores. Sin investigaciones efectivas, sin identificación de autores materiales e intelectuales, y sin una política pública de protección con asignación presupuestal en los planes de desarrollo, las agresiones continúan con costos casi nulos para los perpetradores.</p>
+        <p><strong>Recomendación emergente del corpus:</strong> la Gobernación y las Alcaldías deben incluir en sus planes de desarrollo una política de protección de líderes con presupuesto propio, articulada con la 'Paz Total' y con mecanismos de coordinación con la Fiscalía para establecer autores materiales e intelectuales de los hechos victimizantes.</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">414 casos violencia líderes 2023</span>
+        <span class="tag">2 asesinatos firmantes Acuerdo Paz</span>
+        <span class="tag">Defensores DDHH Santander</span>
+        <span class="tag">Compromiso / Indepaz / Defensoría</span>
+        <span class="tag">Impunidad 90%</span>
+        <span class="tag">OFP Puerto Wilches</span>
+        <span class="tag">Paz Total</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    Las cinco dimensiones convergen en una pregunta única para el sistema: ¿puede Santander construir viabilidad social hacia 2050?
+  </div>
+
+  <!-- N6: NEXO ARQUITECTURAL -->
+  <div class="node n6">
+    <div class="marker">
+      <div class="bubble">NEX<br>M</div>
+      <div class="side-label">Nexo Arquitectural</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Nexo con Misiones y Motores · Cómo T·1 se verifica en cada componente</span>
+      <div class="node-h">Cómo el Hilo T·1 bloquea o habilita cada misión del mapa estratégico</div>
+      <div class="node-sub">La paz con justicia social no es una misión sectorial porque sus efectos son transversales. Cada misión del mapa estratégico tiene un mecanismo específico por el cual T·1 opera como condición de posibilidad o como bloqueador sistémico.</div>
+
+      <div class="node-text">
+        El análisis de los cinco nudos diagnósticos permite identificar con precisión los mecanismos de bloqueo: no son metáforas — son relaciones causales verificables con evidencia. La prospectiva sin esta lectura produce hojas de ruta voluntaristas que no sobreviven al primer conflicto territorial.
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#1e3a5f;">M1 · Naturaleza para la Vida</span>
+          Los conflictos socioambientales activos en Barrancabermeja, Puerto Wilches, Santurbán y el Magdalena Medio son el principal riesgo de bloqueo para la seguridad hídrica, alimentaria y climática. Una transición sin justicia territorial reproducirá los mismos conflictos con nuevos vectores. T·1 exige: consultas previas efectivas, mecanismos de reparación a comunidades afectadas y participación en los beneficios de la transición.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#1e3a5f;">M2 · Santander Conectado y Equitativo</span>
+          La violencia estructural —informalidad, desigualdad, desplazamiento— fragmenta los mercados locales y destruye el tejido productivo. Sin condiciones mínimas de seguridad económica y cohesión territorial, ninguna estrategia de cero brechas puede consolidarse. T·1 exige: redistribución, formalización y protección activa de las economías territoriales periféricas.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#1e3a5f;">M3 · Reconversión Productiva y Energética</span>
+          La inseguridad (extorsión, homicidios, control territorial del crimen) es el principal inhibidor de la inversión estratégica. Santander no puede consolidar su reconversión productiva mientras Barrancabermeja registre tasas de homicidio de 66/100.000 y la extorsión sea percibida como tributo inevitable. T·1 exige: seguridad ciudadana sostenida y transparencia institucional.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#1e3a5f;">M4 · Gobernanza e Inteligencia Territorial</span>
+          La desconfianza institucional profunda —alimentada por la impunidad, la corrupción y el silenciamiento de líderes— destruye la base de legitimidad que la gobernanza participativa necesita. Un sistema que asesina a sus mediadores no puede construir inteligencia colectiva. T·1 exige: protección efectiva de líderes, rendición de cuentas y mecanismos de verdad y reparación.
+        </div>
+      </div>
+
+      <!-- TRAZABILIDAD TABLE -->
+      <div class="box n6" style="padding:0; overflow:hidden; margin-bottom:16px;">
+        <div class="bt" style="padding:14px 20px; margin-bottom:0; border-bottom:1px solid rgba(3,105,161,0.15);">Trazabilidad al sistema UIS — de cada dimensión T·1 a la cadena P → T → R → M</div>
+        <div class="semaforo-wrap" style="margin:0;">
+          <table class="traz-table">
+            <thead>
+              <tr>
+                <th>Dimensión T·1</th>
+                <th>Problemática (P)</th>
+                <th>Transición (T)</th>
+                <th>Reto Territorial (RT)</th>
+                <th>Capacidad afectada (C)</th>
+                <th>Misión (M)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Seguridad Ambiental<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Conflictos socioambientales</span></td>
+                <td><span class="traz-tag">P1 Riesgo hídrico</span> <span class="traz-tag">P3 Extractivismo</span></td>
+                <td><span class="traz-tag">T1 Energética</span> <span class="traz-tag">T5 Climática</span></td>
+                <td>RT1 Seguridad hídrica y resiliencia climática · RT3 Transición productiva y energética justa</td>
+                <td>C1 Reproducción ecológica · C3 Reproducción social y demográfica</td>
+                <td><span class="traz-tag" style="background:rgba(21,128,61,0.08); color:#15803d; border-color:rgba(21,128,61,0.25);">M1 Naturaleza para la Vida</span></td>
+              </tr>
+              <tr>
+                <td>Seguridad Personal<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Violencia y conflicto armado</span></td>
+                <td><span class="traz-tag">P8 Débil gobernanza</span></td>
+                <td><span class="traz-tag">T6 Institucional</span> <span class="traz-tag">T7 Geopolítica</span></td>
+                <td>RT7 Gobernanza eficaz y participativa · RT8 Inteligencia geopolítica</td>
+                <td>C5 Decisión colectiva basada en evidencia · C4 Aprendizaje e innovación territorial</td>
+                <td><span class="traz-tag" style="background:rgba(30,58,95,0.08); color:#1e3a5f; border-color:rgba(30,58,95,0.25);">M4 Inteligencia Territorial y Gobernanza</span></td>
+              </tr>
+              <tr>
+                <td>Seguridad Alimentaria<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Inseguridad y brecha rural</span></td>
+                <td><span class="traz-tag">P5 Desigualdad territorial</span></td>
+                <td><span class="traz-tag">T2 Productiva</span></td>
+                <td>RT1 Seguridad alimentaria · RT6 Cohesión territorial y cero brechas</td>
+                <td>C3 Reproducción social y demográfica · C2 Reproducción económica</td>
+                <td><span class="traz-tag" style="background:rgba(124,58,237,0.08); color:#7c3aed; border-color:rgba(124,58,237,0.25);">M2 Santander Conectado y Equitativo</span></td>
+              </tr>
+              <tr>
+                <td>Seguridad Económica<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Desigualdad y pobreza</span></td>
+                <td><span class="traz-tag">P5 Desigualdad</span> <span class="traz-tag">P6 Brechas conocimiento</span></td>
+                <td><span class="traz-tag">T2 Productiva</span> <span class="traz-tag">T3 Tecnológica</span></td>
+                <td>RT4 Transformación económica hacia valor agregado · RT6 Cohesión territorial</td>
+                <td>C2 Reproducción económica · C3 Reproducción social · C4 Aprendizaje e innovación</td>
+                <td><span class="traz-tag" style="background:rgba(124,58,237,0.08); color:#7c3aed; border-color:rgba(124,58,237,0.25);">M2</span> <span class="traz-tag" style="background:rgba(30,58,95,0.08); color:#1e3a5f; border-color:rgba(30,58,95,0.25);">M3 Reconversión Productiva y Energética</span></td>
+              </tr>
+              <tr>
+                <td>Seguridad Política<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Defensores DDHH</span></td>
+                <td><span class="traz-tag">P8 Débil gobernanza</span></td>
+                <td><span class="traz-tag">T6 Institucional</span> <span class="traz-tag">T7 Geopolítica</span></td>
+                <td>RT7 Gobernanza eficaz y participativa · RT8 Inteligencia geopolítica</td>
+                <td>C5 Decisión colectiva basada en evidencia · C3 Reproducción social y demográfica</td>
+                <td><span class="traz-tag" style="background:rgba(30,58,95,0.08); color:#1e3a5f; border-color:rgba(30,58,95,0.25);">M4 Inteligencia Territorial y Gobernanza</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PROTOCOLO DE VALIDACIÓN -->
+      <div class="protocolo-block">
+        <div class="pb-title">⊞ Protocolo de validación T·1 — Preguntas que el lente aplica a cada misión, motor o proyecto</div>
+        <ol>
+          <li><span class="pnum">01</span><div><strong>¿El componente reduce o aumenta la conflictividad territorial?</strong> Toda inversión en zonas de conflicto socioambiental activo debe incluir mecanismos de consulta previa verificada y resolución dialogada de disputas.</div></li>
+          <li><span class="pnum">02</span><div><strong>¿Mejora o deteriora el acceso a derechos fundamentales?</strong> El acceso a agua, alimentación, salud y educación no puede retroceder como efecto secundario de ninguna transición.</div></li>
+          <li><span class="pnum">03</span><div><strong>¿Genera inclusión o exclusión territorial?</strong> Los beneficios de cada misión deben verificarse en los municipios con IPM más alto — no solo en los más dinámicos.</div></li>
+          <li><span class="pnum">04</span><div><strong>¿Fortalece o debilita la confianza institucional?</strong> La participación real de comunidades y líderes en el diseño e implementación es condición de legitimidad.</div></li>
+          <li><span class="pnum">05</span><div><strong>¿Produce seguridad humana o solo crecimiento económico?</strong> Un territorio puede crecer, atraer inversión y expandir infraestructura, y aun así volverse inviable socialmente si la seguridad humana no está garantizada.</div></li>
+        </ol>
+      </div>
+
+      <div class="box n6">
+        <div class="bt">Los Sandboxes como laboratorios de paz territorial</div>
+        <p>Los <strong>seis Laboratorios Vivos Territoriales</strong> (SB1–SB6) de Santander 2050 tienen en T·1 un criterio de selección y evaluación transversal: ¿el sandbox está en una zona de conflicto activo? ¿Existen condiciones mínimas de seguridad territorial para que los procesos de innovación y transformación puedan sostenerse? ¿Cómo se articulan las estrategias de cada sandbox con los mecanismos de construcción de paz territorial? Los seis sandboxes son: SB1 Santander BioRegión, SB2 Magdalena Medio 4.0, SB3 Inteligencia Territorial Anticipatoria, SB4 Ecosistema de Talento Global y Bienestar, SB5 Distrito Experimental de Movilidad Rural, SB6 Economía Popular y Creación de Mercados Inclusivos.</p>
+        <p>El <strong>SB6 (Economía Popular y Creación de Mercados Inclusivos — Sandbox de Transición Productiva desde la Informalidad)</strong> tiene una relación especialmente directa con T·1 — la economía popular en territorios con conflicto armado activo requiere mecanismos específicos de protección y blindaje institucional.</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">M1 — Naturaleza para la Vida</span>
+        <span class="tag">M2 — Santander Conectado y Equitativo</span>
+        <span class="tag">M3 — Reconversión Productiva y Energética</span>
+        <span class="tag">M4 — Inteligencia Territorial y Gobernanza</span>
+        <span class="tag">M5 — Educación, Cultura y Talento</span>
+        <span class="tag">Sandboxes SB1–SB6</span>
+        <span class="tag">Consulta previa</span>
+        <span class="tag">Justicia territorial</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La pregunta prospectiva: ¿qué condiciones debe producir el sistema hacia 2050 para que T·1 deje de ser una advertencia y se convierta en un logro?
+  </div>
+
+  <!-- N7: HORIZONTES PROSPECTIVOS -->
+  <div class="node n7">
+    <div class="marker">
+      <div class="bubble">2050</div>
+      <div class="side-label">Prospectiva</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Horizonte prospectivo · Condiciones de viabilidad social al 2050</span>
+      <div class="node-h">¿Qué tendría que ser verdad en Santander en 2050 para que este hilo sea un logro y no una advertencia?</div>
+      <div class="node-sub">El diagnóstico actual del Hilo T·1 establece la línea de base desde la cual el sistema debe moverse. Las condiciones de viabilidad social al 2050 no son metas sectoriales — son el umbral mínimo sin el cual ninguna otra misión puede sostenerse.</div>
+
+      <div class="node-text">
+        La Seguridad Humana (PNUD 1994) en sus siete dimensiones — económica, alimentaria, en salud, ambiental, personal, comunitaria y política — constituye el marco de evaluación de T·1 hacia 2050. No se trata de alcanzar la paz perfecta, sino de construir condiciones de posibilidad que permitan que los procesos de transformación prospectiva sean irreversibles. Un sistema que puede ser bloqueado por un conflicto socioambiental, destruido por la violencia o paralisado por la desconfianza no ha alcanzado la viabilidad social mínima.
+      </div>
+
+      <div class="box n7">
+        <div class="bt">Tres preguntas para el equipo técnico UIS — agenda de profundización diagnóstica</div>
+        <p><strong>1. ¿Cuál es la línea base verificada de conflictos socioambientales activos en Santander en 2025?</strong> El corpus disponible ofrece caracterizaciones al 2022–2023. Se requiere un mapeo actualizado que cruce el atlas de conflictos socioambientales (Compromiso / Indepaz) con la geografía de los motores de desarrollo de Santander 2050.</p>
+        <p><strong>2. ¿Qué mecanismos de justicia territorial están incorporados en el diseño de cada misión?</strong> Las misiones M1–M4 deben incluir cláusulas de no-regresión en derechos humanos y mecanismos explícitos de consulta, participación y redistribución de beneficios para comunidades afectadas por las transiciones.</p>
+        <p><strong>3. ¿Cómo se integran las organizaciones de derechos humanos (Compromiso, Indepaz, JEP, Defensoría) en la arquitectura de monitoreo del sistema prospectivo?</strong> T·1 requiere actores específicos con legitimidad territorial para verificar el cumplimiento de las condiciones de viabilidad social — actores que no son el Estado ni el mercado.</p>
+      </div>
+
+      <!-- SEMÁFORO DE UMBRALES -->
+      <div style="margin-bottom:16px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--slate); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--rule);">⊞ Umbrales de alerta por dimensión — Sistema de semáforo para el ciclo adaptativo</div>
+        <div class="semaforo-wrap">
+          <table class="semaforo-table">
+            <thead>
+              <tr>
+                <th>Dimensión</th>
+                <th>Indicador clave</th>
+                <th>Fuente</th>
+                <th><span class="sem-dot dot-v"></span>Verde (operable)</th>
+                <th><span class="sem-dot dot-a"></span>Amarillo (revisión)</th>
+                <th><span class="sem-dot dot-r"></span>Rojo (sesión extraordinaria)</th>
+                <th>Estado 2024</th>
+                <th>Period.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Seg. Ambiental</td>
+                <td>Conflictos socioamb. activos</td>
+                <td>Indepaz / Compromiso</td>
+                <td class="sem-verde">&lt; 5</td>
+                <td class="sem-amarillo">5–15</td>
+                <td class="sem-rojo">&gt; 15</td>
+                <td class="sem-rojo">🔴 60+ (minería)</td>
+                <td>Semestral</td>
+              </tr>
+              <tr>
+                <td>Seg. Personal</td>
+                <td>Tasa homicidios (×100.000)</td>
+                <td>Policía / BMCV</td>
+                <td class="sem-verde">&lt; 12</td>
+                <td class="sem-amarillo">12–18</td>
+                <td class="sem-rojo">&gt; 18</td>
+                <td class="sem-rojo">🔴 18,54 (dpto.) · 66 (Barranca)</td>
+                <td>Mensual</td>
+              </tr>
+              <tr>
+                <td>Seg. Alimentaria</td>
+                <td>Inseguridad alim. mod./grave (%)</td>
+                <td>DANE FIES</td>
+                <td class="sem-verde">&lt; 14% (meta ODS)</td>
+                <td class="sem-amarillo">14–25%</td>
+                <td class="sem-rojo">&gt; 25%</td>
+                <td class="sem-amarillo">🟡 16,2% (urbano / ≈34% rural) · Meta ODS: 13,9%</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Seg. Económica</td>
+                <td>Gini departamental</td>
+                <td>DANE</td>
+                <td class="sem-verde">&lt; 0,45</td>
+                <td class="sem-amarillo">0,45–0,50</td>
+                <td class="sem-rojo">&gt; 0,50</td>
+                <td class="sem-amarillo">🟡 0,47 (dpto.) · 0,466 (AMB)</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Seg. Política</td>
+                <td>Casos violencia líderes/año</td>
+                <td>Compromiso / Indepaz</td>
+                <td class="sem-verde">&lt; 50</td>
+                <td class="sem-amarillo">50–150</td>
+                <td class="sem-rojo">&gt; 150</td>
+                <td class="sem-rojo">🔴 414 casos (2023)</td>
+                <td>Trimestral</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size:11px; color:var(--slate); font-style:italic; margin-top:6px;">Los umbrales son propuestas iniciales para validación con el equipo técnico UIS y el NIGT. Deben ajustarse con la línea base verificada del corpus y las decisiones del Consejo de Futuro.</div>
+      </div>
+
+      <!-- CONEXIÓN T7 / IESE / NIGT -->
+      <div class="nigt-block">
+        <div class="nb-title">⊞ Conexión con T7 (Geopolítica), IESE y NIGT — T·1 no flota aislado</div>
+        <p>El Hilo T·1 es amplificado o atenuado por el entorno geopolítico global y regional. Las variables de seguridad humana en Santander tienen vectores externos que el sistema debe monitorear de forma articulada con la Transición T7 y el IESE:</p>
+        <p><strong>D3 (Volatilidad Anillo 1 — Venezuela · actualización crítica 2025):</strong> en julio de 2025, los gobiernos de Colombia y Venezuela suscribieron un Memorando de Entendimiento para crear una <em>"Zona Binacional de Paz, Unión y Desarrollo"</em> en Norte de Santander, Táchira y Zulia. El acuerdo, orientado a integración comercial, energética y sanitaria, ha sido cuestionado por centros de análisis —entre ellos el Instituto de Ciencia Política— que identifican siete riesgos estructurales: legitimación del régimen venezolano, pérdida de control territorial, posible cooperación entre el Estado venezolano y grupos armados ilegales, debilidad institucional, exclusión de comunidades locales, amenaza geopolítica derivada de la doctrina militar venezolana, e inseguridad jurídica. Paralelamente, Venezuela desplegó <strong>más de 8.000 uniformados</strong> (Guardia Nacional, investigadores y milicias) hacia la frontera con Colombia, generando alarma en comunidades y gremios empresariales que advierten sobre el cierre de puentes internacionales. <strong>Esta dinámica convierte al Anillo 1 en la variable de mayor incertidumbre para el IESE (D3) en el corto y mediano plazo.</strong></p>
+        <p><strong>Nexo D3 con Dimensión III (Seguridad Alimentaria):</strong> la inestabilidad fronteriza no es solo un problema de seguridad personal — también afecta las cadenas de suministro regionales. La inseguridad alimentaria grave en Norte de Santander aumentó 2 puntos porcentuales en 2024, explicada en parte por la presión migratoria venezolana y la interrupción de flujos comerciales binacionales. Este efecto de derrame sobre Santander debe incorporarse en el monitoreo del NIGT.</p>
+        <p><strong>D4 (Riesgo geopolítico global):</strong> la fragmentación internacional y el debilitamiento de marcos multilaterales de derechos humanos reducen los recursos disponibles para proteger a defensores de DDHH y financiar programas de implementación del Acuerdo de Paz. El ELN tiene retaguardias activas en Venezuela y sus operaciones en el Magdalena Medio no pueden leerse sin ese contexto transfronterizo.</p>
+        <p><strong>Agenda del NIGT para T·1 — vigilancia mensual/trimestral:</strong> (a) evolución del Memorando Colombia-Venezuela y despliegues militares fronterizos, (b) conflictos socioambientales activos y su evolución territorial, (c) agresiones a defensores de DDHH en Santander, (d) expansión de actores armados (corredores del Clan del Golfo, presencia del ELN), (e) alertas tempranas de la Defensoría del Pueblo, (f) indicadores de seguridad alimentaria en zonas de frontera.</p>
+      </div>
+
+      <div class="box-split">
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#064e3b;">Condiciones mínimas al 2035</span>
+          Mecanismos de justicia ambiental en todos los proyectos de transición energética. Protección efectiva de líderes sociales con presupuesto explícito en planes de desarrollo. Reducción de la tasa de homicidios de Santander por debajo del promedio nacional. Inseguridad alimentaria rural por debajo del 20%.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#064e3b;">Condiciones de viabilidad al 2050</span>
+          Ninguna misión del mapa estratégico opera en zona de conflicto socioambiental activo sin mecanismos verificados de justicia territorial. Gini departamental por debajo de 0,40. Pobreza multidimensional rural por debajo del 15%. Cero asesinatos de líderes sociales.
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Seguridad Humana PNUD 1994</span>
+        <span class="tag">Justicia territorial</span>
+        <span class="tag">No-regresión en derechos</span>
+        <span class="tag">Monitoreo T·1</span>
+        <span class="tag">Viabilidad social 2050</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /body-wrap -->
+
+<!-- ══════════ SYNTHESIS ══════════ -->
+<div class="synthesis">
+  <div class="synth-header">SÍNTESIS DIAGNÓSTICA · HILO T·1 · PAZ CON JUSTICIA SOCIAL · CINCO DIMENSIONES</div>
+  <div class="synth-grid">
+    <div class="sc">
+      <strong>Seguridad Ambiental</strong>
+      Santander: uno de los departamentos con mayor incidencia de amenazas a líderes ambientales post-2016 (JEP). 60+ conflictos mineros activos (Indepaz). Fracking, Santurbán, Hidrosogamoso, carbón. Minería ilegal con mercurio en 7+ cuencas. Conflictos extractivos: principal vector de conflictividad territorial en economías en transición.
+    </div>
+    <div class="sc">
+      <strong>Seguridad Personal</strong>
+      Territorio en transición hacia violencia urbana y criminalidad organizada. Tasa 18,54/100k en 2023. Barrancabermeja: 66/100k en 2024 (+31%). Sicariato urbano inédito en Bucaramanga. Clan del Golfo + ELN en expansión. Extorsión con subregistro significativo.
+    </div>
+    <div class="sc">
+      <strong>Seguridad Alimentaria</strong>
+      Logro excepcional: -7 pp entre 2023 y 2024 (uno de dos departamentos con reducción significativa). 177.000 personas fuera de vulnerabilidad. Pero: 31% hogares con preocupación cotidiana · 10,4% omite comidas · a 2,3 pp de meta ODS (13,9%) · brecha rural ≈34%. Efecto frontera: Norte de Santander +2 pp inseguridad grave.
+    </div>
+    <div class="sc">
+      <strong>Seguridad Económica</strong>
+      Gini 0,47 (2023), mejora desde 0,515 pero persiste. AMB sube a 0,466. Informalidad 56,8%. Pobreza rural 2,7× la urbana. 1.294 líderes asesinados desde 2016. Impunidad 90%.
+    </div>
+    <div class="sc">
+      <strong>Seguridad Política</strong>
+      414 casos violencia líderes 2023 (+78 respecto a 2022). 2 asesinatos de firmantes del Acuerdo + precandidatos. Santander en top 10 departamentos con agresiones a defensores (2024). Sin política pública de protección con presupuesto.
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ DIFFERENTIATORS ══════════ -->
+<div class="diff-section">
+  <div class="diff-header">POR QUÉ ESTE HILO IMPORTA — TRES ARGUMENTOS PARA EL SISTEMA</div>
+  <div class="diff-inner">
+    <div>
+      <h3>El argumento ético: la no-regresión como piso del sistema</h3>
+      <p>Santander 2050 se diseña como sistema de transiciones. Pero toda transición implica ganadores y perdedores en el corto plazo — comunidades desplazadas por un proyecto energético, trabajadores excluidos de la reconversión productiva, territorios que quedan fuera del circuito de innovación. T·1 establece el piso ético: ninguna misión puede implicar regresiones en derechos humanos. No como restricción al desarrollo — sino como condición de su legitimidad.</p>
+    </div>
+    <div>
+      <h3>El argumento sistémico: la paz como multiplicador de todos los motores</h3>
+      <p>Los cinco nodos de análisis de T·1 revelan que la violencia y la desigualdad operan como impuestos invisibles sobre todos los demás procesos del mapa estratégico. Un territorio en conflicto paga ese costo en inversión bloqueada, talento expulsado, instituciones paralizadas y capital social destruido. Reducir ese costo es aumentar la rentabilidad sistémica de todas las misiones — T·1 es el motor más rentable del mapa porque opera por eliminación de fricciones.</p>
+    </div>
+    <div>
+      <h3>El argumento prospectivo: sin paz, el 2050 es ficción</h3>
+      <p>La prospectiva territorial requiere horizontes de tiempo largos — y esos horizontes son imposibles en contextos de alta violencia e inestabilidad. Las comunidades que no pueden planear más allá del mes por miedo o pobreza no participan en la construcción del futuro colectivo. Santander 2050 necesita que sus territorios más afectados por el conflicto sean precisamente los que lideran las transformaciones — no los que las sufren desde afuera. <strong>Un territorio puede crecer, atraer inversión y expandir su infraestructura, y aun así volverse inviable socialmente. Cuando la seguridad humana no está garantizada, el desarrollo pierde legitimidad, los conflictos se amplifican y las capacidades territoriales no se consolidan. En Santander 2050, la paz no es un resultado: es la condición que determina si todo lo demás es posible.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div>Santander Visión 2050 · Universidad Industrial de Santander (UIS) · Hilo Transversal 1 — Paz con Justicia Social, Derechos Humanos y Seguridad Humana · Diagnóstico Inicial</div>
+  <div>Fuentes: <span>Corpus UIS 2025 · DANE FIES 2024 · Corporación Compromiso 2023–2024 ("Bajo las Sombras") · UNAB-IEP 2024 · Defensoría del Pueblo 2024 · Indepaz 2024 · Policía Nacional · BMCV · ICP Colombia · La República / Vanguardia 2025</span> · Versión 2.1 · Abril 2026</div>
+</footer>
+
+</body>
+</html>

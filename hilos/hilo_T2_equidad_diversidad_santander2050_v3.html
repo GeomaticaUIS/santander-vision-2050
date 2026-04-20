@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilo Transversal 2 — Equidad, Diversidad e Inclusión · Santander 2050</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:          #121212;
+    --ink-soft:     #1e1e1e;
+    --ink-mid:      #2c2c2c;
+    --parchment:    #f5f0e8;
+    --parchment-d:  #ede6d5;
+    /* Color identity: violeta-índigo — diversidad como fortaleza, inclusión como arquitectura */
+    --accent:       #4c1d95;
+    --accent-soft:  #7c3aed;
+    --accent-pale:  rgba(76,29,149,0.08);
+    --accent-mid:   rgba(124,58,237,0.15);
+    --amber:        #b45309;
+    --amber-light:  #d97706;
+    --amber-pale:   rgba(180,83,9,0.08);
+    --rose:         #9f1239;
+    --rose-soft:    #be185d;
+    --rose-pale:    rgba(159,18,57,0.07);
+    --teal:         #0f766e;
+    --teal-pale:    rgba(15,118,110,0.07);
+    --slate:        #475569;
+    --slate-pale:   rgba(71,85,105,0.08);
+    --white:        #ffffff;
+    --rule:         rgba(18,18,18,0.14);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  header {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 56px 72px 48px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--accent-soft);
+  }
+
+  header::before {
+    content: 'T·2';
+    position: absolute; right: 64px; bottom: -10px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 200px; font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    line-height: 1; letter-spacing: -6px;
+    pointer-events: none;
+  }
+
+  .h-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent-soft);
+    border: 1px solid var(--accent-soft);
+    padding: 4px 12px; margin-bottom: 18px;
+  }
+
+  .h-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: rgba(245,240,232,0.50); text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 40px; font-weight: 700;
+    line-height: 1.18; max-width: 760px;
+    letter-spacing: -0.3px;
+  }
+
+  header h1 em { font-style: italic; color: var(--amber-light); }
+
+  .lead {
+    max-width: 700px; margin-top: 22px;
+    font-size: 15px; font-weight: 300;
+    color: rgba(245,240,232,0.65); line-height: 1.80;
+  }
+
+  .h-epigraph {
+    max-width: 620px; margin-top: 30px;
+    padding: 18px 24px;
+    border-left: 3px solid var(--amber-light);
+    background: rgba(217,119,6,0.10);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px; font-style: italic;
+    color: rgba(245,240,232,0.80); line-height: 1.75;
+  }
+  .h-epigraph cite {
+    display: block; margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; font-style: normal;
+    letter-spacing: 0.5px; color: var(--amber-light);
+  }
+
+  .h-stat-bar {
+    display: flex; flex-wrap: wrap; gap: 0;
+    margin-top: 38px;
+    border-top: 1px solid rgba(245,240,232,0.14);
+    padding-top: 28px;
+  }
+  .h-stat {
+    flex: 1 1 150px;
+    padding-right: 26px;
+    border-right: 1px solid rgba(245,240,232,0.12);
+    margin-right: 26px; padding-bottom: 6px;
+  }
+  .h-stat:last-child { border-right: none; }
+  .h-stat .num {
+    display: block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 38px; font-weight: 700;
+    color: var(--accent-soft); line-height: 1; letter-spacing: -1px;
+  }
+  .h-stat .desc {
+    display: block; margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; color: rgba(245,240,232,0.55);
+    line-height: 1.55; letter-spacing: 0.3px;
+  }
+
+  /* ── LENTE BAR ───────────────────────────────────────── */
+  .lente-bar {
+    background: var(--accent);
+    color: white;
+    padding: 14px 72px;
+    display: flex; gap: 16px; align-items: flex-start;
+    font-size: 13.5px; font-weight: 400; line-height: 1.65;
+  }
+  .lente-bar .icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .lente-bar strong { font-weight: 700; }
+  .lente-bar em { font-style: italic; font-weight: 300; opacity: 0.85; }
+
+  /* ── INTRO ───────────────────────────────────────────── */
+  .intro-strip {
+    background: var(--parchment-d);
+    border-left: 4px solid var(--amber);
+    padding: 20px 72px 20px 68px;
+    display: flex; gap: 20px; align-items: flex-start;
+    font-size: 13.5px; color: var(--slate); line-height: 1.80;
+  }
+  .intro-strip .icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .intro-strip strong { color: var(--ink); }
+  .intro-strip em { color: var(--amber); font-style: italic; }
+
+  /* ── TESIS BLOCK ─────────────────────────────────────── */
+  .tesis-block {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 32px 72px;
+    border-bottom: 4px solid var(--accent-soft);
+  }
+  .tesis-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent-soft); margin-bottom: 14px; display: block;
+  }
+  .tesis-statement {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px; font-weight: 700;
+    line-height: 1.55; max-width: 860px;
+    color: var(--parchment); margin-bottom: 18px; letter-spacing: -0.1px;
+  }
+  .tesis-statement em { color: var(--amber-light); font-style: italic; }
+  .tesis-body {
+    font-size: 13px; line-height: 1.82;
+    color: rgba(245,240,232,0.65); max-width: 860px;
+  }
+  .tesis-body strong { color: var(--parchment); }
+
+  /* Tres dimensiones del hilo */
+  .dim-pills {
+    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
+  }
+  .dim-pill {
+    padding: 10px 16px;
+    font-size: 12px; line-height: 1.5;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .dim-pill strong {
+    display: block; font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .dp1 { background: rgba(124,58,237,0.20); border-left: 3px solid var(--accent-soft); color: rgba(245,240,232,0.85); }
+  .dp1 strong { color: #c4b5fd; }
+  .dp2 { background: rgba(159,18,57,0.20); border-left: 3px solid var(--rose-soft); color: rgba(245,240,232,0.85); }
+  .dp2 strong { color: #fda4af; }
+  .dp3 { background: rgba(15,118,110,0.20); border-left: 3px solid var(--teal); color: rgba(245,240,232,0.85); }
+  .dp3 strong { color: #5eead4; }
+
+  /* ── BODY TIMELINE ───────────────────────────────────── */
+  .body-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 56px 72px 80px;
+    position: relative;
+  }
+
+  .body-wrap::before {
+    content: '';
+    position: absolute; top: 56px; bottom: 80px;
+    left: 72px; width: 2px;
+    background: linear-gradient(180deg,
+      var(--accent-soft) 0%,
+      var(--rose-soft) 30%,
+      var(--teal) 55%,
+      var(--amber) 75%,
+      var(--accent) 100%
+    );
+  }
+
+  .node {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 0 28px;
+  }
+
+  .marker {
+    display: flex; flex-direction: column;
+    align-items: center; padding-top: 4px;
+    position: relative; z-index: 2;
+  }
+
+  .bubble {
+    width: 52px; height: 52px;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.5px;
+    border: 2px solid currentColor;
+    flex-shrink: 0; text-align: center; line-height: 1.25;
+  }
+
+  .n1 .bubble { color: var(--accent-soft); background: var(--accent-pale); }
+  .n2 .bubble { color: var(--rose-soft);   background: var(--rose-pale); }
+  .n3 .bubble { color: var(--teal);        background: var(--teal-pale); }
+  .n4 .bubble { color: var(--amber);       background: var(--amber-pale); }
+  .n5 .bubble { color: #0369a1;            background: rgba(3,105,161,0.07); }
+  .n6 .bubble { color: #064e3b;            background: rgba(6,78,59,0.07); }
+
+  .side-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(18,18,18,0.28);
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg); margin-top: 10px;
+  }
+
+  .content { padding: 4px 0 52px; }
+
+  .step-pill {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px; border: 1px solid var(--rule);
+    color: var(--slate); margin-bottom: 10px;
+  }
+
+  .node-h {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px; font-weight: 700;
+    line-height: 1.25; margin-bottom: 6px; letter-spacing: -0.2px;
+  }
+  .node-sub {
+    font-size: 12.5px; color: var(--slate);
+    font-style: italic; margin-bottom: 14px; line-height: 1.65;
+  }
+  .node-text {
+    font-size: 14px; line-height: 1.82;
+    color: var(--ink-mid); margin-bottom: 16px;
+  }
+
+  /* ── BOXES ───────────────────────────────────────────── */
+  .box {
+    padding: 20px 24px; margin-bottom: 16px;
+    font-size: 13px; line-height: 1.78;
+  }
+  .box.n1 { background: var(--accent-pale); border-left: 3px solid var(--accent-soft); }
+  .box.n2 { background: var(--rose-pale);   border-left: 3px solid var(--rose-soft); }
+  .box.n3 { background: var(--teal-pale);   border-left: 3px solid var(--teal); }
+  .box.n4 { background: var(--amber-pale);  border-left: 3px solid var(--amber); }
+  .box.n5 { background: rgba(3,105,161,0.05); border-left: 3px solid #0369a1; }
+  .box.n6 { background: rgba(6,78,59,0.05);   border-left: 3px solid #064e3b; }
+
+  .box .bt {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    margin-bottom: 10px; color: var(--ink);
+  }
+  .box p { color: var(--ink-mid); margin-bottom: 10px; }
+  .box p:last-child { margin-bottom: 0; }
+  .box strong { color: var(--ink); }
+  .box em { color: var(--slate); font-style: italic; }
+
+  /* ── CRITICAL BOX ────────────────────────────────────── */
+  .critical-box {
+    background: var(--rose-pale);
+    border: 1px solid rgba(159,18,57,0.25);
+    padding: 20px 24px; margin-bottom: 16px;
+    font-size: 13px; line-height: 1.78;
+  }
+  .critical-box .cb {
+    display: block; font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--rose); margin-bottom: 10px;
+  }
+  .critical-box p { color: var(--ink-mid); }
+  .critical-box strong { color: var(--ink); }
+
+  /* ── CAP / DATA GRIDS ────────────────────────────────── */
+  .cap-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 16px;
+  }
+  .cap-cell {
+    padding: 18px 20px; font-size: 12.5px; line-height: 1.75;
+    color: var(--ink-mid); background: rgba(18,18,18,0.03);
+  }
+  .cap-label {
+    display: block; margin-bottom: 8px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+
+  .data-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 16px;
+  }
+  .data-card {
+    background: white; border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent-soft);
+    padding: 16px 18px; font-size: 12.5px; line-height: 1.72;
+    color: var(--ink-mid);
+  }
+  .data-card .dtag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 2px 8px; margin-bottom: 6px;
+    background: var(--accent-pale); color: var(--accent-soft);
+    border: 1px solid rgba(76,29,149,0.25);
+  }
+  .data-card .dnum {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--accent); margin-bottom: 4px; line-height: 1;
+  }
+  .data-card .dlabel {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px; color: var(--slate); line-height: 1.5;
+  }
+
+  /* ── PREGUNTA AL SISTEMA ─────────────────────────────── */
+  .pregunta-block {
+    background: rgba(76,29,149,0.06);
+    border: 1px solid rgba(76,29,149,0.20);
+    border-left: 4px solid var(--accent-soft);
+    padding: 22px 26px; margin-bottom: 16px;
+  }
+  .pregunta-block .pb-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .pregunta-block ol { list-style: none; padding: 0; margin: 0; }
+  .pregunta-block ol li {
+    display: flex; gap: 12px; font-size: 13px; line-height: 1.72;
+    color: var(--ink-mid); padding: 7px 0;
+    border-bottom: 1px solid rgba(76,29,149,0.10);
+  }
+  .pregunta-block ol li:last-child { border-bottom: none; }
+  .pregunta-block ol li .pnum {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    color: var(--accent-soft); flex-shrink: 0;
+    padding-top: 2px; min-width: 22px;
+  }
+  .pregunta-block ol li strong { color: var(--ink); }
+
+  /* ── SEMÁFORO TABLE ──────────────────────────────────── */
+  .semaforo-wrap { overflow-x: auto; margin-bottom: 16px; }
+  .semaforo-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.55; }
+  .semaforo-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1px; text-transform: uppercase;
+    font-weight: 500; padding: 10px 12px;
+    background: var(--ink); color: rgba(245,240,232,0.65);
+    border-bottom: 2px solid var(--accent-soft); white-space: nowrap;
+  }
+  .semaforo-table td {
+    padding: 10px 12px; border-bottom: 1px solid var(--rule);
+    color: var(--ink-mid); vertical-align: top;
+  }
+  .semaforo-table tr:nth-child(even) td { background: rgba(18,18,18,0.025); }
+  .semaforo-table td:first-child { font-weight: 700; color: var(--ink); }
+  .sem-verde   { color: #15803d; font-weight: 700; }
+  .sem-amarillo{ color: #b45309; font-weight: 700; }
+  .sem-rojo    { color: #991b1b; font-weight: 700; }
+  .sem-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+  .dot-v { background: #15803d; }
+  .dot-a { background: #b45309; }
+  .dot-r { background: #991b1b; }
+
+  /* ── TRAZABILIDAD ────────────────────────────────────── */
+  .traz-table { width: 100%; border-collapse: collapse; font-size: 11.5px; line-height: 1.55; margin-bottom: 16px; }
+  .traz-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+    font-weight: 500; padding: 9px 10px;
+    background: rgba(76,29,149,0.90); color: rgba(245,240,232,0.85);
+    border-bottom: 2px solid var(--accent-soft); white-space: nowrap;
+  }
+  .traz-table td { padding: 9px 10px; border-bottom: 1px solid var(--rule); color: var(--ink-mid); vertical-align: top; }
+  .traz-table tr:nth-child(even) td { background: rgba(76,29,149,0.04); }
+  .traz-table td:first-child { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .traz-tag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; padding: 2px 6px;
+    background: var(--accent-pale); border: 1px solid rgba(76,29,149,0.20);
+    color: var(--accent); margin: 2px 2px 0 0; white-space: nowrap;
+  }
+
+  /* ── TAGS ────────────────────────────────────────────── */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.4px; padding: 4px 10px;
+    background: rgba(18,18,18,0.06); border: 1px solid var(--rule); color: var(--slate);
+  }
+
+  /* ── ARROW ROW ───────────────────────────────────────── */
+  .arrow-row {
+    padding: 0 0 24px 72px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: rgba(18,18,18,0.35);
+    letter-spacing: 0.5px; font-style: italic;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .arr { font-size: 22px; color: var(--accent-soft); font-style: normal; flex-shrink: 0; }
+
+  /* ── BOX SPLIT ───────────────────────────────────────── */
+  .box-split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+
+  /* ── NIGT BLOCK ──────────────────────────────────────── */
+  .nigt-block {
+    background: rgba(18,18,18,0.04); border: 1px solid var(--rule);
+    border-top: 3px solid var(--amber);
+    padding: 20px 24px; margin-bottom: 16px; font-size: 13px; line-height: 1.78;
+  }
+  .nigt-block .nb-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.6px; color: var(--amber); margin-bottom: 12px;
+  }
+  .nigt-block p { color: var(--ink-mid); margin-bottom: 10px; }
+  .nigt-block p:last-child { margin-bottom: 0; }
+  .nigt-block strong { color: var(--ink); }
+
+  /* ── SYNTHESIS ───────────────────────────────────────── */
+  .synthesis {
+    background: var(--ink); color: var(--parchment);
+    padding: 0 72px 50px; border-top: 4px solid var(--amber);
+  }
+  .synth-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber-light); padding: 28px 0 18px;
+    border-bottom: 1px solid rgba(245,240,232,0.10); margin-bottom: 24px;
+  }
+  .synth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .sc {
+    padding: 14px 16px; font-size: 11px; line-height: 1.65;
+    color: rgba(245,240,232,0.60); border-right: 1px solid rgba(245,240,232,0.08);
+  }
+  .sc:last-child { border-right: none; }
+  .sc strong {
+    display: block; margin-bottom: 4px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.3px; color: var(--parchment);
+  }
+
+  /* ── DIFF SECTION ────────────────────────────────────── */
+  .diff-section {
+    background: var(--parchment-d); padding: 0 72px 56px;
+    border-top: 2px solid var(--rule);
+  }
+  .diff-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--amber); padding: 28px 0 18px;
+    border-bottom: 1px solid var(--rule); margin-bottom: 28px;
+  }
+  .diff-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .diff-inner h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px; font-weight: 700; color: var(--accent);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .diff-inner p { font-size: 12.5px; line-height: 1.82; color: var(--ink-mid); }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    background: var(--ink-soft); border-top: 1px solid rgba(245,240,232,0.08);
+    padding: 18px 72px; font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.5px;
+    color: rgba(245,240,232,0.25);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
+  }
+  footer span { color: var(--amber-light); }
+
+  @media (max-width: 780px) {
+    header, .lente-bar, .intro-strip { padding-left: 24px; padding-right: 24px; }
+    header::before { display: none; }
+    .body-wrap { padding: 40px 20px 60px; }
+    .body-wrap::before { left: 20px; }
+    .node { grid-template-columns: 54px 1fr; }
+    .arrow-row { padding-left: 38px; }
+    .cap-grid, .data-grid, .box-split, .diff-inner, .synth-grid { grid-template-columns: 1fr; }
+    .synthesis, .diff-section { padding: 0 20px 40px; }
+    footer { padding: 16px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="h-badge">Hilo Transversal 2 · T·2 · Lente de equidad del sistema completo</div>
+  <div class="h-eyebrow">Santander Visión 2050 · Arquitectura Estratégica Prospectiva · Diagnóstico inicial</div>
+  <h1>La <em>pregunta incómoda:</em><br>¿el sistema llega a todos como sujetos activos<br>o reproduce sus exclusiones con mejor narrativa?</h1>
+  <p class="lead">El Hilo Transversal 2 no es una política de género ni un capítulo étnico. Es el lente que pregunta al sistema completo quién se beneficia de cada motor ECTI, cada proyecto del portafolio y cada laboratorio vivo — y quién queda fuera. Integra tres dimensiones complementarias: equidad de género y economía del cuidado, diversidad étnica y cultural, e inclusión territorial de las provincias dispersas.</p>
+  <div class="h-epigraph">
+    "El desarrollo que no llega a las mujeres rurales, a las comunidades étnicas y a los municipios periféricos no es desarrollo incompleto: es un proyecto que reproduce las exclusiones que dice combatir, solo con mejor presentación."
+    <cite>— Marco conceptual Hilo T·2 · Manual Operativo SVP 2050 v6.0 · UIS 2026</cite>
+  </div>
+  <div class="h-stat-bar">
+    <div class="h-stat">
+      <span class="num">52%</span>
+      <span class="desc">tasa de participación laboral femenina en Santander vs. potencial productivo · informalidad femenina rural >90% · corpus UIS 2025</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">223</span>
+      <span class="desc">casos de violencia contra la mujer por cada 100.000 hab. en Santander · tendencia al alza 2019–2024 · OSPS / Min. Salud</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">3×</span>
+      <span class="desc">brecha AMB vs. provincias en IPM · 9,5% AMB frente a 29,0% provincias rurales · DANE 2023 / corpus UIS</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">2,6×</span>
+      <span class="desc">brecha cobertura educación superior AMB (58,3%) vs. municipios no metropolitanos (22,1%) · MEN 2023 / Diagnóstico UIS</span>
+    </div>
+    <div class="h-stat">
+      <span class="num">69,7%</span>
+      <span class="desc">percepción de pobreza en población campesina colombiana · alcantarillado rural: 41% vs. 97% urbano · DANE CASEN 2023</span>
+    </div>
+  </div>
+</header>
+
+<!-- LENTE BAR -->
+<div class="lente-bar">
+  <span class="icon">🔭</span>
+  <div><strong>Por qué este hilo es transversal y no sectorial:</strong> La equidad, la diversidad y la inclusión no se resuelven con programas focalizados en grupos. Se construyen verificando que <em>cada componente del sistema</em> no reproduzca exclusiones históricas. ¿Los contratos de biocréditos de M1 están a nombre de la mujer rural? ¿M3 (Reconversión Productiva) genera empleo digno para mujeres? ¿M5 (Educación y Talento) garantiza acceso para comunidades étnicas? ¿El SSITD asegura participación paritaria en las Escuelas Territoriales? T·2 se verifica en cada componente del mapa, no en uno solo.</div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-strip">
+  <span class="icon">⚖</span>
+  <div>El marco conceptual de T·2 integra <strong>cinco dimensiones complementarias</strong> articuladas en torno a la pregunta central: <em>¿quién se beneficia y quién queda fuera?</em> <strong>(i) Equidad de género y economía del cuidado; (ii) Diversidad étnica y cultural; (ii·b) Diversidad sexual y de género LGBTI/OSIGD; (ii·c) Población migrante venezolana y movilidad humana; (iii) Inclusión territorial.</strong> <strong>Distinción conceptual clave:</strong> T·2 no mide inclusión como <em>acceso</em> — mide <em>distribución efectiva de capacidades</em>. Referentes: Fraser (1997); OIT (2019); Convenio 169 OIT; Política LGBTI/OSIGD Santander 2023; PIO 2020-2029; DANE CASEN 2023; Migración Colombia / R4V 2024; ACNUR / OIM. <strong>Nota metodológica:</strong> algunas cifras (informalidad femenina rural >90%, datos LGBTI de muestra de 350 personas, estimación migrante 116.000) provienen de estimaciones, muestras no probabilísticas o proyecciones — y se presentan como indicadores referenciales sujetos a verificación con fuentes primarias del equipo UIS y construcción de línea base en el SSITD.</div>
+</div>
+
+<!-- ══════════ TESIS ESTRUCTURAL ══════════ -->
+<div class="tesis-block">
+  <span class="tesis-eyebrow">⊞ Tesis estructural del Hilo T·2</span>
+  <div class="tesis-statement">Santander no tiene un problema de diversidad que gestionar.<br>Tiene una <em>trampa estructural de exclusión</em> que reproduce sistemáticamente — bajo distintas formas — la marginación de las mujeres, las comunidades étnicas, las poblaciones LGBTI/OSIGD y los territorios periféricos como condición de funcionamiento del modelo de desarrollo dominante.</div>
+  <div class="tesis-body">
+    <strong>"La exclusión no es un problema social: es un fallo de diseño del sistema."</strong> Esta es la tesis operativa de T·2. La desigualdad en Santander no es la consecuencia del desarrollo — es su mecanismo reproductor, que opera a través de un <strong>ciclo estructural</strong>: exclusión de poblaciones y territorios → baja acumulación de capacidades (educación, ingresos, conectividad) → baja productividad y participación económica → menor inversión pública y privada → concentración territorial del desarrollo en el AMB → reproducción de desigualdad estructural → ↺.<br><br>
+    Cinco mecanismos operan simultáneamente: la <strong>invisibilización del trabajo de cuidado femenino</strong> como subsidio implícito; el <strong>no-reconocimiento de derechos colectivos étnicos y campesinos</strong>; la <strong>exclusión estructural por orientación sexual e identidad de género</strong>; la <strong>inserción precaria de la población migrante venezolana</strong> que el sistema absorbe en la informalidad sin reconocerla como agente productivo; y la <strong>centralización metropolitana</strong> que convierte a las provincias en proveedoras de materias primas sin captura de valor. Ninguno se rompe con intervenciones sectoriales parciales.<br><br>
+    <strong>Distinción conceptual clave:</strong> T·2 no mide inclusión como <em>acceso</em> — mide <em>distribución efectiva de capacidades</em>. Un componente puede abrir puertas y seguir excluyendo si no transforma la estructura que genera la exclusión.
+  </div>
+  <div class="dim-pills">
+    <div class="dim-pill dp1">
+      <strong>Dimensión I · Género y Cuidado</strong>
+      ¿El desarrollo amplía la autonomía económica de las mujeres o genera crecimiento que sigue descansando en trabajo invisible femenino?
+    </div>
+    <div class="dim-pill dp2">
+      <strong>Dimensión II · Diversidad Étnica</strong>
+      ¿Las comunidades indígenas, afrodescendientes y campesinas son sujetos de la gestión territorial con derechos colectivos reconocidos?
+    </div>
+    <div class="dim-pill dp2">
+      <strong>Dimensión II·b · LGBTI/OSIGD</strong>
+      ¿Las personas con orientaciones sexuales e identidades de género diversas tienen acceso efectivo a empleo, educación, salud y participación política?
+    </div>
+    <div class="dim-pill dp2">
+      <strong>Dimensión II·c · Población Migrante</strong>
+      ¿El sistema integra a la población venezolana como agente económico activo o la trata como presión demográfica a gestionar?
+    </div>
+    <div class="dim-pill dp3">
+      <strong>Dimensión III · Inclusión Territorial</strong>
+      ¿El sistema llega a las provincias con la misma fuerza que al AMB, o reproduce la centralización que ya es una problemática estructural?
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TIMELINE ══════════ -->
+<div class="body-wrap">
+
+  <!-- N1: GÉNERO Y ECONOMÍA DEL CUIDADO -->
+  <div class="node n1">
+    <div class="marker">
+      <div class="bubble">DIM<br>I</div>
+      <div class="side-label">Género y Cuidado</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 1 · Equidad de Género y Economía del Cuidado · Nexo con M2, M3 y M5</span>
+      <div class="node-h">Trabajo invisible, autonomía bloqueada: las mujeres financian con su tiempo no remunerado el modelo de desarrollo que las excluye del mercado formal</div>
+      <div class="node-sub">En Santander, la tasa de participación laboral femenina es del 52% frente a un potencial productivo mucho mayor. La informalidad femenina rural supera el 90% en las provincias más pobres. El cuidado informal sigue siendo trabajo feminizado sin reconocimiento económico ni protección social — el subsidio invisible que sostiene el modelo.</div>
+
+      <div class="node-text">
+        La economía del cuidado es el punto de convergencia entre la Problemática P2 (transición demográfica no gestionada) y el Hilo T2. El cuidado informal feminizado no es un rezago cultural: es una arquitectura económica que hace posible el modelo productivo dominante al externalizar sus costos de reproducción hacia las mujeres. Santander enfrenta simultáneamente el envejecimiento acelerado de su población — que aumenta la demanda de cuidado — y la persistente invisibilización de ese trabajo como motor económico real. El cuidado es simultáneamente el problema más urgente y la oportunidad económica más desaprovechada del departamento.
+      </div>
+
+      <div class="critical-box">
+        <span class="cb">⚠ Violencia de género — el indicador más sensible de la dimensión · Santander 2019–2025</span>
+        <p>Santander registra <strong>223 casos de violencia contra la mujer, intrafamiliar y sexual por cada 100.000 habitantes</strong> (OSPS / MinSalud). Entre enero y septiembre de 2025, en promedio <strong>cada dos horas una mujer fue víctima de violencia intrafamiliar</strong> en el departamento — 3.178 casos en ese período (Observatorio de Mujeres y Equidad de Género de Santander). Los feminicidios aumentaron abruptamente: de 1 caso en enero de 2023 a 4 en enero de 2024 (+300%). En 2023 se registraron 13 feminicidios tipificados. <strong>El 67% de los hechos de feminicidio ocurrió en el Área Metropolitana de Bucaramanga</strong>, y el 76% de los casos permanece en etapas preliminares de indagación — reflejando la urgencia de fortalecer investigación y acceso a justicia.</p>
+        <p>Los municipios del Magdalena Medio concentran las tasas más altas de violencia intrafamiliar contra mujeres, evidenciando brechas profundas en acceso a rutas de protección. La violencia de género no es un hecho aislado: es el síntoma más visible de la desigualdad estructural que T·2 evalúa en todo el sistema.</p>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="dtag">Participación laboral · Santander</div>
+          <div class="dnum">52%</div>
+          <div class="dlabel">tasa de participación laboral femenina actual — <strong>muy por debajo del potencial productivo.</strong> El escenario transformador de SVP 2050 proyecta alcanzar el 68% con políticas de cuidado articuladas al Motor E. <em>Fuente: corpus UIS 2025 / Diagnóstico demográfico.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Informalidad femenina rural</div>
+          <div class="dnum" style="color:var(--rose);">&gt;90%</div>
+          <div class="dlabel">informalidad laboral femenina en provincias rurales más pobres de Santander. <strong>Sin contrato, sin seguridad social, sin pensión.</strong> Las mujeres rurales financian con su trabajo invisible la base económica de territorios que el modelo formal ignora. <em>Fuente: corpus UIS Tomo 3 / P·5 UIS 2025.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Jefatura femenina e inseguridad</div>
+          <div class="dnum" style="color:var(--rose);">28,2%</div>
+          <div class="dlabel">de hogares con jefatura femenina en Santander en inseguridad alimentaria, frente a 23,1% en jefatura masculina (DANE FIES 2024). La brecha de género se cruza con la inseguridad alimentaria, la pobreza y la exclusión del mercado formal.</div>
+        </div>
+        <div class="data-card">
+          <div class="dtag">Campesinado · género · nacional</div>
+          <div class="dnum">15,2%</div>
+          <div class="dlabel">tasa de desempleo femenino campesino vs. 6,8% masculino (DANE 2024) — <strong>una brecha de 8,4 puntos porcentuales</strong> que refleja la exclusión estructural de las mujeres rurales del mercado de trabajo formal. El analfabetismo campesino femenino supera al masculino. <em>Fuente: DANE CASEN / ECV 2023.</em></div>
+        </div>
+      </div>
+
+      <div class="box n1">
+        <div class="bt">Indicadores del Plan Decenal de Igualdad de Oportunidades PIO 2020–2029 · Santander</div>
+        <p>El PIO 2020-2029 (Gobernación de Santander / UIS) establece 8 ejes de derecho para la igualdad de género: educación, autonomía económica, participación política, violencia, derechos sexuales y reproductivos, prácticas culturales, construcción de paz, y territorio y propiedad. Los indicadores estructurales a construir para T·2 incluyen:</p>
+        <p><strong>Brecha salarial:</strong> a escala nacional la brecha mujeres/hombres es de ~12–15% (DANE GEIH). Santander no tiene dato desagregado verificado — su construcción es prioridad inmediata del SSITD. Meta SVP 2050: &lt;5%.</p>
+        <p><strong>Trabajo de cuidado no remunerado (pobreza de tiempo):</strong> a escala nacional las mujeres dedican 5 veces más tiempo que los hombres al trabajo de cuidado no remunerado (DANE, Encuesta de Uso del Tiempo). Este "subsidio invisible" financia el modelo productivo sin aparecer en las cuentas nacionales. T·2 exige medir si los proyectos SVP 2050 liberan tiempo para las mujeres o si les suman cargas de gestión comunitaria no remunerada. Meta 2035: ratio &lt;3:1; Meta 2050: &lt;2:1.</p>
+        <p><strong>Participación política femenina:</strong> la paridad en concejos, alcaldías y asamblea departamental es condición de legitimidad del sistema de gobernanza. Sin datos actualizados verificados para Santander — su construcción es prioridad del SSITD. Meta SVP 2050: ≥50% (paridad real).</p>
+      </div>
+
+      <div class="box n1">
+        <div class="bt">Nexo con la arquitectura SVP 2050</div>
+        <p><strong>Motor E (Economía del Cuidado y Economía Plateada):</strong> la formalización del cuidado es la mayor palanca de empleo digno para mujeres en todo el territorio, incluidas las provincias más rurales y envejecidas. No es posible diseñar M2 (Santander Conectado y Equitativo) sin que la equidad de género sea criterio de diseño desde la regulación hasta la infraestructura.</p>
+        <p><strong>M3 (Reconversión Productiva y Energética):</strong> debe demostrar generación de empleo femenino digno como condición de evaluación T·2. Ninguna conversión productiva que concentre los nuevos empleos formales en hombres pasa el lente del hilo.</p>
+        <p><strong>Pregunta operativa clave:</strong> ¿los contratos de biocréditos del SB1 (BioRegión Santander) están a nombre de la mujer rural? ¿Las cooperativas del SB6 (Economía Popular) tienen al menos 50% de participación femenina en liderazgo?</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Participación laboral femenina 52%</span>
+        <span class="tag">Violencia intrafamiliar VIF</span>
+        <span class="tag">Feminicidios Santander</span>
+        <span class="tag">Cuidado informal feminizado</span>
+        <span class="tag">Informalidad rural &gt;90%</span>
+        <span class="tag">Motor E — Economía del Cuidado</span>
+        <span class="tag">OSPS / DANE / corpus UIS</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La exclusión de género se entrelaza con la exclusión étnica — comunidades que son doblemente invisibles para el modelo dominante
+  </div>
+
+  <!-- N2: DIVERSIDAD ÉTNICA -->
+  <div class="node n2">
+    <div class="marker">
+      <div class="bubble">DIM<br>II</div>
+      <div class="side-label">Diversidad Étnica</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 2 · Diversidad Étnica, Cultural y Campesina · Nexo con M1 y SB1</span>
+      <div class="node-h">Santander: territorio de mestizaje profundo con diversidad étnica activa — comunidades que exigen reconocimiento como sujetos territoriales, no como objetos de política social</div>
+      <div class="node-sub">Santander tiene una identidad mestiza forjada sobre el genocidio y asimilación de los pueblos Guane, Yariguí, Chitarera y Carare. Hoy, comunidades U'wa en los bordes orientales del departamento, descendientes de Guanes en Barichara, población afrodescendiente en el Magdalena Medio y un campesinado de 10,64 millones a escala nacional reclaman reconocimiento como sujetos de gestión territorial. La pregunta de T·2 no es folclórica: es jurídica, económica y política.</div>
+
+      <div class="node-text">
+        Santander no es un departamento étnicamente homogéneo. La narrativa dominante de una identidad santandereana "mestiza" históricamente ha invisibilizado la diversidad étnica que persiste y se reivindica. El Censo CNPV 2018 registra población indígena, afrodescendiente y campesina en el territorio — con distintos grados de organización política y reconocimiento estatal. Esta diversidad no es solo patrimonio cultural: es la base de conocimientos sobre biodiversidad, manejo de ecosistemas y organización territorial que SVP 2050 necesita para construir la bioeconomía y los mercados ambientales que proyecta.
+      </div>
+
+      <div class="box n2">
+        <div class="bt">El mapa étnico de Santander — comunidades activas en el territorio</div>
+        <p><strong>Pueblo Guane (descendientes, Barichara-Butaregua):</strong> comunidad de la vereda Butaregua en Barichara que se autoidentifica como descendiente guane y reclama reconocimiento de su continuidad cultural. Los estudios genéticos confirman su relación con los pobladores guanes precolombinos. No está en los listados DANE 2005 pero el CNPV 2018 reporta proceso de recuperación identitaria. Representan la memoria de los constructores originales del territorio santandereano.</p>
+        <p><strong>Pueblo U'wa (límites orientales, García Rovira / frontera Boyacá):</strong> el territorio U'wa histórico se extendía desde Pamplona hasta la Sierra del Cocuy. Hoy resguardos legalmente constituidos con 352.422 hectáreas totales, mayoritariamente en Boyacá y Arauca, con presencia en los bordes nororiental de Santander. Su historia de resistencia al extractivismo petrolero es un referente nacional de derechos territoriales indígenas.</p>
+        <p><strong>Población afrodescendiente en el Magdalena Medio:</strong> presencia histórica y contemporánea vinculada a los ciclos económicos de la región (petróleo, palma, pesca artesanal). El Magdalena Medio concentra las tasas más altas de violencia intrafamiliar contra mujeres afrodescendientes — indicando interseccionalidad de exclusiones.</p>
+        <p><strong>Campesinado como sujeto étnico-cultural:</strong> la nota CASEN 2023 (DANE) establece que el 18,1% del campesinado colombiano se autoreconoce como parte de un grupo étnico (7,2% como indígena, 10,8% como afrodescendiente o similar). En Santander, la identidad campesina es inseparable de la historia territorial y representa la mayor masa de población excluida del modelo formal de desarrollo.</p>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--rose);">Campesinado colombiano · línea de base (DANE CASEN 2023)</span>
+          69,7% de percepción de pobreza en la población que se identifica como campesina. Solo 32,9% de jóvenes campesinos de 17–21 años asiste a educación formal. Alcantarillado rural campesino: 41,1% frente a 97% urbano. Internet rural campesino: 40,5% sin mejoría frente a 2022. 81,2% en régimen subsidiado de salud — solo 18,6% en contributivo. Desempleo femenino campesino: 15,2% vs. 6,8% masculino.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--rose);">Derechos territoriales — el nudo jurídico de T·2</span>
+          El Convenio 169 de la OIT (ratificado por Colombia) exige consulta previa, libre e informada para proyectos que afecten territorios de pueblos indígenas y afrodescendientes. SVP 2050 tiene proyectos en zonas donde esta obligación aplica — especialmente en M1 (transición energética), SB1 (bioeconomía) y SB2 (Magdalena Medio 4.0). La ausencia de consulta previa no es solo un riesgo jurídico: es una falla ética que T·2 evalúa en cada componente.
+        </div>
+      </div>
+
+      <div class="box n2">
+        <div class="bt">La paradoja del conocimiento invisible: biodiversidad sin reconocimiento</div>
+        <p>El SB1 (BioRegión Santander) propone tokenizar bonos de carbono y biodiversidad, aplicar el Protocolo de Nagoya sobre bioprospección y construir mercados de activos ambientales. Estos activos —la biodiversidad, el conocimiento sobre ecosistemas, los servicios ambientales— son inseparables del conocimiento tradicional de las comunidades indígenas y campesinas que han habitado y gestionado el territorio durante siglos.</p>
+        <p><strong>La pregunta de T·2 al SB1:</strong> ¿el modelo de tokenización asegura que los beneficios de los biocréditos llegan a las comunidades campesinas e indígenas que generan el conocimiento y sostienen el ecosistema? ¿O crea un nuevo mecanismo de extracción de valor desde los territorios hacia los mercados financieros globales, reproduciendo la lógica del extractivismo con tecnología blockchain?</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Pueblo Guane / U'wa</span>
+        <span class="tag">Afrodescendientes Magdalena Medio</span>
+        <span class="tag">Campesinado como sujeto étnico</span>
+        <span class="tag">Convenio 169 OIT</span>
+        <span class="tag">Consulta previa</span>
+        <span class="tag">Protocolo Nagoya</span>
+        <span class="tag">DANE CASEN 2023</span>
+        <span class="tag">SB1 BioRegión</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La exclusión étnica se entrelaza con la exclusión por orientación sexual e identidad de género — otra invisibilización sistemática
+  </div>
+
+  <!-- N2b: DIVERSIDAD SEXUAL Y DE GÉNERO LGBTI/OSIGD -->
+  <div class="node n2">
+    <div class="marker">
+      <div class="bubble">DIM<br>II·b</div>
+      <div class="side-label">Diversidad Sexual</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 2b · Diversidad Sexual y de Género LGBTI/OSIGD · Nexo con M4, M5 y P8</span>
+      <div class="node-h">49,6% de desempleo, 44% han sentido discriminación, 60% en estratos bajos — la Política Pública LGBTI/OSIGD 2023 revela una exclusión estructural que el sistema SVP 2050 no puede ignorar</div>
+      <div class="node-sub">La Gobernación de Santander aprobó en 2023 la Política Pública LGBTI/OSIGD con base en una encuesta a 350 personas con muestra representativa. Los datos son contundentes: las personas con orientaciones sexuales e identidades de género diversas enfrentan exclusión económica, educativa, política y de seguridad personal que no es visible en los indicadores promedio departamentales.</div>
+
+      <div class="node-text">
+        La Política Pública LGBTI/OSIGD de Santander (2023) es la primera fuente oficial específica sobre esta población en el departamento. Su diagnóstico mapea cinco dimensiones de inclusión — educación, participación política, bienestar económico, salud y seguridad personal — y revela un patrón consistente de exclusión estructural. La pregunta de T·2 en esta dimensión no es solo de derechos civiles: es de eficiencia sistémica. Un departamento que excluye a una parte de su fuerza laboral y capital social por prejuicio está pagando un costo económico real que se suma al costo humano.
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Desempleo LGBTI/OSIGD · Santander</div>
+          <div class="dnum" style="color:var(--rose);">49,6%</div>
+          <div class="dlabel">de personas LGBTI/OSIGD encuestadas en Santander sin empleo — frente al promedio departamental de ~12%. <strong>Brecha de exclusión laboral de casi 4 veces.</strong> Empleo formal: solo 30,5%. Emprendimiento: 5,3%. <em>Fuente: Encuesta Política LGBTI/OSIGD Santander 2023.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Discriminación autopercibida</div>
+          <div class="dnum" style="color:var(--rose);">44%</div>
+          <div class="dlabel">de personas LGBTI/OSIGD en Santander reportan haberse sentido discriminadas por su orientación sexual o identidad de género. La discriminación afecta acceso a educación, empleo y servicios de salud. <em>Fuente: Encuesta Política LGBTI/OSIGD Santander 2023.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Concentración y vulnerabilidad</div>
+          <div class="dnum" style="color:var(--rose);">60%</div>
+          <div class="dlabel">de la población LGBTI/OSIGD en estratos 1 y 2. <strong>77% se concentra en solo 5 municipios</strong> (Bucaramanga, Floridablanca, Barrancabermeja, Girón, Piedecuesta, San Gil) — invisibilización en las provincias periféricas. <em>Fuente: Política LGBTI/OSIGD 2023 / DANE Censo 2018.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Hogares reconocidos · Censo 2018</div>
+          <div class="dnum" style="color:var(--rose);">1.823</div>
+          <div class="dlabel">hogares de parejas del mismo sexo reconocidos en Santander (0,51% del total) — Censo DANE 2018. <strong>Esta cifra subestima significativamente</strong> la población real por sesgo de subreporte y ausencia de medición diferencial en municipios periféricos. <em>Fuente: DANE CNPV 2018 / estudio poscensal 2022.</em></div>
+        </div>
+      </div>
+
+      <div class="critical-box">
+        <span class="cb">⚠ Cinco dimensiones de exclusión documentadas · Política LGBTI/OSIGD Santander 2023</span>
+        <p><strong>Educación:</strong> barreras de acceso a educación básica, media y superior por orientación sexual/identidad de género; hostigamiento y violencia escolar; manuales de convivencia discriminatorios en establecimientos educativos.</p>
+        <p><strong>Participación política y cívica:</strong> pocos o nulos espacios de participación en instancias públicas municipales y departamentales; amenazas a líderes y lideresas LGBTI; desconocimiento de mecanismos de participación.</p>
+        <p><strong>Bienestar económico:</strong> discriminación en acceso y permanencia laboral; barreras para emprendimiento; informalidad estructural; ausencia de programas de empleabilidad con enfoque diferencial.</p>
+        <p><strong>Salud:</strong> falta de enfoque diferencial en sistemas de salud; barreras de acceso; discriminación en atención; falta de capacitación del personal médico en salud sexual y de género diversa.</p>
+        <p><strong>Seguridad personal y violencia:</strong> violencia verbal y física por homofobia, lesbofobia, transfobia y bifobia; abuso policial documentado; violencia sexual en espacios de privación de libertad; ausencia de rutas de atención diferencial en la mayoría de municipios.</p>
+      </div>
+
+      <div class="box n2">
+        <div class="bt">Nexo con la arquitectura SVP 2050</div>
+        <p><strong>P8 (Débil gobernanza territorial):</strong> la ausencia de una política pública LGBTI/OSIGD efectiva con presupuesto etiquetado es expresión de la debilidad institucional diagnosticada en P8. La Política aprobada en 2023 es un punto de partida — su implementación efectiva es la condición mínima que T·2 debe monitorear.</p>
+        <p><strong>P6 (Brechas de conocimiento e innovación):</strong> la invisibilidad estadística de la población LGBTI/OSIGD en las provincias periféricas es un vacío de información que impide la toma de decisiones basada en evidencia. El SSITD debe incorporar medición diferencial de esta población en su arquitectura de datos.</p>
+        <p><strong>M4 (Inteligencia Territorial y Gobernanza) y M5 (Educación y Talento):</strong> la participación efectiva de personas LGBTI/OSIGD en las Escuelas Territoriales, los espacios de decisión del Consejo de Futuro y los programas de formación de M5 es condición de validación de ambas misiones bajo T·2. No basta con no discriminar — se requiere participación activa y presupuesto diferencial.</p>
+        <p><strong>Pregunta operativa clave:</strong> ¿los 50 proyectos del portafolio SVP 2050 tienen análisis de impacto en personas LGBTI/OSIGD? ¿Las cooperativas del SB6 tienen mecanismos explícitos de inclusión laboral para población con orientación sexual o identidad de género diversa?</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Política Pública LGBTI/OSIGD Santander 2023</span>
+        <span class="tag">Desempleo 49,6%</span>
+        <span class="tag">Discriminación 44%</span>
+        <span class="tag">Estratos bajos 60%</span>
+        <span class="tag">1.823 hogares CNPV 2018</span>
+        <span class="tag">M4 · M5 · P8 · P6</span>
+        <span class="tag">SB6 — Economía Popular</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La exclusión por orientación sexual se cruza con otra exclusión invisible: ~116.000 personas en Santander que el sistema trata como presión demográfica, no como sujetos activos
+  </div>
+
+  <!-- N2c: POBLACIÓN MIGRANTE VENEZOLANA -->
+  <div class="node n2">
+    <div class="marker">
+      <div class="bubble">DIM<br>II·c</div>
+      <div class="side-label">Migración</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 2c · Población Migrante Venezolana y Movilidad Humana · Nexo con T7, T1, M4 y M5</span>
+      <div class="node-h">¿Sujetos activos del desarrollo o presión demográfica a gestionar? — ~116.000 venezolanos en Santander visibilizan el eslabón que conecta T·2 con T·7 y con T·1</div>
+      <div class="node-sub">Santander alberga aproximadamente 116.000 personas venezolanas (Migración Colombia / R4V, 2024), equivalentes al 4,6% de la población departamental — el décimo departamento receptor del país. Cerca del 50% cuenta con Permiso por Protección Temporal (PPT); el resto permanece en situación irregular, con acceso restringido a salud, educación formal y empleo registrado. Su informalidad laboral supera el 80%, muy por encima del promedio departamental (56,8%). No es un grupo marginal: es una realidad territorial estructural que el sistema SVP 2050 no puede ignorar.</div>
+
+      <div class="node-text">
+        La población migrante venezolana cumple todas las condiciones de T·2: es un grupo estructuralmente excluido, con impacto territorial diferenciado, con intersección directa en múltiples dimensiones del hilo (género, etnia, orientación sexual, territorio), y con conexión sistémica con T·7 (geopolítica del Anillo 1) y T·1 (seguridad humana). La pregunta de T·2 en esta dimensión no es de asistencia humanitaria — es de diseño del sistema: <em>¿el sistema reconoce a esta población como agente económico y social activo, o la trata como una externalidad negativa que hay que gestionar?</em> La respuesta define si SVP 2050 reproduce exclusiones bajo nuevas formas o construye verdadero desarrollo territorial inclusivo.
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card" style="border-top-color:#7c3aed;">
+          <div class="dtag" style="background:rgba(124,58,237,0.07); color:#7c3aed; border-color:rgba(124,58,237,0.2);">Población venezolana · Santander 2024</div>
+          <div class="dnum" style="color:#7c3aed;">116.000</div>
+          <div class="dlabel">personas venezolanas en Santander (aprox.) — 4,6% de la población departamental. 10.° departamento receptor en Colombia. Concentración: Área Metropolitana de Bucaramanga y corredor norte (Pamplona). Baja presencia en provincias rurales. <em>Fuente: Migración Colombia / R4V 2024.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color:#7c3aed;">
+          <div class="dtag" style="background:rgba(124,58,237,0.07); color:#7c3aed; border-color:rgba(124,58,237,0.2);">Regularidad migratoria</div>
+          <div class="dnum" style="color:#7c3aed;">~50%</div>
+          <div class="dlabel">con Permiso por Protección Temporal (PPT). El resto en situación irregular — acceso restringido a salud formal, educación superior, sistema financiero y empleo registrado. <strong>La irregularidad no es elección: es barrera institucional.</strong> <em>Fuente: Migración Colombia 2024.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--rose-soft);">
+          <div class="dtag" style="background:var(--rose-pale); color:var(--rose); border-color:rgba(159,18,57,0.25);">Informalidad laboral migrante</div>
+          <div class="dnum" style="color:var(--rose);">&gt;80%</div>
+          <div class="dlabel">informalidad laboral estimada entre la población migrante venezolana — frente al 56,8% departamental. <strong>Brecha de 1,4×.</strong> Los migrantes se concentran en empleo de subsistencia (ventas ambulantes, construcción informal, trabajo doméstico) con nula protección social. <em>Fuente: DANE / OIM estimaciones 2024.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--amber);">
+          <div class="dtag" style="background:var(--amber-pale); color:var(--amber); border-color:rgba(180,83,9,0.25);">Oportunidad estratégica</div>
+          <div class="dnum" style="color:var(--amber);">Capital<br>humano</div>
+          <div class="dlabel">muchos migrantes venezolanos tienen formación técnica y universitaria — el sistema los absorbe en la base de la informalidad. <strong>La exclusión migrante no es solo un costo humano: es una pérdida económica para Santander.</strong> Conectar con Motor E (cuidado), Motor C (economía digital) y SB6 (formalización progresiva).</div>
+        </div>
+      </div>
+
+      <div class="box n2">
+        <div class="bt">Ciclo de reproducción de la exclusión migrante — mecanismo causal</div>
+        <p>Migración → informalidad laboral estructural → bajos ingresos y sin protección social → exclusión de servicios (salud, educación, crédito) → segregación urbana → vulnerabilidad a violencia y explotación → reproducción de pobreza en segunda generación → ↺. Este ciclo no se rompe con asistencia humanitaria puntual — requiere vías formales de integración productiva que SVP 2050 puede proveer a través de SB6 (formalización desde la informalidad), M5 (formación y talento) y M4 (gobernanza con enfoque migrante).</p>
+      </div>
+
+      <div class="critical-box">
+        <span class="cb">⚠ Intersecciones que multiplican la vulnerabilidad — exclusiones que se cruzan</span>
+        <p><strong>Mujeres migrantes (género × migración):</strong> doble exclusión por género y nacionalidad. Más vulnerables a violencia basada en género, trata de personas y explotación laboral en trabajo doméstico. El Anillo 1 y la inestabilidad fronteriza (documentada en T·7) intensifican la migración femenina con niños — las mujeres migrantes son el grupo más invisible del sistema.</p>
+        <p><strong>Migrantes LGBTI/OSIGD (orientación sexual × migración):</strong> muchas personas LGBTI venezolanas migran huyendo de violencia por prejuicio en Venezuela. En Santander enfrentan doble discriminación — por su orientación sexual y por su condición migratoria. Los riesgos específicos incluyen dificultad de acceso a rutas diferenciadas de protección.</p>
+        <p><strong>Migrantes indígenas venezolanos (Wayúu, Yukpa):</strong> comunidades indígenas transfronterizas con presencia en el norte de Santander. Sus derechos colectivos bajo el Convenio 169 OIT aplican con independencia de la frontera estatal — un vacío institucional que T·2 debe monitorear con el NIGT.</p>
+        <p><strong>Efecto frontera sobre seguridad alimentaria:</strong> documentado en T·1 — Norte de Santander registró +2 pp en inseguridad alimentaria grave en 2024 (~29.000 hogares) relacionados con la presión migratoria y la inestabilidad del Táchira.</p>
+      </div>
+
+      <div class="box n2">
+        <div class="bt">Nexo con T·7 y T·1 — el eslabón sistémico que T·2 no puede ignorar</div>
+        <p><strong>T·7 (Geopolítica y Posicionamiento Estratégico):</strong> la migración venezolana es un fenómeno del Anillo 1. El Memorando Colombia-Venezuela (julio 2025), los 8.000 uniformados venezolanos en la frontera (septiembre 2025) y la inestabilidad del régimen son variables que el NIGT debe monitorear por sus efectos directos sobre los flujos migratorios y la vulnerabilidad de la población venezolana en Santander.</p>
+        <p><strong>T·1 (Paz con Justicia Social):</strong> la xenofobia, la vulnerabilidad migratoria y la exposición a violencia son problemas de seguridad humana. La Corporación Compromiso ha documentado casos de discriminación y violencia contra migrantes venezolanos en Santander. La presencia de actores armados (Clan del Golfo, ELN) en zonas de tránsito migratorio agrava la exposición al riesgo.</p>
+        <p><strong>Cooperación internacional como oportunidad:</strong> la dimensión migrante conecta SVP 2050 con fuentes de financiación específicas — ACNUR, OIM, Banco Mundial (ENMV), UNFPA (género y migración). Incorporar esta dimensión en la arquitectura del proyecto puede atraer cooperación internacional directa que los otros componentes no alcanzan por sí solos.</p>
+      </div>
+
+      <div class="nigt-block">
+        <div class="nb-title">⊞ Agenda del NIGT para la Dimensión Migrante — monitoreo permanente</div>
+        <p>El NIGT debe incorporar en su agenda de vigilancia: evolución del flujo migratorio venezolano hacia Santander y su distribución provincial; porcentaje de migrantes con regularización (PPT); indicadores de integración laboral (tasa de formalidad vs. informalidad); acceso a servicios de salud y educación; incidentes documentados de xenofobia y discriminación; condición específica de mujeres migrantes y personas LGBTI venezolanas. Fuentes: Migración Colombia (mensual), R4V (bimensual), OIM-DTM (trimestral), Corporación Compromiso (anual).</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">~116.000 venezolanos Santander 2024</span>
+        <span class="tag">~50% con PPT</span>
+        <span class="tag">Informalidad &gt;80%</span>
+        <span class="tag">Migración Colombia / R4V</span>
+        <span class="tag">Xenofobia · Corporación Compromiso</span>
+        <span class="tag">T7 · T1 · NIGT</span>
+        <span class="tag">M4 · M5 · SB6</span>
+        <span class="tag">ACNUR · OIM · Banco Mundial</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    Todas las exclusiones convergen en la más visible del territorio: la fractura entre el AMB y las provincias periféricas
+  </div>
+
+  <!-- N3: INCLUSIÓN TERRITORIAL -->
+  <div class="node n3">
+    <div class="marker">
+      <div class="bubble">DIM<br>III</div>
+      <div class="side-label">Inclusión Territorial</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Dimensión 3 · Inclusión Territorial · El centralismo como problemática estructural · P5 y M2</span>
+      <div class="node-h">Las provincias como periferia del modelo: el AMB crece, las provincias se despueblan — la brecha no es gradual, es estructural y se reproduce deliberadamente</div>
+      <div class="node-sub">El IPM del AMB es 9,5% frente al 29,0% de las provincias rurales — una diferencia de 3 veces. La cobertura de educación superior es 58,3% en el AMB frente a 22,1% en municipios no metropolitanos — 2,6 veces menos. El alcantarillado rural cubre el 13% frente al 95% en cabeceras. T·2 pregunta: ¿el sistema SVP 2050 está diseñado para cerrar esta brecha o para gestionarla?</div>
+
+      <div class="node-text">
+        La inclusión territorial es la dimensión más directamente ligada a la Problemática P5 (Desigualdad estructural y fragmentación territorial urbano-rural) y a la Misión M2 (Santander Conectado y Equitativo). La pregunta de T·2 no es qué tanto creció el AMB: es si el crecimiento del AMB genera derrames hacia las provincias o acumula ventajas que amplían la brecha. La evidencia del corpus UIS es contundente: la mejora del Gini departamental ha beneficiado casi exclusivamente al AMB. Las provincias rurales no mejoran al mismo ritmo — y algunas empeoran.
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card" style="border-top-color: var(--teal);">
+          <div class="dtag" style="background:var(--teal-pale); color:var(--teal); border-color:rgba(15,118,110,0.25);">Brecha IPM AMB vs. provincias</div>
+          <div class="dnum" style="color:var(--teal);">3×</div>
+          <div class="dlabel">mayor pobreza multidimensional en provincias rurales que en el AMB: IPM AMB 9,5% vs. 29,0% en provincias (DANE 2023). La mejora del indicador departamental enmascara una fractura que no cierra. <em>Fuente: Diagnóstico UIS / corpus P·5.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--teal);">
+          <div class="dtag" style="background:var(--teal-pale); color:var(--teal); border-color:rgba(15,118,110,0.25);">Acceso a servicios básicos</div>
+          <div class="dnum" style="color:var(--teal);">13%</div>
+          <div class="dlabel">cobertura de alcantarillado en zonas rurales de Santander frente a 95% en cabeceras. Acueducto rural: 48% vs. 96% en cabeceras. Internet fijo rural: 21% vs. 69% en el AMB. <strong>Décadas de subinversión provincial.</strong> <em>Fuente: Diagnóstico UIS 2025.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--teal);">
+          <div class="dtag" style="background:var(--teal-pale); color:var(--teal); border-color:rgba(15,118,110,0.25);">Municipios en rezago</div>
+          <div class="dnum" style="color:var(--teal);">44/87</div>
+          <div class="dlabel">municipios de Santander con valor agregado por habitante inferior a la mitad del promedio departamental. <strong>57 municipios</strong> con Índice de Primacía Urbana "Muy bajo" — alta dependencia del AMB para servicios, empleo y oportunidades. <em>Fuente: Diagnóstico UIS.</em></div>
+        </div>
+        <div class="data-card" style="border-top-color: var(--teal);">
+          <div class="dtag" style="background:var(--teal-pale); color:var(--teal); border-color:rgba(15,118,110,0.25);">Movilidad social bloqueada</div>
+          <div class="dnum" style="color:var(--teal);">−17%</div>
+          <div class="dlabel">menos movilidad educativa ascendente que el promedio nacional para quienes nacen en provincias de Santander. <strong>El lugar de nacimiento sigue siendo destino.</strong> Educación superior: AMB 58,3% vs. no-metropolitanos 22,1%. <em>Fuente: P·5 UIS 2025.</em></div>
+        </div>
+      </div>
+
+      <div class="box n3">
+        <div class="bt">Tres mecanismos del centralismo que T·2 debe monitorear en SVP 2050</div>
+        <p><strong>1. La trampa extractiva intradepartamental:</strong> las provincias producen materias primas que se procesan en el AMB o fuera del departamento — reproduciendo a escala intradepartamental la misma lógica extractiva que P·3 diagnostica a escala nacional. La bioeconomía (SB1), la reconversión productiva (M3) y el turismo (Motor F) deben demostrar que crean encadenamientos locales y no simplemente un nuevo ciclo extractivo con mejor branding.</p>
+        <p><strong>2. La lógica radial de la conectividad:</strong> la infraestructura logística conecta cada municipio individualmente con Bucaramanga pero no teje una red intermunicipal que genere economías de escala provinciales. SB5 (Movilidad Rural) y M2 (Santander Conectado) deben demostrar que construyen red, no rayos de rueda.</p>
+        <p><strong>3. La concentración del conocimiento y la innovación:</strong> SB3 (Inteligencia Territorial Anticipatoria) y el SSITD se diseñan con base en el AMB. ¿Cómo garantizar que las Escuelas Territoriales y los nodos de aprendizaje lleguen con la misma calidad a García Rovira, Vélez y Comunera? T·2 exige que el 60% de inversión del SSITD en las provincias de menor IDH sea condición de validación del sistema.</p>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--teal);">Provincias en mayor riesgo · alerta T·2</span>
+          <strong>García Rovira:</strong> IPM >60% en varios municipios, emigración juvenil acelerada, envejecimiento crítico, riesgo de colapso demográfico. <strong>Vélez:</strong> mayor dependencia de transferencias, menor diversificación productiva. <strong>Comunera:</strong> legado del paramilitarismo y conflicto armado que redujo el capital social. Estas tres provincias son el termómetro de si SVP 2050 llega a todos.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--teal);">Meta de inclusión territorial · T·2 2035</span>
+          IPM rural ≤ 2× IPM urbano (hoy 3×). Brecha de cobertura en educación superior reducida a ≤1,5× (hoy 2,6×). Al menos 8 municipios periféricos con indicadores de movilidad social que mejoran por encima del promedio departamental. % inversión de misiones que llega a provincias de menor IDH ≥60% — verificado por el SSITD con periodicidad anual.
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">IPM AMB 9,5% vs. provincias 29%</span>
+        <span class="tag">Alcantarillado rural 13%</span>
+        <span class="tag">44 municipios en rezago productivo</span>
+        <span class="tag">Movilidad social bloqueada</span>
+        <span class="tag">García Rovira / Vélez / Comunera</span>
+        <span class="tag">M2 — Santander Conectado y Equitativo</span>
+        <span class="tag">SB5 — Movilidad Rural</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    Las tres dimensiones convergen en una pregunta única para el sistema: ¿construye desarrollo equitativo o reproduce exclusiones con mejor narrativa?
+  </div>
+
+  <!-- N4: NEXO ARQUITECTURAL -->
+  <div class="node n4">
+    <div class="marker">
+      <div class="bubble">NEX<br>M</div>
+      <div class="side-label">Nexo Arquitectural</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Nexo con Misiones, Motores y Sandboxes · Cómo T·2 se verifica en cada componente</span>
+      <div class="node-h">Cómo el Hilo T·2 bloquea o habilita cada misión — las preguntas que ningún componente puede eludir</div>
+      <div class="node-sub">T·2 no es una restricción al desarrollo: es el criterio que distingue el desarrollo real del crecimiento aparente. Cada misión, motor y sandbox debe responder a las tres dimensiones del hilo para ser validado como parte del sistema SVP 2050.</div>
+
+      <div class="node-text">
+        El Manual Operativo SVP 2050 v6.0 establece que cada laboratorio vivo incorpora el lente T·2 en su diseño. Las preguntas son concretas y verificables: ¿los contratos de biocréditos están a nombre de la mujer rural? ¿Los protocolos de consulta previa están activos donde corresponde? ¿Las cooperativas del SB6 tienen representación paritaria? ¿El SSITD asegura participación de mujeres, pueblos étnicos y territorios dispersos en las Escuelas Territoriales?
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--accent);">M1 · Naturaleza para la Vida</span>
+          T·2 exige verificar que los mecanismos de pago por servicios ambientales y biocréditos lleguen directamente a comunidades campesinas e indígenas. Consulta previa activa en zonas con resguardos o territorios étnicos. Titulación colectiva como condición para participación en mercados ambientales.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--accent);">M2 · Santander Conectado y Equitativo</span>
+          Esta misión es la materialización directa de la Dimensión III de T·2. El criterio de éxito no es la cobertura promedio sino la reducción de la brecha AMB-provincias. ¿El SSITD reporta reducción del diferencial IPM? ¿Las Escuelas Territoriales llegan a García Rovira y Vélez con la misma calidad que al AMB?
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--accent);">M3 · Reconversión Productiva y Energética</span>
+          T·2 exige que la reconversión demuestre generación de empleo femenino digno. ¿Qué % de los nuevos empleos formales en energías limpias, bioeconomía y manufactura avanzada son ocupados por mujeres? ¿Los programas de reconversión laboral incluyen esquemas de cuidado que permitan la participación femenina?
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color: var(--accent);">M5 · Educación, Cultura y Talento</span>
+          T·2 exige acceso para comunidades rurales y étnicas con la misma calidad que para el AMB. ¿Las becas y programas de talento priorizan a jóvenes de provincias con menor IDH? ¿Los contenidos educativos incorporan conocimientos de comunidades campesinas e indígenas como saberes legítimos?
+        </div>
+      </div>
+
+      <!-- TRAZABILIDAD TABLE -->
+      <div class="box n4" style="padding:0; overflow:hidden; margin-bottom:16px;">
+        <div class="bt" style="padding:14px 20px; margin-bottom:0; border-bottom:1px solid rgba(180,83,9,0.15);">Trazabilidad al sistema UIS — de cada dimensión T·2 a la cadena P → T → R → C → M</div>
+        <div class="semaforo-wrap" style="margin:0;">
+          <table class="traz-table">
+            <thead>
+              <tr>
+                <th>Dimensión T·2</th>
+                <th>Problemática (P)</th>
+                <th>Transición (T)</th>
+                <th>Reto Territorial (RT)</th>
+                <th>Capacidad (C)</th>
+                <th>Misión (M)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Equidad de Género<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Cuidado y autonomía</span></td>
+                <td><span class="traz-tag">P2 Demográfica</span> <span class="traz-tag">P5 Desigualdad</span></td>
+                <td><span class="traz-tag">T4 Demográfica</span> <span class="traz-tag">T2 Productiva</span></td>
+                <td>RT2 Sistemas de cuidado · RT4 Economía de valor agregado</td>
+                <td>C3 Reproducción social y demográfica · C2 Reproducción económica</td>
+                <td><span class="traz-tag" style="background:rgba(76,29,149,0.08); color:#4c1d95; border-color:rgba(76,29,149,0.25);">M2 Conectado y Equitativo</span> <span class="traz-tag" style="background:rgba(76,29,149,0.08); color:#4c1d95; border-color:rgba(76,29,149,0.25);">M5 Educación y Talento</span></td>
+              </tr>
+              <tr>
+                <td>Diversidad Étnica<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Derechos colectivos</span></td>
+                <td><span class="traz-tag">P5 Desigualdad</span> <span class="traz-tag">P3 Extractivismo</span></td>
+                <td><span class="traz-tag">T6 Institucional</span> <span class="traz-tag">T1 Energética</span></td>
+                <td>RT3 Transición justa · RT7 Gobernanza eficaz</td>
+                <td>C1 Reproducción ecológica · C5 Decisión colectiva</td>
+                <td><span class="traz-tag" style="background:rgba(21,128,61,0.08); color:#15803d; border-color:rgba(21,128,61,0.25);">M1 Naturaleza para la Vida</span> <span class="traz-tag" style="background:rgba(30,58,95,0.08); color:#1e3a5f; border-color:rgba(30,58,95,0.25);">M4 Gobernanza</span></td>
+              </tr>
+              <tr>
+                <td>Diversidad Sexual<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">LGBTI/OSIGD</span></td>
+                <td><span class="traz-tag">P8 Débil gobernanza</span> <span class="traz-tag">P6 Brechas conocimiento</span></td>
+                <td><span class="traz-tag">T6 Institucional</span> <span class="traz-tag">T3 Tecnológica</span></td>
+                <td>RT7 Gobernanza eficaz y participativa · RT5 Retener y atraer talento</td>
+                <td>C5 Decisión colectiva · C4 Aprendizaje e innovación</td>
+                <td><span class="traz-tag" style="background:rgba(76,29,149,0.08); color:#4c1d95; border-color:rgba(76,29,149,0.25);">M4 Inteligencia Territorial y Gobernanza</span> <span class="traz-tag" style="background:rgba(76,29,149,0.08); color:#4c1d95; border-color:rgba(76,29,149,0.25);">M5 Educación y Talento</span></td>
+              </tr>
+              <tr>
+                <td>Población Migrante<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Venezolanos en Santander</span></td>
+                <td><span class="traz-tag">P5 Desigualdad</span> <span class="traz-tag">P8 Débil gobernanza</span></td>
+                <td><span class="traz-tag">T7 Geopolítica</span> <span class="traz-tag">T4 Demográfica</span></td>
+                <td>RT5 Retener y atraer talento · RT7 Gobernanza eficaz</td>
+                <td>C3 Reproducción social y demográfica · C5 Decisión colectiva</td>
+                <td><span class="traz-tag" style="background:rgba(30,58,95,0.08); color:#1e3a5f; border-color:rgba(30,58,95,0.25);">M4 Inteligencia Territorial y Gobernanza</span> <span class="traz-tag" style="background:rgba(76,29,149,0.08); color:#4c1d95; border-color:rgba(76,29,149,0.25);">M5 Educación y Talento</span></td>
+              </tr>
+              <tr>
+                <td>Inclusión Territorial<br><span style="font-weight:400; font-size:10.5px; color:#64748b;">Provincias dispersas</span></td>
+                <td><span class="traz-tag">P5 Desigualdad territorial</span> <span class="traz-tag">P7 Infraestructura</span></td>
+                <td><span class="traz-tag">T2 Productiva</span> <span class="traz-tag">T3 Tecnológica</span></td>
+                <td>RT6 Cohesión territorial y cero brechas · RT5 Retener y atraer talento</td>
+                <td>C3 Reproducción social · C2 Reproducción económica · C4 Aprendizaje</td>
+                <td><span class="traz-tag" style="background:rgba(76,29,149,0.08); color:#4c1d95; border-color:rgba(76,29,149,0.25);">M2 Conectado y Equitativo</span> <span class="traz-tag" style="background:rgba(124,58,237,0.08); color:#7c3aed; border-color:rgba(124,58,237,0.25);">M3 Reconversión Productiva</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PROTOCOLO DE VALIDACIÓN T·2 -->
+      <div class="pregunta-block">
+        <div class="pb-title">⊞ Protocolo de validación T·2 — Seis preguntas que el lente aplica a cada misión, motor, sandbox o proyecto</div>
+        <ol>
+          <li><span class="pnum">01</span><div><strong>¿Quién se beneficia y quién queda fuera?</strong> Todo componente debe identificar explícitamente los grupos que se benefician y los que podrían quedar excluidos — desagregado por género, etnia, orientación sexual/identidad de género y ubicación territorial.</div></li>
+          <li><span class="pnum">02</span><div><strong>¿Amplía la autonomía económica de las mujeres o descansa en su trabajo invisible?</strong> Ningún modelo productivo que dependa de trabajo de cuidado no remunerado puede ser declarado exitoso. ¿El proyecto libera tiempo para las mujeres o les suma cargas de gestión comunitaria no remunerada ("pobreza de tiempo")?</div></li>
+          <li><span class="pnum">03</span><div><strong>¿Está activa la consulta previa donde corresponde?</strong> Todo proyecto en zonas con comunidades indígenas o afrodescendientes debe verificar el cumplimiento del Convenio 169 OIT antes de iniciar operaciones. El incumplimiento genera riesgo jurídico y ético simultáneamente.</div></li>
+          <li><span class="pnum">04</span><div><strong>¿El conocimiento de las comunidades campesinas e indígenas es reconocido y remunerado?</strong> Especialmente en bioeconomía, mercados ambientales y turismo cultural — donde ese conocimiento es la base del valor generado y debe estar protegido bajo el Protocolo de Nagoya.</div></li>
+          <li><span class="pnum">05</span><div><strong>¿Incluye activamente a población LGBTI/OSIGD en diseño e implementación?</strong> No basta con no discriminar. Se requiere participación efectiva en mesas de decisión, análisis de impacto diferencial, y presupuestos etiquetados para programas con enfoque LGBTI/OSIGD donde corresponda.</div></li>
+          <li><span class="pnum">06</span><div><strong>¿La inversión llega a las provincias con igual fuerza que al AMB?</strong> El % de inversión de misiones que llega a provincias de menor IDH debe ser medido y reportado anualmente por el SSITD. Proyectos que concentran beneficios en el AMB no superan este criterio aunque sus indicadores agregados sean positivos.</div></li>
+          <li><span class="pnum">07</span><div><strong>¿Incluye a la población migrante como sujeto activo del desarrollo?</strong> No basta con no discriminar. Se requiere acceso efectivo a servicios, empleo formal, formación técnica y participación en dispositivos participativos (SSITD, Escuelas Territoriales, sandboxes) — especialmente para quienes se encuentran en situación migratoria regular con PPT.</div></li>
+        </ol>
+      </div>
+
+      <!-- SEMÁFORO DE UMBRALES T·2 -->
+      <div style="margin-bottom:16px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--slate); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--rule);">⊞ Umbrales de alerta por dimensión — sistema de semáforo para el ciclo adaptativo del SSITD</div>
+        <div class="semaforo-wrap">
+          <table class="semaforo-table">
+            <thead>
+              <tr>
+                <th>Dimensión</th>
+                <th>Indicador clave</th>
+                <th>Fuente</th>
+                <th><span class="sem-dot dot-v"></span>Verde (operable)</th>
+                <th><span class="sem-dot dot-a"></span>Amarillo (revisión)</th>
+                <th><span class="sem-dot dot-r"></span>Rojo (sesión ext.)</th>
+                <th>Estado 2024</th>
+                <th>Period.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Equidad de Género</td>
+                <td>Tasa participación laboral femenina (%)</td>
+                <td>DANE / GEIH</td>
+                <td class="sem-verde">&gt; 62%</td>
+                <td class="sem-amarillo">55–62%</td>
+                <td class="sem-rojo">&lt; 55%</td>
+                <td class="sem-rojo">🔴 52% actual</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Violencia de Género</td>
+                <td>Feminicidios anuales en Santander</td>
+                <td>OSPS / Medicina Legal</td>
+                <td class="sem-verde">&lt; 8</td>
+                <td class="sem-amarillo">8–15</td>
+                <td class="sem-rojo">&gt; 15</td>
+                <td class="sem-rojo">🔴 13+ (2023)</td>
+                <td>Mensual</td>
+              </tr>
+              <tr>
+                <td>Derechos Étnicos</td>
+                <td>% proyectos con consulta previa activa donde corresponde</td>
+                <td>MinInterior / SVP</td>
+                <td class="sem-verde">100%</td>
+                <td class="sem-amarillo">70–99%</td>
+                <td class="sem-rojo">&lt; 70%</td>
+                <td class="sem-amarillo">🟡 En construcción</td>
+                <td>Semestral</td>
+              </tr>
+              <tr>
+                <td>Inclusión Territorial</td>
+                <td>Ratio IPM rural / IPM urbano</td>
+                <td>DANE / Gobernación</td>
+                <td class="sem-verde">&lt; 2×</td>
+                <td class="sem-amarillo">2–2,5×</td>
+                <td class="sem-rojo">&gt; 2,5×</td>
+                <td class="sem-rojo">🔴 3× (2023)</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Inversión Provincial</td>
+                <td>% inversión misiones en provincias IDH bajo</td>
+                <td>SSITD / Gobernación</td>
+                <td class="sem-verde">&ge; 60%</td>
+                <td class="sem-amarillo">40–59%</td>
+                <td class="sem-rojo">&lt; 40%</td>
+                <td class="sem-amarillo">🟡 Sin dato base</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Brechas Educativas</td>
+                <td>Ratio cobertura ed. superior AMB / no-metro</td>
+                <td>MEN / SNIES</td>
+                <td class="sem-verde">&lt; 1,5×</td>
+                <td class="sem-amarillo">1,5–2×</td>
+                <td class="sem-rojo">&gt; 2×</td>
+                <td class="sem-rojo">🔴 2,6× (2023)</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Exclusión LGBTI/OSIGD</td>
+                <td>Tasa desempleo LGBTI/OSIGD vs. promedio dpto.</td>
+                <td>Política LGBTI 2023 / SSITD</td>
+                <td class="sem-verde">&lt; 15%</td>
+                <td class="sem-amarillo">15–30%</td>
+                <td class="sem-rojo">&gt; 30%</td>
+                <td class="sem-rojo">🔴 49,6% (2023)</td>
+                <td>Cada 5 años</td>
+              </tr>
+              <tr>
+                <td>Discriminación LGBTI</td>
+                <td>% que reporta discriminación autopercibida</td>
+                <td>Política LGBTI 2023 / SSITD</td>
+                <td class="sem-verde">&lt; 15%</td>
+                <td class="sem-amarillo">15–30%</td>
+                <td class="sem-rojo">&gt; 30%</td>
+                <td class="sem-rojo">🔴 44% (2023)</td>
+                <td>Cada 5 años</td>
+              </tr>
+              <tr>
+                <td>Regularidad migrante</td>
+                <td>% venezolanos con PPT (regularización)</td>
+                <td>Migración Colombia</td>
+                <td class="sem-verde">&gt; 70%</td>
+                <td class="sem-amarillo">50–70%</td>
+                <td class="sem-rojo">&lt; 50%</td>
+                <td class="sem-amarillo">🟡 ~50% (2024)</td>
+                <td>Anual</td>
+              </tr>
+              <tr>
+                <td>Informalidad migrante</td>
+                <td>Tasa informalidad laboral migrantes vs. promedio dpto.</td>
+                <td>DANE / OIM</td>
+                <td class="sem-verde">&lt; 1,5×</td>
+                <td class="sem-amarillo">1,5–2×</td>
+                <td class="sem-rojo">&gt; 2×</td>
+                <td class="sem-rojo">🔴 &gt;80% (&gt;1,4×)</td>
+                <td>Anual</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size:11px; color:var(--slate); font-style:italic; margin-top:6px;">Los umbrales son propuestas iniciales para validación con el equipo técnico UIS y el NIGT. Estado actual: <strong>7 de 10 indicadores en rojo</strong>. Tres sin línea base establecida — su construcción es prioridad inmediata del SSITD. Varias cifras (informalidad femenina rural, datos LGBTI, estimación migrante) provienen de estimaciones o muestras no probabilísticas — se presentan como indicadores referenciales hasta la construcción de línea base verificada.</div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">M1 — Naturaleza para la Vida</span>
+        <span class="tag">M2 — Santander Conectado</span>
+        <span class="tag">M3 — Reconversión Productiva</span>
+        <span class="tag">M5 — Educación y Talento</span>
+        <span class="tag">Motor E — Economía del Cuidado</span>
+        <span class="tag">SB1 · SB5 · SB6</span>
+        <span class="tag">Consulta previa · Convenio 169</span>
+        <span class="tag">SSITD · indicadores T·2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <span class="arr">↓</span>
+    La pregunta prospectiva: ¿qué tendría que ser verdad en Santander en 2050 para que T·2 sea un logro y no una advertencia?
+  </div>
+
+  <!-- N5: HORIZONTES PROSPECTIVOS -->
+  <div class="node n5">
+    <div class="marker">
+      <div class="bubble">2050</div>
+      <div class="side-label">Prospectiva</div>
+    </div>
+    <div class="content">
+      <span class="step-pill">Horizonte prospectivo · Condiciones de equidad e inclusión al 2050</span>
+      <div class="node-h">¿Qué tendría que ser verdad en Santander en 2050 para que T·2 sea un logro y no solo un capítulo bien redactado del diagnóstico?</div>
+      <div class="node-sub">Las condiciones de viabilidad de la equidad, la diversidad y la inclusión no son metas sectoriales — son el umbral mínimo sin el cual el desarrollo de Santander habrá reproducido bajo nuevas formas las exclusiones que hoy diagnostica.</div>
+
+      <div class="node-text">
+        El horizonte prospectivo de T·2 no es la utopía de la igualdad perfecta: es el umbral de no-regresión y construcción de capacidades que permite que los grupos históricamente excluidos participen activamente en la construcción del futuro colectivo. La equidad no es un resultado del desarrollo — es su condición de legitimidad y sostenibilidad.
+      </div>
+
+      <div class="box n5">
+        <div class="bt">Tres preguntas abiertas para el equipo técnico UIS — agenda de profundización</div>
+        <p><strong>1. ¿Cómo se operacionaliza la consulta previa en los proyectos del portafolio SVP 2050 que implican territorios étnicos?</strong> Es necesario un protocolo específico que identifique qué proyectos activan la obligación del Convenio 169 OIT, qué entidades la gestionan y cómo se registra su cumplimiento en el SSITD.</p>
+        <p><strong>2. ¿Cómo se construye la línea base de indicadores de género, etnia e inclusión territorial para el SSITD?</strong> Actualmente T·2 tiene indicadores propuestos pero sin línea base verificada. El diagnóstico inicial deberá profundizarse con datos del Observatorio de Mujeres y Equidad de Género de Santander, el DANE y el corpus UIS.</p>
+        <p><strong>3. ¿Qué mecanismos de gobernanza garantizan la participación activa de mujeres, pueblos étnicos y representantes de provincias periféricas en las decisiones del Consejo de Futuro y el NIGT?</strong> La equidad en los resultados del sistema depende de la equidad en sus espacios de decisión.</p>
+      </div>
+
+      <div class="box-split">
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#0369a1;">Condiciones mínimas al 2035</span>
+          Tasa de participación laboral femenina ≥62%. Ratio IPM rural/urbano ≤2×. Consulta previa activa en el 100% de proyectos donde aplica. Al menos 40% de inversión de misiones en las 3 provincias con menor IDH. Línea base de indicadores T·2 establecida y monitorizada por el SSITD.
+        </div>
+        <div class="cap-cell">
+          <span class="cap-label" style="color:#0369a1;">Condiciones de viabilidad al 2050</span>
+          El lugar de nacimiento no determina las oportunidades de vida en Santander. Cero brechas significativas de género en el mercado laboral formal. Derechos territoriales de comunidades étnicas reconocidos y protegidos en la arquitectura de todos los motores ECTI. Las provincias periféricas lideran al menos un motor de desarrollo cada una.
+        </div>
+      </div>
+
+      <!-- T·1 y T·2 articulación -->
+      <div class="nigt-block">
+        <div class="nb-title">⊞ Articulación T·1 y T·2 — dos lentes que se potencian mutuamente</div>
+        <p>El Hilo T·1 (Paz con Justicia Social) y el Hilo T·2 (Equidad, Diversidad e Inclusión) no son independientes. Sus dimensiones se superponen y se refuerzan: la violencia de género es simultáneamente una violación de derechos humanos (T·1) y una expresión de la desigualdad estructural (T·2). Los conflictos socioambientales afectan desproporcionadamente a comunidades indígenas y campesinas (T·1 y T·2). La exclusión territorial es tanto un problema de seguridad humana (T·1) como de equidad en la distribución del desarrollo (T·2).</p>
+        <p><strong>Operación articulada:</strong> cada proyecto del portafolio debe ser evaluado desde T·1 y T·2 de manera simultánea. El ciclo adaptativo del sistema incorpora indicadores de ambos hilos. El SSITD garantiza participación paritaria de mujeres, representación de pueblos étnicos y representantes de territorios dispersos en todas las instancias de decisión — desde el Consejo de Futuro hasta las Escuelas Territoriales provinciales.</p>
+        <p><strong>La regla de cierre:</strong> ningún componente del sistema SVP 2050 puede ser declarado exitoso si mejora los indicadores promedio departamentales pero amplía las brechas de género, étnicas o territoriales. El crecimiento que concentra es fracaso sistémico aunque los números agregados sean buenos.</p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Equidad de género 2050</span>
+        <span class="tag">Derechos colectivos étnicos</span>
+        <span class="tag">Cero brechas territoriales</span>
+        <span class="tag">No-regresión en inclusión</span>
+        <span class="tag">Articulación T·1 y T·2</span>
+        <span class="tag">Consejo de Futuro inclusivo</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /body-wrap -->
+
+<!-- ══════════ SYNTHESIS ══════════ -->
+<div class="synthesis">
+  <div class="synth-header">SÍNTESIS DIAGNÓSTICA · HILO T·2 · EQUIDAD, DIVERSIDAD E INCLUSIÓN · CINCO DIMENSIONES</div>
+  <div class="synth-grid" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="sc">
+      <strong>Equidad de Género y Cuidado</strong>
+      Participación laboral femenina 52% (meta 2050: 68%). Informalidad rural femenina >90%*. 223 casos VIF/100.000 hab. 13 feminicidios (2023). Trabajo de cuidado: 5:1 mujeres/hombres. Brecha salarial ~12–15% (nacional; dato Santander pendiente). Motor E: principal palanca de corrección estructural. *Estimación referencial.
+    </div>
+    <div class="sc">
+      <strong>Diversidad Étnica y Cultural</strong>
+      Pueblo Guane (Barichara), U'wa (bordes orientales), afrodescendientes Magdalena Medio (3,1% dpto.). Campesinado: 69,7% percepción pobreza. 41% acceso alcantarillado rural. 18,1% del campesinado con pertenencia étnica. Consulta previa Convenio 169 OIT: obligación activa en SB1, M1 y M3. Protocolo Nagoya: condición del SB1.
+    </div>
+    <div class="sc">
+      <strong>Diversidad Sexual LGBTI/OSIGD</strong>
+      Desempleo 49,6%* (brecha 4× dpto.). Empleo formal solo 30,5%. Discriminación autopercibida 44%*. Estratos bajos 60%. 1.823 hogares CNPV 2018 (subestimado). 77% en 5 municipios — invisibilidad en provincias. 5 dimensiones de exclusión documentadas. *Encuesta 350 personas — muestra referencial.
+    </div>
+    <div class="sc">
+      <strong>Población Migrante Venezolana</strong>
+      ~116.000 personas en Santander (4,6% pob. dpto.). ~50% con PPT; resto irregular. Informalidad laboral >80%*. Concentración AMB y corredor norte. Mujeres migrantes: doble exclusión. Migrantes LGBTI: riesgos específicos. Conexión con T7 (Anillo 1) y T1. Oportunidad: capital humano no aprovechado. Fuentes: ACNUR, OIM, R4V. *Estimación referencial.
+    </div>
+    <div class="sc">
+      <strong>Inclusión Territorial</strong>
+      Ratio IPM rural/urbano: 3× (29% vs. 9,5% AMB). 44 de 87 municipios con VA <50% promedio dpto. Educación superior: AMB 58,3% vs. 22,1% no-metro (2,6×). Alcantarillado rural 13% vs. 95% cabeceras. 17% menos movilidad social. García Rovira, Vélez, Comunera: termómetro del sistema.
+    </div>
+  </div>
+  <div style="margin-top:24px; padding:18px 24px; background:rgba(245,240,232,0.07); border-left:3px solid var(--amber-light); font-family:'Libre Baskerville',serif; font-size:15px; font-style:italic; color:rgba(245,240,232,0.80); line-height:1.75;">
+    "El desarrollo que no se distribuye, se revierte."
+    <span style="display:block; margin-top:6px; font-family:'IBM Plex Mono',monospace; font-size:9px; font-style:normal; color:var(--amber-light); letter-spacing:0.5px;">— Frase síntesis del sistema T·2 · SVP 2050</span>
+  </div>
+</div>
+
+<!-- ══════════ DIFFERENTIATORS ══════════ -->
+<div class="diff-section">
+  <div class="diff-header">POR QUÉ ESTE HILO IMPORTA — TRES ARGUMENTOS PARA EL SISTEMA</div>
+  <div class="diff-inner">
+    <div>
+      <h3>El argumento de legitimidad: sin inclusión, el sistema no tiene mandato social</h3>
+      <p>Un modelo de desarrollo que crece en el AMB mientras García Rovira se despuebla, que formaliza empleos masculinos mientras las mujeres sostienen el cuidado invisible, y que tokeniza la biodiversidad sin reconocimiento de las comunidades que la preservaron, no tiene legitimidad social para sostenerse en el tiempo. T·2 no es un capítulo ético añadido al modelo económico — es la condición de su viabilidad política a largo plazo.</p>
+    </div>
+    <div>
+      <h3>El argumento de eficiencia: la exclusión es costosa — la inclusión es rentable</h3>
+      <p>Elevar la participación laboral femenina del 52% al 68% equivale a activar un motor económico de escala departamental que hoy está apagado. Reconocer los derechos sobre el conocimiento de comunidades campesinas e indígenas en los mercados de biocréditos elimina el principal riesgo de impugnación jurídica de los proyectos del SB1. Reducir la brecha AMB-provincias genera mercados internos que aumentan la resiliencia macroeconómica del departamento. La inclusión no es altruismo: es eficiencia sistémica.</p>
+    </div>
+    <div>
+      <h3>El argumento prospectivo: el 2050 que excluye no es sostenible</h3>
+      <p>La prospectiva de largo plazo requiere territorios con cohesión social suficiente para sostener decisiones colectivas durante décadas. Un Santander donde las mujeres rurales, las comunidades étnicas y las provincias periféricas no se reconocen como beneficiarios activos del proyecto no puede mantener la legitimidad necesaria para implementar transiciones costosas en el corto plazo. <strong>El Santander 2050 que queremos solo es posible si es el Santander de todos — no el de los mejor posicionados.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div>Santander Visión 2050 · Universidad Industrial de Santander (UIS) · Hilo Transversal 2 — Equidad, Diversidad e Inclusión · v3.0</div>
+  <div>Fuentes: <span>Corpus UIS 2025 · DANE CASEN 2023 · DANE FIES 2024 · OSPS / MinSalud · Observatorio Mujeres y Equidad de Género Santander · PIO 2020-2029 · Política LGBTI/OSIGD Santander 2023 · Migración Colombia 2024 · R4V · OIM · ACNUR · ONIC · Manual Operativo SVP 2050 v6.0 · Mapa Estratégico SVP 2050 v3</span> · Abril 2026</div>
+</footer>
+
+</body>
+</html>
