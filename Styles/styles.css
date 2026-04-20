@@ -4612,3 +4612,116 @@ body.modal-open {
         font-size: 0.84rem;
       }
     }
+
+/* ═══════════════════════════════════════════
+   NAVEGADOR DE CAPAS (HOME)
+   ═══════════════════════════════════════════ */
+.capas-sistema-section {
+  background:
+    radial-gradient(1200px 420px at 50% -180px, rgba(0, 104, 55, 0.08), transparent 65%),
+    linear-gradient(180deg, #f8fbf9 0%, #ffffff 36%);
+}
+
+.capas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-top: 1.1rem;
+}
+
+.capa-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.72rem;
+  min-height: 252px;
+  padding: 1.35rem 1.25rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(9, 43, 25, 0.12);
+  border-top: 6px solid var(--verde-oscuro);
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 35, 20, 0.08);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.capa-card:hover,
+.capa-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(0, 35, 20, 0.13);
+  border-color: rgba(0, 104, 55, 0.25);
+}
+
+.capa-card:focus-visible {
+  outline: 3px solid rgba(0, 104, 55, 0.25);
+  outline-offset: 1px;
+}
+
+.capa-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+}
+
+.capa-question {
+  margin: 0;
+  font-family: var(--fuente-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.26rem);
+  line-height: 1.28;
+  color: #0d2a1b;
+}
+
+.capa-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  line-height: 1.7;
+}
+
+.capa-chips {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.capa-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 104, 55, 0.16);
+  background: rgba(0, 104, 55, 0.06);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #18492f;
+  letter-spacing: 0.01em;
+}
+
+.capa-card--diagnostico {
+  border-top-color: #006837;
+}
+
+.capa-card--estrategia {
+  border-top-color: #0b6aa2;
+}
+
+.capa-card--ejecucion {
+  border-top-color: #7d5a00;
+}
+
+.capa-card--gobernanza {
+  border-top-color: #5a2f8f;
+}
+
+@media (max-width: 900px) {
+  .capas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .capa-card {
+    min-height: 230px;
+  }
+}

@@ -9,49 +9,78 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/transiciones.css">
 </head>
-<body>
+<body class="transicion-climatica">
 
 <header>
-  <nav class="nav-inner container">
+  <nav class="nav-inner">
     <a href="../home.html#hilos" class="nav-logo">
       <div class="nav-logo-icon">
         <img src="../img/icono.png" alt="Colibrí Santander 2050" width="40" />
       </div>
-      <div class="nav-logo-text--brand">
-        SANTANDER 2050
-        <span>Visión Prospectiva</span>
-      </div>
+      <span class="nav-logo-text">SANTANDER 2050<span>Transición climática y ecológica</span></span>
     </a>
+    <div class="nav-tag">Documento de síntesis estratégica</div>
   </nav>
 </header>
 
-<div class="story-hero">
-  <div class="story-hero-inner">
-    <div class="hero-eyebrow">Transición Estructural · Nº 5</div>
+<section class="doc-hero" id="top">
+  <svg class="botanical-hero" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M160 600C180 520 210 460 260 410C320 350 360 300 380 220" stroke="#fff" stroke-width="1.2" fill="none"/>
+    <path d="M1040 600C1020 520 990 460 940 410C880 350 840 300 820 220" stroke="#fff" stroke-width="1.2" fill="none"/>
+    <path d="M380 220C330 230 300 250 280 290" stroke="#fff" stroke-width="1" fill="none"/>
+    <path d="M820 220C870 230 900 250 920 290" stroke="#fff" stroke-width="1" fill="none"/>
+  </svg>
+
+  <div class="doc-hero-inner">
     <div class="ornament">
       <img src="../img/icono.png" alt="Colibrí Santander 2050" width="40">
-    </div> 
-    <div class="ornament">
-      <div class="ornament-line ornament-line-l"></div>
-      <div class="ornament-dot"></div>
-      <div class="ornament-dot"></div>
-      <div class="ornament-line ornament-line-r"></div>
-    </div> 
-    <h1>
-      Transición Climática y Ecológica
-      <span style="font-size: 0.58em; display: block; font-weight: 300; margin-top: 0.4rem;">
-        De la vulnerabilidad a la resiliencia generadora de valor
-      </span>
-    </h1> 
-  </div>
-</div>
+    </div>
 
-<main>
+    <div class="hero-version">UIS · Bucaramanga · Abril 2026</div>
+
+    <div class="hero-ornament" aria-hidden="true">
+      <span class="ho-line ho-line-l"></span>
+      <span class="ho-dot"></span>
+      <span class="ho-diamond"></span>
+      <span class="ho-dot"></span>
+      <span class="ho-line ho-line-r"></span>
+    </div>
+
+    <h1>Transición <em>climática y ecológica</em></h1>
+    <p class="hero-subtitle">De la vulnerabilidad a la resiliencia generadora de valor territorial</p>
+
+    <div class="hero-meta-row">
+      <div class="hero-meta-item">
+        <span class="hmi-label">Proceso</span>
+        <span class="hmi-value">Santander Visión Prospectiva 2050</span>
+      </div>
+      <span class="hmi-sep"></span>
+      <div class="hero-meta-item">
+        <span class="hmi-label">Código</span>
+        <span class="hmi-value">T5</span>
+      </div>
+      <span class="hmi-sep"></span>
+      <div class="hero-meta-item">
+        <span class="hmi-label">Tipo</span>
+        <span class="hmi-value">Transición estructural</span>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">206.000</span><span class="hstat-label">ha de páramos</span></div>
+      <div class="hstat"><span class="hstat-num">825.000</span><span class="hstat-label">personas expuestas</span></div>
+      <div class="hstat"><span class="hstat-num">35.000</span><span class="hstat-label">empleos verdes</span></div>
+      <div class="hstat"><span class="hstat-num">2048</span><span class="hstat-label">meta carbono-neutral</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="doc-main">
 
   <!-- ── Presentación ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>Presentación</h3>
       <p>La Transición Climática y Ecológica es la más existencial de las seis transiciones estructurales que enfrenta el departamento. No redefine un sector productivo: redefine las condiciones de habitabilidad del territorio. La Problemática 1 —Riesgo hídrico, climático y degradación ecológica— constituye un diagnóstico sólido, pero comprender la naturaleza de la fuerza global que transforma Santander es urgente. Este documento integra la NDC 3.0 de Colombia (2025), el Plan Climático 2035 (WRI), el Lancet Countdown (2025) y el análisis de vulnerabilidad de la FAO (2022).</p>
@@ -59,7 +88,7 @@
   </section>
 
   <!-- ── 1. Contexto global ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>1. El contexto global: la transición climática como fuerza sistémica irreversible</h3>
 
@@ -115,7 +144,7 @@
   </section>
 
   <!-- ── 2. Vulnerabilidad ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>2. Santander frente a la transición climática: vulnerabilidad y capital ecológico</h3>
 
@@ -148,7 +177,7 @@
   </section>
 
   <!-- ── 3. Oportunidades ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>3. De amenaza existencial a oportunidad estratégica</h3>
 
@@ -176,7 +205,7 @@
   </section>
 
   <!-- ── 4. Salud ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>4. La dimensión de salud: impacto humano del cambio climático</h3>
       <p>El Lancet Countdown 2025 para Colombia registra una temperatura media 1 °C más alta en 2024; los días-persona de olas de calor aumentaron 60 veces para adultos mayores; las pérdidas laborales por calor equivalen a USD 4.470 millones (1,1 % del PIB); y la aptitud climática para el dengue aumentó un 84 %. Bucaramanga presenta transmisión urbana establecida y una vulnerabilidad agravada por su "nivel de verdor muy bajo". La población envejecida de Santander amplifica aún más esta exposición.</p>
@@ -184,7 +213,7 @@
   </section>
 
   <!-- ── 5. Escenarios ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>5. Escenarios prospectivos al 2050</h3>
 
@@ -207,7 +236,7 @@
   </section>
 
   <!-- ── 6. Arquitectura estratégica ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>6. Implicaciones para la arquitectura estratégica de Santander 2050</h3>
 
@@ -257,7 +286,7 @@
   </section>
 
   <!-- ── 7. Marco institucional ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>7. Marco institucional y política pública</h3>
       <p>El <strong>PIGCCT</strong> (Plan Integral de Gestión de Cambio Climático Territorial) es el instrumento obligatorio que Santander aún no tiene actualizado; su formulación en 2026 es urgente. También deben activarse el SIIVRA, el NRCC y el Fondo Verde para el Clima. La adaptación debe ser el centro de la estabilidad territorial: seguridad hídrica, ordenamiento con enfoque climático, infraestructura resiliente y sistemas de alerta temprana.</p>
@@ -265,7 +294,7 @@
   </section>
 
   <!-- ── 8. Hoja de ruta ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>8. Hoja de ruta para la transición climática 2026–2050</h3>
 
@@ -343,7 +372,7 @@
   </section>
 
   <!-- ── Síntesis editorial ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <div class="cita-editorial">
         <p>
@@ -359,7 +388,7 @@
   </section>
 
   <!-- ── Referencias ── -->
-  <section>
+  <section class="doc-section reveal">
     <div class="container">
       <h3>Referencias y fuentes</h3>
       <p>UIS (2026) — Diagnóstico Problemática 1 · NDC 3.0 Colombia (MinAmbiente, 2025) · WRI (2026) Plan Climático 2035 · Lancet Countdown Latin America 2025 · FAO (2022) Análisis de vulnerabilidad agropecuaria Santander · IPCC (2023) · IDEAM (2023) · PNUMA (2023) · Global Forest Watch · McKinsey (2023).</p>
@@ -375,7 +404,7 @@
         <div class="nav-logo-icon" style="background: rgba(0,104,55,0.2);">
           <img src="../img/icono.png" alt="Colibrí Santander 2050" width="40">
         </div>
-        <div class="nav-logo-text--brand" style="color: #f7f3ec;">
+        <div class="nav-logo-text" style="color: #f7f3ec;">
           SANTANDER 2050
           <span>Visión Prospectiva</span>
         </div>
@@ -388,6 +417,16 @@
     <p>#LaUISqueQueremos · Transición Estructural Nº 5</p>
   </div>
 </footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.14 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
