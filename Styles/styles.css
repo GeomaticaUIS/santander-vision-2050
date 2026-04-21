@@ -195,6 +195,22 @@ header {
   letter-spacing: 0.1em;
 }
 
+.logo-bird-wrap {
+  position: relative;
+  width: 46px; height: 46px;
+  flex-shrink: 0;
+}
+.logo-bird-wrap::before {
+  content: ''; position: absolute; inset: -5px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.28) 0%, transparent 68%);
+  animation: halo 3.5s ease-in-out infinite;
+}
+.logo-bird-wrap::after {
+  content: ''; position: absolute; inset: -8px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.15);
+  animation: ring-grow 3.5s ease-in-out infinite;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
