@@ -148,7 +148,7 @@ img { display: block; max-width: 100%; }
 .hero-stats { display:flex; gap:26px; margin-top:28px; flex-wrap:wrap; }
 .hstat .n { display:block; font-family: var(--fuente-display); font-size:1.9rem; font-weight:800; color:var(--oro-claro); line-height:1; }
 .hstat .l { display:block; font-family: var(--fuente-display); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.5px; color:rgba(255,255,255,0.36); margin-top:4px; }
-.hero-bird { width: 150px; opacity: 0.1; filter: brightness(4) saturate(0); transform: scaleX(-1); animation: float-bird 7s ease-in-out infinite; align-self: center; justify-self: center; }
+.hero-bird { width: 150px; opacity: 1; transform: scaleX(-1); animation: float-bird 7s ease-in-out infinite; align-self: center; justify-self: center; }
 @keyframes float-bird { 0%,100% { transform:scaleX(-1) translateY(0); } 50% { transform:scaleX(-1) translateY(-14px); } }
 
 /* ==========================================================================
