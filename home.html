@@ -143,12 +143,9 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#arquitectura" class="nav-link">Arquitectura</a></li>
-        <li><a href="#diagnostico" class="nav-link">Diagnóstico</a></li>
-        <li><a href="Capas/Capa_4.html" class="nav-link">Laboratorios</a></li>
-        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+        <li><a href="#capas" class="nav-link">Capas</a></li>
         <li><a href="#caminos" class="nav-link">Por los caminos</a></li>
         <li><a href="#documentos" class="nav-link">Documentos</a></li>
-        <li><a href="ssitd/SSITD_presentacion.html" class="nav-link" target="_blank" rel="noopener">SSITD</a></li>
       </ul>
 
       <button class="nav-toggle" id="navToggle" aria-label="Menú">
@@ -369,10 +366,10 @@
   </section>
 
   <!-- ═══════════════════════════ NAVEGADOR DE CAPAS ═══════════════════════════ -->
-  <section id="diagnostico" class="capas-sistema-section">
+  <section id="capas" class="capas-sistema-section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="tag">Arquitectura del proceso</span>
+        <span class="tag">Capas del proceso</span>
         <h2 class="section-title">Las 4 capas del sistema</h2>
         <div class="divider"></div>
         <p class="section-subtitle">
@@ -422,129 +419,6 @@
             <span>M4 Gobernanza</span><span>6 Laboratorios</span><span>SSITD</span>
           </div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ PORTAFOLIO DE PROYECTOS ═══════════════════════════ -->
-  <section id="proyectos" style="background:#002a17; padding: 5rem 0;">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom:2.5rem">
-        <span class="tag" style="color:var(--oro)">05 — Portafolio Estratégico · 2026–2030</span>
-        <h2 class="section-title" style="color:#fff">Los 50 Proyectos Estratégicos</h2>
-        <div class="divider"></div>
-        <p style="color:rgba(255,255,255,0.65);font-size:1rem;max-width:720px;line-height:1.75;margin-top:.5rem">
-          El portafolio se organiza en <strong style="color:#fff">cuatro niveles interdependientes</strong>: fundacional, habilitador, tractor e impacto.
-          Los proyectos marcados con <strong style="color:var(--oro)">★</strong> son ancla de arranque prioritario 2026–2027.
-        </p>
-      </div>
-
-      <div class="dash-layout reveal">
-        <aside class="dash-sidebar">
-          <div class="dash-stats">
-            <div class="dash-stat"><span class="ds-n">50</span><span class="ds-l">Proyectos estratégicos</span></div>
-            <div class="dash-stat"><span class="ds-n">5</span><span class="ds-l">Misiones</span></div>
-            <div class="dash-stat"><span class="ds-n">8</span><span class="ds-l">Motores</span></div>
-            <div class="dash-stat"><span class="ds-n">5</span><span class="ds-l">Rutas críticas</span></div>
-          </div>
-          <div class="dash-group-title">Filtrar por nivel</div>
-          <div class="dash-chip-list" id="levelFilters">
-            <button class="dash-chip active" data-level="all">Todos</button>
-            <button class="dash-chip" data-level="fundacional">Fundacional</button>
-            <button class="dash-chip" data-level="habilitador">Habilitador</button>
-            <button class="dash-chip" data-level="tractor">Tractor</button>
-            <button class="dash-chip" data-level="impacto">Impacto</button>
-          </div>
-          <div class="dash-group-title">Filtrar por misión</div>
-          <div class="dash-chip-list" id="missionFilters">
-            <button class="dash-chip active" data-mission="all">Todas</button>
-            <button class="dash-chip" data-mission="M1">🌿 M1</button>
-            <button class="dash-chip" data-mission="M2">🔗 M2</button>
-            <button class="dash-chip" data-mission="M3">⚡ M3</button>
-            <button class="dash-chip" data-mission="M4">🏛 M4</button>
-            <button class="dash-chip" data-mission="M5">🎓 M5</button>
-          </div>
-          <div class="dash-group-title">Rutas críticas</div>
-          <div class="dash-chip-list" id="routeFilters">
-            <button class="dash-route-btn" data-route="rc1">RC1 · Agua y soberanía</button>
-            <button class="dash-route-btn" data-route="rc2">RC2 · Energía justa</button>
-            <button class="dash-route-btn" data-route="rc3">RC3 · Conectividad</button>
-            <button class="dash-route-btn" data-route="rc4">RC4 · Bioeconomía</button>
-            <button class="dash-route-btn" data-route="rc5">RC5 · Talento y cuidado</button>
-            <button class="dash-route-btn active" data-route="all">Ver todo</button>
-          </div>
-          <div class="dash-group-title">Leyenda de niveles</div>
-          <div class="dash-legend">
-            <div class="dl-item"><span class="dl-dot" style="background:#4caf50"></span>Fundacional</div>
-            <div class="dl-item"><span class="dl-dot" style="background:#42a5f5"></span>Habilitador</div>
-            <div class="dl-item"><span class="dl-dot" style="background:#c9a84c"></span>Tractor</div>
-            <div class="dl-item"><span class="dl-dot" style="background:#a5d6a7"></span>Impacto</div>
-          </div>
-          <p class="dash-note">El portafolio no es una lista de 50 proyectos. Es una arquitectura de inversiones donde los proyectos fundacionales habilitan cadenas de transformación sistémica.</p>
-        </aside>
-
-        <div class="dash-main">
-          <div class="dash-card dash-level-context-card" id="dashLevelContextCard">
-            <div class="dlc-top">
-              <span class="dlc-kicker">Resumen por nivel</span>
-              <h3 id="dlcTitle">Todos los niveles</h3>
-            </div>
-            <div class="dlc-meta">
-              <span class="dlc-count" id="dlcCount">50 proyectos</span>
-              <span class="dlc-projects" id="dlcProjects">Selecciona un nivel en el filtro para ver su ficha detallada.</span>
-            </div>
-            <p class="dlc-text" id="dlcDescription">El portafolio está organizado en cuatro niveles interdependientes.</p>
-          </div>
-
-          <div class="dash-card dash-rings-card">
-            <div class="dash-card-label">Arquitectura radial · haz clic en un nodo · filtra por ruta crítica</div>
-            <div class="dash-rings-wrap" id="ringsWrap">
-              <div class="dash-ring dash-r1"></div>
-              <div class="dash-ring dash-r2"></div>
-              <div class="dash-ring dash-r3"></div>
-              <div class="dash-ring dash-r4"></div>
-              <div class="dash-center-orb" id="centerOrb">
-                <b>Núcleo del sistema</b>
-                <span>Gobernanza, datos<br>y continuidad</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="dash-card dash-detail-card">
-            <div class="dash-tabs" id="dashTabs">
-              <button class="dash-tab active" data-tab="clusters">Clústeres</button>
-              <button class="dash-tab" data-tab="presupuesto">Magnitudes</button>
-            </div>
-            <div class="dash-panel active" id="dash-panel-clusters">
-              <div class="dash-clusters-grid">
-                <div class="dash-cluster"><h4>Gobernanza adaptativa</h4><p>Núcleo fundacional del sistema.</p><div class="dash-tags"><span>P34</span><span>P35</span><span>P38</span><span>P36</span><span>P37</span><span>P39</span></div></div>
-                <div class="dash-cluster"><h4>Seguridad hídrica</h4><p>Toda la Misión 1 más el relevo rural.</p><div class="dash-tags"><span>P01–P12</span><span>P47</span></div></div>
-                <div class="dash-cluster"><h4>Conectividad territorial</h4><p>Vías + fibra como palancas duales.</p><div class="dash-tags"><span>P13–P18</span><span>P20</span><span>P22</span></div></div>
-                <div class="dash-cluster"><h4>Transición energética</h4><p>Reconversión justa de Barrancabermeja y el Magdalena Medio.</p><div class="dash-tags"><span>P21</span><span>P23–P25</span><span>P28</span><span>P46</span></div></div>
-                <div class="dash-cluster"><h4>Bioeconomía</h4><p>Sofisticación productiva basada en biodiversidad y conocimiento.</p><div class="dash-tags"><span>P26–P33</span></div></div>
-                <div class="dash-cluster"><h4>Demografía, cuidado y talento</h4><p>Conectividad + formación + cuidado como respuesta al envejecimiento.</p><div class="dash-tags"><span>P19</span><span>P40–P41</span><span>P43–P45</span><span>P47</span></div></div>
-                <div class="dash-cluster dash-cluster--full"><h4>Turismo y economía cultural</h4><p>Diversificación económica desde la identidad territorial.</p><div class="dash-tags"><span>P48</span><span>P49</span><span>P50</span></div></div>
-              </div>
-            </div>
-            <div class="dash-panel" id="dash-panel-presupuesto">
-              <p style="color:rgba(255,255,255,0.6);font-size:.9rem;margin-bottom:1.25rem">Portafolio total entre <strong style="color:#fff">COP 4.510 y 7.820 miles de millones</strong>.</p>
-              <div class="dash-budget-grid">
-                <div class="dash-budget-box" style="border-top-color:#006837"><div class="dbb-m">M1 · Naturaleza para la Vida</div><div class="dbb-v">1.420–2.335</div><div class="dbb-t">miles M COP · 25% del total</div></div>
-                <div class="dash-budget-box" style="border-top-color:#42a5f5"><div class="dbb-m">M2 · Santander Conectado</div><div class="dbb-v">1.555–2.750</div><div class="dbb-t">miles M COP · 28% del total</div></div>
-                <div class="dash-budget-box" style="border-top-color:#c9a84c"><div class="dbb-m">M3 · Reconversión Productiva</div><div class="dbb-v">1.075–1.870</div><div class="dbb-t">miles M COP · 20% del total</div></div>
-                <div class="dash-budget-box" style="border-top-color:#a78bfa"><div class="dbb-m">M4 · Gobernanza Territorial</div><div class="dbb-v">90–180</div><div class="dbb-t">miles M COP · 2% del total</div></div>
-                <div class="dash-budget-box" style="border-top-color:#f472b6"><div class="dbb-m">M5 · Educación y Talento</div><div class="dbb-v">370–685</div><div class="dbb-t">miles M COP · 8% del total</div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="dash-card dash-route-card" id="routeCard">
-            <h4 id="dashRouteTitle" style="color:#fff;font-family:var(--fuente-display);font-size:1.25rem;margin:0 0 .5rem">Rutas críticas de implementación</h4>
-            <p id="dashRouteText" style="color:rgba(255,255,255,0.6);font-size:.88rem;line-height:1.7;margin:0 0 1rem">Selecciona una ruta crítica para ver la secuencia causal.</p>
-            <div class="dash-flow" id="dashRouteFlow"></div>
-            <p class="dash-note" id="dashRouteLogic" style="margin-top:.75rem">Estas rutas no son cronogramas. Son secuencias causales a través de las cuales los proyectos se activan mutuamente.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
