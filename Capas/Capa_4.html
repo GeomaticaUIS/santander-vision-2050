@@ -5,45 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capa 4 · Gobernanza y aprendizaje · Santander Visión 2050</title>
   <link rel="icon" type="image/png" href="../img/icono.png">
-  <meta name="description" content="Capa 4 de Santander Visión 2050: laboratorios vivos, gobernanza adaptativa y aprendizaje territorial." />
+  <meta name="description" content="Capa 4 de Santander Vision 2050: laboratorios vivos, SSITD, gobernanza adaptativa y aprendizaje territorial." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Literata:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Styles/styles.css" />
+  <link rel="stylesheet" href="capas-consistency.css" />
 </head>
 
 <body>
-  <header>
-    <nav class="container nav-inner">
+  <nav class="top-nav">
+    <div class="nav-inner">
       <a href="../home.html" class="nav-logo">
-        <div class="nav-logo-icon"><img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050" width="200px"></div>
-        <div class="nav-logo-text nav-logo-text--brand">
-          Santander Vision Prospectiva 2050
-          <span>UIS</span>
+        <div class="logo-bird-wrap"><img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050"></div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Santander Vision Prospectiva 2050</span>
+          <span class="logo-sub">UIS · Capa de gobernanza y aprendizaje</span>
         </div>
       </a>
+      <div class="nav-div"></div>
+      <div class="nav-tabs">
+        <a href="#laboratorios" class="ntab active" onclick="switchTab('laboratorios',this);return false;"><span class="tab-badge">6</span>Laboratorios</a>
+        <a href="#ssitd" class="ntab" onclick="switchTab('ssitd',this);return false;"><span class="tab-badge">1</span>SSITD</a>
+      </div>
+      <a href="../home.html" class="nav-home-btn"><span class="arr">←</span> Inicio</a>
+    </div>
+  </nav>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#laboratorios" class="nav-link">Laboratorios</a></li>
-        <li><a href="../home.html" class="nav-link">Inicio</a></li>
-      </ul>
+  <section class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-deco-2"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">04 · Capa de gobernanza y aprendizaje</div>
+        <h1>Aprendizaje y<br><em>gobernanza territorial</em></h1>
+        <p class="hero-lead">La Capa 4 integra experimentacion y decision adaptativa: seis laboratorios vivos prueban soluciones en territorio y el SSITD convierte esas evidencias en inteligencia accionable para orientar el sistema.</p>
+        <div class="hero-stats">
+          <div class="hstat"><span class="n">6</span><span class="l">Laboratorios vivos</span></div>
+          <div class="hstat"><span class="n">1</span><span class="l">SSITD</span></div>
+          <div class="hstat"><span class="n">UAA</span><span class="l">Aprendizaje adaptativo</span></div>
+        </div>
+      </div>
+      <img src="../img/icono.png" srcset="../img/icono-2x.png 2x" alt="" class="hero-bird" aria-hidden="true">
+    </div>
+  </section>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </header>
-
-  <section class="container" style="padding-top: 6rem; padding-bottom: 2.5rem;">
+  <section class="container section" style="padding-top: 2.75rem; padding-bottom: 2.5rem;">
     <div class="section-header reveal">
       <span class="tag">04 — Gobernanza y aprendizaje</span>
-      <h2 class="section-title">Los 6 Laboratorios Vivos Territoriales</h2>
+      <h2 class="section-title">Laboratorios Vivos y SSITD</h2>
       <div class="divider"></div>
       <p class="section-subtitle" style="max-width:680px">
-        Santander 2050 no propone solo una agenda de proyectos. Propone un sistema de aprendizaje territorial: sandboxes que prueban tecnologías emergentes, modelos de gobernanza y regulaciones no probadas antes de escalar.
+        Santander 2050 no propone solo una agenda de proyectos. Propone un sistema de aprendizaje territorial con dos dispositivos complementarios: seis laboratorios vivos para experimentar y el SSITD para convertir evidencia distribuida en decision publica.
       </p>
     </div>
   </section>
 
+  <div id="tab-laboratorios" class="tab-section active">
   <section id="laboratorios" style="background:var(--gris-suave); padding: 0 0 5rem;">
     <div class="container">
 
@@ -170,6 +187,52 @@
 
     </div>
   </section>
+  </div>
+
+  <div id="tab-ssitd" class="tab-section">
+  <section id="ssitd" class="c4-ssitd">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Infraestructura cognitiva territorial</span>
+        <h2 class="section-title">SSITD · Sistema de Inteligencia Territorial Distribuida</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle" style="max-width:760px">
+          El SSITD es la pieza que conecta senales territoriales, decisiones institucionales y ajuste adaptativo del sistema. Laboratorios y SSITD operan juntos: uno experimenta en territorio y el otro integra inteligencia para decidir que escalar, ajustar o cerrar.
+        </p>
+      </div>
+
+      <div class="c4-ssitd-grid reveal">
+        <article class="c4-ssitd-card c4-ssitd-card--primary">
+          <div class="c4-ssitd-eyebrow">Rol en Capa 4</div>
+          <h3 class="c4-ssitd-title">Del territorio a la decision publica</h3>
+          <p class="c4-ssitd-desc">Recoge diagnosticos georreferenciados, alertas ciudadanas y senales de cambio para alimentar la gobernanza basada en evidencia y sostener continuidad entre ciclos de gobierno.</p>
+          <ul class="c4-ssitd-list">
+            <li>Integra informacion de laboratorios, misiones y portafolio.</li>
+            <li>Opera en tiempo real con trazabilidad territorial.</li>
+            <li>Soporta decisiones del Consejo de Futuro y la UAA.</li>
+          </ul>
+          <div class="c4-ssitd-actions">
+            <a class="btn btn-primary" href="../ssitd/SSITD_presentacion.html" target="_blank" rel="noopener">Ver SSITD</a>
+          </div>
+        </article>
+
+        <article class="c4-ssitd-card">
+          <div class="c4-ssitd-eyebrow">Articulacion con laboratorios</div>
+          <h3 class="c4-ssitd-title">Ciclo adaptativo del sistema</h3>
+          <p class="c4-ssitd-desc">La logica operativa combina dos ritmos: experimentacion local en los sandboxes y sintesis estrategica en el SSITD para escalar solo lo que demuestre viabilidad territorial.</p>
+          <ul class="c4-ssitd-list">
+            <li>Laboratorios: prueban hipotesis y prototipos en campo.</li>
+            <li>SSITD: convierte resultados en inteligencia accionable.</li>
+            <li>UAA: decide ajustes con evidencia inter-sandbox.</li>
+          </ul>
+          <div class="c4-ssitd-actions">
+            <a class="btn btn-outline" href="../Manual Operativo/ManualOP.html">Ver marco operativo</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  </div>
 
   <div class="labref-modal" id="labReferenteModal" aria-hidden="true">
     <div class="labref-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="labRefModalTitle" aria-describedby="labRefModalSummary">
@@ -200,7 +263,8 @@
         <div class="footer-col">
           <h5>Secciones</h5>
           <ul>
-            <li><a href="#laboratorios">Laboratorios</a></li>
+            <li><a href="#laboratorios" onclick="switchTab('laboratorios', document.querySelector('.nav-tabs .ntab[href=\'#laboratorios\']'));return false;">Laboratorios</a></li>
+            <li><a href="#ssitd" onclick="switchTab('ssitd', document.querySelector('.nav-tabs .ntab[href=\'#ssitd\']'));return false;">SSITD</a></li>
             <li><a href="../home.html">Inicio</a></li>
           </ul>
         </div>
@@ -215,6 +279,27 @@
   <script src="../JavaScript/mission-data.js"></script>
   <script src="../JavaScript/motor-data.js"></script>
   <script src="../Manual Operativo/js/manualop.js"></script>
+  <script>
+    function switchTab(tabId, clickedBtn) {
+      document.querySelectorAll('.tab-section').forEach(function (s) { s.classList.remove('active'); });
+      document.querySelectorAll('.nav-tabs .ntab').forEach(function (b) { b.classList.remove('active'); });
+
+      var section = document.getElementById('tab-' + tabId);
+      if (section) section.classList.add('active');
+      if (clickedBtn) clickedBtn.classList.add('active');
+
+      window.location.hash = tabId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var hash = window.location.hash.replace('#', '');
+      if (hash === 'laboratorios' || hash === 'ssitd') {
+        var btn = document.querySelector('.nav-tabs .ntab[href="#' + hash + '"]');
+        switchTab(hash, btn);
+      }
+    });
+  </script>
   <script src="../JavaScript/labref-data.js"></script>
   <script src="../JavaScript/labref-modal.js"></script>
   <script src="../JavaScript/index.js"></script>

@@ -1,0 +1,231 @@
+/* Base visual compartida para Capa 1 y Capa 2, alineada con Capa 3 */
+
+.top-nav {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.nav-inner {
+  max-width: 1340px;
+  height: 68px;
+  gap: 1.5rem;
+}
+
+.nav-logo {
+  gap: 0.75rem;
+}
+
+.logo-bird-wrap img {
+  height: 44px;
+  width: auto;
+  filter: none;
+  transform: none;
+}
+
+.logo-title {
+  font-size: 0.78rem;
+  line-height: 1.2;
+  color: #006837;
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  color: #7a7468;
+}
+
+.nav-div {
+  width: 1px;
+  height: 32px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs {
+  gap: 4px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.ntab {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #7a7468;
+  border: none;
+  background: transparent;
+}
+
+.ntab:hover {
+  background: #ece8df;
+  color: #1a1814;
+}
+
+.ntab.active {
+  background: #006837;
+  color: #fff;
+}
+
+.ntab.active::after {
+  display: none;
+}
+
+.tab-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.62rem;
+  background: rgba(255, 255, 255, 0.25);
+  color: inherit;
+}
+
+.ntab.active .tab-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.ntab:not(.active) .tab-badge {
+  background: rgba(0, 0, 0, 0.07);
+  color: #3d3a34;
+}
+
+.nav-home-btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #006837;
+  color: #fff;
+  font-size: 0.78rem;
+}
+
+.nav-home-btn:hover {
+  background: #003d20;
+}
+
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #003d20 0%, #002d15 50%, #001a0d 100%);
+  color: #fff;
+  padding: 5rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  display: none;
+}
+
+.hero-deco {
+  top: -80px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  border: none;
+  background: radial-gradient(circle, rgba(0, 104, 55, 0.4) 0%, transparent 70%);
+}
+
+.hero-deco-2 {
+  bottom: -60px;
+  left: 10%;
+  width: 280px;
+  height: 280px;
+  border: none;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.2) 0%, transparent 70%);
+}
+
+.hero-inner {
+  max-width: 1340px;
+  gap: 3rem;
+}
+
+.hero-tag {
+  font-size: 0.72rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+}
+
+.hero-lead {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2rem;
+}
+
+.hero-stats {
+  gap: 2.5rem;
+}
+
+.hstat .n {
+  font-size: 2rem;
+}
+
+.hstat .l {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.hero-bird {
+  height: 180px;
+  opacity: 0.15;
+  filter: none;
+  transform: none;
+}
+
+.container {
+  max-width: 1340px;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.s-eyebrow {
+  color: #006837;
+}
+
+.s-title {
+  line-height: 1.2;
+}
+
+.s-desc {
+  font-size: 1rem;
+  max-width: 760px;
+  line-height: 1.75;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 680px) {
+  .nav-inner {
+    height: 58px;
+    padding: 0 14px;
+  }
+
+  .nav-div,
+  .nav-home-btn {
+    display: none;
+  }
+
+  .logo-title {
+    font-size: 0.78rem;
+  }
+
+  .logo-sub {
+    display: none;
+  }
+
+  .logo-bird-wrap,
+  .logo-bird-wrap img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ntab {
+    padding: 6px 10px;
+    font-size: 0.68rem;
+  }
+}
