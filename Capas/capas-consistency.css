@@ -1,231 +1,363 @@
-/* Base visual compartida para Capa 1 y Capa 2, alineada con Capa 3 */
+/* ==========================================================================
+   VARIABLES GLOBALES (Esquema de color Bloque 3)
+   ========================================================================== */
+:root {
+  --verde-bosque: #152b12;
+  --verde-tierra: #254f20;
+  --verde-medio:  #3a7033;
+  --oro:          #c9a84c;
+  --oro-claro:    #e2c06e;
+  --blanco:       #fafaf8;
+  --gris-fondo:   #f2efe9;
+  --gris-suave:   #e8e3d9;
+  --gris-medio:   #7a7468;
+  --texto:        #1c1a16;
+  --borde:        #d0c9bc;
+  --alerta:       #a83228;
+  --naranja:      #c45c14;
+  --azul:         #1a4a6b;
+  --morado:       #5a2d82;
+  
+  --shadow:       0 4px 20px rgba(0,0,0,0.09);
+  --shadow-lg:    0 14px 50px rgba(0,0,0,0.14);
+  --r:            12px;
+  --r2:           20px;
+  
+  --fuente-display: 'Sora', sans-serif;
+  --fuente-body:    'Literata', Georgia, serif;
+}
 
+/* ==========================================================================
+   RESETEO Y BASE
+   ========================================================================== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--fuente-body); 
+  background: var(--gris-fondo); 
+  color: var(--texto); 
+  line-height: 1.65; 
+  overflow-x: hidden; 
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ==========================================================================
+   NAVBAR PRINCIPAL (Estilo Bloque 3)
+   ========================================================================== */
 .top-nav {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--verde-bosque);
+  border-bottom: 2px solid var(--oro);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.28);
 }
-
 .nav-inner {
-  max-width: 1340px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
   height: 68px;
-  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
 }
-
 .nav-logo {
-  gap: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+  margin-right: auto;
+  padding: 6px 0;
 }
-
-.logo-bird-wrap img {
-  height: 44px;
-  width: auto;
-  filter: none;
-  transform: none;
-}
-
-.logo-title {
-  font-size: 0.78rem;
-  line-height: 1.2;
-  color: #006837;
-}
-
-.logo-sub {
-  font-size: 0.65rem;
-  color: #7a7468;
-}
-
-.nav-div {
-  width: 1px;
-  height: 32px;
-  margin: 0;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.nav-tabs {
-  gap: 4px;
-  flex: 1;
-  overflow-x: auto;
-}
-
-.ntab {
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.78rem;
-  color: #7a7468;
-  border: none;
-  background: transparent;
-}
-
-.ntab:hover {
-  background: #ece8df;
-  color: #1a1814;
-}
-
-.ntab.active {
-  background: #006837;
-  color: #fff;
-}
-
-.ntab.active::after {
-  display: none;
-}
-
-.tab-badge {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  font-size: 0.62rem;
-  background: rgba(255, 255, 255, 0.25);
-  color: inherit;
-}
-
-.ntab.active .tab-badge {
-  background: rgba(255, 255, 255, 0.25);
-  color: #fff;
-}
-
-.ntab:not(.active) .tab-badge {
-  background: rgba(0, 0, 0, 0.07);
-  color: #3d3a34;
-}
-
-.nav-home-btn {
-  padding: 7px 16px;
-  border-radius: 8px;
-  border: none;
-  background: #006837;
-  color: #fff;
-  font-size: 0.78rem;
-}
-
-.nav-home-btn:hover {
-  background: #003d20;
-}
-
-.hero {
+.logo-bird-wrap {
   position: relative;
-  background: linear-gradient(135deg, #003d20 0%, #002d15 50%, #001a0d 100%);
-  color: #fff;
-  padding: 5rem 2rem 4rem;
+  width: 46px; height: 46px;
+  flex-shrink: 0;
+}
+.logo-bird-wrap::before {
+  content: ''; position: absolute; inset: -5px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.28) 0%, transparent 68%);
+  animation: halo 3.5s ease-in-out infinite;
+}
+.logo-bird-wrap::after {
+  content: ''; position: absolute; inset: -8px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.15);
+  animation: ring-grow 3.5s ease-in-out infinite;
+}
+@keyframes halo {
+  0%,100% { transform:scale(1); opacity:0.8; }
+  50%     { transform:scale(1.2); opacity:0.35; }
+}
+@keyframes ring-grow {
+  0%,100% { transform:scale(1); opacity:0.6; }
+  50%     { transform:scale(1.3); opacity:0; }
+}
+.logo-bird-wrap img {
+  width: 46px; height: 46px; object-fit: contain; position: relative; z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(201,168,76,0.45)); transition: filter 0.35s, transform 0.35s;
+}
+.nav-logo:hover .logo-bird-wrap img { filter: drop-shadow(0 0 18px rgba(201,168,76,0.75)); transform: scale(1.07) rotate(-5deg); }
+.logo-text-wrap { display: flex; flex-direction: column; gap: 2px; }
+.logo-title { font-family: var(--fuente-display); font-size: 0.88rem; font-weight: 700; color: white; letter-spacing: -0.01em; line-height: 1.1; }
+.logo-sub { font-family: var(--fuente-display); font-size: 0.58rem; font-weight: 600; color: var(--oro); letter-spacing: 1.8px; text-transform: uppercase; }
+
+.nav-div { width: 1px; height: 30px; background: rgba(255,255,255,0.1); margin: 0 20px; flex-shrink: 0; }
+
+.nav-tabs { display: flex; align-items: center; gap: 3px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.nav-tabs::-webkit-scrollbar { display: none; }
+.ntab {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 15px; border-radius: 9px;
+  font-family: var(--fuente-display); font-size: 0.74rem; font-weight: 600; color: rgba(255,255,255,0.48);
+  background: transparent; border: 1px solid transparent; cursor: pointer; white-space: nowrap; transition: all 0.2s; position: relative;
+}
+.ntab:hover { color: rgba(255,255,255,0.88); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.08); }
+.ntab.active { color: var(--oro-claro); background: rgba(201,168,76,0.13); border-color: rgba(201,168,76,0.28); }
+.ntab.active::after { content: ''; position: absolute; bottom: -9px; left: 15px; right: 15px; height: 2px; background: var(--oro); border-radius: 2px; }
+.tab-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 19px; height: 19px; border-radius: 5px; font-size: 0.6rem; font-weight: 800; padding: 0 4px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.45); transition: all 0.2s; }
+.ntab.active .tab-badge { background: var(--oro); color: var(--verde-bosque); }
+
+.nav-home-btn { display: inline-flex; align-items: center; gap: 7px; margin-left: 18px; padding: 8px 16px; border-radius: 9px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: var(--fuente-display); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.5); transition: all 0.2s; white-space: nowrap; flex-shrink: 0; }
+.nav-home-btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2); color: white; }
+
+/* ==========================================================================
+   HERO (Estilo Bloque 3)
+   ========================================================================== */
+.hero {
+  background: var(--verde-bosque);
+  padding: 60px 28px 50px;
+  position: relative;
   overflow: hidden;
 }
-
 .hero::before {
-  display: none;
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 55% 70% at 88% 25%, rgba(201,168,76,0.07) 0%, transparent 55%), radial-gradient(ellipse 45% 55% at 8% 85%, rgba(26,74,107,0.1) 0%, transparent 50%);
+  pointer-events:none;
 }
+.hero-deco { position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.06); pointer-events: none; }
+.hero-deco-2 { position: absolute; top: -60px; right: -60px; width: 300px; height: 300px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.08); pointer-events: none; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 160px; gap: 40px; align-items: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(201,168,76,0.14); border: 1px solid rgba(201,168,76,0.32); border-radius: 30px; padding: 4px 14px; font-family: var(--fuente-display); font-size: 0.67rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--oro-claro); margin-bottom: 18px; }
+.hero h1 { font-family: var(--fuente-display); font-size: clamp(1.9rem, 4.5vw, 2.9rem); font-weight: 800; color: white; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 14px; }
+.hero h1 em { font-style:normal; color:var(--oro-claro); }
+.hero-lead { font-size: 0.95rem; color: rgba(255,255,255,0.55); max-width: 620px; line-height: 1.75; }
+.hero-stats { display:flex; gap:26px; margin-top:28px; flex-wrap:wrap; }
+.hstat .n { display:block; font-family: var(--fuente-display); font-size:1.9rem; font-weight:800; color:var(--oro-claro); line-height:1; }
+.hstat .l { display:block; font-family: var(--fuente-display); font-size:0.62rem; text-transform:uppercase; letter-spacing:0.5px; color:rgba(255,255,255,0.36); margin-top:4px; }
+.hero-bird { width: 150px; opacity: 0.1; filter: brightness(4) saturate(0); transform: scaleX(-1); animation: float-bird 7s ease-in-out infinite; align-self: center; justify-self: center; }
+@keyframes float-bird { 0%,100% { transform:scaleX(-1) translateY(0); } 50% { transform:scaleX(-1) translateY(-14px); } }
 
-.hero-deco {
-  top: -80px;
-  right: -80px;
-  width: 420px;
-  height: 420px;
-  border: none;
-  background: radial-gradient(circle, rgba(0, 104, 55, 0.4) 0%, transparent 70%);
-}
+/* ==========================================================================
+   CONTENEDOR Y TABS (Integración)
+   ========================================================================== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+.section { padding: 56px 0; }
+.tab-section { display: none; }
+.tab-section.active { display: block; }
+.s-eyebrow { font-family: var(--fuente-display); font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--oro); margin-bottom: 8px; }
+.s-title { font-family: var(--fuente-display); font-size: 1.6rem; font-weight: 800; color: var(--verde-bosque); letter-spacing: -0.02em; margin-bottom: 10px; }
+.s-desc { font-size: 0.93rem; color: var(--gris-medio); max-width: 660px; line-height: 1.72; margin-bottom: 34px; }
 
-.hero-deco-2 {
-  bottom: -60px;
-  left: 10%;
-  width: 280px;
-  height: 280px;
-  border: none;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.2) 0%, transparent 70%);
-}
+/* ==========================================================================
+   MISIONES / DASHBOARD (Adaptado de Bloque 2 a variables Bloque 3)
+   ========================================================================== */
+.mision-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--r2); padding: 30px 28px; position: relative; overflow: hidden; transition: all 0.25s cubic-bezier(0.4,0,0.2,1); }
+.mision-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.mision-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.mision-card--mat::before { background: var(--verde-tierra); }
+.mision-card--hab::before { background: var(--azul); }
+.mision-card--txv::before { background: var(--gris-medio); }
+.mc-title { font-family: var(--fuente-display); font-size: 1.1rem; font-weight: 700; color: var(--verde-bosque); line-height: 1.25; margin-bottom: 10px; }
 
-.hero-inner {
-  max-width: 1340px;
-  gap: 3rem;
-}
+/* Dashboard Wrapper */
+#tab-proyectos { background: var(--verde-bosque); color: var(--blanco); }
+#tab-proyectos .s-eyebrow { color: var(--oro); }
+#tab-proyectos .s-title { color: var(--blanco); }
 
-.hero-tag {
-  font-size: 0.72rem;
-  border-radius: 4px;
-  margin-bottom: 1.25rem;
-}
+/* ==========================================================================
+   COMPONENTES BLOQUE 3 (Problemáticas, Cifras, Hilos, Transiciones)
+   ========================================================================== */
+/* Problemáticas */
+.prob-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.prob-card { background:var(--blanco); border:1px solid var(--borde); border-radius:var(--r2); padding:22px 18px 28px; cursor:pointer; transition:all 0.25s; display:block; position:relative; overflow:hidden; }
+.prob-card::after { content:'→'; position:absolute; bottom:16px; right:16px; font-size:0.9rem; color:var(--borde); transition:all 0.2s; }
+.prob-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:transparent; }
+.prob-card:hover::after { color:var(--verde-medio); right:12px; }
+.prob-card.n1 { border-top:4px solid var(--alerta); }
+.prob-card.n2 { border-top:4px solid var(--naranja); }
+.prob-card.n3 { border-top:4px solid var(--azul); }
+.prob-card.n4 { border-top:4px solid var(--gris-medio); }
 
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  line-height: 1.1;
-}
+.prob-nivel { font-family: var(--fuente-display); font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+.n1 .prob-nivel{color:var(--alerta)} .n2 .prob-nivel{color:var(--naranja)} .n3 .prob-nivel{color:var(--azul)} .n4 .prob-nivel{color:var(--gris-medio)}
+.prob-num { display:inline-block; background:rgba(201,168,76,0.12); color:var(--oro); font-family: var(--fuente-display); font-size:0.65rem; font-weight:800; padding:2px 8px; border-radius:4px; margin-bottom:7px; }
+.prob-category { font-family: var(--fuente-display); font-size:0.66rem; font-weight:600; color:var(--gris-medio); text-transform:uppercase; letter-spacing:0.3px; margin-bottom:5px; }
+.prob-title { font-family: var(--fuente-display); font-size:0.89rem; font-weight:700; color:var(--verde-bosque); line-height:1.3; margin-bottom:8px; }
+.prob-hook { font-size:0.78rem; color:var(--gris-medio); line-height:1.5; margin-bottom:10px; }
+.prob-dato { background:var(--gris-fondo); border-left:3px solid var(--oro); border-radius:0 6px 6px 0; padding:7px 10px; font-size:0.72rem; color:var(--texto); line-height:1.4; margin-bottom:10px; }
+.prob-dato strong { font-family: var(--fuente-display); color:var(--verde-bosque); }
 
-.hero-lead {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 2rem;
-}
+/* Cifras */
+.cifras-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:32px; }
+.cifra-card { background:var(--blanco); border:1px solid var(--borde); border-radius:var(--r); padding:20px 16px; text-align:center; }
+.cifra-val { font-family: var(--fuente-display); font-size:2rem; font-weight:800; color:var(--verde-bosque); line-height:1; margin-bottom:6px; }
+.cifra-val.warn{color:var(--alerta)} .cifra-val.ok{color:var(--verde-medio)} .cifra-val.oro{color:var(--oro)}
+.cifra-label { font-family: var(--fuente-display); font-size:0.7rem; color:var(--gris-medio); text-transform:uppercase; letter-spacing:0.5px; }
 
-.hero-stats {
-  gap: 2.5rem;
-}
+/* Hilos */
+.hilos-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.hilo-card { background:var(--blanco); border:1px solid var(--borde); border-radius:var(--r2); padding:20px 16px; cursor:pointer; transition:all 0.25s; display:block; }
+.hilo-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--verde-medio); }
+.hilo-icon-wrap { width:42px; height:42px; border-radius:10px; background:var(--gris-fondo); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:10px; }
+.hilo-num-label { font-family: var(--fuente-display); font-size:0.61rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--gris-medio); margin-bottom:4px; }
+.hilo-title { font-family: var(--fuente-display); font-size:0.85rem; font-weight:700; color:var(--verde-bosque); line-height:1.3; margin-bottom:6px; }
+.hilo-desc { font-size:0.75rem; color:var(--gris-medio); line-height:1.5; margin-bottom:10px; }
+.hilo-link { font-family: var(--fuente-display); font-size:0.69rem; font-weight:600; color:var(--verde-tierra); }
+.hilo-card.intro-card { background:var(--verde-bosque); border-color:rgba(201,168,76,0.3); border-top:3px solid var(--oro); }
+.hilo-card.intro-card .hilo-title{color:white} .hilo-card.intro-card .hilo-num-label{color:var(--oro-claro)} .hilo-card.intro-card .hilo-desc{color:rgba(255,255,255,0.5)} .hilo-card.intro-card .hilo-link{color:var(--oro-claro)}
 
-.hstat .n {
-  font-size: 2rem;
-}
+/* Transiciones */
+.trans-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.trans-card { background:var(--blanco); border:1px solid var(--borde); border-radius:var(--r2); padding:26px 22px; transition:all 0.25s; display:block; position:relative; }
+.trans-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:var(--verde-medio); }
+.trans-num { font-family: var(--fuente-display); font-size:2.4rem; font-weight:800; color:var(--gris-suave); line-height:1; position:absolute; top:18px; right:22px; }
+.trans-label { font-family: var(--fuente-display); font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--oro); margin-bottom:9px; }
+.trans-title { font-family: var(--fuente-display); font-size:1rem; font-weight:700; color:var(--verde-bosque); line-height:1.3; margin-bottom:9px; }
 
-.hstat .l {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.55);
-}
+/* Reveal Animations */
+.reveal { opacity:0; transform:translateY(16px); transition:opacity 0.5s ease, transform 0.5s ease; }
+.reveal.visible { opacity:1; transform:none; }
+.prob-card:nth-child(1),.hilo-card:nth-child(1){transition-delay:.04s}
+.prob-card:nth-child(2),.hilo-card:nth-child(2){transition-delay:.08s}
+.prob-card:nth-child(3),.hilo-card:nth-child(3){transition-delay:.12s}
 
-.hero-bird {
-  height: 180px;
-  opacity: 0.15;
-  filter: none;
-  transform: none;
-}
-
-.container {
-  max-width: 1340px;
-  padding: 0 2rem;
-}
-
-.section {
-  padding: 5rem 0;
-}
-
-.s-eyebrow {
-  color: #006837;
-}
-
-.s-title {
-  line-height: 1.2;
-}
-
-.s-desc {
-  font-size: 1rem;
-  max-width: 760px;
-  line-height: 1.75;
-  margin-bottom: 3rem;
+/* ==========================================================================
+   RESPONSIVE UNIFICADO
+   ========================================================================== */
+@media (max-width: 1000px) {
+  .misiones-grid, .motores-grid { grid-template-columns: 1fr; }
+  .proyectos-grid { grid-template-columns: repeat(2, 1fr); }
+  .proy-stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .prob-grid { grid-template-columns: repeat(2,1fr); }
+  .hilos-grid { grid-template-columns: repeat(2,1fr); }
+  .cifras-grid { grid-template-columns: repeat(2,1fr); }
+  .trans-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
-  .nav-inner {
-    height: 58px;
-    padding: 0 14px;
-  }
-
-  .nav-div,
-  .nav-home-btn {
-    display: none;
-  }
-
-  .logo-title {
-    font-size: 0.78rem;
-  }
-
-  .logo-sub {
-    display: none;
-  }
-
-  .logo-bird-wrap,
-  .logo-bird-wrap img {
-    width: 36px;
-    height: 36px;
-  }
-
-  .ntab {
-    padding: 6px 10px;
-    font-size: 0.68rem;
-  }
+  .top-nav { top: 0; }
+  .nav-inner { height: 58px; padding: 0 14px; }
+  .nav-div, .nav-home-btn { display: none; }
+  .logo-title { font-size: 0.78rem; }
+  .logo-sub { display: none; }
+  .logo-bird-wrap, .logo-bird-wrap img { width: 36px; height: 36px; }
+  .ntab { padding: 6px 10px; font-size: 0.68rem; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-bird { display: none; }
 }
+
+@media (max-width: 560px) {
+  .prob-grid { grid-template-columns: 1fr; }
+  .hilos-grid { grid-template-columns: 1fr; }
+  .cifras-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════
+   REGLAS FALTANTES DE LAS CARDS (Añadir al CSS Principal)
+   ══════════════════════════════════════════════════════ */
+
+/* 1. Comportamiento de enlace de las tarjetas */
+.prob-card, .hilo-card, .trans-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. Elementos internos de Problemáticas que faltaban */
+.prob-mision { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 5px; 
+    font-family: var(--fuente-display); 
+    font-size: 0.64rem; 
+    font-weight: 600; 
+    color: var(--verde-tierra); 
+    background: rgba(45,90,39,0.08); 
+    border-radius: 4px; 
+    padding: 3px 8px; 
+}
+
+/* 3. Elementos internos de Cifras (Construcción y Progress Bar) */
+.cifra-sub { 
+    font-size: 0.67rem; 
+    color: var(--gris-medio); 
+    margin-top: 4px; 
+}
+.construccion-card { 
+    background: var(--blanco); 
+    border: 1px dashed var(--borde); 
+    border-radius: var(--r2); 
+    padding: 48px 32px; 
+    text-align: center; 
+}
+.construccion-icon { 
+    font-size: 2.5rem; 
+    margin-bottom: 16px; 
+}
+.construccion-card h3 { 
+    font-family: var(--fuente-display); 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--verde-bosque); 
+    margin-bottom: 8px; 
+}
+.construccion-card p { 
+    font-size: 0.85rem; 
+    color: var(--gris-medio); 
+    max-width: 400px; 
+    margin: 0 auto 20px; 
+}
+.progress-bar { 
+    height: 4px; 
+    background: var(--gris-suave); 
+    border-radius: 2px; 
+    overflow: hidden; 
+    max-width: 220px; 
+    margin: 0 auto 8px; 
+}
+.progress-fill { 
+    height: 100%; 
+    width: 35%; 
+    background: var(--oro); 
+    border-radius: 2px; 
+    animation: prog 2s ease-in-out infinite alternate; 
+}
+@keyframes prog { 
+    from { width: 25%; } 
+    to { width: 55%; } 
+}
+
+/* 4. Elementos internos de Transiciones que faltaban */
+.trans-desc { 
+    font-size: 0.81rem; 
+    color: var(--gris-medio); 
+    line-height: 1.6; 
+    margin-bottom: 14px; 
+}
+.trans-link { 
+    font-family: var(--fuente-display); 
+    font-size: 0.72rem; 
+    font-weight: 600; 
+    color: var(--verde-tierra); 
+}
+
+/* 5. Delays de animación para Reveal que fueron truncados */
+.prob-card:nth-child(4), .hilo-card:nth-child(4) { transition-delay: .16s; }
+.prob-card:nth-child(5), .hilo-card:nth-child(5) { transition-delay: .20s; }
+.prob-card:nth-child(6), .hilo-card:nth-child(6) { transition-delay: .24s; }
+.prob-card:nth-child(7), .hilo-card:nth-child(7) { transition-delay: .28s; }
+.prob-card:nth-child(8), .hilo-card:nth-child(8) { transition-delay: .32s; }
+.prob-card:nth-child(9), .hilo-card:nth-child(9) { transition-delay: .36s; }
