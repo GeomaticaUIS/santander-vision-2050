@@ -1873,13 +1873,17 @@ footer {
   gap: 2.5rem;
   align-items: start;
 }
-
+/* DESPUÉS */
 .prosp-intro {
   position: sticky;
   top: 90px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(0,104,55,0.10);
+  border-radius: 20px;
+  padding: 1.6rem 1.5rem;
 }
 
 .prosp-intro p {
@@ -1890,7 +1894,7 @@ footer {
 }
 
 .prosp-quote {
-  background: var(--blanco);
+  background: rgba(0,104,55,0.05);
   border-left: 4px solid var(--oro);
   border-radius: 0 var(--radio) var(--radio) 0;
   padding: 1.1rem 1.35rem;
