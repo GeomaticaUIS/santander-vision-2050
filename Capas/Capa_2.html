@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Literata:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="capa-2.css">
   <link rel="stylesheet" href="capas-consistency.css">
+  <link rel="stylesheet" href="footer-shared.css">
 </head>
 
 <body>
@@ -311,6 +312,36 @@
 
     </div></div>
   </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050"></div>
+            <div class="nav-logo-text nav-logo-text--brand">
+              Santander Vision Prospectiva 2050
+              <span style="color:rgba(255,255,255,0.4)">UIS</span>
+            </div>
+          </div>
+          <p>Laboratorios vivos territoriales, gobernanza adaptativa y aprendizaje colectivo para Santander 2050.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Secciones</h5>
+          <ul>
+            <li><a href="#retos" onclick='switchTab("retos", document.querySelector(".nav-tabs .ntab[href=\"#retos\"]"));return false;'>Retos</a></li>
+            <li><a href="#capacidades" onclick='switchTab("capacidades", document.querySelector(".nav-tabs .ntab[href=\"#capacidades\"]"));return false;'>Capacidades</a></li>
+            <li><a href="#escenarios" onclick='switchTab("escenarios", document.querySelector(".nav-tabs .ntab[href=\"#escenarios\"]"));return false;'>Escenarios</a></li>
+            <li><a href="../home.html">Inicio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
+        <span>Bucaramanga, Santander · Colombia</span>
+      </div>
+    </div>
+  </footer>
 
   <script>
     function switchTab(tabId, clickedBtn) {
