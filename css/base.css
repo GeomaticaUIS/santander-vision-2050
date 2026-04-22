@@ -1,11 +1,12 @@
 /* ==========================================================================
-   VARIABLES GLOBALES (Esquema de color Bloque 3)
-   ========================================================================== */
+  BASE COMPARTIDA (Home + Capas)
+  ========================================================================== */
 :root {
   --verde-bosque: #152b12;
   --verde-tierra: #254f20;
   --verde-medio:  #3a7033;
   --oro:          #c9a84c;
+  --dorado:       #c9a84c;
   --oro-claro:    #e2c06e;
   --blanco:       #fafaf8;
   --gris-fondo:   #f2efe9;
@@ -25,6 +26,22 @@
   
   --fuente-display: 'Sora', sans-serif;
   --fuente-body:    'Literata', Georgia, serif;
+
+  --verde-oscuro:  #152b12;
+  --verde-claro:   #4caf50;
+  --verde-pálido:  #e8f5e9;
+  --verde-palido:  #e8f5e9;
+  --verde-menta:   #a5d6a7;
+  --crema:         #f2efe9;
+  --tierra:        #254f20;
+  --texto-suave:   #4a4840;
+  --fuente-cuerpo: 'Literata', Georgia, serif;
+  --sombra-sm:     0 2px 8px rgba(0,0,0,0.06);
+  --sombra-md:     0 4px 20px rgba(0,0,0,0.09);
+  --sombra-lg:     0 14px 50px rgba(0,0,0,0.14);
+  --radio:         12px;
+  --radio-lg:      20px;
+  --trans:         0.3s ease;
 }
 
 /* ==========================================================================
