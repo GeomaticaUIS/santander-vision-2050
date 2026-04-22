@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSITD · Sistema Santander 2050 de Inteligencia Territorial Distribuida</title>
+<link rel="icon" type="image/png" href="../../../img/icono.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="css/base.css" rel="stylesheet">
+<script>
+  // Guard de autenticación — redirige al login si no hay sesión
+  if (!localStorage.getItem('svp_auth')) {
+    window.location.replace('../../../index.html');
+  }
+
+  // Corrige el logo home para que siempre apunte a home.html desde subcarpetas
+  document.addEventListener('DOMContentLoaded', function () {
+    var logo = document.querySelector('a.nav-logo');
+    if (logo) logo.setAttribute('href', '../../../home.html');
+
+    // Corrige también las rutas de imágenes del logo si usan src relativo sin ../../../
+    var logoImg = document.querySelector('a.nav-logo img');
+    if (logoImg) {
+      var src = logoImg.getAttribute('src');
+      if (src && !src.startsWith('../../../') && !src.startsWith('http')) {
+        logoImg.setAttribute('src', '../../../' + src);
+      }
+    }
+  });
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../../../home.html" class="nav-brand">
+    <span class="nav-brand-icon"><img src="../../../img/icono.png" alt="Logo Santander Visión 2050"></span>
+    <span class="nav-brand-text">Santander Vision Prospectiva 2050</span>
+  </a>
+  <div class="nav-links">
+    <a href="#definicion">Definición</a>
+    <a href="#capas">Arquitectura</a>
+    <a href="#actores">Actores</a>
+    <a href="#kit">Kit</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#piloto">Piloto</a>
+    <a href="#conclusion">Conclusión</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Universidad Industrial de Santander · Visión Prospectiva 2050</div>
+    <h1>Sistema Santander 2050 de<br><span>Inteligencia Territorial<br>Distribuida</span></h1>
+    <div class="hero-sub">SSITD · Versión 2.0 · Documento de Bases · Marzo 2026</div>
+    <p class="hero-desc">Una infraestructura social de inteligencia territorial que convierte a cada comunidad en un nodo activo de pensamiento estratégico, capaz de leer su realidad en clave estructural, imaginar su futuro a 25 años y actuar con herramientas rigurosas pero accesibles.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">5.500</div><div class="stat-label">Líderes de base</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Capas del sistema</div></div>
+      <div class="stat"><div class="stat-num">87</div><div class="stat-label">Municipios</div></div>
+      <div class="stat"><div class="stat-num">2050</div><div class="stat-label">Horizonte</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<section style="background:#fff;">
+  <div class="section-eyebrow">Contenido del documento</div>
+  <h2 class="section-title">Tabla de Contenido</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#preambulo"><span class="toc-n">01</span><span class="toc-t">Preámbulo: La necesidad de una inteligencia territorial distribuida</span></a>
+    <a class="toc-item" href="#definicion"><span class="toc-n">02</span><span class="toc-t">Definición y principios del sistema</span></a>
+    <a class="toc-item" href="#capas"><span class="toc-n">03</span><span class="toc-t">Arquitectura de tres capas interdependientes</span></a>
+    <a class="toc-item" href="#actores"><span class="toc-n">04</span><span class="toc-t">Los actores de la base territorial</span></a>
+    <a class="toc-item" href="#kit"><span class="toc-n">05</span><span class="toc-t">El Kit Territorial 2050: herramientas para pensar el futuro</span></a>
+    <a class="toc-item" href="#metodologia"><span class="toc-n">06</span><span class="toc-t">Metodología: Escuelas Territoriales de Prospectiva</span></a>
+    <a class="toc-item" href="#plataforma"><span class="toc-n">07</span><span class="toc-t">Plataforma digital «Mi Voz 2050»</span></a>
+    <a class="toc-item" href="#articulacion"><span class="toc-n">08</span><span class="toc-t">Articulación con la arquitectura institucional</span></a>
+    <a class="toc-item" href="#blindaje"><span class="toc-n">09</span><span class="toc-t">Estrategia de blindaje político y coyuntura electoral</span></a>
+    <a class="toc-item" href="#piloto"><span class="toc-n">10</span><span class="toc-t">Piloto: Provincia de García Rovira (2026-2027)</span></a>
+    <a class="toc-item" href="#indicadores"><span class="toc-n">11</span><span class="toc-t">Indicadores de éxito y ruta de escalamiento</span></a>
+    <a class="toc-item" href="#autosostenibilidad"><span class="toc-n">12</span><span class="toc-t">La UIS como arquitecta: principio de autosostenibilidad</span></a>
+    <a class="toc-item" href="#conclusion"><span class="toc-n">13</span><span class="toc-t">Conclusión: Una sociedad capaz de pensar su futuro</span></a>
+  </div>
+</section>
+
+<!-- 1. PREÁMBULO -->
+<section id="preambulo">
+  <div class="section-eyebrow">Sección 1</div>
+  <h2 class="section-title">Preámbulo</h2>
+  <p class="section-lead">La necesidad de una inteligencia territorial distribuida</p>
+  <p style="font-size:1rem;line-height:1.8;color:var(--grism);margin-bottom:1rem;">Santander ha construido, a lo largo del proceso Visión Prospectiva 2050, una arquitectura conceptual de altísimo rigor: ocho problemáticas estructurales, seis transiciones, cinco capacidades de reproducción, siete retos territoriales, cinco misiones estratégicas, ocho motores de desarrollo, un banco de 50 proyectos priorizados y seis laboratorios vivos de experimentación.</p>
+  <p style="font-size:1rem;line-height:1.8;color:var(--grism);margin-bottom:1rem;">Sin embargo, la historia del departamento —y del país— muestra una brecha persistente: la distancia entre la formulación técnica y la implementación efectiva. La razón de fondo no es técnica: es política, social e institucional. El conocimiento no transforma la realidad cuando no se encarna en las comunidades que viven esa realidad.</p>
+  <p style="font-size:1rem;line-height:1.8;color:var(--grism);margin-bottom:1.5rem;">La UIS, como la entidad pública de mayor capacidad técnica y científica del departamento, tiene la responsabilidad de construir la otra mitad del puente: la inteligencia territorial que nace desde la base, se distribuye en el tejido social y se convierte en capacidad colectiva de decisión.</p>
+  <div class="callout">El SSITD está diseñado para ser la pieza que define si Santander 2050 se convierte en realidad o permanece en documento. No es un programa de participación ni una estrategia de socialización: es una infraestructura social de inteligencia territorial distribuida.</div>
+</section>
+
+<!-- 2. DEFINICIÓN Y PRINCIPIOS -->
+<section id="definicion" style="background:#fff;">
+  <div class="section-eyebrow">Sección 2</div>
+  <h2 class="section-title">Definición y Principios del Sistema</h2>
+  <div class="callout" style="margin-bottom:2rem;">
+    El <strong>Sistema Santander 2050 de Inteligencia Territorial Distribuida</strong> es una red estructurada de actores, herramientas, metodologías y plataformas que permite a las comunidades de base —juntas de acción comunal, escuelas, centros de salud— diagnosticar su realidad en clave estructural, imaginar su futuro a 25 años, formular micro-misiones locales, experimentar soluciones y monitorear el cumplimiento de la Visión 2050 desde el territorio.
+  </div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--azul);margin-bottom:1.5rem;">Principios Rectores</h3>
+  <div class="principles-grid">
+    <div class="principle-card">
+      <div class="principle-num">01</div>
+      <div class="principle-name">Capilaridad</div>
+      <div class="principle-desc">El sistema llega a la célula básica del tejido social: la vereda, el barrio, la escuela, el puesto de salud. No opera solo desde centros urbanos o instancias provinciales.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">02</div>
+      <div class="principle-name">Simplicidad Radical</div>
+      <div class="principle-desc">Las herramientas deben ser comprensibles y usables por cualquier persona, independientemente de su nivel educativo. Si es complejo, no escala. La complejidad es el principal enemigo de la apropiación.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">03</div>
+      <div class="principle-name">Inversión Pedagógica</div>
+      <div class="principle-desc">El sistema no lleva la prospectiva a los territorios para que estos la aprendan. Los lleva para que la prospectiva aprenda a hablar el lenguaje de las necesidades de la base. El flujo prioritario va de abajo hacia arriba.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">04</div>
+      <div class="principle-name">Acción, No Consulta</div>
+      <div class="principle-desc">Cada comunidad no solo diagnostica: formula y ejecuta micro-misiones concretas. El sistema forma para la decisión y la acción, no para la opinión.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">05</div>
+      <div class="principle-name">Distribución, No Delegación</div>
+      <div class="principle-desc">La inteligencia territorial no se centraliza en élites técnicas ni se delega en representantes. Se distribuye en miles de líderes de base que piensan y actúan desde su propio territorio.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">06</div>
+      <div class="principle-name">Autosostenibilidad</div>
+      <div class="principle-desc">El sistema está diseñado para sobrevivir sin financiación continua de la UIS. Las herramientas se insertan en roles y presupuestos preexistentes. La universidad activa el sistema; la sociedad lo sostiene.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">07</div>
+      <div class="principle-name">Blindaje Suprapartidario</div>
+      <div class="principle-desc">El sistema no apoya candidaturas ni ideologías. Su horizonte es 2050, trasciende cualquier período de gobierno. Este horizonte es su principal escudo político frente a la instrumentalización coyuntural.</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">08</div>
+      <div class="principle-name">Articulación Institucional</div>
+      <div class="principle-desc">La inteligencia de base alimenta las instancias de decisión (Consejo de Futuro P35, Gobernación, alcaldías, Laboratorios Vivos) y se retroalimenta de ellas en ciclos permanentes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ARQUITECTURA -->
+<section id="capas">
+  <div class="section-eyebrow">Sección 3</div>
+  <h2 class="section-title">Arquitectura de Tres Capas Interdependientes</h2>
+  <p class="section-lead">El SSITD opera en tres capas que funcionan <strong>simultáneamente y con retroalimentación continua</strong>. No son fases secuenciales: son niveles interdependientes de un mismo sistema vivo.</p>
+  <div class="layers-wrap">
+    <div class="layer-card layer-1">
+      <div class="layer-tag">Capa 1</div>
+      <div class="layer-title">Escuelas Territoriales de Prospectiva</div>
+      <p style="font-size:.9rem;color:var(--grism);line-height:1.65;margin-bottom:1rem;">Formación y multiplicación de capacidad territorial. Objetivo: Formar a 5.000 líderes de base en el uso del kit y en pensamiento de largo plazo.</p>
+      <div class="layer-meta">
+        <div class="meta-item"><div class="meta-label">Estructura</div><div class="meta-value">Fase 1 → Fase 2 → Fase 3</div></div>
+        <div class="meta-item"><div class="meta-label">Producto</div><div class="meta-value">Agendas Comunitarias 2026-2030</div></div>
+        <div class="meta-item"><div class="meta-label">Alcance</div><div class="meta-value">5.000 líderes certificados</div></div>
+      </div>
+    </div>
+    <div class="layer-arrow">⇅</div>
+    <div class="layer-card layer-2">
+      <div class="layer-tag">Capa 2</div>
+      <div class="layer-title">Red de Laboratorios Ciudadanos 2050</div>
+      <p style="font-size:.9rem;color:var(--grism);line-height:1.65;margin-bottom:1rem;">Experimentación y pilotaje de soluciones locales. Cada JAC, escuela o centro de salud opera como nodo de laboratorio que prueba soluciones a problemáticas estructurales.</p>
+      <div class="layer-meta">
+        <div class="meta-item"><div class="meta-label">Ciclo</div><div class="meta-value">Diagnóstico → Micro-misión → Piloto → Evaluación → Ajuste → Escalamiento</div></div>
+        <div class="meta-item"><div class="meta-label">Producto</div><div class="meta-value">Prototipos validados y aprendizajes documentados</div></div>
+      </div>
+    </div>
+    <div class="layer-arrow">⇅</div>
+    <div class="layer-card layer-3">
+      <div class="layer-tag">Capa 3</div>
+      <div class="layer-title">Observatorio de Futuro y Veeduría Ciudadana</div>
+      <p style="font-size:.9rem;color:var(--grism);line-height:1.65;margin-bottom:1rem;">Inteligencia territorial distribuida y monitoreo desde la base. Plataforma «Mi Voz 2050» para diagnóstico participativo, mapa de sueños y alertas ciudadanas.</p>
+      <div class="layer-meta">
+        <div class="meta-item"><div class="meta-label">Red</div><div class="meta-value">5.000 veedores comunitarios</div></div>
+        <div class="meta-item"><div class="meta-label">Producto</div><div class="meta-value">Informes de inteligencia territorial + alertas tempranas</div></div>
+      </div>
+    </div>
+    <div class="layer-arrow">▲ Retroalimentación continua ▲</div>
+    <div class="layer-card layer-consejo">
+      <div class="layer-tag">Instancia de Gobernanza</div>
+      <div class="layer-title">Consejo de Futuro de Santander (P35)</div>
+      <p style="font-size:.9rem;color:var(--grism);line-height:1.65;">Recibe y procesa la inteligencia territorial de base para el ajuste adaptativo permanente de la Visión 2050. Es la instancia que cierra el ciclo entre la base social y la toma de decisiones estratégicas.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:2rem;">
+    <strong>El principio de simultaneidad:</strong> Desde el primer día, el Observatorio recopila información, los Laboratorios experimentan y las Escuelas forman. Cada capa aprende de las otras dos y las corrige. Este diseño convierte al sistema en un organismo adaptativo, no en un programa con cronograma fijo.
+  </div>
+</section>
+
+<!-- 4. ACTORES -->
+<section id="actores" style="background:#fff;">
+  <div class="section-eyebrow">Sección 4</div>
+  <h2 class="section-title">Los Actores de la Base Territorial</h2>
+  <p class="section-lead">La elección de los tres actores responde a cuatro condiciones estratégicas que se cumplen simultáneamente: presencia universal en lo urbano y lo rural, legitimidad comunitaria preexistente, capacidad de multiplicación y contacto permanente con las problemáticas estructurales.</p>
+  <div class="actors-grid">
+    <div class="actor-card actor-jac">
+      <div class="actor-icon">🏘️</div>
+      <div class="actor-name">Juntas de Acción Comunal</div>
+      <div class="actor-count">&gt;2.000 JAC urbanas y rurales</div>
+      <div class="actor-rol-label">Rol en el SSITD</div>
+      <div class="actor-rol">Gestor político-administrativo</div>
+      <ul class="attr-list">
+        <li>Célula política real del territorio</li>
+        <li>Legitimidad local consolidada</li>
+        <li>Gestión de conflictos concretos</li>
+        <li>Articulación con presupuesto participativo</li>
+      </ul>
+      <div class="actor-connection">Cohesión territorial (M2) · Gobernanza participativa (M4)</div>
+    </div>
+    <div class="actor-card actor-doc">
+      <div class="actor-icon">📚</div>
+      <div class="actor-name">Docentes</div>
+      <div class="actor-count">&gt;2.000 escuelas y colegios</div>
+      <div class="actor-rol-label">Rol en el SSITD</div>
+      <div class="actor-rol">Mediador pedagógico</div>
+      <ul class="attr-list">
+        <li>Nodo de reproducción cultural</li>
+        <li>Forma a las nuevas generaciones</li>
+        <li>Capacidad de traducción pedagógica</li>
+        <li>Liderazgo de opinión comunitaria</li>
+      </ul>
+      <div class="actor-connection">Talento y cultura (M5) · Brechas de conocimiento (P6)</div>
+    </div>
+    <div class="actor-card actor-salud">
+      <div class="actor-icon">🏥</div>
+      <div class="actor-name">Personal de Salud Primaria</div>
+      <div class="actor-count">&gt;1.500 puestos de salud</div>
+      <div class="actor-rol-label">Rol en el SSITD</div>
+      <div class="actor-rol">Sensor de bienestar</div>
+      <ul class="attr-list">
+        <li>Sensor más cercano de la realidad social</li>
+        <li>Relación de confianza con las familias</li>
+        <li>Testigo de brechas y vulnerabilidades</li>
+        <li>Acceso a poblaciones invisibles</li>
+      </ul>
+      <div class="actor-connection">Economía del cuidado (Motor E) · Transición demográfica (P2)</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:2rem;">
+    En conjunto, los aproximadamente <strong>5.500 líderes</strong> de esta tríada conforman la red capilar del sistema: la infraestructura social que ningún otro actor territorial puede replicar.
+  </div>
+</section>
+
+<!-- 5. KIT -->
+<section id="kit">
+  <div class="section-eyebrow">Sección 5</div>
+  <h2 class="section-title">El Kit Territorial 2050</h2>
+  <p class="section-lead">Herramientas para pensar el futuro. Principio de diseño inviolable: <em>si es complejo, muere; si es simple, escala.</em></p>
+  <div class="kit-grid">
+    <div class="kit-modules">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--azul);margin-bottom:1rem;">Módulos Transversales</h3>
+      <div class="kit-card">
+        <div class="kit-num">M1 · Transversal</div>
+        <div class="kit-name">El Árbol de Problemas de mi Comunidad</div>
+        <div class="kit-desc">Versión simplificada de las 8 problemáticas estructurales. Preguntas guía: ¿Tenemos agua segura? ¿Nuestros jóvenes se quedan? ¿Hay trabajo digno? ¿Estamos organizados para decidir?</div>
+        <span class="kit-format">Cartilla ilustrada 8 págs + 8 tarjetas</span>
+        <div class="kit-conexion">↗ Problemáticas P1–P8</div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-num">M3 · Transversal</div>
+        <div class="kit-name">Nuestro Plan Comunitario 2026-2030</div>
+        <div class="kit-desc">Formato simple de una página para priorizar 3 acciones concretas, identificar responsables y fechas, y alinear con la misión departamental correspondiente.</div>
+        <span class="kit-format">Formulario 1 página + facilitación de Promotor</span>
+        <div class="kit-conexion">↗ Misiones estratégicas + Banco de 50 proyectos</div>
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--azul);margin-top:1.5rem;margin-bottom:1rem;">Módulos Específicos por Actor</h3>
+      <div class="kit-card">
+        <div class="kit-num">JAC</div>
+        <div class="kit-name">Las 5 Capacidades de una Comunidad Fuerte</div>
+        <div class="kit-desc">Traducción de las 5 capacidades de reproducción: agua limpia, economía propia, gente cuidada, jóvenes preparados, organización comunitaria.</div>
+        <div class="kit-conexion">↗ Misiones 1, 2 y 4 · Motor G</div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-num">Docente</div>
+        <div class="kit-name">Prospectiva en el Aula</div>
+        <div class="kit-desc">Cuadernillo de 10 actividades por ciclo para incorporar el pensamiento de largo plazo. Concurso «Mi Municipio en 2050» y programa «Semillas de Futuro».</div>
+        <div class="kit-conexion">↗ Misión 5 · Motores B y C</div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-num">Salud</div>
+        <div class="kit-name">Salud y Bienestar 2050</div>
+        <div class="kit-desc">Ficha de diagnóstico rápido sobre determinantes sociales. Mapa de Cuidado Comunitario. Sistema de alertas tempranas de bienestar.</div>
+        <div class="kit-conexion">↗ Misiones 1 y 2 · Motor E</div>
+      </div>
+    </div>
+    <div class="brujula-card">
+      <div class="brujula-title">🧭 La Brújula de Generaciones Futuras</div>
+      <p style="font-size:.82rem;color:var(--dorado);font-style:italic;margin-bottom:1rem;">La herramienta transversal más estratégica del kit</p>
+      <div class="brujula-question">
+        «Esta solución, ¿nos ayuda a llegar al 2050 con más oportunidades para nuestras nietas y nietos, o es solo un remiendo para hoy?»
+      </div>
+      <p style="font-size:.82rem;color:var(--grism);margin-bottom:1rem;font-style:italic;">Cuatro puntos cardinales para orientar la decisión:</p>
+      <div class="brujula-compass">
+        <div class="compass-point">
+          <span class="compass-dir compass-n">N</span>
+          <span>¿Contribuye a la <strong>sostenibilidad ecológica</strong>?</span>
+        </div>
+        <div class="compass-point">
+          <span class="compass-dir compass-s">S</span>
+          <span>¿Reduce desigualdades y fortalece el <strong>tejido social</strong>?</span>
+        </div>
+        <div class="compass-point">
+          <span class="compass-dir compass-e">O</span>
+          <span>¿Abre oportunidades para las <strong>nuevas generaciones</strong>?</span>
+        </div>
+        <div class="compass-point">
+          <span class="compass-dir compass-o">W</span>
+          <span>¿Respeta y potencia la <strong>identidad cultural</strong>?</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;font-size:.8rem;color:var(--dorado);font-style:italic;text-align:center;padding:.8rem;background:rgba(255,255,255,.5);border-radius:8px;">Su función es romper el cortoplacismo institucionalizado, el principal obstáculo histórico del desarrollo territorial colombiano.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. METODOLOGÍA -->
+<section id="metodologia" style="background:#fff;">
+  <div class="section-eyebrow">Sección 6</div>
+  <h2 class="section-title">Metodología de Implementación</h2>
+  <p class="section-lead">Escuelas Territoriales de Prospectiva: cuatro fases de formación y consolidación progresiva.</p>
+  <div class="phases-wrap">
+    <div class="phase-card">
+      <div class="phase-badge">
+        <div class="phase-num">Fase 1</div>
+        <div class="phase-name">Formación de Formadores</div>
+        <div class="phase-period">Abril – septiembre 2026</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-rows">
+          <div class="phase-row"><span class="phase-key">Objetivo</span><span class="phase-val">Seleccionar y formar a 100 líderes semilla (20 por provincia) como Promotores Territoriales 2050.</span></div>
+          <div class="phase-row"><span class="phase-key">Perfil</span><span class="phase-val">Líderes de JAC con experiencia, docentes con vocación de liderazgo, personal de salud con arraigo comunitario.</span></div>
+          <div class="phase-row"><span class="phase-key">Metodología</span><span class="phase-val">Curso intensivo de 120 horas: 4 módulos presenciales en la UIS + acompañamiento virtual mensual.</span></div>
+        </div>
+        <div class="phase-product">100 Promotores Territoriales 2050 certificados</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-badge" style="background:var(--verdep);">
+        <div class="phase-num" style="color:var(--verde);">Fase 2</div>
+        <div class="phase-name" style="color:var(--verde);">Escuelas Provinciales</div>
+        <div class="phase-period">Oct 2026 – Sep 2027</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-rows">
+          <div class="phase-row"><span class="phase-key">Objetivo</span><span class="phase-val">Formar a 700 líderes provinciales (100 por cada una de las 7 provincias).</span></div>
+          <div class="phase-row"><span class="phase-key">Estructura</span><span class="phase-val">7 Escuelas Provinciales, 4 talleres presenciales de 8 horas + acompañamiento virtual.</span></div>
+          <div class="phase-row"><span class="phase-key">Facilitadores</span><span class="phase-val">Los 100 Promotores certificados en Fase 1, con supervisión metodológica de la UIS.</span></div>
+        </div>
+        <div class="phase-product">7 Agendas Provinciales de Transformación 2026-2030</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-badge" style="background:var(--naranjac);">
+        <div class="phase-num" style="color:var(--naranja);">Fase 3</div>
+        <div class="phase-name" style="color:var(--naranja);">Escuelas Municipales y Veredales</div>
+        <div class="phase-period">Oct 2027 – Mar 2029</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-rows">
+          <div class="phase-row"><span class="phase-key">Objetivo</span><span class="phase-val">Formar a 2.600–4.300 líderes municipales y veredales en los 87 municipios.</span></div>
+          <div class="phase-row"><span class="phase-key">Estructura</span><span class="phase-val">87 Escuelas Municipales + 500 talleres veredales adaptados a contextos urbanos y rurales.</span></div>
+          <div class="phase-row"><span class="phase-key">Facilitadores</span><span class="phase-val">Promotores + líderes de Fase 2, con reducción progresiva del rol de la UIS.</span></div>
+        </div>
+        <div class="phase-product">Agendas Municipales y Comunales (1 por cada JAC, escuela o centro formado)</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-badge" style="background:var(--doradoc);">
+        <div class="phase-num" style="color:var(--dorado);">Fase 4</div>
+        <div class="phase-name" style="color:var(--dorado);">Red de Seguimiento y Veeduría</div>
+        <div class="phase-period">Permanente desde 2027</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-rows">
+          <div class="phase-row"><span class="phase-key">Objetivo</span><span class="phase-val">Mantener activa la red y alimentar el Observatorio con inteligencia territorial continua.</span></div>
+          <div class="phase-row"><span class="phase-key">Estructura</span><span class="phase-val">Plataforma «Mi Voz 2050» + encuentros anuales «Santander se Encuentra» (4 entre 2027 y 2030).</span></div>
+          <div class="phase-row"><span class="phase-key">Sostenibilidad</span><span class="phase-val">Operación asumida por líderes certificados; la UIS actúa como auditor metodológico, no como operador.</span></div>
+        </div>
+        <div class="phase-product">Informes periódicos, alertas ciudadanas, insumos para el Consejo de Futuro P35</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PLATAFORMA -->
+<section id="plataforma">
+  <div class="section-eyebrow">Sección 7</div>
+  <h2 class="section-title">Plataforma Digital «Mi Voz 2050»</h2>
+  <p class="section-lead">El sistema nervioso del Observatorio de Futuro. Accesible desde celular con conectividad básica y versión offline para zonas sin cobertura.</p>
+  <table class="data-table">
+    <thead><tr><th>Funcionalidad</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td class="td-bold">Diagnóstico participativo</td><td>Encuesta simple sobre problemáticas en la comunidad, con resultados agregados y comparables por municipio y provincia.</td></tr>
+      <tr><td class="td-bold">Mapa de sueños</td><td>Geolocalización de iniciativas comunitarias, Agendas Territoriales y micro-pilotos en ejecución.</td></tr>
+      <tr><td class="td-bold">Seguimiento de micro-misiones</td><td>Reporte de avance de las Agendas Comunitarias y de los proyectos del banco de 50 a escala local.</td></tr>
+      <tr><td class="td-bold">Foros provinciales</td><td>Intercambio de experiencias, aprendizajes y soluciones entre comunidades de una misma provincia.</td></tr>
+      <tr><td class="td-bold">Alertas ciudadanas</td><td>Reporte georreferenciado de incumplimientos, desviaciones presupuestales o necesidades urgentes no atendidas.</td></tr>
+      <tr><td class="td-bold">Material pedagógico</td><td>Videos cortos, infografías y podcasts del kit en formato digital, descargables para uso offline.</td></tr>
+      <tr><td class="td-bold">Veeduría en línea</td><td>Seguimiento ciudadano a la ejecución presupuestal de los proyectos priorizados en Agendas Provinciales.</td></tr>
+      <tr><td class="td-bold">Integración con P34</td><td>Los datos de diagnóstico participativo alimentan automáticamente el Gemelo Digital del Territorio (Plataforma P34).</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 8. ARTICULACIÓN -->
+<section id="articulacion" style="background:#fff;">
+  <div class="section-eyebrow">Sección 8</div>
+  <h2 class="section-title">Articulación con la Arquitectura Institucional</h2>
+  <p class="section-lead">El SSITD se inserta orgánicamente en cada componente de Santander 2050 y los enriquece con inteligencia territorial desde la base.</p>
+  <table class="data-table">
+    <thead><tr><th>Componente de Santander 2050</th><th>Conexión con el SSITD</th><th>Flujo de retroalimentación</th></tr></thead>
+    <tbody>
+      <tr><td class="td-bold">Banco de 50 proyectos</td><td>Las Agendas Comunitarias alimentan la priorización; los micro-pilotos pueden escalarse como proyectos del banco.</td><td class="td-meta">Base → Banco: demanda territorial fundamentada con evidencia local.</td></tr>
+      <tr><td class="td-bold">Laboratorios Vivos (SB1–SB5)</td><td>Los Laboratorios Ciudadanos son la versión de base. Los aprendizajes locales alimentan el diseño de los institucionales.</td><td class="td-meta">Base ↔ Laboratorios: innovación bidireccional.</td></tr>
+      <tr><td class="td-bold">Consejo de Futuro (P35)</td><td>La inteligencia del Observatorio es insumo principal para las evaluaciones anuales y el ajuste adaptativo.</td><td class="td-meta">Base → Consejo: alertas tempranas y señales de cambio.</td></tr>
+      <tr><td class="td-bold">Plataforma de Datos (P34)</td><td>Los diagnósticos de «Mi Voz 2050» alimentan el Gemelo Digital con datos locales georreferenciados.</td><td class="td-meta">Base → Gemelo Digital: datos cualitativos y cuantitativos en tiempo real.</td></tr>
+      <tr><td class="td-bold">Consejos Provinciales (P20)</td><td>Las Agendas Provinciales se articulan con presupuestos participativos y planes de desarrollo provinciales.</td><td class="td-meta">Base → Consejos: prioridades con respaldo técnico.</td></tr>
+      <tr><td class="td-bold">Proceso gremial</td><td>Las Agendas proveen legitimidad social a los proyectos gremiales; la modelación gremial valida la viabilidad.</td><td class="td-meta">Base ↔ Gremios: legitimidad social y viabilidad económica.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 9. BLINDAJE POLÍTICO -->
+<section id="blindaje">
+  <div class="section-eyebrow">Sección 9</div>
+  <h2 class="section-title">Estrategia de Blindaje Político</h2>
+  <p class="section-lead">Posicionamiento en la coyuntura electoral de 2026: senado elegido el 8 de marzo, primera vuelta presidencial el 31 de mayo, segunda vuelta el 21 de junio.</p>
+  <div class="movimientos">
+    <div class="movimiento">
+      <div class="mov-num">1</div>
+      <div><div class="mov-title">Declaración de autonomía técnica</div><div class="mov-text">La UIS declara públicamente que el SSITD es un proceso suprapartidario, de Estado y no de gobierno, orientado al horizonte 2050 que trasciende cualquier administración. Este horizonte es el principal escudo político: ningún actor electoral puede monopolizar un futuro que se construye en 25 años.</div></div>
+    </div>
+    <div class="movimiento">
+      <div class="mov-num">2</div>
+      <div><div class="mov-title">Agenda territorial como insumo universal</div><div class="mov-text">Los resultados del piloto García Rovira se presentan el 15 de mayo de 2026 en el Foro «Santander 2050: Agenda Ciudadana para el Próximo Gobierno», entregando a todos los candidatos las primeras Agendas Comunitarias como insumo técnico. Ningún candidato es excluido; ninguno es privilegiado.</div></div>
+    </div>
+    <div class="movimiento">
+      <div class="mov-num">3</div>
+      <div><div class="mov-title">Propuesta de valor diferenciada</div><div class="mov-text">El SSITD ofrece a cada perspectiva política lo que su agenda demanda sin comprometer su autonomía.</div></div>
+    </div>
+  </div>
+  <div class="valor-grid" style="margin-top:1.5rem;">
+    <div class="valor-card"><div class="valor-politica">Progresismo social</div><div class="valor-desc">Base social organizada con diagnósticos técnicos rigurosos. No asistencialismo: empoderamiento para la decisión autónoma y el cierre de brechas desde la inteligencia local.</div></div>
+    <div class="valor-card"><div class="valor-politica">Liberalismo económico</div><div class="valor-desc">Clústeres productivos de base con indicadores de retorno social y sostenibilidad. Paz territorial como condición de inversión.</div></div>
+    <div class="valor-card"><div class="valor-politica">Cualquier gobierno electo</div><div class="valor-desc">Agenda construida desde el territorio con legitimidad de origen. Sistema de monitoreo ciudadano que no depende del presupuesto público ni de la voluntad del gobernante.</div></div>
+    <div class="valor-card"><div class="valor-politica">Gobernación y alcaldías</div><div class="valor-desc">Agendas locales priorizadas para presupuestos participativos. Ciudadanía formada para exigir y controlar. Reducción del costo político de las decisiones difíciles.</div></div>
+  </div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--azul);margin-top:2.5rem;margin-bottom:1rem;">Calendario de posicionamiento</h3>
+  <table class="data-table">
+    <thead><tr><th>Fecha</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td class="td-bold" style="color:var(--azul2);">Abril 2026</td><td>Lanzamiento público del Piloto García Rovira y presentación del SSITD.</td></tr>
+      <tr><td class="td-bold" style="color:var(--azul2);">15 mayo 2026</td><td>Foro «Santander 2050: Agenda Ciudadana para el Próximo Gobierno» con todos los candidatos presidenciales y a la gobernación.</td></tr>
+      <tr><td class="td-bold" style="color:var(--azul2);">Junio 2026</td><td>Entrega formal de las Agendas Provinciales a los candidatos que pasen a segunda vuelta.</td></tr>
+      <tr><td class="td-bold" style="color:var(--azul2);">Jul – Ago 2026</td><td>Mesas de trabajo con el nuevo gobierno para incorporar las agendas en el Plan Nacional de Desarrollo 2026-2030.</td></tr>
+      <tr><td class="td-bold" style="color:var(--azul2);">Septiembre 2026</td><td>Inicio de la Fase 2 (Escuelas Provinciales) con independencia del resultado electoral.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 10. PILOTO -->
+<section id="piloto" style="background:#fff;">
+  <div class="section-eyebrow">Sección 10</div>
+  <h2 class="section-title">Piloto: Provincia de García Rovira</h2>
+  <p class="section-lead">2026 – 2027 · Provincia seleccionada por concentrar cuatro de las problemáticas más agudas del diagnóstico.</p>
+  <div class="pilot-grid">
+    <div class="pilot-info">
+      <div class="pilot-row"><span class="pilot-key">Municipios</span><span class="pilot-val">Málaga, Concepción, San Andrés, Molagavita, Guaca, Macaravita, Carcasí, San Miguel, Enciso</span></div>
+      <div class="pilot-row"><span class="pilot-key">Duración</span><span class="pilot-val">12 meses: abril 2026 – marzo 2027</span></div>
+      <div class="pilot-row"><span class="pilot-key">Alcance</span><span class="pilot-val">50 JAC · 30 escuelas · 20 puestos de salud</span></div>
+      <div class="pilot-row"><span class="pilot-key">Formación</span><span class="pilot-val">1 Escuela Provincial (100 líderes) + 5 Escuelas Municipales</span></div>
+      <div class="pilot-row"><span class="pilot-key">Misiones prioritarias</span><span class="pilot-val">Misión 1 (Seguridad Hídrica) + Misión 5 (Educación y Talento)</span></div>
+      <div class="pilot-row"><span class="pilot-key">Productos</span><span class="pilot-val">50 Agendas Comunitarias · 20 micro-pilotos · 1 Agenda Provincial</span></div>
+      <div class="pilot-row"><span class="pilot-key">Articulación</span><span class="pilot-val">Consejo Provincial P20 · Alcaldías · Sedes regionales UIS · Estudiantes en práctica</span></div>
+      <div class="pilot-row"><span class="pilot-key">Evaluación</span><span class="pilot-val">Informe al mes 6 (ajuste del kit) y al mes 12 (validación del modelo para escalamiento)</span></div>
+    </div>
+    <div class="pilot-map-card">
+      <div class="pilot-dept">Santander</div>
+      <div class="pilot-prov">Provincia de García Rovira</div>
+      <div style="font-size:.8rem;color:var(--grism);font-style:italic;margin-bottom:1.5rem;">Problemáticas presentes: P1 · P2 · P5 · P7</div>
+      <div class="pilot-numbers">
+        <div class="pnum"><div class="pnum-n">50</div><div class="pnum-l">JAC</div></div>
+        <div class="pnum"><div class="pnum-n">30</div><div class="pnum-l">Escuelas</div></div>
+        <div class="pnum"><div class="pnum-n">20</div><div class="pnum-l">Puestos Salud</div></div>
+      </div>
+      <div class="pilot-budget">💰 Presupuesto estimado: COP 800 millones</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. INDICADORES -->
+<section id="indicadores">
+  <div class="section-eyebrow">Sección 11</div>
+  <h2 class="section-title">Indicadores de Éxito y Ruta de Escalamiento</h2>
+  <p class="section-lead">Metas 2026–2030 verificables desde el territorio.</p>
+  <div class="indicators-grid">
+    <div class="ind-card"><div class="ind-num">1.500</div><div class="ind-label">JAC formadas en Escuelas Territoriales</div><div class="ind-source">75% del total departamental</div></div>
+    <div class="ind-card"><div class="ind-num">2.000</div><div class="ind-label">Docentes formados</div><div class="ind-source">80% de escuelas públicas</div></div>
+    <div class="ind-card"><div class="ind-num">1.000</div><div class="ind-label">Personal de salud formado</div><div class="ind-source">70% de puestos de salud</div></div>
+    <div class="ind-card"><div class="ind-num">594</div><div class="ind-label">Escuelas realizadas (7 prov + 87 mun + 500 veredales)</div><div class="ind-source">Informes de ejecución</div></div>
+    <div class="ind-card"><div class="ind-num">1.500</div><div class="ind-label">Agendas Comunitarias elaboradas</div><div class="ind-source">Plataforma «Mi Voz 2050»</div></div>
+    <div class="ind-card"><div class="ind-num">300</div><div class="ind-label">Micro-pilotos implementados</div><div class="ind-source">Reportes de laboratorios</div></div>
+    <div class="ind-card"><div class="ind-num">300</div><div class="ind-label">Proyectos priorizados en presupuestos participativos</div><div class="ind-source">Actas de concejos municipales</div></div>
+    <div class="ind-card"><div class="ind-num">5.000</div><div class="ind-label">Veedores ciudadanos activos en plataforma</div><div class="ind-source">Registro de usuarios activos</div></div>
+    <div class="ind-card"><div class="ind-num">87</div><div class="ind-label">Municipios con laboratorio ciudadano activo</div><div class="ind-source">100% del departamento</div></div>
+    <div class="ind-card"><div class="ind-num">4</div><div class="ind-label">Encuentros «Santander se Encuentra» realizados</div><div class="ind-source">2027 · 2028 · 2029 · 2030</div></div>
+  </div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--azul);margin-top:3rem;margin-bottom:1.5rem;">Ruta de Escalamiento</h3>
+  <div class="escala-grid">
+    <div class="escala-card escala-corto">
+      <div class="escala-period">Corto Plazo</div>
+      <div class="escala-title">2026 – 2027</div>
+      <ul class="escala-items">
+        <li>1 provincia piloto (García Rovira)</li>
+        <li>100 Promotores Territoriales certificados</li>
+        <li>Kit v1.0 validado en campo</li>
+        <li>Primera Agenda Provincial</li>
+        <li>Piloto «Mi Voz 2050» operativo</li>
+      </ul>
+      <div class="escala-uis">UIS: Arquitecta y operadora del piloto</div>
+    </div>
+    <div class="escala-card escala-medio">
+      <div class="escala-period">Mediano Plazo</div>
+      <div class="escala-title">2027 – 2029</div>
+      <ul class="escala-items">
+        <li>7 provincias cubiertas</li>
+        <li>87 escuelas municipales activas</li>
+        <li>Red de 5.000 veedores operativa</li>
+        <li>Consejo de Futuro alimentado desde base</li>
+        <li>Agenda Departamental 2030 construida</li>
+      </ul>
+      <div class="escala-uis">UIS: Facilitadora y supervisora metodológica</div>
+    </div>
+    <div class="escala-card escala-largo">
+      <div class="escala-period">Largo Plazo</div>
+      <div class="escala-title">2030 – 2050</div>
+      <ul class="escala-items">
+        <li>Sistema autosostenido sin UIS como motor</li>
+        <li>100% municipios con laboratorio activo</li>
+        <li>SSITD como referente nacional</li>
+        <li>Santander: territorio que aprende</li>
+        <li>Modelo replicable en Colombia</li>
+      </ul>
+      <div class="escala-uis">UIS: Auditora metodológica — Sistema autónomo</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. AUTOSOSTENIBILIDAD -->
+<section id="autosostenibilidad" style="background:#fff;">
+  <div class="section-eyebrow">Sección 12</div>
+  <h2 class="section-title">La UIS como Arquitecta del Sistema</h2>
+  <p class="section-lead">El principio de autosostenibilidad: la condición que distingue al SSITD de los proyectos institucionales que colapsan cuando su financiador se retira.</p>
+  <div class="roles-grid">
+    <div class="role-card role-a">
+      <div class="role-fase">Fase de Activación</div>
+      <div class="role-period">2026 – 2027</div>
+      <div class="role-name">Arquitecta y Operadora</div>
+      <div class="role-desc">Diseña, forma, ejecuta y evalúa directamente. Financia con recursos propios de investigación y proyección social.</div>
+    </div>
+    <div class="role-card role-b">
+      <div class="role-fase">Fase de Consolidación</div>
+      <div class="role-period">2027 – 2029</div>
+      <div class="role-name">Facilitadora y Supervisora</div>
+      <div class="role-desc">Certifica, acompaña y audita. Las comunidades operan. El kit está integrado en currículo oficial y funciones de JAC y salud. Costo marginal cercano a cero.</div>
+    </div>
+    <div class="role-card role-c">
+      <div class="role-fase">Fase de Autonomía</div>
+      <div class="role-period">2030 en adelante</div>
+      <div class="role-name">Auditora Metodológica</div>
+      <div class="role-desc">Valida el rigor. El sistema funciona sin su intervención cotidiana. Operado por líderes certificados con presupuestos propios de sus instituciones.</div>
+    </div>
+  </div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--azul);margin-top:2.5rem;margin-bottom:1rem;">La lógica de inserción en roles preexistentes</h3>
+  <p style="font-size:.95rem;color:var(--grism);line-height:1.75;margin-bottom:1.5rem;">Las herramientas del kit se insertan dentro de funciones que ya existen y que ya tienen presupuesto asignado. Esto es diseño para la autonomía, cualitativamente distinto del diseño para la participación:</p>
+  <div class="insercion-list">
+    <div class="insercion-item"><div class="ins-icon">🏘️</div><div class="ins-text"><strong>Un presidente de JAC</strong> que usa el kit para gestionar mejor sus proyectos ante la alcaldía no requiere financiación adicional: está mejorando el desempeño de su función habitual.</div></div>
+    <div class="insercion-item"><div class="ins-icon">📚</div><div class="ins-text"><strong>Un docente</strong> que incorpora la Brújula de Generaciones Futuras en su clase de ciencias sociales no necesita recursos extra: está usando el currículo oficial con una herramienta más pertinente.</div></div>
+    <div class="insercion-item"><div class="ins-icon">🏥</div><div class="ins-text"><strong>Un promotor de salud</strong> que usa el Mapa de Cuidado Comunitario en su ronda domiciliaria no crea una nueva actividad: está haciendo mejor lo que ya hace.</div></div>
+  </div>
+  <div class="callout callout-verde" style="margin-top:2rem;">
+    El éxito del SSITD no se mide por cuántos talleres organiza la UIS, sino por cuántos territorios pueden prescindir de ella. Cuando las comunidades operen sus laboratorios con autonomía, cuando los docentes enseñen prospectiva sin capacitación externa, cuando el Observatorio funcione como sistema ciudadano autónomo, la misión universitaria habrá cumplido su propósito más profundo: haber construido capacidad territorial que vive en las personas, no en los documentos.
+  </div>
+</section>
+
+<!-- 13. CONCLUSIÓN -->
+<section id="conclusion">
+  <div class="section-eyebrow">Sección 13</div>
+  <h2 class="section-title">Conclusión</h2>
+  <p class="section-lead">Una sociedad capaz de pensar su futuro.</p>
+  <div class="conclusion-hero">
+    <div class="conclusion-content">
+      <p>El Sistema Santander 2050 de Inteligencia Territorial Distribuida no es un componente más del proceso. Es, con alta probabilidad, <strong>la pieza que define si Santander 2050 se vuelve realidad o se queda en documento</strong>.</p>
+      <p>Mientras los gremios modelan la economía y el gobierno ejecuta recursos, la UIS puede construir <strong>capacidad territorial distribuida</strong>: miles de líderes de base con herramientas para pensar, decidir y actuar sobre su futuro. Eso es lo que ningún cambio de gobierno puede borrar, porque vive en las personas, no en los presupuestos ni en los documentos.</p>
+      <p>La arquitectura de tres capas —Escuelas, Laboratorios y Observatorio— responde estructuralmente a la brecha histórica entre formulación e implementación. Democratiza el futuro, fortalece el tejido social, construye paz territorial, legitima la Visión 2050 y blinda el proceso de la coyuntura electoral.</p>
+      <p>El verdadero producto del proceso no son las Agendas Comunitarias. Es la generación de un nuevo tipo de liderazgo territorial: personas que han adquirido la capacidad de leer su realidad en clave estructural —no coyuntural— y de tomar decisiones orientadas por un horizonte de largo plazo. <strong>Ese es el legado que ninguna coyuntura puede deshacer.</strong></p>
+    </div>
+  </div>
+  <div class="declaracion">
+    <div class="decl-title">Declaración de Propósito</div>
+    <p class="decl-text">El Sistema Santander 2050 de Inteligencia Territorial Distribuida es la apuesta de la UIS por democratizar el futuro: por garantizar que el derecho a imaginar y construir el largo plazo no sea exclusivo de tecnócratas ni de élites empresariales, sino de las comunidades que van a vivir ese futuro.</p>
+    <p class="decl-text">La verdadera implementación de Santander 2050 no ocurre en los documentos ni en los consejos gremiales. Ocurre en cada vereda, cada barrio, cada escuela, cada puesto de salud, cuando una comunidad decide tomar su futuro en sus manos —con rigor, con identidad y con conciencia de largo plazo.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sistema Santander 2050 · SSITD</div>
+  <div class="footer-meta">
+    <strong>Universidad Industrial de Santander</strong><br>
+    Instituto de Estudios Interdisciplinarios y Acción Estratégica para el Desarrollo<br>
+    Bucaramanga, marzo de 2026 · Versión 2.0<br>
+    Para discusión en Consejos de Facultad y validación con actores territoriales
+  </div>
+</footer>
+
+</body>
+</html>
