@@ -1,67 +1,109 @@
-.doc-wrap {
-  max-width: 1020px;
+:root {
+  --cap-forest: var(--verde-bosque);
+  --cap-green: var(--verde-tierra);
+  --cap-gold: var(--oro);
+  --cap-surface: rgba(255, 255, 255, 0.9);
+  --cap-border: rgba(21, 43, 18, 0.1);
+  --cap-border-soft: rgba(21, 43, 18, 0.06);
+  --cap-shadow: 0 14px 40px rgba(21, 43, 18, 0.06);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(201, 168, 76, 0.1), transparent 24%),
+    radial-gradient(circle at top right, rgba(58, 112, 51, 0.08), transparent 20%),
+    linear-gradient(180deg, rgba(242, 239, 233, 0.7), var(--gris-fondo) 24rem, var(--gris-fondo));
+}
+
+main.doc-wrap {
+  position: relative;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 7.5rem 1.5rem 4rem;
+  padding: 7.25rem 1.25rem 4.5rem;
+}
+
+main.doc-wrap::before {
+  content: '';
+  position: absolute;
+  top: 4.75rem;
+  right: -4rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .doc-header {
-  background: linear-gradient(135deg, rgba(0,104,55,0.06), rgba(200,150,62,0.08));
-  border: 1px solid rgba(0,104,55,0.14);
-  border-radius: 14px;
-  padding: 1.4rem 1.3rem;
-  margin-bottom: 1.8rem;
+  background: linear-gradient(135deg, rgba(21, 43, 18, 0.98), rgba(37, 79, 32, 0.93));
+  color: var(--blanco);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  border-radius: 20px;
+  padding: 1.45rem 1.35rem;
+  margin-bottom: 1.35rem;
+  box-shadow: var(--cap-shadow);
 }
 
 .doc-header h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.9rem, 4vw, 2.9rem);
-  line-height: 1.2;
-  color: #005C2E;
   margin: 0 0 0.45rem;
+  color: var(--blanco);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
   font-weight: 400;
 }
 
 .doc-subtitle {
   margin: 0;
-  color: #2f5540;
-  font-size: 0.92rem;
-  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.94rem;
+  line-height: 1.7;
 }
 
 .doc-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.35rem;
 }
 
 .doc-nav a {
   text-decoration: none;
-  border: 1px solid rgba(0,104,55,0.2);
-  color: #006837;
-  background: rgba(0,104,55,0.04);
+  border: 1px solid rgba(21, 43, 18, 0.12);
+  color: var(--cap-green);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 999px;
-  padding: 0.32rem 0.7rem;
+  padding: 0.34rem 0.72rem;
   font-size: 0.78rem;
+  font-weight: 600;
   line-height: 1.2;
+  box-shadow: 0 2px 8px rgba(21, 43, 18, 0.04);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .doc-nav a:hover {
-  background: rgba(0,104,55,0.12);
+  transform: translateY(-1px);
+  background: rgba(201, 168, 76, 0.12);
+  border-color: rgba(201, 168, 76, 0.35);
+  color: var(--cap-forest);
+  box-shadow: 0 6px 18px rgba(21, 43, 18, 0.08);
 }
 
 .doc-section {
-  background: #fff;
-  border: 1px solid rgba(0,104,55,0.1);
-  border-radius: 12px;
-  padding: 1.2rem;
+  background: var(--cap-surface);
+  border: 1px solid var(--cap-border);
+  border-radius: 18px;
+  padding: 1.3rem 1.25rem;
   margin-bottom: 1rem;
+  box-shadow: 0 8px 26px rgba(21, 43, 18, 0.04);
+  backdrop-filter: blur(8px);
 }
 
 .doc-section h2 {
   margin: 0 0 0.8rem;
-  color: #005C2E;
-  font-size: 1.35rem;
+  color: var(--cap-forest);
+  font-size: 1.38rem;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
   line-height: 1.25;
@@ -69,8 +111,8 @@
 
 .doc-section h3 {
   margin: 0.9rem 0 0.5rem;
-  color: #005C2E;
-  font-size: 1.03rem;
+  color: var(--cap-green);
+  font-size: 1.04rem;
   font-family: 'Jost', sans-serif;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -79,55 +121,79 @@
 .doc-section p {
   margin: 0 0 0.85rem;
   color: #2b2b2b;
-  line-height: 1.8;
+  line-height: 1.85;
   font-size: 0.95rem;
 }
 
 .doc-quote {
   margin: 1rem 0;
-  padding: 0.9rem 1rem;
-  background: rgba(0,104,55,0.05);
-  border-left: 3px solid #C8963E;
-  border-radius: 0 8px 8px 0;
+  padding: 1rem 1rem 1rem 1.1rem;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.12), rgba(21, 43, 18, 0.05));
+  border-left: 4px solid var(--cap-gold);
+  border-radius: 0 14px 14px 0;
   font-style: italic;
-  color: #184a2f;
+  color: #20452f;
 }
 
 .doc-table-wrap {
   overflow-x: auto;
-  margin: 0.9rem 0;
+  margin: 0.95rem 0;
+  border: 1px solid var(--cap-border-soft);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(21, 43, 18, 0.05);
+  background: rgba(255, 255, 255, 0.64);
 }
 
 .doc-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   min-width: 720px;
-  background: #fff;
+  background: transparent;
 }
 
 .doc-table th,
 .doc-table td {
-  border: 1px solid rgba(0,104,55,0.14);
-  padding: 0.55rem 0.6rem;
+  border-right: 1px solid rgba(21, 43, 18, 0.08);
+  border-bottom: 1px solid rgba(21, 43, 18, 0.08);
+  padding: 0.62rem 0.68rem;
   text-align: left;
   vertical-align: top;
   font-size: 0.86rem;
   line-height: 1.55;
 }
 
-.doc-table th {
-  background: rgba(0,104,55,0.07);
-  color: #005C2E;
+.doc-table th:last-child,
+.doc-table td:last-child {
+  border-right: none;
+}
+
+.doc-table thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(21, 43, 18, 0.98), rgba(37, 79, 32, 0.95));
+  color: var(--blanco);
   font-weight: 500;
+}
+
+.doc-table tbody tr:nth-child(even) td {
+  background: rgba(242, 239, 233, 0.86);
+}
+
+.doc-table tbody tr:hover td {
+  background: rgba(201, 168, 76, 0.09);
 }
 
 .doc-note {
   margin-top: 0.9rem;
-  padding: 0.75rem 0.9rem;
-  border: 1px solid rgba(200,150,62,0.35);
-  background: rgba(200,150,62,0.08);
-  border-radius: 8px;
-  color: #5d471f;
+  padding: 0.8rem 0.95rem;
+  border-left: 4px solid var(--cap-gold);
+  border-radius: 0 12px 12px 0;
+  border-top: 1px solid rgba(201, 168, 76, 0.22);
+  border-right: 1px solid rgba(201, 168, 76, 0.22);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.22);
+  background: rgba(201, 168, 76, 0.08);
+  color: #5a451d;
   font-size: 0.88rem;
   line-height: 1.6;
 }
@@ -144,19 +210,34 @@
   color: #2b2b2b;
 }
 
-.doc-footer-line {
-  margin-top: 1.3rem;
-  font-size: 0.82rem;
-  color: #4b4b4b;
-  line-height: 1.6;
+.doc-section[id] {
+  scroll-margin-top: 6.2rem;
 }
 
 @media (max-width: 640px) {
-  .doc-wrap {
-    padding-top: 6.9rem;
+  main.doc-wrap {
+    padding: 6.25rem 0.9rem 3.5rem;
+  }
+
+  .doc-header {
+    padding: 1.1rem 1rem;
+    border-radius: 18px;
+  }
+
+  .doc-header h1 {
+    font-size: clamp(1.7rem, 8vw, 2.35rem);
   }
 
   .doc-section {
     padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .doc-nav a {
+    font-size: 0.72rem;
+  }
+
+  .doc-table {
+    min-width: 700px;
   }
 }
