@@ -218,3 +218,74 @@
   .top-nav .logo-bird-wrap img { width: 36px; height: 36px; }
   .top-nav .ntab { padding: 6px 10px; font-size: 0.68rem; }
 }
+.top-nav .nav-links a,
+.top-nav .nav-link {
+  font-family: var(--fuente-display);   /* 'Sora', sans-serif */
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 7px 14px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.top-nav .nav-links a:hover,
+.top-nav .nav-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.top-nav .nav-links a.active,
+.top-nav .nav-link.active {
+  color: var(--oro-claro);
+  background: rgba(201, 168, 76, 0.13);
+  border-color: rgba(201, 168, 76, 0.28);
+}
+
+/* Toggle hamburguesa (mobile) */
+.top-nav .nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.top-nav .nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .top-nav .nav-toggle { display: flex; }
+
+  .top-nav .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--verde-bosque);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem 1rem;
+    gap: 0.25rem;
+    z-index: 100;
+  }
+  .top-nav .nav-links.open { display: flex; }
+
+  .top-nav .nav-links a,
+  .top-nav .nav-link {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+  }
+}
