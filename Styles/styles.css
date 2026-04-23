@@ -821,6 +821,41 @@ footer {
   padding: 3.5rem 0 2rem;
 }
 
+footer .nav-logo-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, rgba(0,104,55,0.12), rgba(200,150,62,0.18));
+  border: 1px solid rgba(200,150,62,0.24);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+  flex-shrink: 0;
+}
+
+footer .nav-logo-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: none;
+}
+
+footer .nav-logo-text--brand {
+  line-height: 1.1;
+}
+
+footer .nav-logo-text--brand span {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: rgba(200,150,62,0.85);
+  text-transform: uppercase;
+}
+
 .footer-inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
