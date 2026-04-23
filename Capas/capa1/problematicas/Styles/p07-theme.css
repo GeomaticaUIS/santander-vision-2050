@@ -15,7 +15,8 @@
   --radius-sm: 8px;
   --hero-bg:
     linear-gradient(100deg, rgba(26, 16, 6, 0.86) 0%, rgba(26, 16, 6, 0.72) 45%, rgba(26, 16, 6, 0.56) 100%),
-    url('../img/conectividad_multimodal.jpg') center / cover no-repeat,
+    url('../Images/conectividad_multimodal.jpg') center / cover no-repeat,
     linear-gradient(160deg, #1a1005 0%, #140e06 40%, #0c0a04 100%);
   --hero-glow-bg: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
 }
+

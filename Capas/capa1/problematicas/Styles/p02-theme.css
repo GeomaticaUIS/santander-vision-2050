@@ -16,8 +16,9 @@
   --nav-num-border: rgba(124, 111, 205, 0.25);
   --hero-bg:
     linear-gradient(100deg, rgba(16, 10, 28, 0.86) 0%, rgba(16, 10, 28, 0.72) 45%, rgba(16, 10, 28, 0.56) 100%),
-    url('../img/demograf%C3%ADa.jpg') center / cover no-repeat,
+    url('../Images/demograf%C3%ADa.jpg') center / cover no-repeat,
     linear-gradient(160deg, #10071f 0%, #0a0e1f 40%, #070a14 100%);
   --hero-grid-color: rgba(124, 111, 205, 0.04);
   --hero-glow-bg: radial-gradient(circle, rgba(124, 111, 205, 0.1) 0%, transparent 70%);
 }
+

@@ -70,12 +70,12 @@
     }
 
     .hero-bg-slide.s1 {
-      background-image: url('../img/hilo_intro.jpg');
+      background-image: url('../Images/hilo_intro.jpg');
       animation-name: heroFadeOne;
     }
 
     .hero-bg-slide.s2 {
-      background-image: url('../img/hilo_intro2.jpg');
+      background-image: url('../Images/hilo_intro2.jpg');
       animation-name: heroFadeTwo;
     }
 

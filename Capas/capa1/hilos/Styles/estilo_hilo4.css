@@ -46,7 +46,7 @@
   header {
     background:
       linear-gradient(100deg, rgba(14, 28, 18, 0.86) 0%, rgba(14, 28, 18, 0.72) 45%, rgba(14, 28, 18, 0.56) 100%),
-      url('../img/hilo_sofisticacion.jpg') center / cover no-repeat,
+      url('../Images/hilo_sofisticacion.jpg') center / cover no-repeat,
       var(--forest);
     color: #fff;
     padding: 52px 64px 46px;

@@ -15,7 +15,8 @@
   --radius-sm: 8px;
   --hero-bg:
     linear-gradient(100deg, rgba(14, 8, 24, 0.86) 0%, rgba(14, 8, 24, 0.72) 45%, rgba(14, 8, 24, 0.56) 100%),
-    url('../img/gobernanza.JPG') center / cover no-repeat,
+    url('../Images/gobernanza.JPG') center / cover no-repeat,
     linear-gradient(160deg, #0e0720 0%, #0a0618 40%, #07050e 100%);
   --hero-glow-bg: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
 }
+
