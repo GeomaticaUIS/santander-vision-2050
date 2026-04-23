@@ -1321,3 +1321,10 @@
         font-size: 0.84rem;
       }
     }
+    body.manual-op-page footer .footer-inner {
+      grid-template-columns: 1fr;
+    }
+
+    body.manual-op-page footer .footer-brand {
+      grid-column: 1 / -1;
+    }
