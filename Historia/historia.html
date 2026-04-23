@@ -6,7 +6,8 @@
   <title>Historia del Colibrí - Santander Visión 2050</title>
   <meta name="description" content="Historia del colibrí como símbolo inspirador de la Visión Santander 2050." />
   <link rel="icon" type="image/png" href="../img/icono.png" />
-  <link rel="stylesheet" href="../Styles/styles.css" />
+  <link rel="stylesheet" href="../Styles/base.css" />
+  <link rel="stylesheet" href="../Capas/footer-shared.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -25,15 +26,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--crema);
+      background: var(--gris-fondo);
       color: var(--texto);
-      font-family: 'Jost', sans-serif;
+      font-family: var(--fuente-body);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
     /* ── HERO ── */
     .story-hero {
       position: relative;
-      padding: calc(80px + 4rem) 1.5rem 5rem;
+      padding: calc(68px + 4rem) 1.5rem 5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -272,130 +275,33 @@
     }
 
     @media (max-width: 640px) {
-      .story-hero { padding: calc(68px + 2.5rem) 1rem 3.5rem; }
+      .story-hero { padding: calc(58px + 2.5rem) 1rem 3.5rem; }
       .story-prose p:first-child::first-letter { font-size: 3rem; }
       .story-prose p:last-child { padding: 1rem 1rem 1rem 1.2rem; }
     }
-    /* Override del header global para esta página */
-    header {
-      position: sticky !important;
-      top: 0 !important;
-      background: #006837 !important;
-      border-bottom: 2px solid #c9a84c !important;
-      box-shadow: 0 6px 28px rgba(0,0,0,0.28) !important;
-      backdrop-filter: none !important;
-  }
   </style>
 
 </head>
 <body>
 
-  <header>
-    <header class="top-nav" style="
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #006837;
-  border-bottom: 2px solid #c9a84c;
-  box-shadow: 0 6px 28px rgba(0,0,0,0.28);
-">
-  <nav class="container" style="
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 68px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  ">
+  <header class="top-nav">
+    <div class="nav-inner container">
+      <a href="../home.html" class="nav-logo">
+        <div class="logo-bird-wrap">
+          <img src="../img/icono.png" srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x" alt="Colibrí Santander 2050" />
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Santander Visión Prospectiva 2050</span>
+          <span class="logo-sub">UIS · Historia</span>
+        </div>
+      </a>
 
-    <a href="../home.html" style="
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      text-decoration: none;
-      flex-shrink: 0;
-    ">
-      <!-- Logo colibrí con halo animado — igual que home -->
-      <div style="position: relative; width: 46px; height: 46px; flex-shrink: 0;">
-        <div style="
-          position: absolute;
-          inset: -5px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(201,168,76,0.28) 0%, transparent 68%);
-          animation: halo 3.5s ease-in-out infinite;
-        "></div>
-        <div style="
-          position: absolute;
-          inset: -8px;
-          border-radius: 50%;
-          border: 1px solid rgba(201,168,76,0.15);
-          animation: ring-grow 3.5s ease-in-out infinite;
-        "></div>
-        <img src="../img/icono.png"
-             srcset="../img/icono-2x.png 2x, ../img/icono-3x.png 3x"
-             alt="Colibrí Santander 2050"
-             style="width: 46px; height: 46px; object-fit: contain; position: relative; z-index: 1;">
-      </div>
+      <div class="nav-div"></div>
 
-      <!-- Texto del logo -->
-      <div>
-        <span style="
-          display: block;
-          white-space: nowrap;
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: 0.88rem;
-          font-weight: 700;
-          color: #fff;
-          line-height: 1.1;
-          letter-spacing: -0.01em;
-        ">Santander Visión Prospectiva 2050</span>
-        <span style="
-          display: block;
-          margin-top: 2px;
-          font-size: 0.58rem;
-          font-weight: 600;
-          letter-spacing: 1.8px;
-          text-transform: uppercase;
-          color: #f0d080;
-          font-family: 'Jost', sans-serif;
-        ">UIS · Portal</span>
-      </div>
-    </a>
-
-    <!-- Nav links -->
-    <div style="display: flex; align-items: center; gap: 0.35rem;">
-      <a href="../home.html" style="
-        padding: 0.45rem 0.9rem;
-        border-radius: 9px;
-        border: 1px solid transparent;
-        font-family: 'Jost', sans-serif;
-        font-size: 0.74rem;
-        font-weight: 600;
-        color: rgba(255,255,255,0.65);
-        letter-spacing: 0.01em;
-        text-decoration: none;
-        transition: all 0.2s ease;
-      "
-      onmouseover="this.style.color='#f0d080'; this.style.background='rgba(201,168,76,0.13)'; this.style.borderColor='rgba(201,168,76,0.28)'"
-      onmouseout="this.style.color='rgba(255,255,255,0.65)'; this.style.background='transparent'; this.style.borderColor='transparent'"
-      >← Inicio</a>
+      <a href="../home.html#capas" class="nav-home-btn">
+        <span class="arr">←</span> Inicio
+      </a>
     </div>
-
-  </nav>
-</header>
-
-<!-- Keyframes para el halo y el ring del logo -->
-<style>
-  @keyframes halo {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50%       { opacity: 1;   transform: scale(1.08); }
-  }
-  @keyframes ring-grow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50%       { opacity: 0.8; transform: scale(1.12); }
-  }
-</style>
   </header>
 
   <main>
@@ -501,15 +407,24 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="nav-logo">
+          <div class="nav-logo footer-brand-logo">
             <div class="nav-logo-icon"><img src="../img/icono.png" alt="Logo Santander Visión 2050"></div>
             <div class="nav-logo-text nav-logo-text--brand">
-              Santander Vision Prospectiva 2050
-              <span style="color:rgba(255,255,255,0.4)">UIS</span>
+              Santander Visión Prospectiva 2050
+              <span>UIS · Historia</span>
             </div>
           </div>
           <p>Proyecto de planeación prospectiva participativa para la construcción de una visión compartida del futuro territorial de Santander, Colombia.</p>
         </div> 
+        <div class="footer-col">
+          <h5>Secciones</h5>
+          <ul>
+            <li><a href="../home.html">Inicio</a></li>
+            <li><a href="../Capas/capa1/Capa_1.html">Diagnóstico</a></li>
+            <li><a href="../Capas/capa2/Capa_2.html">Estrategia</a></li>
+            <li><a href="../Manual Operativo/ManualOP.html">Manual operativo</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
         <span>© 2025 UIS · Santander Visión Prospectiva 2050</span>
