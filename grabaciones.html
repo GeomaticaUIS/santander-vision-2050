@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grabaciones · Santander Visión 2050</title>
+  <link rel="icon" type="image/png" href="img/icono.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --verde-deep:    #032016;
+      --verde-oscuro:  #005C2E;
+      --verde-medio:   #006837;
+      --verde-panel:   #0a2918;
+      --verde-card:    #0d3520;
+      --verde-hover:   #133f28;
+      --dorado:        #C8963E;
+      --dorado-claro:  #e0b06a;
+      --dorado-palido: #f0d4a0;
+      --blanco:        #FFFFFF;
+      --texto:         rgba(255,255,255,0.92);
+      --texto-suave:   rgba(255,255,255,0.55);
+      --texto-dim:     rgba(255,255,255,0.28);
+      --borde:         rgba(255,255,255,0.07);
+      --borde-dorado:  rgba(200,150,62,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      background: var(--verde-deep);
+      color: var(--texto);
+      font-family: 'Jost', sans-serif;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════
+       LAYOUT PRINCIPAL
+    ══════════════════════════ */
+    .app {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: 1fr 90px;
+      height: 100vh;
+      gap: 8px;
+      padding: 8px;
+      background: #000;
+    }
+
+    /* ══════════════════════════
+       SIDEBAR
+    ══════════════════════════ */
+    .sidebar {
+      grid-row: 1 / 2;
+      background: var(--verde-panel);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--borde);
+    }
+
+    .sidebar-top {
+      padding: 1.4rem 1.2rem 1rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(0,104,55,0.25);
+      border: 1px solid var(--borde-dorado);
+      display: flex; align-items: center; justify-content: center;
+      padding: 5px;
+      flex-shrink: 0;
+    }
+    .brand-icon img { width: 100%; height: auto; }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texto);
+    }
+    .brand-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      color: var(--dorado);
+      font-weight: 400;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .snav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--texto-suave);
+      transition: background 0.15s, color 0.15s;
+      text-decoration: none;
+    }
+    .snav-item:hover { background: rgba(255,255,255,0.06); color: var(--texto); }
+    .snav-item.active { background: rgba(200,150,62,0.12); color: var(--dorado-claro); }
+
+    .snav-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .sidebar-library {
+      flex: 1;
+      padding: 1rem 1.2rem;
+      overflow-y: auto;
+    }
+
+    .lib-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--texto-dim);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Playlists / colecciones */
+    .collection-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .collection-item:hover { background: rgba(255,255,255,0.06); }
+    .collection-item.active { background: rgba(200,150,62,0.1); }
+
+    .col-thumb {
+      width: 40px; height: 40px;
+      border-radius: 6px;
+      background: var(--verde-card);
+      border: 1px solid var(--borde);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .col-info { overflow: hidden; }
+    .col-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--texto);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .col-meta {
+      font-size: 0.68rem;
+      color: var(--texto-dim);
+      margin-top: 1px;
+    }
+
+    /* ══════════════════════════
+       MAIN CONTENT
+    ══════════════════════════ */
+    .main {
+      grid-row: 1 / 2;
+      background: var(--verde-panel);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      position: relative;
+    }
+
+    /* Gradiente de fondo decorativo */
+    .main-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 70% 10%, rgba(0,104,55,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(200,150,62,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .main-header {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid var(--borde);
+      flex-shrink: 0;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 320px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--borde);
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      transition: border-color 0.2s;
+    }
+    .search-bar:focus-within { border-color: rgba(200,150,62,0.4); }
+    .search-bar svg { width: 15px; height: 15px; opacity: 0.4; flex-shrink: 0; }
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      color: var(--texto);
+      width: 100%;
+    }
+    .search-bar input::placeholder { color: var(--texto-dim); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+
+    .icon-btn {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--texto-suave);
+      transition: background 0.15s, color 0.15s;
+    }
+    .icon-btn:hover { background: rgba(255,255,255,0.08); color: var(--texto); }
+    .icon-btn svg { width: 18px; height: 18px; }
+
+    /* Scroll area */
+    .main-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main-scroll::-webkit-scrollbar { width: 4px; }
+    .main-scroll::-webkit-scrollbar-track { background: transparent; }
+    .main-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+    /* Hero de la colección */
+    .collection-hero {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .ch-cover {
+      width: 160px; height: 160px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--verde-card), #0a3020);
+      border: 1px solid var(--borde-dorado);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      flex-shrink: 0;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .ch-cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(200,150,62,0.12), transparent);
+    }
+
+    .ch-info { padding-bottom: 0.5rem; }
+    .ch-type {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 0.5rem;
+    }
+    .ch-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--blanco);
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+    .ch-desc {
+      font-size: 0.82rem;
+      color: var(--texto-suave);
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 1rem;
+    }
+    .ch-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--texto-dim);
+    }
+    .ch-meta strong { color: var(--texto-suave); }
+    .ch-meta-sep { opacity: 0.4; }
+
+    /* Botones de acción */
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-play-all {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--dorado);
+      color: #1a0e00;
+      border: none;
+      border-radius: 100px;
+      padding: 0.65rem 1.6rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-play-all:hover { background: var(--dorado-claro); transform: scale(1.03); }
+    .btn-play-all svg { width: 16px; height: 16px; }
+
+    .btn-shuffle {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--borde);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--texto-suave);
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-shuffle:hover { background: rgba(255,255,255,0.1); color: var(--texto); }
+    .btn-shuffle svg { width: 18px; height: 18px; }
+
+    /* Filtros */
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--borde);
+      font-size: 0.75rem;
+      color: var(--texto-suave);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'Jost', sans-serif;
+    }
+    .filter-chip:hover { background: rgba(255,255,255,0.12); color: var(--texto); }
+    .filter-chip.active {
+      background: rgba(200,150,62,0.18);
+      border-color: rgba(200,150,62,0.4);
+      color: var(--dorado-claro);
+    }
+
+    /* Header de la lista */
+    .track-list-header {
+      display: grid;
+      grid-template-columns: 40px 1fr 160px 80px 60px;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--borde);
+      margin-bottom: 0.5rem;
+    }
+    .tlh-cell {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--texto-dim);
+    }
+    .tlh-cell.right { text-align: right; }
+
+    /* Tracks */
+    .track-item {
+      display: grid;
+      grid-template-columns: 40px 1fr 160px 80px 60px;
+      gap: 1rem;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.12s;
+      group: true;
+    }
+    .track-item:hover { background: rgba(255,255,255,0.06); }
+    .track-item.playing { background: rgba(200,150,62,0.08); }
+
+    .track-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--texto-dim);
+      text-align: center;
+      position: relative;
+    }
+    .track-item.playing .track-num { color: var(--dorado); }
+
+    /* Equalizer animado */
+    .eq-bars {
+      display: none;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+      justify-content: center;
+    }
+    .track-item.playing .eq-bars { display: flex; }
+    .track-item.playing .track-num-text { display: none; }
+
+    .eq-bar {
+      width: 3px;
+      background: var(--dorado);
+      border-radius: 2px;
+      animation: eqPulse 0.8s ease-in-out infinite;
+    }
+    .eq-bar:nth-child(1) { height: 60%; animation-delay: 0s; }
+    .eq-bar:nth-child(2) { height: 100%; animation-delay: 0.15s; }
+    .eq-bar:nth-child(3) { height: 40%; animation-delay: 0.3s; }
+    .eq-bar:nth-child(4) { height: 80%; animation-delay: 0.1s; }
+
+    @keyframes eqPulse {
+      0%,100% { transform: scaleY(0.5); }
+      50%      { transform: scaleY(1); }
+    }
+
+    .track-info { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+
+    .track-thumb {
+      width: 42px; height: 42px;
+      border-radius: 6px;
+      background: var(--verde-card);
+      border: 1px solid var(--borde);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .track-item.playing .track-thumb {
+      border-color: rgba(200,150,62,0.4);
+      box-shadow: 0 0 12px rgba(200,150,62,0.2);
+    }
+
+    .track-text { min-width: 0; }
+    .track-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--texto);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .track-item.playing .track-name { color: var(--dorado-claro); }
+    .track-artist {
+      font-size: 0.74rem;
+      color: var(--texto-suave);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track-category {
+      font-size: 0.75rem;
+      color: var(--texto-suave);
+    }
+
+    .track-date {
+      font-size: 0.74rem;
+      color: var(--texto-dim);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .track-duration {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--texto-dim);
+      text-align: right;
+    }
+
+    /* ══════════════════════════
+       PLAYER BAR (ABAJO)
+    ══════════════════════════ */
+    .player-bar {
+      grid-column: 1 / 3;
+      background: #0a1f12;
+      border-radius: 12px;
+      border: 1px solid var(--borde-dorado);
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player-bar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+      opacity: 0.4;
+    }
+
+    /* Track info izquierda */
+    .player-now {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .player-thumb {
+      width: 52px; height: 52px;
+      border-radius: 8px;
+      background: var(--verde-card);
+      border: 1px solid var(--borde-dorado);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .player-track-info { min-width: 0; }
+    .player-track-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--texto);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .player-track-artist {
+      font-size: 0.72rem;
+      color: var(--texto-suave);
+      margin-top: 2px;
+    }
+
+    .player-like {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--texto-dim);
+      padding: 0.3rem;
+      transition: color 0.15s;
+      flex-shrink: 0;
+    }
+    .player-like:hover { color: var(--dorado); }
+    .player-like svg { width: 18px; height: 18px; }
+
+    /* Controles centro */
+    .player-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1.2;
+    }
+
+    .controls-btns {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .ctrl-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--texto-suave);
+      padding: 0.3rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: color 0.15s, background 0.15s;
+    }
+    .ctrl-btn:hover { color: var(--texto); }
+    .ctrl-btn svg { width: 20px; height: 20px; }
+    .ctrl-btn.active { color: var(--dorado); }
+
+    .ctrl-play {
+      width: 42px; height: 42px;
+      background: var(--blanco);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.15s, background 0.15s;
+      flex-shrink: 0;
+    }
+    .ctrl-play:hover { transform: scale(1.07); background: rgba(255,255,255,0.9); }
+    .ctrl-play svg { width: 18px; height: 18px; fill: #032016; }
+
+    /* Barra de progreso */
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .prog-time {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--texto-dim);
+      flex-shrink: 0;
+      min-width: 35px;
+    }
+    .prog-time.right { text-align: right; }
+
+    .progress-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: visible;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--verde-medio), var(--dorado));
+      border-radius: 4px;
+      position: relative;
+      transition: width 0.1s linear;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      right: -5px; top: 50%;
+      transform: translateY(-50%);
+      width: 10px; height: 10px;
+      background: var(--blanco);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .progress-track:hover .progress-fill::after { opacity: 1; }
+
+    /* Volumen derecha */
+    .player-volume {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 0.7;
+      justify-content: flex-end;
+    }
+
+    .vol-btn {
+      background: none; border: none;
+      cursor: pointer;
+      color: var(--texto-suave);
+      display: flex; align-items: center; justify-content: center;
+      transition: color 0.15s;
+      flex-shrink: 0;
+    }
+    .vol-btn:hover { color: var(--texto); }
+    .vol-btn svg { width: 18px; height: 18px; }
+
+    .vol-slider {
+      width: 90px;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+    }
+    .vol-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--blanco);
+      cursor: pointer;
+    }
+
+    /* ══════════════════════════
+       MODAL DETALLE
+    ══════════════════════════ */
+    .track-detail {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .track-detail.show { display: flex; }
+
+    .td-panel {
+      background: #0d2e1a;
+      border: 1px solid var(--borde-dorado);
+      border-radius: 18px;
+      padding: 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+    }
+
+    .td-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+      border-radius: 18px 18px 0 0;
+      opacity: 0.6;
+    }
+
+    .td-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: rgba(255,255,255,0.07);
+      border: none;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      cursor: pointer;
+      color: var(--texto-suave);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .td-close:hover { background: rgba(255,255,255,0.12); }
+    .td-close svg { width: 16px; height: 16px; }
+
+    .td-cover {
+      width: 80px; height: 80px;
+      border-radius: 10px;
+      background: var(--verde-card);
+      border: 1px solid var(--borde-dorado);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .td-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 0.4rem;
+    }
+
+    .td-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--blanco);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .td-meta {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      margin-bottom: 1.2rem;
+    }
+
+    .td-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--texto-suave);
+      margin-bottom: 1.5rem;
+    }
+
+    .td-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--dorado);
+      color: #1a0e00;
+      border: none;
+      border-radius: 100px;
+      padding: 0.65rem 1.5rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .td-btn:hover { background: var(--dorado-claro); }
+    .td-btn svg { width: 16px; height: 16px; }
+
+    /* ══════════════════════════
+       SCROLLBAR GLOBAL
+    ══════════════════════════ */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="img/icono.png" alt="SVP 2050" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">SVP 2050</span>
+          <span class="brand-sub">UIS · Santander</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="home.html" class="snav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Inicio
+        </a>
+        <div class="snav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Grabaciones
+        </div>
+        <div class="snav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Por tema
+        </div>
+        <div class="snav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Destacados
+        </div>
+      </nav>
+    </div>
+
+    <div class="sidebar-library">
+      <div class="lib-label">
+        Colecciones
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+
+      <div class="collection-item active" onclick="setCollection(0)">
+        <div class="col-thumb">📻</div>
+        <div class="col-info">
+          <div class="col-name">Emisora UIS Estéreo</div>
+          <div class="col-meta">Programa · 8 episodios</div>
+        </div>
+      </div>
+
+      <div class="collection-item" onclick="setCollection(1)">
+        <div class="col-thumb">🎙️</div>
+        <div class="col-info">
+          <div class="col-name">Talleres Participativos</div>
+          <div class="col-meta">Relatorías · 5 grabaciones</div>
+        </div>
+      </div>
+
+      <div class="collection-item" onclick="setCollection(2)">
+        <div class="col-thumb">🌿</div>
+        <div class="col-info">
+          <div class="col-name">Diálogos Territoriales</div>
+          <div class="col-meta">Entrevistas · 6 episodios</div>
+        </div>
+      </div>
+
+      <div class="collection-item" onclick="setCollection(3)">
+        <div class="col-thumb">⚡</div>
+        <div class="col-info">
+          <div class="col-name">Transición Energética</div>
+          <div class="col-meta">Conversatorios · 4 grabaciones</div>
+        </div>
+      </div>
+
+      <div class="collection-item" onclick="setCollection(4)">
+        <div class="col-thumb">🏛️</div>
+        <div class="col-info">
+          <div class="col-name">Gobernanza 2050</div>
+          <div class="col-meta">Foros · 3 grabaciones</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ MAIN ═══════════ -->
+  <main class="main">
+    <div class="main-bg"></div>
+
+    <div class="main-header">
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Buscar grabaciones..." id="searchInput" oninput="filterTracks()" />
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" title="Vista lista">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </button>
+        <button class="icon-btn" title="Descargar todo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="main-scroll">
+
+      <!-- Hero colección -->
+      <div class="collection-hero">
+        <div class="ch-cover" id="colCover">📻</div>
+        <div class="ch-info">
+          <p class="ch-type" id="colType">Serie de Radio · UIS Estéreo</p>
+          <h1 class="ch-title" id="colTitle">Emisora UIS Estéreo</h1>
+          <p class="ch-desc" id="colDesc">Programas radiales producidos en alianza con UIS Estéreo sobre el proceso de Prospectiva Territorial Santander 2050. Cada episodio aborda una dimensión del futuro territorial del departamento.</p>
+          <div class="ch-meta">
+            <strong id="colCount">8 episodios</strong>
+            <span class="ch-meta-sep">·</span>
+            <span id="colDuration">aprox. 4 horas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botones acción -->
+      <div class="action-row">
+        <button class="btn-play-all" onclick="playAll()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Reproducir todo
+        </button>
+        <button class="btn-shuffle" onclick="shuffleTracks()" title="Aleatorio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+        </button>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filter-row" id="filterRow">
+        <div class="filter-chip active" onclick="filterBy('todos', this)">Todos</div>
+        <div class="filter-chip" onclick="filterBy('prospectiva', this)">Prospectiva</div>
+        <div class="filter-chip" onclick="filterBy('energia', this)">Energía</div>
+        <div class="filter-chip" onclick="filterBy('territorio', this)">Territorio</div>
+        <div class="filter-chip" onclick="filterBy('gobernanza', this)">Gobernanza</div>
+        <div class="filter-chip" onclick="filterBy('demo', this)">Demografía</div>
+      </div>
+
+      <!-- Header lista -->
+      <div class="track-list-header">
+        <div class="tlh-cell">#</div>
+        <div class="tlh-cell">Título</div>
+        <div class="tlh-cell">Tema</div>
+        <div class="tlh-cell">Fecha</div>
+        <div class="tlh-cell right">⏱</div>
+      </div>
+
+      <!-- Lista de tracks -->
+      <div id="trackList"></div>
+
+    </div>
+  </main>
+
+  <!-- ═══════════ PLAYER BAR ═══════════ -->
+  <div class="player-bar">
+
+    <!-- Track info -->
+    <div class="player-now">
+      <div class="player-thumb" id="playerThumb">🎵</div>
+      <div class="player-track-info">
+        <div class="player-track-name" id="playerName">Selecciona una grabación</div>
+        <div class="player-track-artist" id="playerArtist">SVP 2050 · UIS</div>
+      </div>
+      <button class="player-like" id="likeBtn" onclick="toggleLike()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </button>
+    </div>
+
+    <!-- Controles -->
+    <div class="player-controls">
+      <div class="controls-btns">
+        <button class="ctrl-btn" onclick="toggleShuffle()" id="shuffleBtn" title="Aleatorio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+        </button>
+        <button class="ctrl-btn" onclick="prevTrack()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button class="ctrl-play" id="playBtn" onclick="togglePlay()">
+          <svg id="playIcon" viewBox="0 0 24 24" fill="#032016"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button class="ctrl-btn" onclick="nextTrack()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button class="ctrl-btn" onclick="toggleRepeat()" id="repeatBtn" title="Repetir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+        </button>
+      </div>
+
+      <div class="progress-row">
+        <span class="prog-time" id="currentTime">0:00</span>
+        <div class="progress-track" id="progressTrack" onclick="seekTo(event)">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <span class="prog-time right" id="totalTime">0:00</span>
+      </div>
+    </div>
+
+    <!-- Volumen -->
+    <div class="player-volume">
+      <button class="vol-btn" onclick="toggleMute()" id="volBtn">
+        <svg id="volIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>
+      </button>
+      <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="80" oninput="setVolume(this.value)" />
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal detalle -->
+<div class="track-detail" id="trackDetail">
+  <div class="td-panel">
+    <button class="td-close" onclick="closeDetail()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="td-cover" id="tdCover">📻</div>
+    <p class="td-tag" id="tdTag">Episodio</p>
+    <h2 class="td-title" id="tdTitle">—</h2>
+    <p class="td-meta" id="tdMeta">—</p>
+    <p class="td-desc" id="tdDesc">—</p>
+    <button class="td-btn" onclick="playFromDetail()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Reproducir ahora
+    </button>
+  </div>
+</div>
+
+<!-- Audio real -->
+<audio id="audioEl"></audio>
+
+<script>
+/* ══════════════════════════════════════════
+   DATOS — Reemplaza src con rutas reales en:
+   grabaciones/nombre-del-archivo.mp3
+══════════════════════════════════════════ */
+const collections = [
+  {
+    id: 0, icon:'📻', type:'Serie de Radio · UIS Estéreo',
+    title:'Emisora UIS Estéreo',
+    desc:'Programas radiales producidos en alianza con UIS Estéreo sobre el proceso de Prospectiva Territorial Santander 2050. Cada episodio aborda una dimensión del futuro territorial del departamento.',
+    count:'8 episodios', duration:'aprox. 4 horas'
+  },
+  {
+    id:1, icon:'🎙️', type:'Relatorías · Talleres',
+    title:'Talleres Participativos',
+    desc:'Grabaciones de los talleres de construcción colectiva realizados en las subregiones de Santander. Voces del territorio.',
+    count:'5 grabaciones', duration:'aprox. 6 horas'
+  },
+  {
+    id:2, icon:'🌿', type:'Entrevistas · Territorio',
+    title:'Diálogos Territoriales',
+    desc:'Entrevistas con líderes, académicos y actores clave del territorio santandereano sobre el futuro del departamento.',
+    count:'6 episodios', duration:'aprox. 3 horas'
+  },
+  {
+    id:3, icon:'⚡', type:'Conversatorios · Energía',
+    title:'Transición Energética',
+    desc:'Conversatorios sobre la transición energética justa en Santander, el futuro de Barrancabermeja y las comunidades energéticas.',
+    count:'4 grabaciones', duration:'aprox. 2 horas'
+  },
+  {
+    id:4, icon:'🏛️', type:'Foros · Institucional',
+    title:'Gobernanza 2050',
+    desc:'Foros sobre gobernanza territorial, participación ciudadana y construcción de capacidades institucionales para el futuro.',
+    count:'3 grabaciones', duration:'aprox. 2,5 horas'
+  }
+];
+
+const tracks = [
+  /* Colección 0 — UIS Estéreo */
+  { id:0, col:0, icon:'📻', title:'¿Qué es la Prospectiva Territorial?', artist:'UIS Estéreo · SVP 2050', category:'prospectiva', date:'Ene 2026', duration:'28:14', src:'grabaciones/ep01-prospectiva-territorial.mp3', desc:'Primer episodio de la serie. Se explica qué es la prospectiva territorial, por qué Santander la necesita y cómo la UIS lidera el proceso.', tag:'Episodio 01' },
+  { id:1, col:0, icon:'📻', title:'El diagnóstico de Santander', artist:'UIS Estéreo · SVP 2050', category:'territorio', date:'Ene 2026', duration:'31:45', src:'grabaciones/ep02-diagnostico.mp3', desc:'Análisis de las ocho problemáticas estructurales del territorio santandereano.', tag:'Episodio 02' },
+  { id:2, col:0, icon:'📻', title:'La transición energética justa', artist:'UIS Estéreo · SVP 2050', category:'energia', date:'Feb 2026', duration:'35:20', src:'grabaciones/ep03-transicion-energetica.mp3', desc:'Del petróleo al liderazgo en energías limpias. ¿Qué hace Santander con la transición energética?', tag:'Episodio 03' },
+  { id:3, col:0, icon:'📻', title:'Santander 2050: las misiones', artist:'UIS Estéreo · SVP 2050', category:'prospectiva', date:'Feb 2026', duration:'29:55', src:'grabaciones/ep04-misiones.mp3', desc:'Las cinco misiones transformadoras que organizan la acción colectiva hacia 2050.', tag:'Episodio 04' },
+  { id:4, col:0, icon:'📻', title:'Demografía y cuidado', artist:'UIS Estéreo · SVP 2050', category:'demo', date:'Mar 2026', duration:'27:30', src:'grabaciones/ep05-demografia.mp3', desc:'El envejecimiento de Santander y la economía del cuidado como oportunidad de desarrollo.', tag:'Episodio 05' },
+  { id:5, col:0, icon:'📻', title:'Gobernanza e inteligencia territorial', artist:'UIS Estéreo · SVP 2050', category:'gobernanza', date:'Mar 2026', duration:'33:10', src:'grabaciones/ep06-gobernanza.mp3', desc:'Cómo construir un territorio capaz de decidir y ejecutar su propio futuro.', tag:'Episodio 06' },
+  { id:6, col:0, icon:'📻', title:'Los 50 proyectos estratégicos', artist:'UIS Estéreo · SVP 2050', category:'prospectiva', date:'Abr 2026', duration:'38:40', src:'grabaciones/ep07-proyectos.mp3', desc:'El portafolio de proyectos 2026–2030: fundacional, habilitador, tractor e impacto.', tag:'Episodio 07' },
+  { id:7, col:0, icon:'📻', title:'Laboratorios vivos territoriales', artist:'UIS Estéreo · SVP 2050', category:'territorio', date:'Abr 2026', duration:'32:05', src:'grabaciones/ep08-laboratorios.mp3', desc:'Los cinco sandboxes territoriales: BioRegión, Magdalena Medio 4.0, Inteligencia, Talento y Movilidad Rural.', tag:'Episodio 08' },
+  /* Colección 1 — Talleres */
+  { id:8, col:1, icon:'🎙️', title:'Taller Barrancabermeja', artist:'Relatoría · Magdalena Medio', category:'territorio', date:'Nov 2025', duration:'1:12:30', src:'grabaciones/taller-barrancabermeja.mp3', desc:'Taller participativo en Barrancabermeja con actores del Magdalena Medio.', tag:'Taller' },
+  { id:9, col:1, icon:'🎙️', title:'Taller García Rovira', artist:'Relatoría · Provincia', category:'territorio', date:'Nov 2025', duration:'58:45', src:'grabaciones/taller-garcia-rovira.mp3', desc:'Taller con comunidades y líderes de la provincia de García Rovira.', tag:'Taller' },
+  { id:10, col:1, icon:'🎙️', title:'Taller Guanentá', artist:'Relatoría · Provincia', category:'territorio', date:'Dic 2025', duration:'1:05:20', src:'grabaciones/taller-guanenta.mp3', desc:'Construcción colectiva de visión con actores de la provincia de Guanentá.', tag:'Taller' },
+  /* Colección 2 — Diálogos */
+  { id:11, col:2, icon:'🌿', title:'Entrevista: rector UIS', artist:'Diálogos Territoriales', category:'prospectiva', date:'Oct 2025', duration:'22:15', src:'grabaciones/entrevista-rector.mp3', desc:'El rector de la UIS habla sobre el compromiso institucional con el proceso prospectivo.', tag:'Entrevista' },
+  { id:12, col:2, icon:'🌿', title:'Entrevista: gobernador', artist:'Diálogos Territoriales', category:'gobernanza', date:'Oct 2025', duration:'18:40', src:'grabaciones/entrevista-gobernador.mp3', desc:'El gobernador de Santander sobre el apoyo institucional a Santander 2050.', tag:'Entrevista' },
+  /* Colección 3 — Energía */
+  { id:13, col:3, icon:'⚡', title:'Conversatorio: Ecopetrol y la transición', artist:'Foro Energético · SVP 2050', category:'energia', date:'Feb 2026', duration:'45:30', src:'grabaciones/conv-ecopetrol.mp3', desc:'Conversatorio con representantes de Ecopetrol sobre el futuro energético del Magdalena Medio.', tag:'Conversatorio' },
+  { id:14, col:3, icon:'⚡', title:'Hidrógeno verde en Santander', artist:'Foro Energético · SVP 2050', category:'energia', date:'Mar 2026', duration:'38:20', src:'grabaciones/conv-hidrogeno.mp3', desc:'¿Qué rol puede jugar el hidrógeno verde en la reconversión de Barrancabermeja?', tag:'Conversatorio' },
+  /* Colección 4 — Gobernanza */
+  { id:15, col:4, icon:'🏛️', title:'Foro: Consejo de Futuro', artist:'Foro Institucional · SVP 2050', category:'gobernanza', date:'Abr 2026', duration:'1:02:15', src:'grabaciones/foro-consejo-futuro.mp3', desc:'Presentación y debate sobre el Consejo de Futuro de Santander como mecanismo suprapartidario.', tag:'Foro' }
+];
+
+/* ══════════════════════════════════════════
+   ESTADO
+══════════════════════════════════════════ */
+let currentCol   = 0;
+let currentTrack = -1;
+let isPlaying    = false;
+let isShuffle    = false;
+let isRepeat     = false;
+let isMuted      = false;
+let isMuted_vol  = 80;
+let liked        = new Set();
+let activeFilter = 'todos';
+let detailTrack  = null;
+
+const audio = document.getElementById('audioEl');
+
+/* ══════════════════════════════════════════
+   RENDER
+══════════════════════════════════════════ */
+function getColTracks() {
+  return tracks.filter(t => t.col === currentCol);
+}
+
+function getFilteredTracks() {
+  let list = getColTracks();
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  if (q) list = list.filter(t => t.title.toLowerCase().includes(q) || t.artist.toLowerCase().includes(q));
+  if (activeFilter !== 'todos') list = list.filter(t => t.category === activeFilter);
+  return list;
+}
+
+function renderTracks() {
+  const list = getFilteredTracks();
+  const container = document.getElementById('trackList');
+  container.innerHTML = '';
+  list.forEach((t, idx) => {
+    const div = document.createElement('div');
+    div.className = 'track-item' + (t.id === currentTrack ? ' playing' : '');
+    div.innerHTML = `
+      <div class="track-num">
+        <span class="track-num-text">${idx + 1}</span>
+        <div class="eq-bars">
+          <div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div>
+        </div>
+      </div>
+      <div class="track-info">
+        <div class="track-thumb">${t.icon}</div>
+        <div class="track-text">
+          <div class="track-name">${t.title}</div>
+          <div class="track-artist">${t.artist}</div>
+        </div>
+      </div>
+      <div class="track-category">${t.tag}</div>
+      <div class="track-date">${t.date}</div>
+      <div class="track-duration">${t.duration}</div>
+    `;
+    div.addEventListener('click', () => selectTrack(t.id));
+    div.addEventListener('dblclick', () => openDetail(t.id));
+    container.appendChild(div);
+  });
+}
+
+function setCollection(colId) {
+  currentCol = colId;
+  activeFilter = 'todos';
+  document.querySelectorAll('.collection-item').forEach((el, i) => {
+    el.classList.toggle('active', i === colId);
+  });
+  document.querySelectorAll('.filter-chip').forEach(el => el.classList.remove('active'));
+  document.querySelector('.filter-chip').classList.add('active');
+
+  const col = collections[colId];
+  document.getElementById('colCover').textContent   = col.icon;
+  document.getElementById('colType').textContent    = col.type;
+  document.getElementById('colTitle').textContent   = col.title;
+  document.getElementById('colDesc').textContent    = col.desc;
+  document.getElementById('colCount').textContent   = col.count;
+  document.getElementById('colDuration').textContent= col.duration;
+  renderTracks();
+}
+
+/* ══════════════════════════════════════════
+   REPRODUCCIÓN
+══════════════════════════════════════════ */
+function selectTrack(id) {
+  const t = tracks.find(x => x.id === id);
+  if (!t) return;
+
+  currentTrack = id;
+  isPlaying = true;
+
+  // Actualizar player bar
+  document.getElementById('playerThumb').textContent = t.icon;
+  document.getElementById('playerName').textContent  = t.title;
+  document.getElementById('playerArtist').textContent= t.artist;
+
+  // Intentar reproducir audio real (src apunta a grabaciones/)
+  audio.src = t.src;
+  audio.volume = isMuted_vol / 100;
+  audio.play().catch(() => {
+    // Si no hay archivo, simular tiempo
+    simulateProgress(t.duration);
+  });
+
+  updatePlayIcon(true);
+  renderTracks();
+}
+
+function togglePlay() {
+  if (currentTrack === -1) { selectTrack(tracks[0].id); return; }
+  if (isPlaying) { audio.pause(); isPlaying = false; }
+  else { audio.play().catch(() => {}); isPlaying = true; }
+  updatePlayIcon(isPlaying);
+}
+
+function updatePlayIcon(playing) {
+  document.getElementById('playIcon').innerHTML = playing
+    ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+    : '<polygon points="5 3 19 12 5 21 5 3"/>';
+}
+
+function nextTrack() {
+  const list = getColTracks();
+  if (!list.length) return;
+  if (isShuffle) { selectTrack(list[Math.floor(Math.random() * list.length)].id); return; }
+  const idx = list.findIndex(t => t.id === currentTrack);
+  const next = list[(idx + 1) % list.length];
+  selectTrack(next.id);
+}
+
+function prevTrack() {
+  const list = getColTracks();
+  if (!list.length) return;
+  const idx = list.findIndex(t => t.id === currentTrack);
+  const prev = list[(idx - 1 + list.length) % list.length];
+  selectTrack(prev.id);
+}
+
+function playAll() {
+  const list = getFilteredTracks();
+  if (list.length) selectTrack(list[0].id);
+}
+
+function shuffleTracks() {
+  const list = getFilteredTracks();
+  if (list.length) selectTrack(list[Math.floor(Math.random() * list.length)].id);
+}
+
+function toggleShuffle() {
+  isShuffle = !isShuffle;
+  document.getElementById('shuffleBtn').classList.toggle('active', isShuffle);
+}
+
+function toggleRepeat() {
+  isRepeat = !isRepeat;
+  document.getElementById('repeatBtn').classList.toggle('active', isRepeat);
+}
+
+/* ══════════════════════════════════════════
+   PROGRESO (audio real + simulación)
+══════════════════════════════════════════ */
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  const pct = (audio.currentTime / audio.duration) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('currentTime').textContent  = fmtTime(audio.currentTime);
+  document.getElementById('totalTime').textContent    = fmtTime(audio.duration);
+});
+
+audio.addEventListener('ended', () => {
+  if (isRepeat) { audio.currentTime = 0; audio.play(); }
+  else nextTrack();
+});
+
+let simInterval = null;
+let simCurrent = 0, simTotal = 0;
+
+function simulateProgress(durationStr) {
+  clearInterval(simInterval);
+  simCurrent = 0;
+  simTotal = parseDuration(durationStr);
+  document.getElementById('totalTime').textContent = fmtTime(simTotal);
+  simInterval = setInterval(() => {
+    simCurrent++;
+    const pct = (simCurrent / simTotal) * 100;
+    document.getElementById('progressFill').style.width = Math.min(pct, 100) + '%';
+    document.getElementById('currentTime').textContent  = fmtTime(simCurrent);
+    if (simCurrent >= simTotal) {
+      clearInterval(simInterval);
+      if (isRepeat) simulateProgress(durationStr);
+      else nextTrack();
+    }
+  }, 1000);
+}
+
+function seekTo(e) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const pct  = (e.clientX - rect.left) / rect.width;
+  if (audio.duration) {
+    audio.currentTime = audio.duration * pct;
+  } else {
+    simCurrent = Math.floor(simTotal * pct);
+    document.getElementById('progressFill').style.width = (pct * 100) + '%';
+    document.getElementById('currentTime').textContent  = fmtTime(simCurrent);
+  }
+}
+
+function parseDuration(str) {
+  const parts = str.split(':').map(Number);
+  if (parts.length === 3) return parts[0]*3600 + parts[1]*60 + parts[2];
+  return parts[0]*60 + parts[1];
+}
+
+function fmtTime(s) {
+  s = Math.floor(s);
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return m + ':' + String(sec).padStart(2,'0');
+}
+
+/* ══════════════════════════════════════════
+   VOLUMEN
+══════════════════════════════════════════ */
+function setVolume(v) {
+  isMuted_vol = v;
+  audio.volume = v / 100;
+  isMuted = v == 0;
+  updateVolIcon();
+}
+
+function toggleMute() {
+  isMuted = !isMuted;
+  audio.volume = isMuted ? 0 : isMuted_vol / 100;
+  document.getElementById('volSlider').value = isMuted ? 0 : isMuted_vol;
+  updateVolIcon();
+}
+
+function updateVolIcon() {
+  const icon = document.getElementById('volIcon');
+  icon.innerHTML = isMuted
+    ? '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="1.8"/>'
+    : '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/>';
+}
+
+/* ══════════════════════════════════════════
+   LIKE
+══════════════════════════════════════════ */
+function toggleLike() {
+  if (currentTrack === -1) return;
+  if (liked.has(currentTrack)) liked.delete(currentTrack);
+  else liked.add(currentTrack);
+  const btn = document.getElementById('likeBtn');
+  btn.querySelector('svg').style.fill = liked.has(currentTrack) ? 'var(--dorado)' : 'none';
+  btn.querySelector('svg').style.stroke = liked.has(currentTrack) ? 'var(--dorado)' : 'currentColor';
+}
+
+/* ══════════════════════════════════════════
+   FILTROS
+══════════════════════════════════════════ */
+function filterBy(cat, el) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderTracks();
+}
+
+function filterTracks() {
+  renderTracks();
+}
+
+/* ══════════════════════════════════════════
+   MODAL DETALLE
+══════════════════════════════════════════ */
+function openDetail(id) {
+  const t = tracks.find(x => x.id === id);
+  if (!t) return;
+  detailTrack = id;
+  document.getElementById('tdCover').textContent = t.icon;
+  document.getElementById('tdTag').textContent   = t.tag;
+  document.getElementById('tdTitle').textContent = t.title;
+  document.getElementById('tdMeta').textContent  = t.artist + ' · ' + t.date + ' · ' + t.duration;
+  document.getElementById('tdDesc').textContent  = t.desc;
+  document.getElementById('trackDetail').classList.add('show');
+}
+
+function closeDetail() {
+  document.getElementById('trackDetail').classList.remove('show');
+}
+
+function playFromDetail() {
+  if (detailTrack !== null) selectTrack(detailTrack);
+  closeDetail();
+}
+
+document.getElementById('trackDetail').addEventListener('click', function(e) {
+  if (e.target === this) closeDetail();
+});
+
+/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+setCollection(0);
+</script>
+
+</body>
+</html>
