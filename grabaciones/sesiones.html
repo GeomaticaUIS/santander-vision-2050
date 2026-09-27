@@ -217,7 +217,8 @@
   </div>
 </div>
 
-<!-- Audio real -->
+<!-- Media real -->
+<video id="videoEl" playsinline controls style="display:none; width:100%; max-height:220px; background:#000; border-radius:12px; margin-top:12px;"></video>
 <audio id="audioEl"></audio>
 
 <script>
@@ -281,6 +282,15 @@ let activeFilter = 'todos';
 let detailTrack  = null;
 
 const audio = document.getElementById('audioEl');
+const video = document.getElementById('videoEl');
+
+function isVideoTrack(track) {
+  return !!track && (/\.mp4$/i.test(track.src) || track.tag === 'Video');
+}
+
+function getCurrentTrack() {
+  return tracks.find(x => x.id === currentTrack) || null;
+}
 
 /* ══════════════════════════════════════════
    RENDER
@@ -358,27 +368,51 @@ function selectTrack(id) {
   currentTrack = id;
   isPlaying = true;
 
-  // Actualizar player bar
   document.getElementById('playerThumb').textContent = t.icon;
   document.getElementById('playerName').textContent  = t.title;
   document.getElementById('playerArtist').textContent= t.artist;
 
-  // Intentar reproducir audio real (src apunta a grabaciones/)
-  audio.src = t.src;
-  audio.volume = isMuted_vol / 100;
-  audio.play().catch(() => {
-    // Si no hay archivo, simular tiempo
-    simulateProgress(t.duration);
-  });
+  const mediaIsVideo = isVideoTrack(t);
+  audio.pause();
+  video.pause();
+  audio.src = '';
+  video.src = '';
+  video.style.display = mediaIsVideo ? 'block' : 'none';
+
+  if (mediaIsVideo) {
+    video.src = t.src;
+    video.volume = isMuted_vol / 100;
+    video.play().catch(() => {
+      simulateProgress(t.duration);
+    });
+  } else {
+    audio.src = t.src;
+    audio.volume = isMuted_vol / 100;
+    audio.play().catch(() => {
+      simulateProgress(t.duration);
+    });
+  }
 
   updatePlayIcon(true);
   renderTracks();
 }
 
 function togglePlay() {
-  if (currentTrack === -1) { selectTrack(tracks[0].id); return; }
-  if (isPlaying) { audio.pause(); isPlaying = false; }
-  else { audio.play().catch(() => {}); isPlaying = true; }
+  const current = getCurrentTrack();
+  if (!current) { selectTrack(tracks[0].id); return; }
+
+  if (isPlaying) {
+    if (isVideoTrack(current)) video.pause();
+    else audio.pause();
+    isPlaying = false;
+  } else {
+    if (isVideoTrack(current)) {
+      video.play().catch(() => {});
+    } else {
+      audio.play().catch(() => {});
+    }
+    isPlaying = true;
+  }
   updatePlayIcon(isPlaying);
 }
 
@@ -428,17 +462,34 @@ function toggleRepeat() {
 /* ══════════════════════════════════════════
    PROGRESO (audio real + simulación)
 ══════════════════════════════════════════ */
-audio.addEventListener('timeupdate', () => {
-  if (!audio.duration) return;
-  const pct = (audio.currentTime / audio.duration) * 100;
+function updateProgressFromMedia(media) {
+  if (!media || !media.duration) return;
+  const pct = (media.currentTime / media.duration) * 100;
   document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('currentTime').textContent  = fmtTime(audio.currentTime);
-  document.getElementById('totalTime').textContent    = fmtTime(audio.duration);
+  document.getElementById('currentTime').textContent  = fmtTime(media.currentTime);
+  document.getElementById('totalTime').textContent    = fmtTime(media.duration);
+}
+
+audio.addEventListener('timeupdate', () => {
+  if (getCurrentTrack() && !isVideoTrack(getCurrentTrack())) updateProgressFromMedia(audio);
+});
+
+video.addEventListener('timeupdate', () => {
+  if (getCurrentTrack() && isVideoTrack(getCurrentTrack())) updateProgressFromMedia(video);
 });
 
 audio.addEventListener('ended', () => {
-  if (isRepeat) { audio.currentTime = 0; audio.play(); }
-  else nextTrack();
+  if (getCurrentTrack() && !isVideoTrack(getCurrentTrack())) {
+    if (isRepeat) { audio.currentTime = 0; audio.play(); }
+    else nextTrack();
+  }
+});
+
+video.addEventListener('ended', () => {
+  if (getCurrentTrack() && isVideoTrack(getCurrentTrack())) {
+    if (isRepeat) { video.currentTime = 0; video.play(); }
+    else nextTrack();
+  }
 });
 
 let simInterval = null;
@@ -493,13 +544,16 @@ function fmtTime(s) {
 function setVolume(v) {
   isMuted_vol = v;
   audio.volume = v / 100;
+  video.volume = v / 100;
   isMuted = v == 0;
   updateVolIcon();
 }
 
 function toggleMute() {
   isMuted = !isMuted;
-  audio.volume = isMuted ? 0 : isMuted_vol / 100;
+  const nextVolume = isMuted ? 0 : isMuted_vol / 100;
+  audio.volume = nextVolume;
+  video.volume = nextVolume;
   document.getElementById('volSlider').value = isMuted ? 0 : isMuted_vol;
   updateVolIcon();
 }
