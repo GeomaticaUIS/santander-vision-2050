@@ -292,6 +292,43 @@ function getCurrentTrack() {
   return tracks.find(x => x.id === currentTrack) || null;
 }
 
+async function mediaIsValid(track) {
+  if (!track || !track.src) return false;
+  try {
+    const response = await fetch(track.src, { cache: 'no-store' });
+    if (!response.ok) return false;
+
+    const text = await response.clone().text();
+    if (text.toLowerCase().includes('git-lfs.github.com/spec/v1')) return false;
+    if (text.toLowerCase().includes('version https://') && text.toLowerCase().includes('oid sha256:')) return false;
+
+    const contentType = (response.headers.get('content-type') || '').toLowerCase();
+    if (contentType.startsWith('video/') || contentType.startsWith('audio/')) return true;
+
+    const buffer = await response.arrayBuffer();
+    const bytes = new Uint8Array(buffer.slice(0, 64));
+    const sampleText = new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+    return !sampleText.toLowerCase().includes('version https://') && !sampleText.toLowerCase().includes('html');
+  } catch (error) {
+    return false;
+  }
+}
+
+function showMediaUnavailable(track, reason = 'El archivo todavía no está disponible.') {
+  const playerName = document.getElementById('playerName');
+  const playerArtist = document.getElementById('playerArtist');
+  playerName.textContent = 'Archivo no disponible';
+  playerArtist.textContent = track ? `${track.artist} · ${reason}` : reason;
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('currentTime').textContent = '0:00';
+  document.getElementById('totalTime').textContent = '0:00';
+  updatePlayIcon(false);
+  isPlaying = false;
+  document.getElementById('videoEl').pause();
+  document.getElementById('audioEl').pause();
+  document.getElementById('videoEl').style.display = 'none';
+}
+
 /* ══════════════════════════════════════════
    RENDER
 ══════════════════════════════════════════ */
@@ -361,13 +398,11 @@ function setCollection(colId) {
 /* ══════════════════════════════════════════
    REPRODUCCIÓN
 ══════════════════════════════════════════ */
-function selectTrack(id) {
+async function selectTrack(id) {
   const t = tracks.find(x => x.id === id);
   if (!t) return;
 
   currentTrack = id;
-  isPlaying = true;
-
   document.getElementById('playerThumb').textContent = t.icon;
   document.getElementById('playerName').textContent  = t.title;
   document.getElementById('playerArtist').textContent= t.artist;
@@ -378,6 +413,15 @@ function selectTrack(id) {
   audio.src = '';
   video.src = '';
   video.style.display = mediaIsVideo ? 'block' : 'none';
+
+  const validMedia = await mediaIsValid(t);
+  if (!validMedia) {
+    showMediaUnavailable(t, 'Falta el archivo multimedia real o aún no fue cargado.');
+    renderTracks();
+    return;
+  }
+
+  isPlaying = true;
 
   if (mediaIsVideo) {
     video.src = t.src;
